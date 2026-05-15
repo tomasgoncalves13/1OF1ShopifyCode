@@ -1,0 +1,112 @@
+<style>
+  @font-face {
+    font-family: 'PoppinsExtraBold';
+    src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/poppins.extrabold.ttf?v=1747688794') format('truetype');
+    font-weight: 800;
+  }
+
+  @font-face {
+    font-family: 'PoppinsMedium';
+    src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/poppins.medium.ttf?v=1747688794') format('truetype');
+    font-weight: 500;
+  }
+
+  .collections-section {
+    padding: 10px 15px 40px;
+    background-color: #fff;
+    text-align: center;
+  }
+
+  .collections-title {
+    font-family: 'PoppinsExtraBold', sans-serif !important;
+    font-size: 22px;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .collections-subtitle {
+    font-family: 'PoppinsMedium', sans-serif !important;
+    font-size: 14px;
+    margin-top: 5px; /* bem próximo do título */
+    margin-bottom: 30px;
+    color: #000;
+  }
+
+  .collections-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .collection-card a {
+    display: block;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+    transition: transform 0.3s ease;
+  }
+
+  .collection-card a:hover {
+    transform: scale(1.02);
+  }
+
+  .collection-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+.section-divider-collections {
+  width: 110vw;
+  height: 50px;
+  object-fit: cover;
+  display: block;
+}
+
+  @media (min-width: 768px) {
+    .collections-grid {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+
+    .collections-section {
+      padding: 10px 60px 80px;
+    }
+
+    .collections-title {
+      font-size: 36px;
+    }
+
+    .collections-subtitle {
+      font-size: 16px;
+      margin-top: 5px;
+      margin-bottom: 50px;
+    }
+  }
+</style>
+
+<picture>
+  <source media="(min-width: 750px)" srcset="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Design_sem_nome_19_1844de7d-8d68-4a4e-9cd5-ee1e4d1a22dd.png?v=1767108847">
+  <img class="section-divider-collections" src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Design_sem_nome_19_1844de7d-8d68-4a4e-9cd5-ee1e4d1a22dd.png?v=1767108847" alt="Divider">
+</picture>
+
+<section class="collections-section">
+
+  <h2 class="collections-title">{{ 'collections.title' | t }}</h2>
+  <p class="collections-subtitle">{{ 'collections.subtitle' | t }}</p>
+  <div class="collections-grid">
+    {% assign featured_collections = "shin-pads,socks,bundles,kids" | split: "," %}
+    {% for handle in featured_collections %}
+      {% assign collection = collections[handle] %}
+      {% if collection and collection.image %}
+        <div class="collection-card">
+          <a href="{{ collection.url }}">
+            <img src="{{ collection.image | img_url: '800x' }}" alt="{{ collection.title | escape }}" loading="lazy" />
+          </a>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</section>

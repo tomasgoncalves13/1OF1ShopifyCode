@@ -1,0 +1,499 @@
+{% assign sock_img = product.images[0] | img_url: '60x60', crop: 'center' %}
+
+<div class="oob-bundle" id="oob-bundle">
+  <div class="oob-bundle-title">Escolhe o teu Pack</div>
+
+  <!-- 3 PACK -->
+  <div class="oob-bp" data-qty="3">
+    <div class="oob-bp-top">
+      <div class="oob-bp-left">
+        <span class="oob-bp-bullet"></span>
+        <div>
+          <span class="oob-bp-name">3 PACK</span>
+          <span class="oob-bp-sub">PACK INICIANTE</span>
+        </div>
+      </div>
+      <div class="oob-bp-right">
+        <div class="oob-bp-prices">
+          <s class="oob-bp-old">€30,00</s>
+          <span class="oob-bp-new">€24,00</span>
+        </div>
+        <span class="oob-bp-per">€6,00 / par</span>
+      </div>
+    </div>
+    <div class="oob-bp-slots"></div>
+    <div class="oob-bp-gift">
+      <img src="{{ sock_img }}" alt="" class="oob-bp-gift-img">
+      <span class="oob-bp-gift-label">+1 Par <span class="oob-bp-gift-gratis">GRÁTIS</span></span>
+      <s class="oob-bp-gift-price">€15,00</s>
+    </div>
+  </div>
+
+  <!-- 6 PACK -->
+  <div class="oob-bp oob-bp--strong" data-qty="6">
+    <div class="oob-bp-badge">Mais Popular</div>
+    <div class="oob-bp-top">
+      <div class="oob-bp-left">
+        <span class="oob-bp-bullet"></span>
+        <div>
+          <span class="oob-bp-name">6 PACK</span>
+          <span class="oob-bp-sub">PACK TREINO SEMANAL</span>
+        </div>
+      </div>
+      <div class="oob-bp-right">
+        <div class="oob-bp-prices">
+          <s class="oob-bp-old">€60,00</s>
+          <span class="oob-bp-new">€40,00</span>
+        </div>
+        <span class="oob-bp-per">€5,71 / par</span>
+      </div>
+    </div>
+    <div class="oob-bp-slots"></div>
+    <div class="oob-bp-gift">
+      <img src="{{ sock_img }}" alt="" class="oob-bp-gift-img">
+      <span class="oob-bp-gift-label">+1 Par <span class="oob-bp-gift-gratis">GRÁTIS</span></span>
+      <s class="oob-bp-gift-price">€15,00</s>
+    </div>
+  </div>
+
+  <!-- 9 PACK -->
+  <div class="oob-bp" data-qty="9">
+    <div class="oob-bp-badge oob-bp-badge--gold">Melhor Preço</div>
+    <div class="oob-bp-top">
+      <div class="oob-bp-left">
+        <span class="oob-bp-bullet"></span>
+        <div>
+          <span class="oob-bp-name">9 PACK</span>
+          <span class="oob-bp-sub">PACK ÉPOCA INTEIRA</span>
+        </div>
+      </div>
+      <div class="oob-bp-right">
+        <div class="oob-bp-prices">
+          <s class="oob-bp-old">€90,00</s>
+          <span class="oob-bp-new">€50,00</span>
+        </div>
+        <span class="oob-bp-per">€5,00 / par</span>
+      </div>
+    </div>
+    <div class="oob-bp-slots"></div>
+    <div class="oob-bp-gift">
+      <img src="{{ sock_img }}" alt="" class="oob-bp-gift-img">
+      <span class="oob-bp-gift-label">+1 Par <span class="oob-bp-gift-gratis">GRÁTIS</span></span>
+      <s class="oob-bp-gift-price">€15,00</s>
+    </div>
+  </div>
+
+  <button class="oob-bp-btn" id="oob-bp-btn">
+    ADICIONAR AO CARRINHO +
+  </button>
+</div>
+
+<script>
+(function () {
+  var VARIANTS = {{ product.variants | json }};
+  var wrap = document.getElementById('oob-bundle');
+  if (!wrap) return;
+
+  var btn = document.getElementById('oob-bp-btn');
+  var active = null;
+
+  function getDefaultId() {
+    var inp = document.querySelector('input[name="id"]');
+    return inp ? parseInt(inp.value) : null;
+  }
+
+  function buildSlots(pack, qty) {
+    var slots = pack.querySelector('.oob-bp-slots');
+    slots.innerHTML = '';
+    var defaultId = getDefaultId();
+
+    for (var i = 1; i <= qty; i++) {
+      var row = document.createElement('div');
+      row.className = 'oob-bp-row';
+
+      var num = document.createElement('span');
+      num.className = 'oob-bp-num';
+      num.textContent = i;
+
+      var sel = document.createElement('select');
+      sel.className = 'oob-bp-select';
+
+      VARIANTS.forEach(function (v) {
+        var opt = document.createElement('option');
+        opt.value = v.id;
+        opt.textContent = v.title;
+        if (!v.available) opt.textContent += ' — Esgotado';
+        if (v.id === defaultId) opt.selected = true;
+        sel.appendChild(opt);
+      });
+
+      row.appendChild(num);
+      row.appendChild(sel);
+      slots.appendChild(row);
+    }
+  }
+
+  wrap.querySelectorAll('.oob-bp').forEach(function (pack) {
+    pack.querySelector('.oob-bp-top').addEventListener('click', function () {
+      if (active === pack) return;
+
+      wrap.querySelectorAll('.oob-bp').forEach(function (p) {
+        p.classList.remove('oob-bp--active');
+        p.querySelector('.oob-bp-slots').innerHTML = '';
+      });
+
+      active = pack;
+      pack.classList.add('oob-bp--active');
+      buildSlots(pack, parseInt(pack.dataset.qty));
+    });
+  });
+
+  async function openCartDrawer() {
+    try {
+      var response = await fetch('/?sections=cart-drawer,cart-icon-bubble');
+      var sections = await response.json();
+      var parser = new DOMParser();
+
+      if (sections['cart-icon-bubble']) {
+        var el = parser.parseFromString(sections['cart-icon-bubble'], 'text/html').querySelector('#cart-icon-bubble');
+        var cur = document.querySelector('#cart-icon-bubble');
+        if (el && cur) cur.innerHTML = el.innerHTML;
+      }
+
+      if (sections['cart-drawer']) {
+        var el = parser.parseFromString(sections['cart-drawer'], 'text/html').querySelector('#CartDrawer');
+        var cur = document.querySelector('#CartDrawer');
+        if (el && cur) cur.innerHTML = el.innerHTML;
+      }
+
+      var drawer = document.querySelector('cart-drawer');
+      if (drawer && typeof drawer.open === 'function') {
+        drawer.open();
+      } else {
+        window.location.href = '/cart';
+      }
+    } catch (e) {
+      window.location.href = '/cart';
+    }
+  }
+
+  btn.addEventListener('click', async function () {
+    if (!active) return;
+
+    var selects = active.querySelectorAll('.oob-bp-select');
+    var itemMap = {};
+    selects.forEach(function (s) {
+      var id = parseInt(s.value);
+      itemMap[id] = (itemMap[id] || 0) + 1;
+    });
+    var items = Object.keys(itemMap).map(function (id) {
+      return { id: parseInt(id), quantity: itemMap[id] };
+    });
+
+    btn.disabled = true;
+    btn.textContent = 'A ADICIONAR...';
+
+    try {
+      var res = await fetch('/cart/add.js', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ items: items })
+      });
+
+      if (res.ok) {
+        await openCartDrawer();
+        btn.disabled = false;
+        btn.textContent = 'ADICIONAR AO CARRINHO +';
+      } else {
+        var err = await res.json();
+        btn.disabled = false;
+        btn.textContent = err.description || 'ERRO — TENTA NOVAMENTE';
+      }
+    } catch (e) {
+      btn.disabled = false;
+      btn.textContent = 'ERRO — TENTA NOVAMENTE';
+    }
+  });
+
+  // Auto-seleciona 6 PACK por defeito
+  var defaultPack = wrap.querySelector('[data-qty="6"] .oob-bp-top');
+  if (defaultPack) defaultPack.click();
+})();
+</script>
+
+<style>
+.oob-bundle {
+  margin: 24px 0;
+  font-family: 'PoppinsMedium', sans-serif;
+}
+
+.oob-bundle-title {
+  font-family: 'PoppinsSemiBold', sans-serif;
+  font-size: 15px;
+  text-align: center;
+  color: #111;
+  padding: 10px 0;
+  border-top: 1px solid #e5e5e5;
+  border-bottom: 1px solid #e5e5e5;
+  margin-bottom: 12px;
+  letter-spacing: 0.02em;
+}
+
+/* Card */
+.oob-bp {
+  border: 1.5px solid #e5e5e5;
+  border-radius: 12px;
+  padding: 14px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  position: relative;
+  background: #fff;
+  overflow: hidden;
+  transition: border-color 0.18s, box-shadow 0.18s;
+}
+
+.oob-bp--strong {
+  border-color: #bbb;
+}
+
+.oob-bp--active {
+  border-color: #111;
+}
+
+/* Badge */
+.oob-bp-badge {
+  background: linear-gradient(90deg, #fff304);
+  color: #111;
+  font-family: 'PoppinsSemiBold', sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 5px 14px;
+  margin: -14px -14px 12px -14px;
+  display: block;
+}
+
+.oob-bp-badge--gold {
+  background: linear-gradient(90deg, #fff304, #ffd000);
+  color: #111;
+}
+
+/* Top row */
+.oob-bp-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  user-select: none;
+}
+
+.oob-bp-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+}
+
+/* Bullet */
+.oob-bp-bullet {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+  flex-shrink: 0;
+  display: block;
+  transition: background 0.18s, border-color 0.18s, box-shadow 0.18s;
+}
+
+.oob-bp--active .oob-bp-bullet {
+  background: #111;
+  border: 2px solid #fff;
+  box-shadow: 0 0 0 1px #111;
+}
+
+.oob-bp-name {
+  font-family: 'PoppinsBold', sans-serif;
+  font-size: 14px;
+  display: block;
+  color: #111;
+  line-height: 1.3;
+}
+
+.oob-bp-sub {
+  font-family: 'PoppinsLight', sans-serif;
+  font-size: 12px;
+  color: #888;
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Price */
+.oob-bp-right {
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.oob-bp-prices {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  justify-content: flex-end;
+}
+
+.oob-bp-old {
+  font-size: 12px;
+  color: #bbb;
+}
+
+.oob-bp-new {
+  font-family: 'MontserratSemiBold', sans-serif;
+  font-size: 17px;
+  color: #111;
+  line-height: 1;
+}
+
+.oob-bp-per {
+  font-size: 12px;
+  color: #444;
+  display: block;
+  margin-top: 2px;
+}
+
+/* Slots */
+.oob-bp-slots {
+  display: none;
+  flex-direction: column;
+  gap: 7px;
+  margin-top: 14px;
+}
+
+.oob-bp--active .oob-bp-slots {
+  display: flex;
+}
+
+.oob-bp-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.oob-bp-num {
+  font-family: 'PoppinsSemiBold', sans-serif;
+  font-size: 12px;
+  color: #888;
+  width: 16px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.oob-bp-select {
+  flex: 1;
+  padding: 9px 30px 9px 10px;
+  border-radius: 8px;
+  border: 1.5px solid #ddd;
+  background: #f7f7f7;
+  color: #111;
+  font-family: 'PoppinsMedium', sans-serif;
+  font-size: 12px;
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  outline: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath fill='%23111111' d='M0 0l5 6 5-6z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+}
+
+.oob-bp-select option {
+  background: #fff;
+  color: #111;
+}
+
+/* Free gift — default (não selecionado): cinzento */
+.oob-bp-gift {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #f0f0f0;
+  color: #111;
+  margin: 14px -14px -14px -14px;
+  padding: 10px 14px;
+  border-radius: 0 0 10px 10px;
+  pointer-events: none;
+  transition: background 0.18s, color 0.18s;
+}
+
+/* Free gift — selecionado: preto */
+.oob-bp--active .oob-bp-gift {
+  background: #111;
+  color: #fff;
+  margin: 14px -12px -12px -12px;
+}
+
+.oob-bp-gift-img {
+  width: 36px;
+  height: 36px;
+  object-fit: cover;
+  border-radius: 6px;
+  flex-shrink: 0;
+  opacity: 0.9;
+}
+
+.oob-bp-gift-label {
+  flex: 1;
+  font-family: 'PoppinsSemiBold', sans-serif;
+  font-size: 13px;
+  color: #111;
+}
+
+.oob-bp--active .oob-bp-gift-label {
+  color: #fff;
+}
+
+.oob-bp-gift-gratis {
+  font-family: 'PoppinsSemiBold', sans-serif;
+}
+
+.oob-bp-gift-price {
+  font-size: 12px;
+  color: #aaa;
+}
+
+.oob-bp--active .oob-bp-gift-price {
+  color: #fff;
+}
+
+/* CTA Button */
+.oob-bp-btn {
+    width: 100%;
+    margin-top: 6px;
+    background-color: #fff304;
+    color: #000;
+    border: 1.5px solid #000;
+    border-radius: 9999px;
+    padding: 14px 30px;
+    font-family: 'PoppinsBold', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0px;
+    text-transform: uppercase;
+    /* box-shadow: 2px 2px #000; */
+    cursor: pointer;
+    transition: all .3s ease;
+    outline: none;
+    display: block;
+    box-shadow: 0 4px 6px 2px #0000001a, 0 2px 4px -1px #0000000f;
+    border: 1px solid #ffe304;
+}
+
+.oob-bp-btn:hover:not(:disabled) {
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px #000;
+}
+
+.oob-bp-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+</style>

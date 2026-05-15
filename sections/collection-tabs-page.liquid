@@ -1,0 +1,112 @@
+<style>
+  @font-face {
+    font-family: 'Poppins';
+    src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/poppins.medium.ttf?v=1747688794') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+  }
+
+  .collection-tabs-wrapper {
+    overflow-x: clip;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .collection-tabs {
+    background-color: #f0f0f0;
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid #dcdcdc;
+    max-width: 1000px; /* 👈 Secção mais estreita */
+    margin: 0 auto;
+  }
+
+  .collection-tab-list-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .collection-tab-list-container::-webkit-scrollbar {
+    display: none;
+  }
+
+  .collection-tab-list {
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+    white-space: nowrap;
+    padding: 0;
+    margin: 0 auto;
+    scroll-snap-type: x mandatory;
+    width: max-content;
+  }
+
+  .collection-tab-link {
+    font-family: 'PoppinsBold', sans-serif !important;
+    color: #000 !important;
+    font-size: 1.4rem !important;
+    text-decoration: none !important;
+    text-transform: uppercase !important;
+    position: relative;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    line-height: 1.4;
+    scroll-snap-align: start;
+    transition: color 0.2s ease;
+    flex-shrink: 0;
+  }
+
+  .collection-tab-link:hover {
+    color: #333 !important;
+  }
+
+  .collection-tab-link.active::after,
+  .collection-tab-link[aria-current="page"]::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #000;
+  }
+
+
+ @media (max-width: 749px) {
+.collection-tabs {
+  padding: 1rem 2.5rem; /* aumenta o espaçamento lateral no mobile */
+  max-width: 100%;
+}
+  .collection-tab-list {
+    justify-content: center; /* em vez de flex-start */
+    gap: 2.3rem;
+  }
+
+  .collection-tab-link {
+    font-size: 1.2rem !important;
+  }
+
+}
+
+</style>
+
+<div class="collection-tabs-wrapper">
+  <div class="collection-tabs">
+    <div class="collection-tab-list-container">
+      <nav class="collection-tab-list">
+        {% assign collections = linklists.cole-es-tab-menu.links %}
+        {% for link in collections %}
+          {% assign is_first = forloop.first %}
+          {% assign is_last = forloop.last %}
+          <a href="{{ link.url }}"
+             class="collection-tab-link{% if link.active %} active{% endif %}{% if is_first %} first-tab{% endif %}{% if is_last %} last-tab{% endif %}"
+             aria-current="{% if link.active %}page{% endif %}">
+            {{ link.title }}
+          </a>
+        {% endfor %}
+      </nav>
+    </div>
+  </div>
+</div>

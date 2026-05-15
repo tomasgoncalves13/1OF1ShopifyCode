@@ -1,0 +1,67 @@
+
+{% case collection.handle %}
+
+  {% when "best-sellers" %}
+    <div class="collection-banner">
+      <picture>
+      <source srcset="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/3_af72af19-1ad2-46b1-9e58-3623d3f65ffb.png?v=1776639565" media="(max-width: 749px)">
+      <source srcset="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/4_bd9031c7-4aec-44d9-b77d-ded5928a27d9.png?v=1776639581" media="(min-width: 750px)">
+        <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/4_bd9031c7-4aec-44d9-b77d-ded5928a27d9.png?v=1776639581" alt="Best Sellers" style="width: 100%; display: block;">
+      </picture>
+    </div>
+
+  {% when "accessories" %}
+    <div class="collection-banner">
+      <picture>
+        <source srcset="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/4_bd5cc309-bd21-4717-896b-88c8d9cdfba5.png?v=1776639565" media="(max-width: 749px)">
+        <source srcset="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/5_410f3405-0511-4a0e-abf2-bd282eecf48c.png?v=1776639581" media="(min-width: 750px)">
+        <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/5_410f3405-0511-4a0e-abf2-bd282eecf48c.png?v=1776639581" alt="Accessories" style="width: 100%; display: block;">
+      </picture>
+    </div>
+
+  {% when "shop-all" %}
+    <div class="collection-banner">
+      <picture>
+        <source srcset="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/6_c0612154-2036-4dbe-ae70-df041ada17f7.png?v=1776639565" media="(max-width: 749px)">
+        <source srcset="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/7_8a9880a5-68b8-4bc6-8e6f-fe2b7a8f95a2.png?v=1776639581" media="(min-width: 750px)">
+        <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/7_8a9880a5-68b8-4bc6-8e6f-fe2b7a8f95a2.png?v=1776639581" alt="Shop All" style="width: 100%; display: block;">
+      </picture>
+    </div>
+
+  {% when "socks" %}
+    <div class="collection-banner">
+      <picture>
+        <source srcset="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/2_748b603f-ca4c-41bb-9bd2-7b2b338230ac.png?v=1771260152" media="(max-width: 749px)">
+        <source srcset="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/2_2492076a-5946-4a1e-b122-0a72a50ee289.png?v=1776639580" media="(min-width: 750px)">
+        <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/2_2492076a-5946-4a1e-b122-0a72a50ee289.png?v=1776639580" alt="Socks" style="width: 100%; display: block;">
+      </picture>
+    </div>
+
+  {% when "bundles" %}
+    <div class="collection-banner">
+      <picture>
+        <source srcset="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Copia_de_Banners_Colecao_Mobile_Black_Friday_1.png?v=1776640246" media="(max-width: 749px)">
+        <source srcset="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Copia_de_Banners_Natal_Desktop.png?v=1776640246" media="(min-width: 750px)">
+        <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Copia_de_Banners_Natal_Desktop.png?v=1776640246" alt="Bundles" style="width: 100%; display: block;">
+      </picture>
+    </div>
+
+  {% when "kids" %}
+    <div class="collection-banner">
+      <picture>
+        <source srcset="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/5_5cdf409c-c7c7-4df1-a2bd-642531758aa4.png?v=1776639566" media="(max-width: 749px)">
+        <source srcset="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/6_b9c400ff-b743-4b56-bb9a-1f13a9830df5.png?v=1776639581" media="(min-width: 750px)">
+        <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/6_b9c400ff-b743-4b56-bb9a-1f13a9830df5.png?v=1776639581" alt="Kids" style="width: 100%; display: block;">
+      </picture>
+    </div>
+
+    {% when "shin-pads" %}
+    <div class="collection-banner">
+      <picture>
+        <source srcset="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/2_1b0f2fa4-c7c2-4181-bf67-3cd2d376c294.png?v=1776639565" media="(max-width: 749px)">
+        <source srcset="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/3_94e600e4-3454-4555-92cc-f372963388f3.png?v=1776639580" media="(min-width: 750px)">
+        <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/3_94e600e4-3454-4555-92cc-f372963388f3.png?v=1776639580" alt="Shin Pads" style="width: 100%; display: block;">
+      </picture>
+    </div>
+
+{% endcase %}

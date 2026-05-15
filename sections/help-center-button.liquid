@@ -1,0 +1,107 @@
+<style>
+  @font-face {
+    font-family: 'Poppins ExtraBold';
+    src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/poppins.extrabold.ttf?v=1747688794') format('truetype');
+    font-weight: 800;
+  }
+
+  @font-face {
+    font-family: 'Poppins Medium';
+    src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/poppins.medium.ttf?v=1747688794') format('truetype');
+    font-weight: 500;
+  }
+
+  .faq-cta {
+    text-align: center;
+    padding: 60px 20px;
+  }
+
+  .faq-cta h2 {
+    font-family: 'Poppins ExtraBold', sans-serif !important;
+    font-size: 32px;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+  }
+
+  .faq-cta p {
+    font-family: 'Poppins Medium', sans-serif !important;
+    font-size: 16px;
+    margin-bottom: 32px;
+  }
+
+  .faq-cta a.cta-button {
+    display: inline-block;
+    background-color: #ffc600;
+    color: #000;
+    font-family: 'Poppins ExtraBold', sans-serif !important;
+    font-size: 18px;
+    padding: 14px 80px;
+    border-radius: 999px;
+    text-decoration: none;
+    box-shadow: 2px 2px 0 #000;
+    border: 1px solid #000;
+    transition: 0.2s ease-in-out;
+  }
+
+  .faq-cta a.cta-button:hover {
+    box-shadow: none;
+    transform: translate(2px, 2px);
+  }
+
+   @media screen and (max-width: 767px) {
+
+       .faq-cta {
+    text-align: center;
+    padding: 0px 20px;
+         margin-top:0px;
+         margin-bottom:50px;
+  }
+
+  .faq-cta h2 {
+    font-family: 'Poppins ExtraBold', sans-serif !important;
+    font-size: 22px;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+  }
+
+  .faq-cta p {
+    font-family: 'Poppins Medium', sans-serif !important;
+    font-size: 12px;
+    margin-bottom: 32px;
+  }
+
+      .faq-cta a.cta-button {
+    display: inline-block;
+    background-color: #ffc600;
+    color: #000;
+    font-family: 'Poppins ExtraBold', sans-serif !important;
+    font-size: 15px;
+    padding: 8px 60px;
+    border-radius: 999px;
+    text-decoration: none;
+    box-shadow: 2px 2px 0 #000;
+    border: 1px solid #000;
+    transition: 0.2s ease-in-out;
+  }
+   }
+</style>
+
+<section class="faq-cta">
+  <h2>{{ 'faq_cta.heading' | t }}</h2>
+  <p>{{ 'faq_cta.text' | t }}</p>
+  <a href="/pages/contact" class="cta-button">{{ 'faq_cta.button' | t }}</a>
+</section>
+
+{% schema %}
+{
+  "name": "Still Have Questions CTA",
+  "tag": "section",
+  "class": "faq-cta-section",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Still Have Questions"
+    }
+  ]
+}
+{% endschema %}

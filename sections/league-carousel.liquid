@@ -1,0 +1,174 @@
+<style>
+  .league-section {
+    background-color: #000;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+    height: 550px;
+    padding: 0;
+  }
+
+  .league-section::before,
+  .league-section::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    z-index: 2;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .league-section::before {
+    top: 0;
+    height: 200px;
+    background-image: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/output-onlinepngtools_1.png?v=1767109381');
+  }
+
+  .league-section::after {
+    bottom: 0;
+    height: 200px;
+    background-image: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Design_sem_nome_21_3fe73448-1439-4890-bc07-08856fcb5433.png?v=1767109477');
+  }
+
+  .league-content {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100%;
+  }
+
+  .league-title {
+    font-family: 'Poppins ExtraBold', sans-serif;
+    font-size: clamp(20px, 3vw, 35px);
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 1rem;
+  }
+
+  .league-carousel {
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 1rem;
+  }
+
+  .league-track {
+    display: inline-block;
+    white-space: nowrap;
+    animation: scrollLoop 120s linear infinite;
+  }
+
+  .league-track img {
+    height: clamp(50px, 6vw, 80px);
+    margin: 0 clamp(10px, 2vw, 25px);
+    vertical-align: middle;
+    transform: translateY(0);
+  }
+
+  .tight-logo {
+    height: clamp(70px, 8vw, 100px) !important;
+    margin: 0 clamp(10px, 2vw, 25px) !important;
+    transform: translateY(0);
+  }
+
+  .bigger-logo {
+    height: clamp(80px, 9vw, 110px) !important;
+  }
+
+  .league-more {
+    font-family: 'Questrial', sans-serif;
+    font-size: clamp(9px, 1vw, 13px);
+    color: #fff;
+    margin-top: 0.5rem;
+    transform: none;
+  }
+
+  @media (max-width: 767px) {
+    .league-section {
+      height: 200px;
+      padding: 0;
+    }
+
+    .league-section::before {
+      height: 70px;
+      background-size: contain;
+    }
+
+.league-section::after {
+  height: 70px;
+  background-size: contain;
+  bottom: 0;
+  background-position: bottom;
+}
+
+    .league-content {
+      padding: 0;
+      justify-content: center;
+    }
+
+    .league-track img,
+    .tight-logo,
+    .bigger-logo {
+      height: 50px !important;
+      margin: 0 8px !important;
+      transform: translateY(0);
+    }
+
+    .league-title {
+      font-size: 18px;
+      margin-bottom: 0.5rem;
+    }
+
+    .league-more {
+      font-size: 10px;
+      margin-top: 0.5rem;
+    }
+  }
+
+  @keyframes scrollLoop {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+</style>
+
+
+<div class="league-section">
+  <div class="league-content">
+    <h2 class="league-title">{{ 'league.title' | t }}</h2>
+
+    <div class="league-carousel">
+      <div class="league-track">
+        {% assign leagues = "2_57e25b3f-0087-4418-adf4-ee145cb5ba33,3_a20d4ac0-3636-44c0-8f5d-c555c0f28f78,output-onlinepngtools,Icons_2_fa65d74f-2eee-4135-9d12-12391f078014,8_e1452915-a9f0-4140-8595-c7069eb8e480" | split: "," %}
+        {% assign tight_logos = "Icons_2_fa65d74f-2eee-4135-9d12-12391f078014,output-onlinepngtools" | split: "," %}
+        {% for i in (1..10) %}
+          {% for league in leagues %}
+            {% if league == "5_efbcf12a-5ba6-4c03-b307-b96d18be58af" %}
+              <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/{{ league }}.png?v=1748528315" alt="{{ 'league.logo_alt' | t }}" class="bigger-logo" />
+            {% elsif tight_logos contains league %}
+              <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/{{ league }}.png?v=1748528315" alt="{{ 'league.logo_alt' | t }}" class="tight-logo" />
+            {% else %}
+              <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/{{ league }}.png?v=1748528315" alt="{{ 'league.logo_alt' | t }}" />
+            {% endif %}
+          {% endfor %}
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="league-more">{{ 'league.more' | t }}</div>
+  </div>
+</div>
+

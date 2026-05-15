@@ -1,0 +1,139 @@
+<style>
+  @font-face {
+    font-family: 'Poppins ExtraBold';
+    src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/poppins.extrabold.ttf?v=1747688794') format('truetype');
+    font-weight: 800;
+  }
+
+.grid-links-wrapper {
+  max-width: 1200px;
+   margin: 40px auto 10px auto;
+  padding: 0 20px;
+}
+
+  .grid-links-heading {
+    font-family: 'Poppins ExtraBold', sans-serif !important;
+    font-size: 36px;
+    text-align: center;
+    color: #000;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+  }
+
+  .grid-links-section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .grid-links-item {
+    overflow: hidden;
+    border-radius: 10px;
+    background: #000;
+    text-decoration: none !important;
+  }
+
+  .grid-links-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 10px 10px 0 0;
+  }
+
+  .grid-links-label {
+    background: #000;
+    color: #fff;
+    text-align: center;
+    padding: 5px;
+    font-size: 20px;
+    font-family: 'Poppins ExtraBold', sans-serif !important;
+    border-radius: 0 0 10px 10px;
+    text-decoration: none !important;
+    text-transform: uppercase !important;
+  }
+
+  @media screen and (max-width: 767px) {
+
+    .grid-links-wrapper {
+  max-width: 1200px;
+  margin: 40px auto 60px auto;
+  padding: 0 20px;
+}
+    .grid-links-section {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+
+    .grid-links-item img {
+      border-radius: 5px 5px 0 0;
+    }
+
+    .grid-links-item {
+      border-radius: 5px;
+    }
+
+    .grid-links-label {
+      padding: 0px;
+      font-size: 12px;
+      border-radius: 0 0 5px 5px;
+    }
+
+    .grid-links-heading {
+      font-size: 20px;
+      margin-bottom: 30px;
+      margin-top:0 px;
+    }
+  }
+</style>
+
+{% assign lang_prefix = '' %}
+{% if localization.language.iso_code == 'en' or localization.language.iso_code contains 'en' %}
+  {% assign lang_prefix = '/en' %}
+{% elsif localization.language.iso_code == 'es' or localization.language.iso_code contains 'es' %}
+  {% assign lang_prefix = '/es' %}
+{% endif %}
+
+<section class="grid-links-wrapper">
+  <div class="grid-links-heading">{{ 'grid_links_section.heading' | t }}</div>
+  <div class="grid-links-section">
+    <a href="{{ lang_prefix }}/pages/returns" class="grid-links-item">
+      <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/29_126eae1d-37d5-4680-ba65-f16f5af50d3f.png?v=1752849847" alt="{{ 'grid_links_section.returns_alt' | t }}">
+      <div class="grid-links-label">{{ 'grid_links_section.returns' | t }}</div>
+    </a>
+    <a href="{{ lang_prefix }}/pages/shipping" class="grid-links-item">
+      <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/37_13734c95-07a7-4ac9-a909-41d84ec73862.png?v=1752849863" alt="{{ 'grid_links_section.shipping_alt' | t }}">
+      <div class="grid-links-label">{{ 'grid_links_section.shipping' | t }}</div>
+    </a>
+    <a href="{{ lang_prefix }}/a/tracking" class="grid-links-item">
+      <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/38_1c5306af-fb39-487f-b86d-47058caaa9fe.png?v=1752849862" alt="{{ 'grid_links_section.track_alt' | t }}">
+      <div class="grid-links-label">{{ 'grid_links_section.track' | t }}</div>
+    </a>
+    <a href="{{ lang_prefix }}/policies/privacy-policy" class="grid-links-item">
+      <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/31_e3aa532a-8a9f-4261-8e8b-5fc2a6d7840c.png?v=1752849850" alt="{{ 'grid_links_section.policies_alt' | t }}">
+      <div class="grid-links-label">{{ 'grid_links_section.policies' | t }}</div>
+    </a>
+    <a href="{{ lang_prefix }}/pages/contact" class="grid-links-item">
+      <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/40_333384b4-d784-406a-89e6-6e409600c45f.png?v=1752849864" alt="{{ 'grid_links_section.contact_alt' | t }}">
+      <div class="grid-links-label">{{ 'grid_links_section.contact' | t }}</div>
+    </a>
+    <a href="{{ lang_prefix }}/collections/shin-pads" class="grid-links-item">
+      <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/34_55e13fdd-3677-46d2-a41d-7ca2d8d170f7.png?v=1752849864" alt="{{ 'grid_links_section.shinpads_alt' | t }}">
+      <div class="grid-links-label">{{ 'grid_links_section.shinpads' | t }}</div>
+    </a>
+  </div>
+</section>
+
+
+{% schema %}
+{
+  "name": "Grid Links Section",
+  "tag": "section",
+  "class": "grid-links",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Grid with Links"
+    }
+  ]
+}
+{% endschema %}

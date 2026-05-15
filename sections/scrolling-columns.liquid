@@ -1,0 +1,205 @@
+<style>
+.section-overlay {
+  position: relative;
+  z-index: 1;
+}
+
+.section-overlay .top-banner,
+.section-overlay .bottom-banner {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  pointer-events: none;
+  z-index: 99;
+  margin-bottom: -2px;
+  
+}
+
+.section-overlay .top-banner {
+  top: 0;
+}
+
+.section-overlay .bottom-banner {
+  bottom: 0;
+}
+
+.scrolling-gallery-section {
+  background-color: black;
+  padding: 20px 0;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  height: 500px; /* altura padrão (usada no desktop, mas será sobrescrita no media query abaixo) */
+}
+
+.scrolling-gallery {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  height: 500px;
+}
+
+.column {
+  width: 120px;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.loop {
+  display: flex;
+  flex-direction: column;
+  animation: scroll-up 30s linear infinite;
+}
+
+.column.reverse .loop {
+  animation: scroll-down 30s linear infinite;
+}
+
+@keyframes scroll-up {
+  0%   { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
+}
+
+@keyframes scroll-down {
+  0%   { transform: translateY(-50%); }
+  100% { transform: translateY(0); }
+}
+
+.loop img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+/* MOBILE: mostrar só 3 colunas */
+@media (max-width: 1023px) {
+  .scrolling-gallery-section {
+    height: 350px;
+  }
+
+  .scrolling-gallery {
+    height: 350px;
+    gap: 10px;
+  }
+
+  .column {
+    width: calc(100% / 3 - 10px);
+  }
+
+  .mobile-hide {
+    display: none;
+  }
+}
+
+/* DESKTOP: mostrar as 6 colunas e aumentar altura para 600px */
+@media (min-width: 1024px) {
+  .scrolling-gallery-section {
+    height: 600px;
+  }
+
+  .scrolling-gallery {
+    height: 600px;
+    gap: 15px;
+  }
+
+  .column {
+    width: calc(100% / 6 - 30px);
+    display: block;
+  }
+}
+  
+</style>
+
+<div class="section-overlay">
+  <img 
+    src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/output-onlinepngtools_5123eb99-a9da-435a-a240-e906ca6d9d79.png?v=1767108104"
+    class="top-banner"
+    alt="Top Decoration">
+
+  <div class="scrolling-gallery-section">
+    <div class="scrolling-gallery">
+      
+<!-- COLUNA 1 -->
+<div class="column">
+  <div class="loop">
+    {% assign col1 = "https://cdn.shopify.com/s/files/1/0907/8472/7374/files/32_bed50dea-bfad-48d8-a1e9-8a8a4874a37d.png?v=1751275209,https://cdn.shopify.com/s/files/1/0907/8472/7374/files/18_ad8e9653-5f46-4aa5-9eee-8056f58cd75e.png?v=1751275238,https://cdn.shopify.com/s/files/1/0907/8472/7374/files/13_24931eb6-f821-4385-ad9c-03eae291461c.png?v=1751275233" | split: "," %}
+    {% for i in (1..2) %}
+      {% for img in col1 %}
+        <img src="{{ img }}" alt="col1">
+      {% endfor %}
+    {% endfor %}
+  </div>
+</div>
+
+<!-- COLUNA 2 -->
+<div class="column reverse">
+  <div class="loop">
+    {% assign col2 = "https://cdn.shopify.com/s/files/1/0907/8472/7374/files/6_0f037d51-ffbf-43a9-9fd2-02eafc400ae9.png?v=1751275224,https://cdn.shopify.com/s/files/1/0907/8472/7374/files/26_d288280b-d317-423f-8efd-6699958107c3.png?v=1751275225,https://cdn.shopify.com/s/files/1/0907/8472/7374/files/16_39bec51b-5971-40e3-a306-49510632db87.png?v=1751275227" | split: "," %}
+    {% for i in (1..2) %}
+      {% for img in col2 %}
+        <img src="{{ img }}" alt="col2">
+      {% endfor %}
+    {% endfor %}
+  </div>
+</div>
+
+<!-- COLUNA 3 -->
+<div class="column">
+  <div class="loop">
+    {% assign col3 = "https://cdn.shopify.com/s/files/1/0907/8472/7374/files/15_41d08e1d-bf5c-468d-9dd5-22d8b205cbf2.png?v=1751275230,https://cdn.shopify.com/s/files/1/0907/8472/7374/files/9_e9d6a3a7-8d1d-49f7-994f-5fb41525f94c.png?v=1751275234,https://cdn.shopify.com/s/files/1/0907/8472/7374/files/3_dbd8b649-fd69-4cff-a7cc-37bd00febca8.png?v=1751275232" | split: "," %}
+    {% for i in (1..2) %}
+      {% for img in col3 %}
+        <img src="{{ img }}" alt="col3">
+      {% endfor %}
+    {% endfor %}
+  </div>
+</div>
+
+<!-- COLUNA 4 -->
+<div class="column reverse mobile-hide">
+  <div class="loop">
+    {% assign col4 = "https://cdn.shopify.com/s/files/1/0907/8472/7374/files/33_3d1ace1b-2304-4866-a9e7-606edef0cb10.png?v=1751275232,https://cdn.shopify.com/s/files/1/0907/8472/7374/files/7_998c4fd2-6dda-43d0-bc31-395fbd61877f.png?v=1751275216,https://cdn.shopify.com/s/files/1/0907/8472/7374/files/10_55bd68b6-438b-4275-b89a-ec16493c86de.png?v=1751275229" | split: "," %}
+    {% for i in (1..2) %}
+      {% for img in col4 %}
+        <img src="{{ img }}" alt="col4">
+      {% endfor %}
+    {% endfor %}
+  </div>
+</div>
+
+<!-- COLUNA 5 -->
+<div class="column mobile-hide">
+  <div class="loop">
+    {% assign col5 = "https://cdn.shopify.com/s/files/1/0907/8472/7374/files/14_a3850d5b-aed4-4ae2-8b9a-a7e04b453ec6.png?v=1751275234,https://cdn.shopify.com/s/files/1/0907/8472/7374/files/8_d8a4fa33-aece-4ebf-a2f5-f2e675110a22.png?v=1751275235,https://cdn.shopify.com/s/files/1/0907/8472/7374/files/17_d98ad30b-d2d1-4bc7-8a00-d317441d55e4.png?v=1751275235" | split: "," %}
+    {% for i in (1..2) %}
+      {% for img in col5 %}
+        <img src="{{ img }}" alt="col5">
+      {% endfor %}
+    {% endfor %}
+  </div>
+</div>
+
+<!-- COLUNA 6 -->
+<div class="column reverse mobile-hide">
+  <div class="loop">
+    {% assign col6 = "https://cdn.shopify.com/s/files/1/0907/8472/7374/files/30_de6bef31-6260-4e76-b1c6-694a3fe901ba.png?v=1751275235,https://cdn.shopify.com/s/files/1/0907/8472/7374/files/19_29f1d91f-ad6b-4d5a-942b-98fe01a9d5f2.png?v=1751275237,https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Scrolling_Collumns.png?v=1751275328" | split: "," %}
+    {% for i in (1..2) %}
+      {% for img in col6 %}
+        <img src="{{ img }}" alt="col6">
+      {% endfor %}
+    {% endfor %}
+  </div>
+</div>
+
+
+    </div>
+  </div>
+
+  <img 
+    src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Design_sem_nome_11_26f1c0e6-7035-42c0-8aae-3159f7d17251.png?v=1751291701"
+    class="bottom-banner"
+    alt="Bottom Decoration">
+</div>

@@ -1,0 +1,219 @@
+<style>
+@font-face {
+  font-family: 'Poppins Medium';
+  src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/poppins.medium.ttf?v=1747688794') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Poppins Black';
+  src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/poppins.extrabold.ttf?v=1747688794') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Poppins Light';
+  src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/poppins.light.ttf?v=1748130416') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+.purpose-wrapper {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 100px 20px 0 20px; /* <-- Removido o padding-bottom */
+  background: fff;
+  text-align: center;
+  color: #111;
+  margin-bottom: 0 !important; /* <-- Importante */
+}
+.purpose-wrapper,
+.purpose-wrapper p,
+.purpose-text,
+.highlight-quote,
+.purpose-images p {
+  font-family: 'Poppins Medium', sans-serif !important;
+}
+
+.purpose-title {
+  font-family: 'Poppins Black', sans-serif !important;
+  font-size: 42px;
+  font-weight: 900 !important;
+  margin-bottom: 60px;
+  margin-top: -10px; /* <-- AQUI */
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: -0.5px;
+}
+
+.purpose-text {
+  text-align: center; /* <-- Agora centrado */
+  max-width: 760px;
+  margin: 0 auto;
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+.purpose-text p {
+  margin: 18px 0;
+  text-align: inherit; /* Garantir que segue o .purpose-text */
+}
+
+.highlight-quote {
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+  margin: 40px auto;
+  color: #000;
+  max-width: 800px;
+}
+
+.purpose-images {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin: 50px 0;
+}
+
+.purpose-images .img-box {
+  background: white;
+  border: 1px solid #ddd;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  padding: 4px;
+  width: 40%;
+  position: relative;
+}
+
+.purpose-images .img-box img {
+  width: 100%;
+  display: block;
+  border-radius: 5px;
+}
+
+.purpose-images .img-box p {
+  font-weight: 600 !important;
+  margin-top: 12px;
+  font-size: 15px;
+  letter-spacing: 0.5px;
+  font-family: 'Poppins Medium', sans-serif !important;
+}
+
+.purpose-images .img-box:nth-child(1) {
+  transform: rotate(-2deg);
+  z-index: 2;
+}
+
+.purpose-images .img-box:nth-child(2) {
+  transform: rotate(2deg);
+  margin-left: -10px;
+  z-index: 1;
+}
+
+@media (max-width: 768px) {
+  .purpose-wrapper {
+    padding: 40px 12px !important;
+    margin-bottom: 5px !important;
+  padding-bottom: 5px !important;
+  }
+
+  .purpose-title {
+    font-family: 'Poppins Black', sans-serif !important;
+    font-size: 22px !important;
+    margin-bottom: 30px !important;
+  }
+
+  .purpose-text {
+    font-size: 14px !important;
+    line-height: 1.6 !important;
+  }
+
+  .purpose-text p {
+    margin: 10px 0 !important;
+  }
+
+  .highlight-quote {
+    font-size: 13.5px !important;
+    margin: 20px 0 10px 0 !important;
+    line-height: 1.5 !important;
+  }
+
+  .purpose-images {
+    flex-wrap: nowrap !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    gap: 6px !important;
+    margin: 20px !important;
+  }
+
+  .purpose-images .img-box {
+    width: 48% !important;
+    transform: none !important;
+    margin-left: 0 !important;
+    padding: 2px !important;
+  }
+
+  .purpose-images .img-box p {
+    margin-top: 6px !important;
+    font-size: 10px !important;
+    font-family: 'Poppins Light', sans-serif !important;
+  }
+}
+
+.purpose-images .img-box {
+  padding-bottom: 0 !important;
+  margin-bottom: 0 !important;
+  border-radius: 2px;
+}
+
+.purpose-images .img-box p {
+  margin-bottom: 5px !important;
+}
+
+.purpose-images .img-box img {
+  border-radius: 2px;
+}
+</style>
+
+<section class="purpose-wrapper">
+  <!-- TÍTULO -->
+  <div class="purpose-title">
+    {{ 'purpose_section.title' | t }}
+  </div>
+
+  <!-- INTRO TEXTO -->
+  <div class="purpose-text">
+    <p>{{ 'purpose_section.intro_p1' | t }}</p>
+    <p><strong>{{ 'purpose_section.intro_p2' | t }}</strong></p>
+    <p>{{ 'purpose_section.intro_p3' | t }}</p>
+  </div>
+
+  <!-- FRASE CENTRAL -->
+  <div class="highlight-quote">
+    {{ 'purpose_section.highlight_quote' | t }}
+  </div>
+
+  <!-- IMAGENS -->
+  <div class="purpose-images">
+    <div class="img-box">
+      <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Design_sem_nome_1b3ee461-aab3-4985-85ff-c249e75a3d8f.png?v=1748897949" alt="{{ 'purpose_section.design_phase_alt' | t }}">
+      <p>{{ 'purpose_section.minimalist_design' | t }}</p>
+    </div>
+    <div class="img-box">
+      <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/246C7687-AEF4-4ADC-A59B-1CA61223BFBC.jpg?v=1748736932" alt="{{ 'purpose_section.final_product_alt' | t }}">
+      <p>{{ 'purpose_section.exclusive_products' | t }}</p>
+    </div>
+  </div>
+
+  <!-- TEXTO FINAL -->
+  <div class="purpose-text">
+    <p><strong>{{ 'purpose_section.final_p1' | t }}</strong></p>
+    <p>{{ 'purpose_section.final_p2' | t }}</p>
+    <p><strong>{{ 'purpose_section.final_p3' | t }}</strong></p>
+  </div>
+</section>
+

@@ -1,0 +1,131 @@
+<style>
+  @font-face {
+    font-family: 'Poppins ExtraBold';
+    src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/poppins.extrabold.ttf?v=1747688794') format('truetype');
+    font-weight: 800;
+  }
+
+  @font-face {
+    font-family: 'Poppins Medium';
+    src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/poppins.medium.ttf?v=1747688794') format('truetype');
+    font-weight: 500;
+  }
+
+  .returns-section {
+    max-width: 900px !important;
+    margin: 0 auto !important;
+    padding: 40px 20px !important;
+    font-family: 'Poppins Medium', sans-serif !important;
+    color: #000 !important;
+    position: relative !important;
+    z-index: 1 !important;
+  }
+
+  .returns-section h1,
+  .returns-section h2 {
+    font-family: 'Poppins ExtraBold', sans-serif !important;
+    text-align: center !important;
+    margin-bottom: 20px !important;
+    text-transform: uppercase !important;
+    line-height: 1.3 !important;
+  }
+
+  .returns-section h1 {
+    font-size: 56px !important;
+    margin-bottom: 70px !important;
+    margin-top: 20px !important;
+  }
+
+  .returns-section h2 {
+    font-size: 42px !important;
+    margin-top: 60px !important;
+    margin-bottom: 20px !important;
+  }
+
+  .returns-section p,
+  .returns-section ul {
+    font-size: 16px !important;
+    line-height: 1.8 !important;
+    margin-bottom: 20px !important;
+    text-align: left !important;
+    font-family: 'Poppins Medium', sans-serif !important;
+  }
+
+  .returns-section ul {
+    list-style: none !important;
+    padding-left: 0 !important;
+  }
+
+  .returns-section ul li::before {
+    content: "• " !important;
+    margin-right: 5px !important;
+  }
+
+  /* ↓ MEDIA QUERY DENTRO DO STYLE ↓ */
+  @media screen and (max-width: 767px) {
+    .returns-section h1 {
+      font-size: 38px !important;
+      margin-bottom: 40px !important;
+      margin-top:0px !important;
+    }
+
+    .returns-section h2 {
+      font-size: 24px !important;
+      margin-top: 40px !important;
+      margin-bottom: 16px !important;
+    }
+
+    .returns-section p,
+    .returns-section ul {
+      font-size: 12px !important;
+      line-height: 1.6 !important;
+    }
+  }
+</style>
+
+
+<section class="returns-wrapper">
+  <div class="returns-section">
+    <h1>{{ 'custom_returns.title' | t }}</h1>
+
+    <p>{{ 'custom_returns.policy_intro' | t }}</p>
+
+    <p>{{ 'custom_returns.eligibility' | t }}</p>
+
+    <p>{{ 'custom_returns.initiate' | t }}</p>
+
+    <p>{{ 'custom_returns.no_authorization' | t }}</p>
+
+    <p>{{ 'custom_returns.questions' | t }}</p>
+
+    <p>{{ 'custom_returns.shipping_costs' | t }}</p>
+
+    <h2>{{ 'custom_returns.damages_title' | t }}</h2>
+    <p>{{ 'custom_returns.damages_text' | t }}</p>
+
+    <h2>{{ 'custom_returns.exchanges_title' | t }}</h2>
+    <p>{{ 'custom_returns.exchanges_text' | t }}</p>
+
+    <p>{{ 'custom_returns.eu_rights' | t }}</p>
+
+    <h2>{{ 'custom_returns.refunds_title' | t }}</h2>
+    <p>{{ 'custom_returns.refunds_process' | t }}</p>
+    <p>{{ 'custom_returns.refunds_timing' | t }}</p>
+    <p>{{ 'custom_returns.refunds_contact' | t }}</p>
+  </div>
+</section>
+
+
+{% schema %}
+{
+  "name": "Returns Content",
+  "tag": "section",
+  "class": "returns-section",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Returns Page"
+    }
+  ]
+}
+{% endschema %}

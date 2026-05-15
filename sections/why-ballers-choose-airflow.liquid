@@ -1,0 +1,226 @@
+<style>
+  @font-face {
+    font-family: 'Questrial';
+    src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Questrial-Regular.ttf?v=1746300481') format('truetype');
+  }
+  @font-face {
+    font-family: 'Poppins';
+    src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/poppins.extrabold.ttf?v=1747688794') format('truetype');
+    font-weight: 800;
+  }
+
+  .why-airflow-section {
+    background-color: fff;
+    padding: 1rem 2rem;
+    font-family: 'Helvetica Neue', sans-serif;
+    min-height: 800px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  @media screen and (min-width: 1024px) {
+    .why-airflow-columns-wrapper {
+      max-width: 1100px;
+      margin: 0 auto !important;
+    }
+    .why-airflow-title {
+      margin-bottom: 9rem !important;
+      font-size: 40px !important;
+    }
+    .why-airflow-subtitle {
+      font-size: 18px !important;
+    }
+    .why-airflow-main-image-left {
+      margin-top: -240px !important;
+    }
+    .why-airflow-addtocart button {
+      padding: 15px 290px !important;
+      font-size: 25px !important;
+    }
+  }
+
+  .why-airflow-feature-column {
+    text-align: center;
+  }
+  .why-airflow-feature-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 2rem;
+  }
+  .why-airflow-feature-item img {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+  }
+  .why-airflow-feature-text {
+    font-size: 1rem;
+  }
+  .why-airflow-white { color: #fff; }
+  .why-airflow-black { color: #000; }
+
+  .why-airflow-subtitle {
+    font-family: 'Questrial', sans-serif !important;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0;
+  }
+  .why-airflow-subtitle::after {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 1px;
+    background-color: #333;
+    margin: 0.5rem auto 0;
+  }
+
+  .why-airflow-title {
+    font-size: 24px;
+    font-family: 'Poppins', sans-serif !important;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin: 10px auto 10rem;
+    text-align: center;
+  }
+
+  .why-airflow-main-image {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 10px;
+    margin-top: -85px;
+    margin-bottom: 2rem;
+  }
+
+  @media screen and (max-width: 767px) {
+    .why-airflow-main-image-left {
+      transform: scale(1.2);
+      transform-origin: top center;
+      margin-top: -125px !important;
+      margin-bottom: 2rem !important;
+    }
+    .why-airflow-title {
+      margin-bottom: 3rem !important;
+    }
+    .why-airflow-addtocart button {
+      padding: 10px 60px !important;
+      font-size: 15px !important;
+    }
+  }
+
+  .why-airflow-addtocart {
+    margin-top: 3rem;
+    text-align: center;
+  }
+  .why-airflow-addtocart button {
+    width: 100%;
+    margin-top: 6px;
+    background-color: #fff304;
+    color: #000;
+    border: 1.5px solid #000;
+    border-radius: 9999px;
+    padding: 14px 30px;
+    font-family: PoppinsBold, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all .3s ease;
+    outline: none;
+    display: block;
+    box-shadow: 0 4px 6px 2px #0000001a, 0 2px 4px -1px #0000000f;
+    border: 1px solid #ffe304;t-transform: uppercase;
+  }
+  .why-airflow-addtocart button:hover {
+    background: #000;
+    color: #fff;
+  }
+
+  .why-airflow-moneyback {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+    gap: 8px;
+    font-family: 'Questrial', sans-serif;
+    font-size: 14px;
+    color: #000;
+  }
+  .why-airflow-moneyback img {
+    width: 20px;
+    height: 20px;
+  }
+</style>
+
+<div class="why-airflow-section">
+  <hr style="border-top: 1px solid #000; width: 100vw; position: relative; left: 50%; transform: translateX(-50%); margin-bottom: 2.5rem;">
+
+  <div style="text-align:center;">
+    <div class="why-airflow-subtitle">{{ 'compare_airflow.subtitle' | t }}</div>
+    <h2 class="why-airflow-title">{{ 'compare_airflow.title' | t }}</h2>
+  </div>
+
+  <div class="why-airflow-columns-wrapper">
+    <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:2rem; margin-top:8rem;">
+
+      <!-- ESQUERDA (COM AS TUAS IMAGENS) -->
+      <div style="background:#000; padding:2rem; max-width:420px; flex:1; border-radius:10px;" class="why-airflow-feature-column">
+        <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Why_ballers_chooaase_1.png?v=1765063137" class="why-airflow-main-image why-airflow-main-image-left">
+
+        <div class="why-airflow-feature-item">
+          <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/7_783a73cc-ea48-48aa-aeb2-714c29771dfc.png?v=1763238051">
+          <div class="why-airflow-feature-text why-airflow-white">{{ 'compare_airflow.left_1' | t }}</div>
+        </div>
+
+        <div class="why-airflow-feature-item">
+          <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Design_semASSA_nome.png?v=1763238625">
+          <div class="why-airflow-feature-text why-airflow-white">{{ 'compare_airflow.left_2' | t }}</div>
+        </div>
+
+        <div class="why-airflow-feature-item">
+          <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/3_3ea23202-157c-441a-bc90-a9531d7f0426.png?v=1763238050">
+          <div class="why-airflow-feature-text why-airflow-white">{{ 'compare_airflow.left_3' | t }}</div>
+        </div>
+
+        <div class="why-airflow-feature-item">
+          <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/6_081fe6a5-983a-4fdf-ae47-868aa07e3152.png?v=1763238051">
+          <div class="why-airflow-feature-text why-airflow-white">{{ 'compare_airflow.left_4' | t }}</div>
+        </div>
+
+        <div class="why-airflow-feature-item">
+          <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/5_970b2e13-e90c-4c95-8e18-66cb0acc75e6.png?v=1763238050">
+          <div class="why-airflow-feature-text why-airflow-white">{{ 'compare_airflow.left_5' | t }}</div>
+        </div>
+      </div>
+
+      <!-- DIREITA -->
+      <div style="border:2px solid #000; background:fff; padding:2rem; max-width:420px; flex:1; border-radius:10px;" class="why-airflow-feature-column">
+        <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Design_sem_nome_20.png?v=1747696148" class="why-airflow-main-image" style="max-width:100px;">
+
+        {% assign cross_icon = "https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Design_sem_nome_19.png?v=1747694101" %}
+
+        <div class="why-airflow-feature-item"><img src="{{ cross_icon }}"><div class="why-airflow-feature-text why-airflow-black">{{ 'compare_airflow.right_1' | t }}</div></div>
+        <div class="why-airflow-feature-item"><img src="{{ cross_icon }}"><div class="why-airflow-feature-text why-airflow-black">{{ 'compare_airflow.right_2' | t }}</div></div>
+        <div class="why-airflow-feature-item"><img src="{{ cross_icon }}"><div class="why-airflow-feature-text why-airflow-black">{{ 'compare_airflow.right_3' | t }}</div></div>
+        <div class="why-airflow-feature-item"><img src="{{ cross_icon }}"><div class="why-airflow-feature-text why-airflow-black">{{ 'compare_airflow.right_4' | t }}</div></div>
+        <div class="why-airflow-feature-item"><img src="{{ cross_icon }}"><div class="why-airflow-feature-text why-airflow-black">{{ 'compare_airflow.right_5' | t }}</div></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- BOTÃO -->
+  <div class="why-airflow-addtocart">
+    <form method="post" action="/cart/add" class="product-form" data-type="add-to-cart-form">
+      <input type="hidden" name="id" value="{{ product.variants.first.id }}">
+      <button type="submit">{{ 'products.product.add_to_cart' | t }}</button>
+    </form>
+
+    <div class="why-airflow-moneyback">
+      <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Iconasas.png?v=1747770903">
+      <span>{{ 'product_features.money_back' | t }}</span>
+    </div>
+  </div>
+
+</div>

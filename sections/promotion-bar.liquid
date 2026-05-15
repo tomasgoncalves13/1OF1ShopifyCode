@@ -1,0 +1,114 @@
+<div class="promo-bar">
+  <div class="promo-content-wrapper">
+    <div class="promo-content" id="promoContent">
+      ENVIO GRÁTIS - CTT EXPRESSO
+    </div>
+  </div>
+</div>
+
+<style>
+.promo-bar {
+  background: #fff304;
+  color: #000;
+  font-family: 'PoppinsSemiBold', sans-serif;
+  font-size: 16px;
+  padding: 4px 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+  height: 30px;
+}
+
+.promo-content-wrapper {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  justify-content: center;
+}
+
+.promo-content {
+  position: absolute;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(5px); /* começa ligeiramente abaixo */
+  transition: all 1.5s ease-in-out; /* transição mais lenta e suave */
+}
+
+@media screen and (min-width: 769px) {
+  .promo-bar { padding: 10px 20px; height:40px;}
+  .promo-content { font-size: 19px; line-height: 1.2; }
+}
+
+@media screen and (max-width: 768px) {
+  .promo-bar { font-size: 12px; padding: 8px 20px; }
+}
+</style>
+
+<script>
+const phrases = [
+  "ENVIO GRÁTIS - CTT EXPRESSO",
+  "TESTA 30 DIAS SEM RISCO",
+  "{{ 'promo_bar.offer' | t }}"
+];
+
+let currentIndex = 0;
+const promoElement = document.getElementById("promoContent");
+
+// Função de delay
+function wait(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+// Entrada: começa ligeiramente abaixo, espera 0.5s, sobe suavemente
+async function animateIn(element) {
+  element.style.transition = "none";
+  element.style.transform = "translateY(5px)";
+  element.style.opacity = 0;
+
+  element.offsetHeight; // força reflow
+
+  element.style.transition = "all 1.3s ease-in-out"; // transição mais lenta
+
+
+  element.style.transform = "translateY(0)";
+  element.style.opacity = 1;
+}
+
+// Saída: do centro para cima suavemente
+function animateOut(element) {
+  element.style.transition = "all 1.3s ease-in-out"; // saída suave e lenta
+  element.style.transform = "translateY(-5px)";
+  element.style.opacity = 0;
+}
+
+// Ciclo principal
+async function cyclePhrases() {
+  while(true) {
+    await animateIn(promoElement);
+    await wait(4000); // tempo visível mais longo
+
+    animateOut(promoElement);
+    await wait(1500); // duração da saída mais lenta
+
+    currentIndex = (currentIndex + 1) % phrases.length;
+    promoElement.textContent = phrases[currentIndex];
+
+    // Prepara próxima entrada
+    promoElement.style.transition = "none";
+    promoElement.style.transform = "translateY(5px)";
+    promoElement.style.opacity = 0;
+  }
+}
+
+// Inicializa
+promoElement.style.transition = "none";
+promoElement.style.transform = "translateY(5px)";
+promoElement.style.opacity = 0;
+
+cyclePhrases();
+</script>

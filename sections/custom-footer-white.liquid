@@ -1,0 +1,363 @@
+<!-- FONTES -->
+<style>
+  @font-face {
+    font-family: 'Poppins';
+    src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/poppins.medium.ttf?v=1747688794') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  /* Geral */
+  .footer-text,
+  .footer-title,
+  .footer-links-container strong,
+  .footer-links-container ul,
+  .footer-links-container li,
+  .footer-links-container a,
+  .accordion-title,
+  .accordion-content a,
+  .copyright,
+  .payment-icons,
+  .payment-icons img {
+    font-family: 'Poppins' !important;
+  }
+
+  .footer-section {
+    background: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Design_sem_nome_19_36175493-5a4c-4adc-b026-72a97e5d465c.png?v=1767113325') no-repeat center center / cover;
+    color: white;
+    margin: 0;
+    padding: 0;
+  }
+
+  .footer-wrapper {
+    max-width: 1200px;
+    margin: auto;
+    text-align: left;
+    padding: 80px 20px 20px 20px;
+  }
+
+  .footer-text {
+    max-width: 500px;
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 0 auto 20px auto;
+    color: white;
+  }
+
+  .footer-links-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    color: white;
+  }
+
+  .footer-links-container strong {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  .footer-links-container ul {
+    list-style: none;
+    padding: 0;
+    font-size: 14px;
+    margin: 0;
+  }
+
+  .footer-links-container li {
+    margin-bottom: 5px;
+  }
+
+  .footer-links-container a {
+    color: white !important;
+    text-decoration: none !important;
+  }
+
+  .footer-links-container a:hover {
+    opacity: 0.8;
+  }
+
+  .accordion-title {
+    display: none;
+    border-top: 1px solid #fff;
+    padding: 15px 0;
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+  .accordion-title:after {
+    content: '+';
+    float: right;
+  }
+
+  .accordion-title.active:after {
+    content: '-';
+  }
+
+  .accordion-content {
+    display: none;
+    padding: 0 0 15px 0;
+  }
+
+  .accordion-content a {
+    color: white !important;
+    text-decoration: none !important;
+  }
+
+  .copyright {
+    font-size: 12px;
+    color: white;
+    text-align: center;
+    margin-top: 2rem;
+  }
+
+  .payment-shipping-strip {
+    text-align: center;
+    margin-top: 30px;
+  }
+
+  .footer-custom-payment-icons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 7px;
+  }
+
+  .footer-custom-payment-icons .cartao-carrinho-item img {
+    height: 30px;
+    object-fit: contain;
+  }
+
+  hr.custom-hr {
+    border: none;
+    border-top: 0.5px solid white;
+    margin: 2rem 0;
+  }
+
+  /* Desktop */
+  @media (min-width: 769px) {
+    .footer-title {
+      font-size: 35px !important;
+      text-align: center !important;
+      text-transform: uppercase !important;
+      margin: 0 auto 20px auto !important;
+    }
+
+    .footer-text {
+      font-size: 20px !important;
+      text-align: center !important;
+      max-width: 1200px !important;
+      margin: 0 auto 40px auto !important;
+      padding-left: 80px !important;
+      padding-right: 80px !important;
+    }
+
+    .footer-links-container {
+      justify-content: center !important;
+      gap: 6rem !important;
+      font-size: 18px !important;
+    }
+
+    .footer-links-container > div {
+      margin-left: 150px !important;
+    }
+
+    .footer-links-container strong {
+      font-size: 18px !important;
+    }
+
+    .footer-links-container ul {
+      font-size: 18px !important;
+      padding-left: 0 !important;
+      margin: 0 !important;
+    }
+
+    .footer-links-container li {
+      margin-bottom: 12px !important;
+    }
+
+    .footer-section a img[alt="Instagram"],
+    .footer-section a img[alt="TikTok"],
+    .footer-section a img[alt="Facebook"],
+    .footer-section a img[alt="YouTube"] {
+      width: 50px !important;
+      height: auto !important;
+    }
+
+    .footer-wrapper > div:first-child img {
+      max-width: 150px !important;
+    }
+
+    .copyright {
+      font-size: 16px !important;
+      margin-top: 50px;
+    }
+
+    hr.custom-hr {
+      display: block !important;
+      border-top: 1px solid white !important;
+      margin-top: 30px !important;
+      margin-bottom: 40px !important;
+    }
+  }
+
+  /* Mobile */
+  @media (max-width: 768px) {
+    .footer-links-container {
+      display: none;
+    }
+
+    .accordion-title {
+      display: block;
+    }
+
+    .footer-title {
+      text-align: center !important;
+      font-size: 18px !important;
+      text-transform: uppercase !important;
+      margin-bottom: 8px !important;
+    }
+
+    .footer-text {
+      text-align: center !important;
+      font-size: 12px !important;
+      padding-left: 15px !important;
+      padding-right: 15px !important;
+    }
+
+    hr.custom-hr {
+      display: none;
+    }
+  }
+</style>
+
+<section class="footer-section">
+  <div class="footer-wrapper">
+
+    <!-- LOGO -->
+    <div style="text-align: center; margin-bottom: 20px;">
+      <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Logo_branco.png?v=1748259731" alt="Logo" style="max-width: 60px;">
+    </div>
+
+    <!-- TÍTULO -->
+    <div class="footer-title">
+      {{ 'footer.title' | t }}
+    </div>
+
+    <!-- FRASE -->
+    <p class="footer-text">
+      {{ 'footer.description' | t }}
+    </p>
+
+    <!-- REDES -->
+    <div style="text-align: center; margin: 2rem 0; display: flex; justify-content: center; gap: 15px;">
+      <a href="https://www.instagram.com/1of1futbol/" target="_blank"><img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/11_0f204e47-e4cf-41d4-b239-d2bc2f7c2b58.png?v=1748258468" alt="Instagram" style="width: 32px;"></a>
+      <a href="https://www.tiktok.com/@1of1futbol" target="_blank"><img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/12.png?v=1748258469" alt="TikTok" style="width: 32px;"></a>
+      <a href="https://www.facebook.com/profile.php?id=61571727680181" target="_blank"><img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/13.png?v=1748258468" alt="Facebook" style="width: 32px;"></a>
+      <a href="https://www.youtube.com/@1of1futbol" target="_blank"><img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/14.png?v=1748258469" alt="YouTube" style="width: 32px;"></a>
+    </div>
+
+    <hr class="custom-hr">
+
+    <!-- LINKS DESKTOP -->
+    <div class="footer-links-container">
+      <div>
+        <strong>{{ 'footer.menu_shop' | t }}</strong>
+        <ul>
+          <li><a href="/collections/shop-all">{{ 'footer.links.shop_all' | t }}</a></li>
+          <li><a href="/collections/shin-pads">{{ 'footer.links.shin_pads' | t }}</a></li>
+          <li><a href="/collections/socks">{{ 'footer.links.socks' | t }}</a></li>
+          <li><a href="/collections/bundles">{{ 'footer.links.bundles' | t }}</a></li>
+          <li><a href="/collections/kids">{{ 'footer.links.kids' | t }}</a></li>
+          <li><a href="/collections/accessories">{{ 'footer.links.accessories' | t }}</a></li>
+        </ul>
+      </div>
+      <div>
+        <strong>{{ 'footer.menu_info' | t }}</strong>
+        <ul>
+          <li><a href="/pages/about-1of1-futbol">{{ 'footer.links.about' | t }}</a></li>
+          <li><a href="/pages/help-center">{{ 'footer.links.help' | t }}</a></li>
+          <li><a href="/pages/contact">{{ 'footer.links.contact' | t }}</a></li>
+          <li><a href="/a/tracking">{{ 'footer.links.track' | t }}</a></li>
+          <li><a href="/pages/shipping">{{ 'footer.links.shipping' | t }}</a></li>
+          <li><a href="/pages/returns">{{ 'footer.links.returns' | t }}</a></li>
+        </ul>
+      </div>
+      <div>
+        <strong>{{ 'footer.menu_legal' | t }}</strong>
+        <ul>
+          <li><a href="/policies/privacy-policy">{{ 'footer.links.privacy' | t }}</a></li>
+          <li><a href="/policies/refund-policy">{{ 'footer.links.refund' | t }}</a></li>
+          <li><a href="/policies/shipping-policy">{{ 'footer.links.shipping_policy' | t }}</a></li>
+          <li><a href="/policies/terms-of-service">{{ 'footer.links.terms' | t }}</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- MOBILE DROPDOWN -->
+    <div class="accordion-title">{{ 'footer.menu_shop' | t }}</div>
+    <div class="accordion-content">
+      <ul>
+        <li><a href="/collections/shop-all">{{ 'footer.links.shop_all' | t }}</a></li>
+        <li><a href="/collections/shin-pads">{{ 'footer.links.shin_pads' | t }}</a></li>
+        <li><a href="/collections/socks">{{ 'footer.links.socks' | t }}</a></li>
+        <li><a href="/collections/bundles">{{ 'footer.links.bundles' | t }}</a></li>
+        <li><a href="/collections/kids">{{ 'footer.links.kids' | t }}</a></li>
+        <li><a href="/collections/accessories">{{ 'footer.links.accessories' | t }}</a></li>
+      </ul>
+    </div>
+
+    <div class="accordion-title">{{ 'footer.menu_info' | t }}</div>
+    <div class="accordion-content">
+      <ul>
+        <li><a href="/pages/about-1of1-futbol">{{ 'footer.links.about' | t }}</a></li>
+        <li><a href="/pages/help-center">{{ 'footer.links.help' | t }}</a></li>
+        <li><a href="/pages/contact">{{ 'footer.links.contact' | t }}</a></li>
+        <li><a href="/a/tracking">{{ 'footer.links.track' | t }}</a></li>
+        <li><a href="/pages/shipping">{{ 'footer.links.shipping' | t }}</a></li>
+        <li><a href="/pages/returns">{{ 'footer.links.returns' | t }}</a></li>
+      </ul>
+    </div>
+
+    <div class="accordion-title">{{ 'footer.menu_legal' | t }}</div>
+    <div class="accordion-content">
+      <ul>
+        <li><a href="/policies/privacy-policy">{{ 'footer.links.privacy' | t }}</a></li>
+        <li><a href="/policies/refund-policy">{{ 'footer.links.refund' | t }}</a></li>
+        <li><a href="/policies/shipping-policy">{{ 'footer.links.shipping_policy' | t }}</a></li>
+        <li><a href="/policies/terms-of-service">{{ 'footer.links.terms' | t }}</a></li>
+      </ul>
+    </div>
+
+    <!-- COPYRIGHT -->
+    <div class="copyright">
+      <p>{{ 'footer.copyright' | t }}</p>
+    </div>
+
+    <!-- PAGAMENTOS -->
+    <div class="payment-shipping-strip">
+      <div class="footer-custom-payment-icons">
+        <div class="cartao-carrinho-item"><img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/2_c8984a24-36be-46c1-a1b4-1aa219f1a2ea.png?v=1765588534" alt="MbWay" /></div>
+        <div class="cartao-carrinho-item"><img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/1_50a29e6f-9dec-4ae7-86d7-69e37b4b112c.png?v=1765588534" alt="Apple Pay" /></div>
+        <div class="cartao-carrinho-item"><img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/4_8e04768f-b412-45be-a62e-d00f6390edaf.png?v=1765588533" alt="Paypal" /></div>
+        <div class="cartao-carrinho-item"><img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/3_ec3574b5-7998-4b20-9881-840e30381430.png?v=1765588534" alt="Multibanco" /></div>
+        <div class="cartao-carrinho-item"><img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/5_2e8d4079-0d01-4aaa-be14-2aa261edbacb.png?v=1765588534" alt="Visa" /></div>
+        <div class="cartao-carrinho-item"><img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/6_db4a52b1-f5a7-4690-8cb0-eb65a9182127.png?v=1765588534" alt="Mastercard" /></div>
+        <div class="cartao-carrinho-item"><img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Untitled_design.png?v=1765979514" alt="Google Pay" /></div>
+        <div class="cartao-carrinho-item"><img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Untitled_sdesign.png?v=1765979514" alt="Shop Pay" /></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- JS MOBILE DROPDOWN -->
+<script>
+  document.querySelectorAll('.accordion-title').forEach(item => {
+    item.addEventListener('click', () => {
+      item.classList.toggle('active');
+      const content = item.nextElementSibling;
+      content.style.display = content.style.display === 'block' ? 'none' : 'block';
+    });
+  });
+</script>

@@ -1,0 +1,166 @@
+<div class="manual-related-products page-width">
+  <h2 class="related-carousel-heading">{{ 'manual_related_products.title' | t }}</h2>
+  <div class="carousel-container" id="carousel-container">
+    <ul class="carousel-track" id="carousel-track" role="list">
+      {% assign handles = 'shin-pad-sleeve, grip-socks, mini-shin-pads, airflow' | split: ', ' %}
+      {% for i in (1..5) %}
+        {% for handle in handles %}
+          {% assign product = all_products[handle] %}
+          {% if product %}
+            <li class="carousel-slide">
+              {% render 'card-product',
+                card_product: product,
+                media_aspect_ratio: 'portrait',
+                image_shape: 'default',
+                show_secondary_image: true,
+                show_vendor: false,
+                show_rating: false
+              %}
+            </li>
+          {% endif %}
+        {% endfor %}
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+
+<style>
+@font-face {
+  font-family: 'PoppinsExtraBold';
+  src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/poppins.extrabold.ttf?v=1747688794') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'PoppinsBold';
+  src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/poppins.bold.ttf?v=1747688795') format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'PoppinsSemiBold';
+  src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/poppins.semibold.ttf?v=1747688794') format('truetype');
+  font-display: swap;
+}
+
+.manual-related-products .price,
+.manual-related-products .price *,
+.manual-related-products .price__regular,
+.manual-related-products .price__sale,
+.manual-related-products .price__sale .price-item--sale,
+.manual-related-products .price__regular .price-item--regular {
+  font-family: 'PoppinsSemiBold', sans-serif !important;
+  font-size: 13px !important;
+}
+
+.card__heading.h5,
+.card__heading,
+h3.card__heading.h5,
+.card-information__text.h5,
+.card-wrapper .card__heading {
+  font-size: 14px !important;
+  font-family: 'PoppinsBold', sans-serif !important;
+  font-weight: 600 !important;
+}
+
+/* Remove espaço acima da section */
+.manual-related-products {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
+/* Título centralizado com menos espaçamento entre letras */
+.related-carousel-heading {
+  margin-top: 0 !important;
+  text-align: center !important;
+  font-family: 'PoppinsExtraBold', sans-serif !important;
+  font-size: 23px !important;
+  margin-bottom: 20px !important; /* espaço entre o título e os produtos */
+  letter-spacing: -0.5px !important;
+}
+
+/* Carousel geral */
+.carousel-container {
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  margin-top: 0 !important;
+}
+.carousel-container::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 12px;
+  padding-bottom: 12px;
+  padding-top: 0;
+  list-style: none;
+  padding-left: 0;
+  margin-top: 0;
+}
+
+.carousel-track li {
+  list-style: none;
+}
+
+.carousel-slide {
+  flex: 0 0 48%;
+  scroll-snap-align: start;
+}
+
+/* Só a imagem com borda */
+.carousel-slide .card-wrapper .media {
+  border-radius: 10px;
+  border: 1px solid rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+
+/* Tamanho do preço igual (atual e antigo) */
+.precolrelated__sale .precolrelated-item--sale,
+.precolrelated__regular .precolrelated-item--regular {
+  font-size: 13px !important;
+  font-family: 'PoppinsSemiBold', sans-serif !important;
+}
+
+@media screen and (min-width: 750px) {
+  .carousel-slide {
+    flex: 0 0 25%;
+  }
+}
+</style>
+
+<script>
+const carousel = document.getElementById('carousel-container');
+const track = document.getElementById('carousel-track');
+
+// Duplicar slides para efeito infinito
+track.innerHTML += track.innerHTML;
+
+// Começa no meio
+const halfScroll = track.scrollWidth / 2;
+carousel.scrollLeft = halfScroll;
+
+// Mantém o loop infinito
+let isTicking = false;
+
+carousel.addEventListener('scroll', () => {
+  if (!isTicking) {
+    window.requestAnimationFrame(() => {
+      if (carousel.scrollLeft >= track.scrollWidth - carousel.clientWidth - 1) {
+        // Passou da metade direita
+        carousel.scrollLeft -= halfScroll;
+      } else if (carousel.scrollLeft <= 1) {
+        // Passou da metade esquerda
+        carousel.scrollLeft += halfScroll;
+      }
+      isTicking = false;
+    });
+    isTicking = true;
+  }
+});
+
+
+</script>

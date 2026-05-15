@@ -1,0 +1,69 @@
+<style>
+  .hero-banner {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  /* Proporção Desktop 6:10 */
+  .hero-banner::before {
+    content: "";
+    display: block;
+    padding-top: 60%;
+  }
+
+  .hero-banner img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hero-banner .mobile-img {
+    display: none;
+    position: static;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .hero-banner .desktop-img {
+    display: block;
+  }
+
+  @media (max-width: 768px) {
+    .hero-banner::before {
+      display: none;
+    }
+
+    .hero-banner {
+      height: auto;
+    }
+
+    .hero-banner .desktop-img {
+      display: none;
+    }
+
+    .hero-banner .mobile-img {
+      display: block;
+    }
+  }
+</style>
+
+<section class="hero-banner">
+  <!-- Desktop -->
+  <img
+    class="desktop-img"
+    src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Banners_Desktop.png?v=1748891913"
+    alt="1OF1 Banner Desktop"
+  >
+
+  <!-- Mobile -->
+  <img
+    class="mobile-img"
+    src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Banners_Mobil1_e.png?v=1767111085"
+    alt="1OF1 Banner Mobile"
+  >
+</section>

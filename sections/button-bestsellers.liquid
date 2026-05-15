@@ -1,0 +1,102 @@
+<!-- Section: CTA to Bestsellers + Guarantee (ajustado ao pixel) -->
+
+<style>
+
+    @font-face {
+    font-family: 'Poppins ExtraBold';
+    src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/poppins.extrabold.ttf?v=1747688794') format('truetype');
+    font-display: swap;
+  }
+
+  .cta-bestsellers-section {
+    background: fff;
+    padding: 50px 0px;
+    text-align: center;
+  }
+
+  .cta-bestsellers-button {
+       background-color: #fff304;
+    color: #000;
+    border-radius: 999px;
+    padding: 16px 40px;
+    font-family: 'Poppins Bold', sans-serif !important;
+    text-transform: uppercase;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+      box-shadow: 0 4px 6px 2px #0000001a, 0 2px 4px -1px #0000000f;
+    border: 1px solid #ffe304;
+    transition: all 0.2s ease-in-out;
+    display: inline-block;
+    text-decoration: none;
+  }
+
+  .cta-bestsellers-button:hover {
+    transform: translate(1px, 1px);
+    box-shadow: 1px 1px 0 #000;
+  }
+
+  .cta-bestsellers-subtext {
+    margin-top: 16px;
+    color: #000;
+    font-size: 14px;
+    font-family: 'Poppins Medium', sans-serif !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .cta-bestsellers-subtext img {
+    width: 18px;
+    height: 18px;
+  }
+
+ @media (max-width: 768px) {
+
+    .cta-bestsellers-section {
+    padding-top: 40px; /* ou 20px, ou até 0 se quiser colado */
+       padding-bottom: 40px;
+  }
+
+  .cta-bestsellers-button {
+    padding: 8px 70px;
+    font-size: 14px;
+  }
+
+  .cta-bestsellers-subtext {
+    font-size: 12px;
+    gap: 6px;
+  }
+
+  .cta-bestsellers-subtext img {
+    width: 16px;
+    height: 16px;
+  }
+}
+  
+@media (min-width: 768px) {
+
+    .cta-bestsellers-button {
+    margin-top: 40px;
+  }
+  
+  .cta-bestsellers-subtext {
+    margin-bottom: 0;
+  }
+
+  .cta-bestsellers-section {
+    padding-bottom: 20px; /* ou menos, ajusta conforme o desejado */
+  }
+}
+
+</style>
+
+<section class="cta-bestsellers-section">
+  <a href="/collections/best-sellers" class="cta-bestsellers-button">
+    {{ 'cta_bestsellers_section.button' | t }}
+  </a>
+  <div class="cta-bestsellers-subtext">
+    <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Icons_4_faf23a24-678d-48e9-b8ac-2f3dc4556e59.png?v=1748474359" alt="{{ 'cta_bestsellers_section.icon_alt' | t }}">
+    {{ 'cta_bestsellers_section.subtext' | t }}
+  </div>
+</section>

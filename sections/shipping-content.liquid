@@ -1,0 +1,113 @@
+<style>
+  @font-face {
+    font-family: 'Poppins ExtraBold';
+    src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/poppins.extrabold.ttf?v=1747688794') format('truetype');
+    font-weight: 800;
+  }
+
+  @font-face {
+    font-family: 'Poppins Medium';
+    src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/poppins.medium.ttf?v=1747688794') format('truetype');
+    font-weight: 500;
+  }
+
+  .returns-section {
+    max-width: 900px !important;
+    margin: 0 auto !important;
+    padding: 40px 20px !important;
+    font-family: 'Poppins Medium', sans-serif !important;
+    color: #000 !important;
+    position: relative !important;
+    z-index: 1 !important;
+  }
+
+  .returns-section h1,
+  .returns-section h2 {
+    font-family: 'Poppins ExtraBold', sans-serif !important;
+    text-transform: uppercase !important;
+    line-height: 1.3 !important;
+    margin-bottom: 20px !important;
+  }
+
+  .returns-section h1 {
+    font-size: 56px !important;
+    text-align: center !important;
+    margin-top: 20px !important;
+    margin-bottom: 70px !important;
+  }
+
+  .returns-section h2 {
+    font-size: 34px !important;
+    margin-top: 40px !important;
+    margin-bottom: 4px !important;
+  }
+
+  .returns-section p {
+    font-size: 16px !important;
+    line-height: 1.8 !important;
+    margin-bottom: 20px !important;
+    text-align: left !important;
+    font-family: 'Poppins Medium', sans-serif !important;
+  }
+
+  @media screen and (max-width: 767px) {
+    .returns-section h1 {
+      font-size: 38px !important;
+      margin-bottom: 40px !important;
+    }
+
+    .returns-section h2 {
+      font-size: 24px !important;
+    }
+
+    .returns-section p {
+      font-size: 12px !important;
+      line-height: 1.6 !important;
+    }
+  }
+</style>
+
+<section class="returns-wrapper">
+  <div class="returns-section">
+    <h1>{{ 'custom_shipping.title' | t }}</h1>
+
+    <p>{{ 'custom_shipping.intro_1' | t }}</p>
+    <p>{{ 'custom_shipping.intro_2' | t }}</p>
+
+    <p>{{ 'custom_shipping.free_shipping' | t }}</p>
+    <p>{{ 'custom_shipping.tracking_info' | t }}</p>
+
+    <h2>{{ 'custom_shipping.portugal_title' | t }}</h2>
+    <p>{{ 'custom_shipping.portugal_text' | t }}</p>
+
+    <h2>{{ 'custom_shipping.spain_title' | t }}</h2>
+    <p>{{ 'custom_shipping.spain_text' | t }}</p>
+
+    <h2>{{ 'custom_shipping.europe_title' | t }}</h2>
+    <p>{{ 'custom_shipping.europe_text' | t }}</p>
+
+    <h2>{{ 'custom_shipping.world_title' | t }}</h2>
+    <p>{{ 'custom_shipping.world_text' | t }}</p>
+
+    <div style="margin-top: 50px;">
+      <p>{{ 'custom_shipping.disclaimer_1' | t }}</p>
+      <p>{{ 'custom_shipping.disclaimer_2' | t }}</p>
+      <p>{{ 'custom_shipping.contact' | t }}</p>
+    </div>
+  </div>
+</section>
+
+
+{% schema %}
+{
+  "name": "Shipping Content",
+  "tag": "section",
+  "class": "returns-section",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Shipping Page"
+    }
+  ]
+}
+{% endschema %}

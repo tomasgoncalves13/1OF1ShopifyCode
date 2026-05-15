@@ -1,0 +1,327 @@
+<section class="custom-newsletter">
+  <style>
+    @font-face {
+      font-family: 'PoppinsExtraBold';
+      src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/poppins.extrabold.ttf?v=1747688794') format('truetype');
+    }
+    @font-face {
+      font-family: 'PoppinsBold';
+      src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/poppins.bold.ttf?v=1747688795') format('truetype');
+    }
+    @font-face {
+      font-family: 'PoppinsThin';
+      src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/poppins.thin.ttf?v=1748130415') format('truetype');
+    }
+    @font-face {
+      font-family: 'PoppinsMedium';
+      src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/poppins.medium.ttf?v=1747688794') format('truetype');
+    }
+    @font-face {
+      font-family: 'PoppinsLight';
+      src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/poppins.light.ttf?v=1748130416') format('truetype');
+    }
+
+    .custom-newsletter {
+      background: #000;
+      color: white;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    .newsletter-inner {
+      max-width: 100%;
+      margin: 0 auto;
+      padding: 4rem 10px 2rem 20px !important;
+      text-align: left !important;
+    }
+
+    .custom-newsletter h2 {
+      font-family: 'PoppinsExtraBold', sans-serif !important;
+      font-size: 27px !important;
+      text-transform: uppercase !important;
+      color: #FFFFFF !important;
+      margin-bottom: 0.3rem !important;
+    }
+
+    .custom-newsletter p.main-offer {
+      font-family: 'PoppinsExtraBold', sans-serif !important;
+      font-size: 17px !important;
+      text-transform: uppercase !important;
+      margin: 0 !important;
+      color: #FFFFFF !important;
+    }
+
+    .custom-newsletter p.main-offer span {
+      color: #FFC700 !important;
+    }
+
+    .custom-newsletter p.subtext {
+      font-family: 'PoppinsLight', sans-serif !important;
+      font-size: 11px !important;
+      margin-top: 1rem !important;
+      margin-bottom: 1.5rem !important;
+      text-align: left !important;
+      padding: 0 !important;
+      text-transform: none !important;
+    }
+
+    .newsletter-form {
+      margin-top: 2rem !important;
+      padding: 0 !important;
+    }
+
+    .newsletter-form input[type="email"] {
+      font-family: 'PoppinsMedium', sans-serif !important;
+      font-size: 13px !important;
+      width: 100% !important;
+      padding: 13px 20px !important;
+      border: 1px solid white !important;
+      background-color: #1a1a1a !important;
+      color: white !important;
+      border-radius: 30px !important;
+      box-sizing: border-box !important;
+      margin-bottom: 10px !important;
+      text-align: left !important;
+      text-transform: none !important;
+      outline: none !important;
+      box-shadow: none !important;
+    }
+
+    .newsletter-form button {
+      font-family: 'PoppinsBold', sans-serif !important;
+      text-transform: uppercase !important;
+      font-size: 16px !important;
+      padding: 10px 20px !important;
+      width: 100% !important;
+      background-color: #ffffff !important;
+      color: #000000 !important;
+      border: none !important;
+      border-radius: 30px !important;
+      cursor: pointer;
+    }
+
+    .custom-newsletter label {
+      font-family: 'PoppinsLight', sans-serif !important;
+      font-size: 11px !important;
+      margin-top: 1.2rem !important;
+      display: block !important;
+      text-align: left !important;
+      padding: 0 !important;
+      margin-bottom: 0px !important;
+    }
+
+    .icon-grid {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      padding: 0.5rem 20px 1rem !important;
+      background: #000;
+    }
+
+    .icon-grid > div {
+      flex: 1 1 160px;
+      background: #111;
+      padding: 1.2rem;
+      border: 1px solid #333;
+      border-radius: 3px;
+      text-align: center;
+    }
+
+    .icon-grid img {
+      margin-top: 3px;
+      width: 40px !important;
+      height: 40px !important;
+    }
+
+    .icon-grid div div {
+      font-family: 'PoppinsMedium', sans-serif !important;
+      font-size: 11px !important;
+      text-transform: uppercase !important;
+      padding: 0px 20px !important;
+      margin-bottom: 3px;
+    }
+
+    /* ONLY DESKTOP (>=1024px) */
+    @media (min-width: 1024px) {
+      .newsletter-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 4rem 100px 2rem 100px !important;
+        gap: 60px;
+      }
+
+      .newsletter-inner-left {
+        flex: 1;
+      }
+
+      .newsletter-inner-right {
+        flex: 1;
+        text-align: right;
+      }
+
+      .newsletter-inner-right img {
+        width: 100%;
+        height: auto;
+        border-radius: 20px;
+        max-width: 500px;
+      }
+    }
+    .newsletter-inner-right {
+  display: none;
+}
+    
+
+@media (min-width: 1024px) {
+  .newsletter-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4rem 250px 2rem 250px !important;
+    gap: 60px;
+  }
+
+  .newsletter-inner-right {
+    display: block;
+  }
+
+  .newsletter-inner-right img {
+    max-width: 800px !important;
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  .icon-grid {
+    padding-left: 250px !important;
+    padding-right: 250px !important;
+  }
+
+  .custom-newsletter h2 {
+    font-size: 41px !important;
+    margin-bottom: 0rem !important;
+  }
+
+  .custom-newsletter p.main-offer {
+    font-size: 28px !important;
+  }
+
+  .custom-newsletter p.subtext {
+    font-size: 18px !important;
+    margin-bottom: 4rem !important;
+  }
+
+  .custom-newsletter label {
+    font-size: 18px !important;
+  }
+
+  .icon-grid div div {
+    font-size: 18px !important;
+  }
+
+.newsletter-form input[type="email"] {
+  font-size: 18px !important;
+  padding-top: 23px !important;
+  padding-bottom: 23px !important;
+  padding-left: 30px !important;
+  border-radius: 50px !important;
+  margin-bottom: 20px !important;
+  text-indent: 10px !important; /* <-- move o placeholder para a direita */
+}
+
+
+  .newsletter-form button {
+    font-family: 'PoppinsExtraBold', sans-serif !important;
+    font-size: 24px !important;
+    padding-top: 23px !important;
+    padding-bottom: 23px !important;
+    border-radius: 50px !important;
+  }
+
+  .custom-newsletter label {
+    display: flex !important;
+    align-items: flex-start !important;
+    font-size: 18px !important;
+    gap: 10px;
+    line-height: 1.5 !important;
+    margin-top: 26px !important;
+  }
+
+  .custom-newsletter label input[type="checkbox"] {
+    width: 18px !important;
+    height: 18px !important;
+    margin-top: 6px !important;
+    flex-shrink: 0;
+  }
+    .icon-grid {
+    margin-top: 3rem !important; /* Aumenta o espaço acima da secção de ícones */
+  }
+  .icon-grid {
+    gap: 2rem !important; /* aumenta o espaço entre os quadrados */
+  }
+  .icon-grid > div {
+    padding-top: 2.5rem !important;
+    padding-bottom: 2.5rem !important;
+  }
+   .icon-grid img {
+    width: 60px !important;
+    height: 60px !important;
+  }
+
+  .icon-grid div div {
+    font-size: 18px !important;
+  }
+}
+
+  </style>
+
+<section class="custom-newsletter">
+  <div class="newsletter-inner">
+    <div class="newsletter-inner-left">
+      <h2>{{ 'newsletter_section.title' | t }}</h2>
+<p class="main-offer">
+  {{ 'newsletter_section.main_offer_before' | t }}
+  <span>{{ 'newsletter_section.main_offer_highlight' | t }}</span>
+  {{ 'newsletter_section.main_offer_after' | t }}
+</p>
+
+      <p class="subtext">{{ 'newsletter_section.subtext' | t }}</p>
+
+      <form method="post" action="/contact#contact_form" id="contact_form" accept-charset="UTF-8" class="newsletter-form">
+        <input type="hidden" name="form_type" value="customer">
+        <input type="email" name="contact[email]" placeholder="{{ 'newsletter_section.placeholder' | t }}" required>
+        <button type="submit">{{ 'newsletter_section.button' | t }}</button>
+      </form>
+
+      <label>
+        <input type="checkbox" style="margin-right: 5px;">
+        {{ 'newsletter_section.consent' | t }}
+      </label>
+    </div>
+
+    <div class="newsletter-inner-right">
+      <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Design_sem_nome_11_d609c4f9-8faf-4c50-a736-ecfc74310f9e.png?v=1751375036" alt="{{ 'newsletter_section.image_alt' | t }}">
+    </div>
+  </div>
+
+  <!-- Icon Grid -->
+  <div class="icon-grid">
+    <div>
+      <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Icodns.png?v=1748271515" alt="{{ 'newsletter_icons.icon1_alt' | t }}">
+      <div>{{ 'newsletter_icons.icon1_text' | t }}</div>
+    </div>
+    <div>
+      <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Icons_8.png?v=1748271731" alt="{{ 'newsletter_icons.icon2_alt' | t }}">
+      <div>{{ 'newsletter_icons.icon2_text' | t }}</div>
+    </div>
+    <div>
+      <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/11.png?v=1747693503" alt="{{ 'newsletter_icons.icon3_alt' | t }}">
+      <div>{{ 'newsletter_icons.icon3_text' | t }}</div>
+    </div>
+    <div>
+      <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Icons_9.png?v=1748271901" alt="{{ 'newsletter_icons.icon4_alt' | t }}">
+      <div>{{ 'newsletter_icons.icon4_text' | t }}</div>
+    </div>
+  </div>
+</section>

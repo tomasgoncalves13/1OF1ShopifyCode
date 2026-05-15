@@ -1,0 +1,213 @@
+<div id="quick-buy-modal" class="quick-buy-overlay" style="display:none">
+  <div class="quick-buy-backdrop" onclick="closeQuickBuy()"></div>
+  <div class="quick-buy-content">
+    <button class="quick-buy-close" onclick="closeQuickBuy()">×</button>
+
+    {% if product %}
+      <div class="quick-buy-image-single">
+        <img id="variant-main-image" src="{{ product.featured_image | img_url: 'master' }}" alt="{{ product.title }}">
+      </div>
+      <h2>{{ product.title }}</h2>
+
+      <!-- ✅ Sem method/action para não redirecionar -->
+      <form id="quick-buy-form">
+        <input type="hidden" name="form_type" value="product">
+        <input type="hidden" name="utf8" value="✓">
+        <input type="hidden" name="id" id="variant-id-input" value="{{ product.variants.first.id }}">
+        
+        {% assign option_count = product.options.size | minus: 1 %}
+        {% for option_index in (0..option_count) %}
+          <div class="variant-options-wrapper" data-option-index="{{ option_index }}">
+            <label>{{ product.options[option_index] | capitalize }}:</label>
+            <div class="variant-buttons">
+              {% assign values = '' %}
+              {% for variant in product.variants %}
+                {% assign value = variant.options[option_index] %}
+                {% unless values contains value %}
+                  <button 
+                    type="button" 
+                    class="variant-button"
+                    data-option-index="{{ option_index }}"
+                    data-option-value="{{ value }}"
+                  >
+                    {{ value }}
+                  </button>
+                  {% assign values = values | append: value | append: ',' %}
+                {% endunless %}
+              {% endfor %}
+            </div>
+          </div>
+        {% endfor %}
+
+        <button type="submit" class="add-to-cart-btn" disabled id="add-to-cart-button">ADICIONAR AO CARRINHO +</button>
+      </form>
+
+      <script type="application/json" data-variant-json>
+        {{ product.variants | json }}
+      </script>
+
+    {% else %}
+      <p style="color:red;">⚠️ Produto não encontrado.</p>
+    {% endif %}
+  </div>
+</div>
+
+<script>
+document.getElementById('quick-buy-form').addEventListener('submit', async function(e) {
+  e.preventDefault(); // ✅ Bloqueia o redirect
+
+  const variantId = document.getElementById('variant-id-input').value;
+  const btn = document.getElementById('add-to-cart-button');
+
+  btn.disabled = true;
+  btn.textContent = 'A ADICIONAR...';
+
+  try {
+    const response = await fetch('/cart/add.js', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ id: variantId, quantity: 1 })
+    });
+
+    if (!response.ok) throw new Error('Erro ao adicionar');
+
+    // ✅ Fecha o quick buy
+    closeQuickBuy();
+
+    // ✅ Tenta abrir o cart drawer — cobre os temas mais comuns
+    openCartDrawer();
+
+  } catch (err) {
+    console.error(err);
+    btn.textContent = 'ERRO — TENTA DE NOVO';
+  } finally {
+    btn.disabled = false;
+  }
+});
+
+function openCartDrawer() {
+  // Dawn / temas oficiais Shopify
+  const cartDrawer = document.querySelector('cart-drawer');
+  if (cartDrawer && typeof cartDrawer.open === 'function') {
+    cartDrawer.open();
+    return;
+  }
+
+  // Evento customizado (muitos temas ouvem isto)
+  document.dispatchEvent(new CustomEvent('cart:open'));
+  document.dispatchEvent(new CustomEvent('cart-drawer:open'));
+
+  // Broadcast channel (temas modernos)
+  if (typeof window.Shopify !== 'undefined') {
+    document.dispatchEvent(new CustomEvent('shopify:cart:updated'));
+  }
+
+  // Fallback: clica no ícone do carrinho se existir
+  const cartToggle =
+    document.querySelector('[data-cart-toggle]') ||
+    document.querySelector('[data-drawer-toggle="cart"]') ||
+    document.querySelector('a[href="/cart"].cart-icon') ||
+    document.querySelector('.cart-drawer-toggle');
+
+  if (cartToggle) cartToggle.click();
+}
+</script>
+
+<style>
+  .quick-buy-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 9999;
+    background: rgba(0,0,0,0.5);
+    display: flex; justify-content: center; align-items: center;
+  }
+  .quick-buy-backdrop {
+    position: absolute;
+    width: 100%; height: 100%;
+    top: 0; left: 0;
+  }
+  .quick-buy-content {
+    background: white;
+    max-width: 500px;
+    width: 90%;
+    padding: 20px;
+    border-radius: 10px;
+    position: relative;
+    z-index: 1;
+    box-sizing: border-box;
+  }
+  .quick-buy-image-single img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    display: block;
+  }
+  .quick-buy-close {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    line-height: 1;
+    z-index: 10;
+  }
+  .variant-options-wrapper label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+  }
+  .variant-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+  .variant-button {
+    background: none;
+    border: 1.5px solid #ccc;
+    border-radius: 10px;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 14px;
+    color: black;
+    white-space: nowrap;
+    font-family: PoppinsMedium, sans-serif;
+  }
+  .variant-button.active {
+    border-color: #000;
+    background: #fff;
+    font-family: PoppinsBold, sans-serif;
+  }
+  .add-to-cart-btn {
+    background: #fff304;
+    color: #000;
+    border: none;
+    padding: 12px 20px;
+    font-size: 15px;
+    border-radius: 99px;
+    cursor: pointer;
+    width: 100%;
+    transition: background 0.3s ease;
+        border-width: 1px;
+    border-style: solid;
+    border-color: #000;
+    box-shadow: 2px 2px 0 black;
+    font-family: 'PoppinsExtraBold', sans-serif !important;
+    display: inline-block;
+    letter-spacing: 0.5px;
+    border: 1.5px solid black;
+  }
+  .add-to-cart-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  .add-to-cart-btn:hover:enabled {
+    background: #000;
+    color: #fff;
+  }
+</style>
+

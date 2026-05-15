@@ -1,0 +1,240 @@
+<section style="padding-top: 40px; margin: 0; font-family: 'Poppins', sans-serif;">
+  <style>
+    @font-face {
+      font-family: 'Poppins ExtraBold';
+      src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/poppins.extrabold.ttf?v=1747688794') format('truetype');
+    }
+
+    @font-face {
+      font-family: 'Poppins Medium';
+      src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/poppins.medium.ttf?v=1747688794') format('truetype');
+    }
+
+    .banner-container {
+      position: relative;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    .banner-image {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .banner-content {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      color: #000;
+      transform: translateY(-40px);
+      padding: 0 1rem;
+    }
+
+    .banner-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .rating-badge {
+      display: inline-block;
+      padding: 0.3rem 0.9rem;
+      background-color: #eaeaea;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-family: 'Poppins Medium' !important;
+      margin-top: 0.75rem;
+      margin-bottom: 0rem;
+    }
+
+    .banner-title {
+      font-family: 'Poppins ExtraBold' !important;
+      font-size: 2.3rem;
+      line-height: 1.2;
+      margin-bottom: 1.2rem;
+      margin-top: 1.2rem;
+    }
+
+    .banner-subtext {
+      font-family: 'Poppins Medium' !important;
+      font-size: 1rem;
+      text-transform: none !important;
+      padding: 0 3rem;
+      max-width: 700px;
+      margin: 0 auto 1.5rem;
+    }
+
+    .banner-button {
+      background-color: #fff304;
+      color: #000;
+      padding: 0.9rem 4.8rem;
+      font-size: 1.25rem;
+      font-family: 'Poppins ExtraBold' !important;
+      font-weight: bold !important;
+      border-radius: 999px;
+      text-decoration: none;
+      display: inline-block;
+      box-shadow: 0.25rem 0.25rem 0 #000;
+      border: 1.7px solid #000;
+      margin-bottom: 1.3rem;
+    }
+
+    .moneyback {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.95rem;
+      font-family: 'Poppins Medium' !important;
+    }
+
+    .moneyback img {
+      width: 12px;
+      height: 12px;
+    }
+
+    .banner-desktop {
+      display: none;
+    }
+
+    .banner-mobile {
+      display: block;
+    }
+
+  @media screen and (min-width: 768px) {
+  section {
+    padding-top: 0 !important;
+  }
+
+  .banner-desktop {
+    display: block;
+  }
+
+  .banner-mobile {
+    display: none;
+  }
+
+  .banner-content {
+    top: 40%;
+    transform: translateY(-50%);
+    text-align: center;
+    padding: 0;
+  }
+
+  .banner-inner {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 700px;
+    transform: translateX(-55%); /* Mais para a esquerda */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza título, texto e botão entre eles */
+  }
+
+  /* Fontes ainda maiores */
+  .rating-badge {
+    font-size: 1.2rem;
+    padding: 0.6rem 1.5rem;
+  }
+
+  .banner-title {
+    font-size: 4.5rem;
+    margin-top: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .banner-subtext {
+    font-size: 1.6rem;
+    padding: 0 2rem;
+    margin-bottom: 3rem;
+    line-height: 1.5;
+  }
+
+  .banner-button {
+    padding: 1.5rem 7rem;
+    font-size: 3 rem;
+    box-shadow: 0.35rem 0.35rem 0 #000;
+    border-width: 2.5px;
+    margin-bottom: 2.5rem;
+  }
+
+  .moneyback {
+    font-size: 1.4rem;
+  }
+
+  .moneyback img {
+    width: 20px;
+    height: 20px;
+  }
+      .banner-button {
+    font-size: 1.7rem; /* aumenta para 4rem, ou o que quiser */
+  }
+}
+
+    @media screen and (min-width: 768px) {
+  .banner-content {
+    padding-inline: 2rem;
+    box-sizing: border-box;
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+
+  .banner-inner {
+    width: 100%;
+    max-width: 700px;
+    overflow-wrap: break-word;
+  }
+
+  .banner-container {
+    overflow-x: hidden;
+  }
+}
+
+  </style>
+
+<div class="banner-container">
+  <!-- Desktop image -->
+  <img class="banner-image banner-desktop" src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Main_Banner_Desktop_4.png?v=1761314993" alt="{{ 'banner.desktop_alt' | t }}">
+
+  <!-- Mobile image -->
+  <img class="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/1_9174871d-7cfc-4a81-b306-ebc5a2c7f206.png?v=1765553449" alt="{{ 'banner.mobile_alt' | t }}">
+
+  <div class="banner-content">
+    <div class="banner-inner">
+      <div class="rating-badge">
+        ★★★★★ {{ 'banner.rating_prefix' | t }} <strong>20,000+</strong> {{ 'banner.rating_suffix' | t }}
+      </div>
+
+      <h1 class="banner-title">
+        {{ 'banner.title_line1' | t }}<br>{{ 'banner.title_line2' | t }}
+      </h1>
+
+      <p class="banner-subtext">
+        {{ 'banner.subtext_prefix' | t }} <strong>{{ 'banner.subtext_middle' | t }}</strong> {{ 'banner.subtext_suffix' | t }}
+      </p>
+
+      {% assign lang_prefix = '' %}
+      {% if localization.language.iso_code == 'pt' or localization.language.iso_code contains 'pt' %}
+        {% assign lang_prefix = '/pt' %}
+      {% elsif localization.language.iso_code == 'es' or localization.language.iso_code contains 'es' %}
+        {% assign lang_prefix = '/es' %}
+      {% endif %}
+
+      <a href="{{ lang_prefix }}/collections/best-sellers" class="banner-button">{{ 'banner.button' | t }}</a>
+
+      <div class="moneyback">
+        <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Icons_4_faf23a24-678d-48e9-b8ac-2f3dc4556e59.png?v=1748474359" alt="{{ 'banner.moneyback_icon_alt' | t }}">
+        <span>{{ 'banner.moneyback' | t }}</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+</section>

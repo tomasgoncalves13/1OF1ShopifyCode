@@ -1,0 +1,501 @@
+.header__icon--menu {
+  position: initial;
+}
+
+.js menu-drawer > details > summary::before,
+.js menu-drawer > details[open]:not(.menu-opening) > summary::before {
+  content: '';
+  position: absolute;
+  cursor: default;
+  width: 100%;
+  height: calc(100vh - 100%);
+  height: calc(var(--viewport-height, 100vh) - (var(--header-bottom-position, 100%)));
+  top: 100%;
+  left: 0;
+  background: rgba(var(--color-foreground), 0.5);
+  opacity: 0;
+  visibility: hidden;
+  z-index: 2;
+  transition: opacity 0s, visibility 0s;
+}
+
+menu-drawer > details[open] > summary::before {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity var(--duration-default) ease, visibility var(--duration-default) ease;
+}
+
+.menu-drawer {
+  position: absolute;
+  transform: translateX(-100%);
+  visibility: hidden;
+  z-index: 3;
+  left: 0;
+  top: 100%;
+  width: 100%;
+  padding: 0;
+  background-color: rgb(var(--color-background));
+  overflow-x: hidden;
+  filter: drop-shadow(
+    var(--drawer-shadow-horizontal-offset) var(--drawer-shadow-vertical-offset) var(--drawer-shadow-blur-radius)
+      rgba(var(--color-shadow), var(--drawer-shadow-opacity))
+  );
+}
+
+.js .menu-drawer {
+  height: calc(100vh - 100%);
+  height: calc(var(--viewport-height, 100vh) - (var(--header-bottom-position, 100%)));
+}
+
+.js details[open] > .menu-drawer,
+.js details[open] > .menu-drawer__submenu {
+  transition: transform var(--duration-default) ease, visibility var(--duration-default) ease;
+}
+
+.js details[open].menu-opening > .menu-drawer,
+details[open].menu-opening > .menu-drawer__submenu {
+  transform: translateX(0);
+  visibility: visible;
+}
+
+.js .menu-drawer__navigation .submenu-open {
+  visibility: hidden; /* hide menus from screen readers when hidden by submenu */
+}
+
+@media screen and (min-width: 750px) {
+  .menu-drawer {
+    width: 40rem;
+    border-width: 0 var(--drawer-border-width) 0 0;
+    border-style: solid;
+    border-color: rgba(var(--color-foreground), var(--drawer-border-opacity));
+  }
+}
+
+.menu-drawer__inner-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.menu-drawer__navigation-container {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  align-content: space-between;
+  overflow-y: auto;
+  height: 100%;
+}
+
+.menu-drawer__navigation {
+  padding: 3rem 0;
+}
+
+.menu-drawer__inner-submenu {
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.js .menu-drawer__menu li {
+  margin-bottom: 0.2rem;
+}
+
+.menu-drawer__menu-item {
+  padding: 1.1rem 3rem;
+  text-decoration: none;
+  font-size: 1.8rem;
+}
+
+.menu-drawer summary.menu-drawer__menu-item {
+  padding-right: 5.2rem;
+}
+
+.menu-drawer__menu-item--active,
+.menu-drawer__menu-item:focus,
+.menu-drawer__close-button:focus,
+.menu-drawer__menu-item:hover,
+.menu-drawer__close-button:hover {
+  color: rgb(var(--color-foreground));
+  background-color: rgba(var(--color-foreground), 0.04);
+}
+
+.menu-drawer__menu-item--active:hover {
+  background-color: rgba(var(--color-foreground), 0.08);
+}
+
+.js .menu-drawer__menu-item .icon-caret {
+  display: none;
+}
+
+.menu-drawer__menu-item > .svg-wrapper {
+  width: 15px;
+  position: absolute;
+  right: 3rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.js .menu-drawer__submenu {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  background-color: rgb(var(--color-background));
+  z-index: 1;
+  transform: translateX(100%);
+  visibility: hidden;
+}
+
+.js .menu-drawer__submenu .menu-drawer__submenu {
+  overflow-y: auto;
+}
+
+.menu-drawer__close-button {
+  margin-top: 1.5rem;
+  padding: 1.2rem 2.6rem 1.2rem 3rem;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  font-size: 1.4rem;
+  width: 100%;
+  background-color: transparent;
+  font-family: var(--font-body-family);
+  font-style: var(--font-body-style);
+  text-align: left;
+}
+
+.menu-drawer__close-button .svg-wrapper {
+  transform: rotate(180deg);
+  margin-right: 1rem;
+  width: 15px;
+}
+
+.menu-drawer__utility-links {
+  padding: 0;
+  background-color: rgba(var(--color-foreground), 0.03);
+  position: relative;
+}
+
+.header--has-social .menu-drawer__utility-links {
+  padding: 2rem 3rem;
+}
+
+@media screen and (max-width: 749px) {
+  .header--has-account:where(:not(.header--has-social):not(.header--has-localizations)) .menu-drawer__utility-links {
+    padding: 2rem 3rem;
+  }
+}
+
+@media screen and (max-width: 989px) {
+  .header--has-localizations:where(:not(.header--has-social)) .menu-drawer__utility-links {
+    padding: 2rem 3rem;
+  }
+}
+
+.menu-drawer__account {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  padding: 1rem 0;
+  font-size: 1.4rem;
+  color: rgb(var(--color-foreground));
+  margin-bottom: 0;
+}
+
+.menu-drawer__utility-links:has(.menu-drawer__localization) .menu-drawer__account {
+  margin: 0;
+}
+
+.menu-drawer__account account-icon > .svg-wrapper {
+  height: 2rem;
+  width: 2rem;
+  margin-right: 1rem;
+}
+
+.menu-drawer__account shop-user-avatar {
+  --shop-avatar-size: 2.4rem;
+  margin-right: 0.55rem;
+  margin-left: -0.45rem;
+}
+
+.menu-drawer__account:hover account-icon > .svg-wrapper {
+  transform: scale(1.07);
+}
+
+.menu-drawer .list-social {
+  justify-content: flex-start;
+  margin-left: -1.25rem;
+}
+
+.menu-drawer .list-social:empty {
+  display: none;
+}
+
+.menu-drawer .list-social__link {
+  padding: 1.1rem 1.1rem;
+}
+
+
+@font-face {
+  font-family: 'Poppins ExtraBold';
+  src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/poppins.extrabold.ttf?v=1747688794') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Poppins Medium';
+  src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/poppins.medium.ttf?v=1747688794') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@media screen and (max-width: 749px) {
+  .menu-drawer {
+    width: 95vw !important;
+    max-width: 360px;
+    box-shadow: 4px 0 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .menu-drawer__inner-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background: white !important;
+  }
+
+  .drawer-fixed-top {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: white;
+  }
+
+  .drawer-shop-title {
+    font-family: 'Poppins ExtraBold' !important;
+    font-size: 1.6rem;
+    padding: 1.2rem 1.6rem 1rem;
+    color: black;
+    text-transform: uppercase;
+    background: white;
+  }
+
+  .drawer-feature-boxes {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 0 1.6rem 1.6rem;
+    background: white;
+  }
+
+  .drawer-feature {
+    flex: 1;
+    background: #f1f1f1;
+    border: 1px solid #ccc;
+    text-align: left;
+    padding: 1rem;
+    font-family: 'Poppins Medium' !important;
+    font-size: 1.2rem;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    min-height: 60px;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+  }
+
+  .drawer-feature img {
+    height: 20px;
+    width: auto;
+  }
+
+  .drawer-feature .trusted-icon {
+    height: 28px;
+    width: auto;
+    margin-top: 0;
+  }
+
+  .feature-text {
+    line-height: 1.3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+.drawer-scrollable {
+  flex: none;
+  height: calc(var(--viewport-height, 100vh) - 270px); /* ajusta este valor conforme o topo + footer */
+  overflow-y: auto;
+  padding: 0 1.6rem;
+  overscroll-behavior: contain;
+}
+
+.drawer-footer-spacer {
+  height: 10px;
+  flex-shrink: 0;
+}
+  .custom-menu-images-wrapper {
+    background: transparent !important;
+    padding: 0;
+    margin-bottom: 20px;
+  }
+
+  .custom-menu-images {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .custom-menu-images .collection-card:first-child {
+    margin-top: 10px;
+  }
+
+  .collection-card {
+    position: relative;
+    width: 100%;
+  }
+
+  .collection-link {
+    position: relative;
+    display: block;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .collection-link img {
+    width: 100%;
+    display: block;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+    background: white !important;
+  }
+
+  .collection-link .overlay {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .collection-title {
+    font-family: 'Poppins ExtraBold' !important;
+    font-size: 1.8rem !important;
+    color: white;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+    text-transform: uppercase;
+  }
+
+  .shop-button {
+    font-family: 'Poppins ExtraBold' !important;
+    font-size: 1.2rem;
+    background: #FFD700;
+    color: black;
+    padding: 0.6rem 1.5rem;
+    border-radius: 999px;
+    border: 1px solid black;
+    box-shadow: 0 2px 0 black;
+    text-decoration: none;
+    transition: transform 0.2s ease;
+  }
+
+  .shop-button:hover {
+    transform: scale(1.05);
+  }
+
+  .drawer-fixed-footer {
+    background: white;
+    padding: 1rem 1.6rem;
+    border-top: 1px solid #ddd;
+    position: sticky;
+    bottom: 0;
+    z-index: 5;
+    padding-bottom: calc(1rem + env(safe-area-inset-bottom));
+  }
+
+  .drawer-footer-links {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Poppins Medium' !important;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+
+  .drawer-footer-links a {
+    text-decoration: none;
+    color: black;
+    font-family: 'Poppins Medium' !important;
+  }
+
+  .drawer-footer-links a:hover {
+    text-decoration: underline;
+  }
+
+  .drawer-social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .drawer-social-icons img {
+    width: 24px;
+    height: 24px;
+  }
+}
+@media screen and (max-width: 749px) {
+  .menu-drawer {
+    width: 95vw !important;
+    max-width: 360px;
+    box-shadow: 4px 0 12px rgba(0, 0, 0, 0.1);
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .menu-drawer__inner-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: white !important;
+  }
+
+  .drawer-fixed-top {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: white;
+    flex-shrink: 0;
+  }
+
+  .drawer-scrollable {
+    flex: 1;
+    overflow-y: auto;
+    padding: 0 1.6rem;
+    overscroll-behavior: contain;
+  }
+
+  .drawer-fixed-footer {
+    background: white;
+    padding: 1rem 1.6rem;
+    border-top: 1px solid #ddd;
+    position: sticky;
+    bottom: 0;
+    z-index: 5;
+    padding-bottom: calc(1rem + env(safe-area-inset-bottom));
+    flex-shrink: 0;
+  }
+
+body.no-scroll {
+  overflow: hidden !important;
+  height: 100vh !important;
+  position: fixed !important;
+  width: 100% !important;
+  top: 0;
+  left: 0;
+}
+
+}

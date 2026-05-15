@@ -1,0 +1,805 @@
+<style>
+  @font-face {
+    font-family: 'PoppinsExtraBold';
+    src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/poppins.extrabold.ttf?v=1747688794') format('truetype');
+  }
+
+  @font-face {
+    font-family: 'PoppinsMedium';
+    src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/poppins.medium.ttf?v=1747688794') format('truetype');
+  }
+
+  @font-face {
+    font-family: 'PoppinsLight';
+    src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/poppins.light.ttf?v=1748130416') format('truetype');
+  }
+
+  @font-face {
+  font-family: 'PoppinsBold';
+  src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/poppins.bold.ttf?v=1747688795') format('truetype');
+}
+
+  .favourites-section {
+    padding-top: 40px;
+    text-align: center;
+  }
+
+  .favourites-header .rating-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 10px;
+    font-family: 'PoppinsMedium', sans-serif;
+    font-size: 10px;
+    border: 1px solid #ccc;
+    border-radius: 999px;
+    gap: 4px;
+    margin-bottom: 0px;
+  }
+
+  .favourites-header .rating-badge img {
+    height: 11px;
+  }
+
+  .favourites-header h2 {
+    font-family: 'PoppinsExtraBold', sans-serif !important;
+    font-size: 25px;
+    margin: 7px;
+    letter-spacing: 0.5px;
+  }
+
+  .favourites-header p {
+    font-family: 'PoppinsMedium', sans-serif !important;
+    font-size: 11px;
+    color: #333;
+    margin-top: 4px;
+    margin-bottom: 14px;
+    letter-spacing: 0.4px;
+  }
+
+  .favourites-tabs .tabs {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+  }
+
+  .favourites-tabs .tab {
+    background: transparent;
+    color: #000;
+    padding: 6px 18px;
+    cursor: pointer;
+    border: 1.5px solid #000;
+    font-family: 'PoppinsBold', sans-serif;
+    font-size: 12px;
+    border-radius: 999px;
+    transition: all 0.2s ease;
+  }
+
+  .favourites-tabs .tab.active {
+    background: #000;
+    color: #fff;
+  }
+
+  .tab-content {
+    display: none;
+  }
+
+  .tab-content.active {
+    display: block;
+  }
+
+  .carousel-viewport {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    padding-left: 10px;
+  }
+
+  .carousel-track {
+    display: flex;
+    transition: transform 0.4s ease-in-out;
+    gap: 9.5px;
+    will-change: transform;
+  }
+
+  .carousel-slidee {
+    flex: 0 0 75%;
+    box-sizing: border-box;
+    scroll-snap-align: start;
+  }
+
+  .product-card {
+    background: fff;
+    border-radius: 8px;
+    padding: 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .product-card a.product-link img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+    border-radius: 8px;
+        border-width: 1px;
+    border-style: solid;
+        border-image: initial;
+        overflow: hidden;
+            border-color: #0003;
+  }
+
+  .product-info {
+    padding: 6px 8px;
+    text-align: left;
+    width: 100%;
+  }
+
+  .product-info .stars {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-bottom: 2px;
+  }
+
+  .product-info .stars img {
+    height: 12px;
+  }
+
+  .product-info .stars span {
+    font-size: 11px;
+    font-family: 'PoppinsMedium', sans-serif;
+    color: #000000;
+    margin-left:5px;
+  }
+
+      .product-info .title {
+        font-family: 'PoppinsBold', sans-serif !important;
+    font-size: 14px !important;
+    line-height: 1.2 !important;
+    margin-top: 2px !important;
+    margin-bottom: 2px !important;
+    color: #000;
+  }
+
+  .product-info .price {
+    display: flex;
+    gap: 6px;
+    font-size: 14px;
+    align-items: center;
+  }
+
+  .product-info .price .current {
+    font-size: 14px;
+    color: #D71239;
+    font-weight: bold;
+  }
+
+  .product-info .price .old {
+    color: #888;
+    text-decoration: line-through;
+  }
+  
+.image-wrapper {
+  position: relative;
+  width: 100%;
+}
+  
+.quick-buy-button {
+  position: absolute;
+  bottom: 12px;
+  right: 12px; /* 👈 garante que fique no canto inferior direito */
+  background: #ffffff;
+  border: none;
+  padding: 8px 12px;
+  font-family: 'PoppinsSemiBold', sans-serif;
+  font-size: 13px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+  transition: all 0.2s ease;
+  color: #000 !important;
+  text-decoration: none;
+}
+
+.quick-buy-button:hover {
+  transform: scale(1.03);
+}
+
+.quick-buy-button img {
+  width: 20px;
+  height: 20px;
+}
+
+  .carousel-controls-inline {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-top: 10px;
+  }
+
+  .carousel-controls-inline .carousel-button {
+    background: transparent;
+    border: none;
+    padding: 0;
+  }
+
+  .carousel-controls-inline .carousel-button img {
+    width: 10px;
+    height: auto;
+  }
+
+  .carousel-dots {
+    display: flex;
+    gap: 6px;
+  }
+
+  .carousel-dots span {
+    width: 10px;
+    height: 10px;
+    background: #ccc;
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  .carousel-dots .active {
+    background: #000;
+    border: 2px solid #000;
+  }
+
+  .favourites-header {
+    margin top:10px;
+    margin-bottom: 40px;
+  }
+
+.favourites-section a[href$="/collections/best-sellers"] {
+    margin-top: 5px;
+    padding: 7px 22px !important; /* troquei de 60 para 22 */
+    margin-bottom: 3px;
+    font-size: 15px !important;
+}
+
+@media (min-width: 768px) {
+
+    .product-info .title {
+      font-family: 'PoppinsBold', sans-serif !important;
+    font-size: 30px;
+    color: #000;
+    margin: -2px 0;
+     line-height: 1.25;
+      margin-top: 2px;
+  margin-bottom: 2px;/* reduz a distância entre linhas */
+  }
+
+  
+  .tab-content.active .carousel-track {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .tab-content.active . carousel-slidee{
+    display: block !important;
+    max-width: 100% !important;
+    flex: none !important;
+  }
+
+  .tab-content.active .product-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background: fff;
+    border-radius: 8px;
+    padding: 0;
+    overflow: hidden;
+    box-sizing: border-box;
+    height: 100%;
+  }
+
+  .tab-content.active .product-card .image-wrapper {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+
+  .tab-content.active .product-card a.product-link img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+    border-radius: 6px;
+    border: 1px solid black;
+    display: block;
+  }
+
+  .tab-content.active .product-info {
+    padding: 8px 10px;
+    text-align: left;
+    width: 100%;
+  }
+
+  .carousel-controls-inline,
+  .carousel-dots {
+    display: none !important;
+  }
+
+  .tab-content.active .carousel-track .product-card:first-child,
+  .tab-content.active .carousel-track .product-card:last-child {
+    display: none !important;
+  }
+
+  .favourites-section {
+    max-width: 1170px;
+    margin: 0 auto;
+    padding: 30px 20px 20px; /* menos espaço em baixo */
+  }
+
+  .favourites-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-bottom: 5px; /* menos distância até aos produtos */
+    margin-top: 30px;
+  }
+
+  .favourites-header-left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 70%;
+    gap: 10px; /* Menos espaço entre linhas */
+  }
+
+  .rating-badge {
+    font-family: 'PoppinsMedium', sans-serif !important;
+    font-size: 15px !important;
+    padding: 2px 20px !important;
+    border: 1px solid #ccc !important;
+    border-radius: 999px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+  }
+
+  .rating-badge img {
+    height: 15px !important;
+    width: auto !important;
+  }
+
+  .favourites-header-left h2 {
+    font-size: 38px !important;
+    font-family: 'PoppinsExtraBold', sans-serif;
+    margin: 0;
+  }
+
+  .favourites-header-left p {
+    font-size: 16px !important;
+    font-family: 'PoppinsMedium', sans-serif;
+    margin: 0;
+    color: #333;
+  }
+
+  .favourites-tabs {
+    display: flex;
+    align-items: flex-start;
+    margin-top: 88px; /* tabs mais abaixo */
+  }
+
+  .favourites-tabs .tabs {
+    display: flex;
+    gap: 14px;
+  }
+
+  .favourites-tabs .tab {
+    font-family: 'PoppinsBold', sans-serif;
+    font-size: 15px !important;
+    padding: 10px 40px !important;
+    border-radius: 999px;
+    border: 1.5px solid #000;
+    background: transparent;
+    cursor: pointer;
+  }
+
+  .favourites-tabs .tab.active {
+    background: #000;
+    color: #fff;
+  }
+  
+    a[href="/collections/best-sellers"] {
+      margin-top:50px;
+    padding: 8px 160px;
+    font-size: 19px !important;
+      font-weight: 500 !important;
+  }
+
+  .favourites-section .guarantee-text {
+    font-size: 16px !important;
+      color: black;
+  font-family: 'PoppinsMedium', sans-serif !important;
+  }
+}
+
+.favourites-section .guarantee-text {
+  font-family: 'PoppinsMedium', sans-serif !important;
+  color: black;
+  font-size: 8px;
+  margin-bottom:30px;
+}
+  
+.guarantee-text {
+  font-family: 'PoppinsMedium', sans-serif !important;
+  font-size: 12px;
+  color: black;
+}
+
+.favourites-btn-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.favourites-btn {
+background-color: #fff304;
+  padding: 12px 70px;
+  border-radius: 30px;
+  text-decoration: none;
+  color: black;
+  box-shadow: 2px 2px 0 black;
+  font-family: 'PoppinsBold', sans-serif !important;
+  display: inline-block;
+  font-size: 14px;
+    box-shadow: 0 4px 6px 2px #0000001a, 0 2px 4px -1px #0000000f;
+    border: 1px solid #ffe304;
+}
+
+.favourites-section .favourites-btn {
+  margin-top: 5px;
+  margin-bottom: 3px;
+}
+
+
+@media (min-width: 768px) {
+  .guarantee-text {
+    font-size: 16px !important;
+  }
+}
+
+  .guarantee-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 15px;
+  padding-bottom: 20px;
+}
+
+@media (min-width: 768px) {
+  .guarantee-wrapper {
+    padding-bottom: 0;
+  }
+}
+
+</style>
+
+<div class="favourites-section">
+  <div class="favourites-header">
+    <div class="favourites-header-left">
+      <div class="rating-badge">
+        {{ 'favourites.rating_badge' | t }}
+        <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Design_sem_nome_31_2.png?v=1775505343" alt="{{ 'favourites.stars_alt' | t }}">
+      </div>
+      <h2>{{ 'favourites.title' | t }}</h2>
+      <p>{{ 'favourites.subtitle' | t }}</p>
+    </div>
+
+    <div class="favourites-tabs">
+      <div class="tabs">
+        <button class="tab active" data-tab="shin" onclick="showTab('shin')">{{ 'favourites.tab_best_sellers' | t }}</button>
+        <button class="tab" data-tab="socks" onclick="showTab('socks')">{{ 'favourites.tab_bundles' | t }}</button>
+        <button class="tab" data-tab="bundles" onclick="showTab('bundles')">{{ 'favourites.tab_shin_pads' | t }}</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% assign tabs = "shin,socks,bundles" | split: "," %}
+{% assign tab_handles = "shin-pad-sleeve,sock-sleeve,grip-socks,pre-szn-bundle-shin-pad-sleeve|12-pair-bundle-pro-grip-socks,pre-szn-bundle-shin-pad-sleeve,6-pair-bundle-pro-grip-socks,pro-package-kids-built-in-shin-pads|shin-pad-sleeve,mini-shin-pads,airflow,kids-built-in-shin-pads" | split: "|" %}
+
+{% for tab in tabs %}
+  <div id="{{ tab }}" class="tab-content{% if forloop.first %} active{% endif %}">
+    <div class="carousel-viewport" ontouchstart="">
+      <div class="carousel-track" id="carousel-track-{{ tab }}">
+        {% assign handles = tab_handles[forloop.index0] | split: "," %}
+        {% for handle in handles %}
+          {% assign product = all_products[handle] %}
+          <div class="product-card carousel-slidee">
+            <div class="image-wrapper">
+              <a href="{{ product.url }}" class="product-link">
+                <img src="{{ product.featured_image | img_url: 'master' }}" alt="{{ product.title }}">
+              </a>
+              <button class="quick-buy-button" onclick="openQuickBuy('{{ product.handle }}')">
+                <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Icons_10.png?v=1748384481" alt="{{ 'favourites.add_icon_alt' | t }}">
+                {{ 'favourites.quick_buy' | t }}
+              </button>
+            </div>
+
+            <div class="product-info">
+              <div class="stars">
+                <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Design_sem_nome_31_2.png?v=1775505343" alt="{{ 'favourites.stars_alt' | t }}">
+                <span>{{ 'favourites.reviews_count' | t }}</span>
+              </div>
+              <div class="title">{{ product.title }}</div>
+              <div class="price">
+                <span class="current">{{ product.price | money }}</span>
+                {% if product.compare_at_price > product.price %}
+                  <span class="old">{{ product.compare_at_price | money }}</span>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="carousel-controls-inline">
+      <button class="carousel-button" onclick="moveCarousel('{{ tab }}', 'left')">
+        <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Icons_6.png?v=1748183986" alt="{{ 'favourites.left_arrow_alt' | t }}" />
+      </button>
+      <div class="carousel-dots" id="carousel-dots-{{ tab }}"></div>
+      <button class="carousel-button" onclick="moveCarousel('{{ tab }}', 'right')">
+        <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Icons_7.png?v=1748183986" alt="{{ 'favourites.right_arrow_alt' | t }}" />
+      </button>
+    </div>
+
+<div class="favourites-btn-wrapper">
+  <a href="/collections/best-sellers" class="favourites-btn">Comprar Mais Vendidos</a> <!-- Link direto sem prefixo de idioma -->
+</div>
+
+
+<div class="guarantee-wrapper" style="display: flex; justify-content: center; align-items: center; gap: 8px; margin-top: 10px; padding-bottom: 25px;">
+  <img 
+    src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Icons_4.png?v=1747771124" 
+    alt="{{ 'favourites.guarantee_icon_alt' | t }}" 
+    style="width: 16px; height: 16px; object-fit: contain; margin-top: 2px;" 
+  />
+  <span style="font-family: 'PoppinsMedium', sans-serif; font-size: 13px; color: black;">
+    {{ 'favourites.guarantee_text' | t }}
+  </span>
+</div>
+
+  </div>
+{% endfor %}
+
+
+
+
+<script>
+function showTab(tabId) {
+  document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+  document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+  document.querySelector('.tab[data-tab="' + tabId + '"]').classList.add('active');
+  document.getElementById(tabId).classList.add('active');
+}
+
+const tabs = ['shin', 'socks', 'bundles'];
+const slideState = {};
+
+tabs.forEach(tab => {
+  const track = document.getElementById('carousel-track-' + tab);
+  const slides = Array.from(track.children);
+  const dotsContainer = document.getElementById('carousel-dots-' + tab);
+  const totalSlides = slides.length;
+  let index = 0;
+
+  const cloneFirst = slides[0].cloneNode(true);
+  const cloneLast = slides[totalSlides - 1].cloneNode(true);
+  track.appendChild(cloneFirst);
+  track.insertBefore(cloneLast, slides[0]);
+
+  const newSlides = Array.from(track.children);
+  track.style.transform = `translateX(-${(index + 1) * (newSlides[0].offsetWidth + 10)}px)`;
+
+  slideState[tab] = { index, track, slides: newSlides, dotsContainer };
+
+  updateDots(tab, index);
+
+  slides.forEach((_, i) => {
+    const dot = document.createElement('span');
+    dot.className = 'carousel-dot';
+    if (i === 0) dot.classList.add('active');
+    dot.dataset.index = i;
+    dot.addEventListener('click', () => updateCarousel(tab, i));
+    dotsContainer.appendChild(dot);
+  });
+
+  let startX = 0;
+  let isMoving = false;
+
+  track.addEventListener('touchstart', e => {
+    startX = e.touches[0].clientX;
+    isMoving = true;
+  });
+
+  track.addEventListener('touchmove', e => {
+    if (!isMoving) return;
+    const dx = e.touches[0].clientX - startX;
+    if (Math.abs(dx) > 50) {
+      if (dx < 0) moveCarousel(tab, 'right');
+      else moveCarousel(tab, 'left');
+      isMoving = false;
+    }
+  });
+
+  track.addEventListener('touchend', () => {
+    isMoving = false;
+  });
+});
+
+function updateCarousel(tab, i, animate = true) {
+  const { track, slides, dotsContainer } = slideState[tab];
+  const slideWidth = slides[0].offsetWidth + 10;
+  const offset = (i + 1) * slideWidth;
+  track.style.transition = animate ? 'transform 0.4s ease-in-out' : 'none';
+  track.style.transform = `translateX(-${offset}px)`;
+  slideState[tab].index = i;
+
+  updateDots(tab, i);
+}
+
+function updateDots(tab, index) {
+  const { dotsContainer } = slideState[tab];
+  dotsContainer.querySelectorAll('span').forEach(dot => dot.classList.remove('active'));
+  if (dotsContainer.children[index]) {
+    dotsContainer.children[index].classList.add('active');
+  }
+}
+
+function moveCarousel(tab, direction) {
+  const state = slideState[tab];
+  const total = state.slides.length - 2; // exclude clones
+
+  if (direction === 'right') {
+    state.index++;
+    updateCarousel(tab, state.index, true);
+
+    if (state.index >= total) {
+      // Atualiza visualmente o dot antes do salto
+      updateDots(tab, 0);
+      setTimeout(() => {
+        updateCarousel(tab, 0, false);
+        state.index = 0;
+      }, 400);
+    }
+  } else {
+    state.index--;
+    updateCarousel(tab, state.index, true);
+
+    if (state.index < 0) {
+      // Atualiza visualmente o dot antes do salto
+      updateDots(tab, total - 1);
+      setTimeout(() => {
+        updateCarousel(tab, total - 1, false);
+        state.index = total - 1;
+      }, 400);
+    }
+  }
+}
+
+function openQuickBuy(handle) {
+  const modal = document.getElementById('quick-buy-modal');
+  const contentContainer = modal.querySelector('.quick-buy-content');
+
+  // Mostra o modal com loading temporário
+  modal.style.display = 'flex';
+  contentContainer.innerHTML = '<p style="text-align:center;">Loading...</p>';
+
+  // Busca o conteúdo da view personalizada
+fetch('{{ localization.root_url }}/products/' + handle + '?view=quick-buy')
+
+    .then(response => response.text())
+    .then(html => {
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(html, 'text/html');
+      const modalContent = doc.querySelector('.quick-buy-content');
+      if (modalContent) {
+  contentContainer.innerHTML = modalContent.innerHTML;
+  initQuickBuyModal(); // ⬅️ CHAMADA ESSENCIAL
+} else {
+  contentContainer.innerHTML = '<p>Erro ao carregar produto.</p>';
+}
+    })
+    .catch(() => {
+      contentContainer.innerHTML = '<p>Erro ao carregar produto.</p>';
+    });
+}
+
+function closeQuickBuy() {
+  const modal = document.getElementById('quick-buy-modal');
+  modal.style.display = 'none';
+}
+
+function initQuickBuyModal() {
+  const modal = document.getElementById('quick-buy-modal');
+  const image = modal.querySelector('#variant-main-image');
+  const input = modal.querySelector('#variant-id-input');
+  const addToCartBtn = modal.querySelector('#add-to-cart-button');
+
+  let selectedOptions = {};
+
+const selectedVariant = JSON.parse(modal.querySelector('script[data-selected-variant]').textContent);
+selectedVariant.options.forEach((value, index) => {
+  selectedOptions[index] = value;
+});
+  
+  const variantData = JSON.parse(modal.querySelector('script[data-variant-json]').textContent);
+
+  function updateVariantSelection() {
+    const selectedVariant = variantData.find(variant => {
+      return variant.options.every((opt, i) => selectedOptions[i] === opt);
+    });
+
+    if (selectedVariant) {
+      input.value = selectedVariant.id;
+      if (selectedVariant.featured_image) {
+        image.src = selectedVariant.featured_image.src;
+      }
+      addToCartBtn.disabled = false;
+    } else {
+      input.value = '';
+      addToCartBtn.disabled = true;
+    }
+  }
+
+  // Adicionar evento de clique a cada botão
+  const buttons = modal.querySelectorAll('.variant-button');
+  buttons.forEach(button => {
+    button.addEventListener('click', () => {
+      const index = parseInt(button.getAttribute('data-option-index'));
+      const value = button.getAttribute('data-option-value');
+
+      modal.querySelectorAll(`.variant-button[data-option-index="${index}"]`).forEach(b => b.classList.remove('active'));
+      button.classList.add('active');
+
+      selectedOptions[index] = value;
+
+      updateVariantSelection();
+    });
+  });
+
+  // Garantir que botões são clicados após os listeners estarem ativos
+  setTimeout(() => {
+    const optionGroups = modal.querySelectorAll('.variant-options-wrapper');
+    optionGroups.forEach(group => {
+      const firstButton = group.querySelector('.variant-button');
+      if (firstButton) {
+        firstButton.click(); // agora os listeners já estão prontos
+      }
+    });
+  }, 0);
+}
+
+
+</script>
+
+
+{% render 'quick-buy-modal' %}

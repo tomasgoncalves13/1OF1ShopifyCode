@@ -1,0 +1,215 @@
+<style>
+  @font-face {
+    font-family: 'Poppins Medium';
+    src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/poppins.medium.ttf?v=1747688794') format('truetype');
+    font-style: normal;
+    font-weight: 500;
+  }
+
+  @font-face {
+    font-family: 'Poppins Black';
+    src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/poppins.extrabold.ttf?v=1747688794') format('truetype');
+    font-style: normal;
+    font-weight: 900;
+  }
+
+  html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .mission-wrapper {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  .community-wrapper {
+    padding: 0 0 60px 0;
+    background: fff;
+    text-align: center;
+    color: #111;
+    font-family: 'Poppins Medium', sans-serif !important;
+    position: relative;
+  }
+
+  .community-wrapper * {
+    font-family: 'Poppins Medium', sans-serif !important;
+  }
+
+  .community-divider {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-bottom: 30px;
+    transform: rotate(180deg);
+    pointer-events: none;
+  }
+
+  .community-title {
+    font-family: 'Poppins Black', sans-serif !important;
+    font-size: 36px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    letter-spacing: -0.5px;
+  }
+
+  .community-text {
+    max-width: 740px;
+    margin: 0 auto 40px auto;
+    font-size: 17px;
+    line-height: 1.8;
+    padding: 0 20px;
+  }
+
+  .community-text p {
+    margin: 18px 0;
+  }
+
+  .community-text .shaping {
+    font-weight: 600;
+    margin-top: 30px;
+    font-size: 18px;
+  }
+
+  .desktop-gallery {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+  }
+
+  .desktop-gallery img {
+    width: 100%;
+    max-width: 250px;
+    border-radius: 10px;
+  }
+
+  .swiper-container {
+    display: none;
+  }
+
+  @media (max-width: 768px) {
+    .community-wrapper {
+      padding: 0 0 30px 0 !important;
+    }
+
+    .community-divider {
+      margin-bottom: 20px;
+    }
+
+    .community-title {
+      font-size: 22px !important;
+      margin-bottom: 20px !important;
+    }
+
+    .community-text {
+      font-size: 14px !important;
+      line-height: 1.6 !important;
+      padding: 0 14px;
+    }
+
+    .community-text p {
+      margin: 12px 0 !important;
+    }
+
+    .community-text .shaping {
+      font-size: 13px !important;
+      margin-top: 20px !important;
+    }
+
+    .desktop-gallery {
+      display: none !important;
+    }
+
+    .swiper-container {
+      display: block !important;
+      width: 100vw !important;
+      max-width: 100% !important;
+      overflow: hidden !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      box-sizing: border-box;
+    }
+
+    .swiper-wrapper {
+      display: flex !important;
+    }
+
+    .swiper-slide {
+      width: 55% !important;
+      flex-shrink: 0;
+      padding: 0 !important;
+      box-sizing: border-box;
+    }
+
+    .swiper-slide img {
+      width: 100% !important;
+      height: auto !important;
+      border-radius: 10px !important;
+      display: block;
+    }
+  }
+</style>
+
+<section class="community-wrapper">
+  <!-- Divider Image -->
+  <img 
+    src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Design_sem_nome_19_1844de7d-8d68-4a4e-9cd5-ee1e4d1a22dd.png?v=1767108847" 
+    class="community-divider" 
+    alt="{{ 'community_section.divider_alt' | t }}">
+
+  <div class="community-title">{{ 'community_section.title' | t }}</div>
+  <div class="community-text">
+    <p>{{ 'community_section.p1' | t }}</p>
+    <p>{{ 'community_section.p2' | t }}</p>
+    <p>{{ 'community_section.p3' | t }}</p>
+    <p class="shaping">{{ 'community_section.p4' | t }}</p>
+  </div>
+
+  <!-- Desktop gallery (PC only) -->
+  <div class="desktop-gallery">
+    <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/427A9409-284B-44E5-A705-1FE0C14960F1.jpg?v=1748736933" alt="{{ 'community_section.player1_alt' | t }}">
+    <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Design_sem_nome_1_68181c48-d5ac-4060-a48e-573fc8bbb321.png?v=1748903430" alt="{{ 'community_section.player2_alt' | t }}">
+    <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/67C87A77-EDBF-4C63-8A3B-0791418ECCF6.jpg?v=1748736934" alt="{{ 'community_section.player3_alt' | t }}">
+    <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/63BEA202-FC68-4750-BADC-78D13FC7C8B9.jpg?v=1748736934" alt="{{ 'community_section.player4_alt' | t }}">
+  </div>
+
+  <!-- Mobile carousel -->
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/427A9409-284B-44E5-A705-1FE0C14960F1.jpg?v=1748736933" alt="{{ 'community_section.player1_alt' | t }}">
+      </div>
+      <div class="swiper-slide">
+        <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Design_sem_nome_1_68181c48-d5ac-4060-a48e-573fc8bbb321.png?v=1748903430" alt="{{ 'community_section.player2_alt' | t }}">
+      </div>
+      <div class="swiper-slide">
+        <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/67C87A77-EDBF-4C63-8A3B-0791418ECCF6.jpg?v=1748736934" alt="{{ 'community_section.player3_alt' | t }}">
+      </div>
+      <div class="swiper-slide">
+        <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/63BEA202-FC68-4750-BADC-78D13FC7C8B9.jpg?v=1748736934" alt="{{ 'community_section.player4_alt' | t }}">
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Swiper -->
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    new Swiper('.swiper-container', {
+      slidesPerView: 'auto',
+      centeredSlides: true,
+      loop: true,
+      spaceBetween: 12,
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+      }
+    });
+  });
+</script>

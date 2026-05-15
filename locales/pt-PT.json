@@ -1,0 +1,1218 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "general": {
+    "password_page": {
+      "login_form_heading": "Entre na loja usando a palavra-passe:",
+      "login_password_button": "Entre usando a palavra-passe",
+      "login_form_password_label": "Palavra-passe",
+      "login_form_password_placeholder": "A sua palavra-passe",
+      "login_form_error": "Palavra-passe errada!",
+      "login_form_submit": "Entrar",
+      "admin_link_html": "É o proprietário da loja? <a href=\"/admin\" class=\"link underlined-link\">Inicie a sessão aqui</a>",
+      "powered_by_shopify_html": "Esta loja irá contar com tecnologia {{ shopify }}"
+    },
+    "social": {
+      "alt_text": {
+        "share_on_facebook": "Partilhar no Facebook",
+        "share_on_twitter": "Partilhar no X",
+        "share_on_pinterest": "Marcar com um pin no Pinterest"
+      },
+      "links": {
+        "twitter": "X (Twitter)",
+        "facebook": "Facebook",
+        "pinterest": "Pinterest",
+        "instagram": "Instagram",
+        "tumblr": "Tumblr",
+        "snapchat": "Snapchat",
+        "youtube": "YouTube",
+        "vimeo": "Vimeo",
+        "tiktok": "TikTok"
+      }
+    },
+    "continue_shopping": "Continuar a comprar",
+    "pagination": {
+      "label": "Paginação",
+      "page": "Página {{ number }}",
+      "next": "Página seguinte",
+      "previous": "Página anterior"
+    },
+    "search": {
+      "search": "Pesquisar",
+      "reset": "Limpar termo de pesquisa"
+    },
+    "cart": {
+      "view": "Ver carrinho ({{ count }})",
+      "item_added": "Item adicionado ao seu carrinho",
+      "view_empty_cart": "Ver carrinho"
+    },
+    "share": {
+      "copy_to_clipboard": "Copiar ligação",
+      "share_url": "Ligação",
+      "success_message": "Ligação copiada para a área de transferência",
+      "close": "Fechar partilha"
+    },
+    "slider": {
+      "of": "de",
+      "next_slide": "Deslizar para a direita",
+      "previous_slide": "Deslizar para a esquerda",
+      "name": "Slider"
+    }
+  },
+  "newsletter": {
+    "label": "E-mail",
+    "success": "Obrigado pela sua subscrição",
+    "button_label": "Subscrever"
+  },
+  "accessibility": {
+    "skip_to_text": "Saltar para o conteúdo",
+    "close": "Encerrar",
+    "unit_price_separator": "por",
+    "vendor": "Fornecedor:",
+    "error": "Erro",
+    "refresh_page": "Escolher uma seleção resulta numa atualização de página completa.",
+    "link_messages": {
+      "new_window": "Abre numa nova janela.",
+      "external": "Abre website externo."
+    },
+    "loading": "A carregar...",
+    "skip_to_product_info": "Saltar para a informação do produto",
+    "total_reviews": "análises totais",
+    "star_reviews_info": "{{ rating_value }} de {{ rating_max }} estrelas",
+    "collapsible_content_title": "Conteúdo recolhível",
+    "complementary_products": "Produtos complementares"
+  },
+  "blogs": {
+    "article": {
+      "blog": "Blogue",
+      "read_more_title": "Ler mais: {{ title }}",
+      "comments": {
+        "one": "{{ count }} comentário",
+        "other": "{{ count }} comentários",
+        "many": "{{ count }} comentários"
+      },
+      "moderated": "Tenha em atenção que os comentários necessitam de ser aprovados antes de serem publicados.",
+      "comment_form_title": "Deixe um comentário",
+      "name": "Nome",
+      "email": "E-mail",
+      "message": "Comentário",
+      "post": "Publicar comentário",
+      "back_to_blog": "Voltar para o blogue",
+      "share": "Partilhar este artigo",
+      "success": "O seu comentário foi publicado com sucesso! Obrigado!",
+      "success_moderated": "O seu comentário foi publicado com sucesso. Será publicado em alguns instantes, já que o nosso blogue é moderado."
+    }
+  },
+  "onboarding": {
+    "product_title": "Exemplo de título do produto",
+    "collection_title": "O nome da sua coleção"
+  },
+  "products": {
+    "product": {
+      "add_to_cart": "Adicionar ao carrinho +",
+      "description": "Descrição",
+      "on_sale": "Em promoção",
+      "product_variants": "Variantes de produtos",
+      "quantity": {
+        "label": "Quantidade",
+        "input_label": "Quantidade de {{ product }}",
+        "increase": "Aumentar a quantidade de {{ product }}",
+        "decrease": "Diminuir a quantidade de {{ product }}",
+        "minimum_of": "Mínimo de {{ quantity }}",
+        "maximum_of": "Máximo de {{ quantity }}",
+        "multiples_of": "Incrementos de {{ quantity }}",
+        "in_cart_html": "<span class=\"quantity-cart\">{{ quantity }}</span> no carrinho",
+        "note": "Ver regras de quantidade",
+        "min_of": "Mín. de {{ quantity }}",
+        "max_of": "Máx. de {{ quantity }}"
+      },
+      "price": {
+        "from_price_html": "A partir de {{ price }}",
+        "regular_price": "Preço normal",
+        "sale_price": "Preço de saldo",
+        "unit_price": "Preço unitário"
+      },
+      "share": "Partilhar este produto",
+      "sold_out": "Esgotado",
+      "unavailable": "Indisponível",
+      "vendor": "Fornecedor",
+      "video_exit_message": "{{ title }} abre um vídeo em ecrã completo na mesma janela.",
+      "xr_button": "Ver no seu espaço",
+      "xr_button_label": "Ver no seu espaço, carrega item na janela de realidade aumentada",
+      "pickup_availability": {
+        "view_store_info": "Ver informações da loja",
+        "check_other_stores": "Verificar a disponibilidade noutras lojas",
+        "pick_up_available": "Recolha disponível",
+        "pick_up_available_at_html": "Recolha disponível em <span class=\"color-foreground\">{{ location_name }}</span>",
+        "pick_up_unavailable_at_html": "Recolha atualmente indisponível em <span class=\"color-foreground\">{{ location_name }}</span>",
+        "unavailable": "Não foi possível carregar a disponibilidade de recolha",
+        "refresh": "Atualizar"
+      },
+      "media": {
+        "open_media": "Abrir conteúdo multimédia {{ index }} em modal",
+        "play_model": "Ativar Visualizador 3D",
+        "play_video": "Reproduzir o vídeo",
+        "gallery_viewer": "Visualizador de Galeria",
+        "load_image": "Carregar imagem {{ index }} na vista de galeria",
+        "load_model": "Carregar Modelo 3D {{ index }} na vista de galeria",
+        "load_video": "Reproduzir vídeo {{ index }} na vista de galeria",
+        "image_available": "A imagem {{ index }} está agora disponível na vista de galeria"
+      },
+      "view_full_details": "Ver detalhes completos",
+      "shipping_policy_html": "<a href=\"{{ link }}\">Envio</a> calculado na finalização da compra.",
+      "choose_options": "Escolher opções",
+      "choose_product_options": "Escolha opções para {{ product_name }}",
+      "value_unavailable": "{{ option_value }} - Indisponível",
+      "variant_sold_out_or_unavailable": "Variante esgotada ou indisponível",
+      "inventory_in_stock": "Em stock",
+      "inventory_in_stock_show_count": "{{ quantity }} em stock",
+      "inventory_low_stock": "Stock reduzido",
+      "inventory_low_stock_show_count": "Stock reduzido: {{ quantity }} restantes",
+      "inventory_out_of_stock": "Esgotado",
+      "inventory_out_of_stock_continue_selling": "Em stock",
+      "sku": "SKU",
+      "volume_pricing": {
+        "title": "Preços por volume",
+        "note": "Preços por volume disponível",
+        "minimum": "{{ quantity }} ou mais",
+        "price_range": "{{ minimum }} - {{ maximum }}",
+        "price_at_each_html": "a {{ price }}/cada"
+      },
+      "taxes_included": " ",
+      "duties_included": "Encargos incluídos.",
+      "duties_and_taxes_included": " "
+    },
+    "modal": {
+      "label": "Galeria de conteúdo multimédia"
+    },
+    "facets": {
+      "apply": "Aplicar",
+      "clear": "Limpar",
+      "clear_all": "Remover tudo",
+      "from": "De",
+      "filter_and_sort": "Filtrar e ordenar",
+      "filter_by_label": "Filtrar:",
+      "filter_button": "Filtro",
+      "filters_selected": {
+        "one": "{{ count }} selecionada",
+        "other": "{{ count }} selecionada",
+        "many": "{{ count }} selecionada"
+      },
+      "max_price": "O preço mais alto é {{ price }}",
+      "product_count": {
+        "one": "{{ product_count }} de {{ count }} produto",
+        "other": "{{ product_count }} de {{ count }} produtos",
+        "many": "{{ product_count }} de {{ count }} produtos"
+      },
+      "product_count_simple": {
+        "one": "{{ count }} produto",
+        "other": "{{ count }} produtos",
+        "many": "{{ count }} produtos"
+      },
+      "reset": "Repor",
+      "sort_button": "Ordenar",
+      "sort_by_label": "Ordenar por:",
+      "to": "Para",
+      "clear_filter": "Remover filtro",
+      "filter_selected_accessibility": "{{ type }} ({{ count }} filtros selecionados)",
+      "show_more": "Mostrar mais",
+      "show_less": "Mostrar menos",
+      "filter_and_operator_subtitle": "Corresponder todos"
+    }
+  },
+  "templates": {
+    "404": {
+      "title": "Página não encontrada",
+      "subtext": "404"
+    },
+    "search": {
+      "no_results": "Não foram encontrados resultados para \"{{ terms }}\". Verifique a ortografia ou utilize uma palavra ou frase diferente.",
+      "page": "Página",
+      "results_with_count": {
+        "one": "{{ count }} resultado",
+        "other": "{{ count }} resultados",
+        "many": "{{ count }} resultados"
+      },
+      "title": "Resultados da pesquisa",
+      "products": "Produtos",
+      "search_for": "Procurar por \"{{ terms }}\"",
+      "results_with_count_and_term": {
+        "one": "{{ count }} resultado encontrado para “{{ terms }}”",
+        "other": "{{ count }} resultado encontrado para “{{ terms }}”",
+        "many": "{{ count }} resultado encontrado para “{{ terms }}”"
+      },
+      "results_pages_with_count": {
+        "one": "{{ count }} página",
+        "other": "{{ count }} páginas",
+        "many": "{{ count }} páginas"
+      },
+      "results_suggestions_with_count": {
+        "one": "{{ count }} sugestão",
+        "other": "{{ count }} sugestões",
+        "many": "{{ count }} sugestões"
+      },
+      "results_products_with_count": {
+        "one": "{{ count }} produto",
+        "other": "{{ count }} produtos",
+        "many": "{{ count }} produtos"
+      },
+      "suggestions": "Sugestões",
+      "pages": "Páginas"
+    },
+    "cart": {
+      "cart": "Carrinho"
+    },
+    "contact": {
+      "form": {
+        "name": "Nome",
+        "email": "E-mail",
+        "phone": "Número de telefone",
+        "comment": "Comentário",
+        "send": "Enviar",
+        "post_success": "Obrigado por entrar em contacto connosco. Responder-lhe-emos logo que possível.",
+        "error_heading": "Ajuste o seguinte:",
+        "title": "Formulário de contacto"
+      }
+    }
+  },
+  "sections": {
+    "header": {
+      "announcement": "Comunicado",
+      "menu": "Menu",
+      "cart_count": {
+        "one": "{{ count }} item",
+        "other": "{{ count }} itens",
+        "many": "{{ count }} itens"
+      }
+    },
+    "cart": {
+      "title": "carrinho",
+      "caption": "Itens do carrinho",
+      "remove_title": "Eliminar {{ title }}",
+      "note": "Instruções especiais da encomenda",
+      "checkout": "Finalizar a compra",
+      "empty": "O seu carrinho está vazio",
+      "cart_error": "Ocorreu um erro ao atualizar o seu carrinho. Tente novamente.",
+      "cart_quantity_error_html": "É possível adicionar apenas {{ quantity }} unidade(s) deste item ao carrinho.",
+      "headings": {
+        "product": "Produto",
+        "price": "Preço",
+        "total": "Total",
+        "quantity": "Quantidade",
+        "image": "Imagem de produto"
+      },
+      "update": "Atualizar",
+      "login": {
+        "title": "Tem uma conta?",
+        "paragraph_html": "<a href=\"{{ link }}\" class=\"link underlined-link\">Inicie sessão</a> para finalizar a compra mais rápido."
+      },
+      "estimated_total": "Total estimado",
+      "new_estimated_total": "Novo total estimado",
+      "duties_and_taxes_included_shipping_at_checkout_with_policy_html": "",
+      "duties_and_taxes_included_shipping_at_checkout_without_policy": "",
+      "taxes_included_shipping_at_checkout_with_policy_html": "",
+      "taxes_included_shipping_at_checkout_without_policy": "",
+      "duties_included_taxes_at_checkout_shipping_at_checkout_with_policy_html": "",
+      "duties_included_taxes_at_checkout_shipping_at_checkout_without_policy": "",
+      "taxes_at_checkout_shipping_at_checkout_with_policy_html": "",
+      "taxes_at_checkout_shipping_at_checkout_without_policy": ""
+    },
+    "footer": {
+      "payment": "Métodos de pagamento"
+    },
+    "featured_blog": {
+      "view_all": "Ver tudo",
+      "onboarding_title": "Publicação no blogue",
+      "onboarding_content": "Apresente aos clientes um resumo da publicação no blogue"
+    },
+    "featured_collection": {
+      "view_all": "Ver tudo",
+      "view_all_label": "Ver todos os produtos da coleção {{ collection_name }}"
+    },
+    "collection_list": {
+      "view_all": "Ver tudo"
+    },
+    "collection_template": {
+      "title": "Coleção",
+      "empty": "Nenhum produto encontrado",
+      "use_fewer_filters_html": "Utilizar menos filtros ou <a class=\"{{ class }}\" href=\"{{ link }}\">remover tudo</a>"
+    },
+    "video": {
+      "load_video": "Carregar vídeo: {{ description }}"
+    },
+    "slideshow": {
+      "load_slide": "Carregar slide",
+      "previous_slideshow": "Diapositivo anterior",
+      "next_slideshow": "Diapositivo seguinte",
+      "pause_slideshow": "Pausa na apresentação de diapositivos",
+      "play_slideshow": "Reproduzir apresentação de diapositivos",
+      "carousel": "Carrossel",
+      "slide": "Diapositivo"
+    },
+    "page": {
+      "title": "Título da página"
+    },
+    "announcements": {
+      "previous_announcement": "Comunicado anterior",
+      "next_announcement": "Comunicado seguinte",
+      "carousel": "Carrossel",
+      "announcement": "Comunicado",
+      "announcement_bar": "Barra de comunicado"
+    },
+    "quick_order_list": {
+      "product_total": "Subtotal dos produtos",
+      "view_cart": "Ver carrinho",
+      "each": "{{ money }}/cada",
+      "product": "Produto",
+      "variant": "Variante",
+      "variant_total": "Variante total",
+      "items_added": {
+        "one": "{{ quantity }} item adicionado",
+        "other": "{{ quantity }} itens adicionados",
+        "many": "{{ quantity }} itens adicionados"
+      },
+      "items_removed": {
+        "one": "{{ quantity }} item removido",
+        "other": "{{ quantity }} itens removidos",
+        "many": "{{ quantity }} itens removidos"
+      },
+      "product_variants": "Variantes de produtos",
+      "total_items": "Total de itens",
+      "remove_all_items_confirmation": "Remover todos os {{ quantity }} itens do seu carrinho?",
+      "remove_all": "Remover tudo",
+      "cancel": "Cancelar",
+      "remove_all_single_item_confirmation": "Remover 1 item do seu carrinho?",
+      "min_error": "Este item tem um mínimo de {{ min }}",
+      "max_error": "Este item tem um máximo de {{ max }}",
+      "step_error": "Só pode adicionar este item em incrementos de {{ step }}"
+    }
+  },
+  "localization": {
+    "country_label": "País/região",
+    "language_label": "Idioma",
+    "update_language": "Atualizar idioma",
+    "update_country": "Atualizar país/região",
+    "search": "Pesquisar",
+    "popular_countries_regions": "Países/regiões populares",
+    "country_results_count": "{{ count }} países/regiões encontrados"
+  },
+  "customer": {
+    "account": {
+      "title": "Conta",
+      "details": "Detalhes da conta",
+      "view_addresses": "Ver endereços",
+      "return": "Regressar aos detalhes da conta"
+    },
+    "account_fallback": "Conta",
+    "activate_account": {
+      "title": "Ativar conta",
+      "subtext": "Crie a sua palavra-passe para ativar a sua conta.",
+      "password": "Palavra-passe",
+      "password_confirm": "Confirmar palavra-passe",
+      "submit": "Ativar conta",
+      "cancel": "Recusar convite"
+    },
+    "addresses": {
+      "title": "Endereços",
+      "default": "Predefinição",
+      "add_new": "Adicionar um novo endereço",
+      "edit_address": "Editar endereço",
+      "first_name": "Nome próprio",
+      "last_name": "Apelido",
+      "company": "Empresa",
+      "address1": "Endereço1",
+      "address2": "Endereço 2",
+      "city": "Localidade",
+      "country": "País/região",
+      "province": "Província",
+      "zip": "Código postal",
+      "phone": "Telefone",
+      "set_default": "Selecionar como endereço predefinido",
+      "add": "Adicionar endereço",
+      "update": "Atualizar endereço",
+      "cancel": "Cancelar",
+      "edit": "Editar",
+      "delete": "Eliminar",
+      "delete_confirm": "Tem a certeza que deseja eliminar este endereço?"
+    },
+    "log_in": "Iniciar sessão",
+    "log_out": "Terminar sessão",
+    "login_page": {
+      "cancel": "Cancelar",
+      "create_account": "Criar conta",
+      "email": "E-mail",
+      "forgot_password": "Esqueceu-se da sua palavra-passe?",
+      "guest_continue": "Continuar",
+      "guest_title": "Continuar como visitante",
+      "password": "Palavra-passe",
+      "title": "Iniciar sessão",
+      "sign_in": "Iniciar sessão",
+      "submit": "Submeter",
+      "alternate_provider_separator": "ou"
+    },
+    "order": {
+      "title": "Encomenda {{ name }}",
+      "date_html": "Efetuado a {{ date }}",
+      "cancelled_html": "Encomenda cancelada em {{ date }}",
+      "cancelled_reason": "Motivo: {{ reason }}",
+      "billing_address": "Endereço de faturação",
+      "payment_status": "Estado do pagamento",
+      "shipping_address": "Endereço de envio",
+      "fulfillment_status": "Estado de processamento",
+      "discount": "Desconto",
+      "shipping": "Envio",
+      "tax": "Taxa",
+      "product": "Produto",
+      "sku": "SKU",
+      "price": "Preço",
+      "quantity": "Quantidade",
+      "total": "Total",
+      "fulfilled_at_html": "Concluído em {{ date }}",
+      "track_shipment": "Rastrear encomenda",
+      "tracking_url": "Ligação de rastreio",
+      "tracking_company": "Transportadora",
+      "tracking_number": "Número de rastreio",
+      "subtotal": "Total",
+      "total_duties": "Encargos",
+      "total_refunded": "Reembolsado"
+    },
+    "orders": {
+      "title": "Histórico de encomendas",
+      "order_number": "Encomenda",
+      "order_number_link": "Número da encomenda {{ number }}",
+      "date": "Data",
+      "payment_status": "Estado do pagamento",
+      "fulfillment_status": "Estado de processamento",
+      "total": "Total",
+      "none": "Ainda não efetuou nenhuma encomenda."
+    },
+    "recover_password": {
+      "title": "Repor palavra-passe",
+      "subtext": "Vamos enviar-lhe um e-mail para repor a sua palavra-passe",
+      "success": "Enviámos-lhe um e-mail com uma ligação para atualizar a sua palavra-passe."
+    },
+    "register": {
+      "title": "Criar conta",
+      "first_name": "Nome próprio",
+      "last_name": "Apelido",
+      "email": "E-mail",
+      "password": "Palavra-passe",
+      "submit": "Criar"
+    },
+    "reset_password": {
+      "title": "Repor palavra-passe da conta",
+      "subtext": "Insira uma nova palavra-passe",
+      "password": "Palavra-passe",
+      "password_confirm": "Confirmar palavra-passe",
+      "submit": "Repor palavra-passe"
+    }
+  },
+  "gift_cards": {
+    "issued": {
+      "title": "Aqui está o seu saldo do cartão de oferta de {{ value }} para {{ shop }}!",
+      "subtext": "O seu cartão de oferta",
+      "gift_card_code": "Código do cartão de oferta",
+      "shop_link": "Visite a loja online",
+      "add_to_apple_wallet": "Adicionar a Apple Wallet",
+      "qr_image_alt": "Código QR - digitalizar para resgatar cartão de oferta",
+      "copy_code": "Copiar código de cartão-de oferta",
+      "expired": "Expirado",
+      "copy_code_success": "Código copiado com sucesso",
+      "how_to_use_gift_card": "Utilize o código do cartão de oferta online ou o código QR na loja",
+      "expiration_date": "Expira em {{ expires_on }}"
+    }
+  },
+  "recipient": {
+    "form": {
+      "checkbox": "Quero enviar isto como um presente",
+      "email_label": "E-mail do destinatário",
+      "email": "E-mail",
+      "name_label": "Nome do destinatário (opcional)",
+      "name": "Nome",
+      "message_label": "Mensagem (opcional)",
+      "message": "Mensagem",
+      "max_characters": "Máximo de {{ max_chars }} caracteres",
+      "email_label_optional_for_no_js_behavior": "E-mail do destinatário (opcional)",
+      "send_on": "AAAA-MM-DD",
+      "send_on_label": "Enviar a (opcional)",
+      "expanded": "Formulário de destinatário do cartão de oferta expandido",
+      "collapsed": "Formulário de destinatário do cartão de oferta fechado"
+    }
+  },
+  "pagefly": {
+    "products": {
+      "product": {
+        "regular_price": "Regular price",
+        "sold_out": "Sold out",
+        "unavailable": "Unavailable",
+        "on_sale": "Sale",
+        "quantity": "Quantity",
+        "add_to_cart": "Add to cart",
+        "back_to_collection": "Back to {{ title }}",
+        "view_details": "View details"
+      }
+    },
+    "article": {
+      "tags": "Tags:",
+      "all_topics": "All topics",
+      "by_author": "by {{ author }}",
+      "posted_in": "Posted in",
+      "read_more": "Read more",
+      "back_to_blog": "Back to {{ title }}"
+    },
+    "comments": {
+      "title": "Leave a comment",
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "post": "Post comment",
+      "moderated": "Please note, comments must be approved before they are published",
+      "success_moderated": "Your comment was posted successfully. We will publish it in a little while, as our blog is moderated.",
+      "success": "Your comment was posted successfully! Thank you!",
+      "comments_with_count": {
+        "one": "{{ count }} comment",
+        "other": "{{ count }} comments"
+      }
+    },
+    "password_page": {
+      "login_form_message": "Enter store using password:",
+      "login_form_password_label": "Password",
+      "login_form_password_placeholder": "Your password",
+      "login_form_submit": "Enter",
+      "signup_form_email_label": "Email",
+      "signup_form_success": "We will send you an email right before we open!",
+      "password_link": "Enter using password"
+    }
+  },
+  "tabs": {
+    "features": "Benefícios",
+    "performance": "Características",
+    "main_title": "Canaleiras de Nível Superior - Feitas Para Jogadores Como Tu",
+    "shipping_returns": "Envios",
+    "adaptive_fit_alt": "Ajuste Adaptável",
+    "adaptive_fit_title": "AJUSTE ADAPTÁVEL",
+    "adaptive_fit_desc": "Adapta-se perfeitamente à forma da tua perna.",
+    "max_protection_alt": "Proteção Máxima",
+    "max_protection_title": "PROTEÇÃO MÁXIMA",
+    "max_protection_desc": "Protege contra entradas de alto impacto.",
+    "ultimate_comfort_alt": "Conforto Supremo",
+    "ultimate_comfort_title": "CONFORTO SUPREMO",
+    "ultimate_comfort_desc": "Sentes como se não estivesse a usar nada.",
+    "ultralight_design": "Design ultraleve para velocidade explosiva",
+    "protection_level": "Proteção de nível profissional",
+    "secure_fit": "Ajuste anatómico seguro",
+    "moisture_wicking": "Conforto que afasta a humidade",
+    "footer": "Usado e confiado por jogadores profissionais em todo o mundo, superando limites nas principais ligas de futebol.",
+    "movement_optimized_label": "Movimento otimizado:",
+    "movement_optimized_desc": "Mantém-se firme no lugar, permitindo total liberdade e conforto durante o jogo.",
+    "enhanced_playability_label": "Jogabilidade melhorada:",
+    "enhanced_playability_desc": "Minimiza distrações mantendo as proteções bem posicionadas, mesmo nos jogos mais intensos.",
+    "lightweight_design_label": "Design leve:",
+    "lightweight_design_desc": "Sentes como se fosse uma segunda pele, oferecendo proteção de alto nível com mínimo volume.",
+    "sweat_absorbing_label": "Material absorvente de suor:",
+    "sweat_absorbing_desc": "Mantém as tuas pernas secas e confortáveis, prevenindo irritações durante longos períodos.",
+    "professional_quality_label": "Qualidade profissional:",
+    "professional_quality_desc": "Confiada por jogadores de todos os níveis, do amador ao elite.",
+    "shipping": "Envio:",
+    "free_shipping_over": "Envio Grátis CTT 2-4 Dias Úteis",
+    "standard_delivery": "Entrega padrão: 1–2 dias úteis (Portugal), 2–3 (Espanha), 4–6 (UE), 7–10 (Internacional).",
+    "returns": "Devoluções:",
+    "return_policy": "Temos política de devolução de 30 dias",
+    "return_conditions": "Os artigos devem ser devolvidos no estado original, com etiquetas e embalagem intacta, para reembolso total ou troca",
+    "return_instructions": "Para devolver um produto, contacta a nossa equipa de apoio com os dados da encomenda para iniciar o processo",
+    "shipping_portugal": "Portugal:",
+    "shipping_portugal_desc": "Envio Grátis CTT 2-4 Dias Úteis",
+    "shipping_spain": "Espanha:",
+    "shipping_spain_desc": "Envio Grátis CTT 3-5 Dias Úteis",
+    "shipping_europe": "Resto da Europa:",
+    "shipping_europe_desc": "Envio Grátis CTT 4-7 Dias Úteis",
+    "shipping_world": "Resto do Mundo:",
+    "shipping_world_desc": "Envio Grátis CTT 5-10 Dias Úteis",
+    "more_details": "Para mais detalhes, visita a nossa Política de Envio e Política de Devoluções.",
+    "worldwide_shipping": "Oferecemos envio para todo o mundo",
+    "money_back": "Testa 30 Dias Sem Risco",
+    "locked_in": "Liberdade e confiança total em campo:",
+    "locked_in_fit": "Ficam no sítio o jogo todo:",
+    "protection": "Proteção, sem compromissos:",
+    "locked_in_text": "Ultra-leves e discretas, sentes-as como se não estivesses a usar nada.",
+    "locked_in_fit_text": "Não escorregam. Não precisam de fita. Caneleiras que ficam fixas no sítio durante os 90 minutos.",
+    "protection_text": "A tecnologia anti-impacto TTP dá-te a proteção de que precisas, sem afetar o teu rendimento.",
+    "seamless_fit": "Ajuste Perfeito",
+    "breathable_fabric": "Tecido respirável",
+    "one_size_fits_all": "Adapta-se à perna",
+    "enhanced_flexibility": "Liberdade de movimento",
+    "in_built_shin_pad": "Caneleira Incorporada",
+    "stylish_aesthetic": "Estética elegante"
+  },
+  "gift": {
+    "banner_highlight": "OFERTA INCLUÍDA",
+    "banner_title": "MEIAS PRO GRIP",
+    "banner_free": "GRÁTIS",
+    "banner_old_price": "{{ price }}",
+    "banner_image_alt": "Meias Grip"
+  },
+  "shipping": {
+    "guarantee_alt": "Garantia",
+    "guarantee": "Garantia",
+    "guarantee_on_orders": "De 3 anos",
+    "free_shipping_alt": "Envio grátis",
+    "free_shipping": "Envio grátis CTT",
+    "on_orders": "2-4 Dias Úteis",
+    "over_amount": "",
+    "money_back_alt": "Garantia de reembolso",
+    "money_back_guarantee": "Testa 30 Dias",
+    "of": "Sem Risco",
+    "days": ""
+  },
+  "reviews": {
+    "excellent_stars_alt": "Estrelas de avaliação excelente",
+    "excellent_text": "/5 | {{ count }} avaliações"
+  },
+  "product": {
+    "in_stock_ready": "ÚLTIMAS UNIDADES - ENVIO IMEDIATO"
+  },
+  "flags": {
+    "trusted_by": "CONFIADO POR JOGADORES DE",
+    "and_more": "e muito mais..."
+  },
+  "compare": {
+    "subtitle": "Como nós comparamos",
+    "title": "PORQUE OS JOGADORES ESCOLHEM 1OF1",
+    "alt": {
+      "player_sleeve": "Jogador com sleeve",
+      "competitor": "Caneleiras concorrente",
+      "guarantee": "Ícone de Garantia"
+    },
+    "left_1": "Design superleve abaixo de 40g",
+    "left_2": "Proteção contra impactos de nível profissional",
+    "left_3": "Molda-se perfeitamente à sua perna",
+    "left_4": "Mantém-se no lugar durante todo o jogo",
+    "left_5": "Máxima confiança em campo",
+    "right_1": "Estrutura pesada que te atrasa",
+    "right_2": "Plástico padrão, sem inovação",
+    "right_3": "Forma rígida que não se molda à perna",
+    "right_4": "Escorrega constantemente, precisa de ajustes no jogo",
+    "right_5": "Desconfortável, magoa mais do que ajuda",
+    "money_back": "Testa 30 Dias Sem Risco"
+  },
+  "reviews_texts": {
+    "review_1": "Upgrade incrível! Ainda recebi umas meias grátis. Chegaram rápido e bem embaladas. Qualidade excelente nos dois produtos, muito confortáveis. Estou muito satisfeito com a compra!",
+    "review_2": "As caneleiras mais estilosas. Protegem muito bem, são super fáceis de colocar e ficam perfeitamente no lugar durante o jogo.",
+    "review_3": "O meu filho adora estas caneleiras. Leves, muito seguras e ele diz que parece que nem está a usá-las. As meias foram um extra muito agradável, obrigado.",
+    "review_4": "Sem dúvida, as melhores caneleiras que já experimentei. Não se mexem durante o jogo e oferecem uma proteção muito confortável. Qualidade excelente.",
+    "review_5": "10/10! Qualidade top, proteção sólida, leves, entrega rápida e design super limpo. Recomendo totalmente!",
+    "review_6": "A qualidade é incrível. Estas caneleiras ficam no lugar e dão total liberdade para jogar sem distrações. Recomendo muito!",
+    "review_7": "Adorei as caneleiras, a embalagem e as meias antiderrapantes que vêm junto. Combinação perfeita por um preço muito bom."
+  },
+  "carousel": {
+    "previous_slide": "Slide anterior",
+    "next_slide": "Próximo slide"
+  },
+  "reviews_section": {
+    "subtitle": "TESTEMUNHOS 1OF1",
+    "title": "Ajuste Revolucionário",
+    "stars_alt": "Classificação de 5 estrelas",
+    "trusted_by": "Confiado por Jogadores de Elite"
+  },
+  "reviews2_texts": {
+    "review_1": "Upgrade incrível! Ainda recebi umas meias grátis. Chegaram rápido e bem embaladas. Qualidade excelente nos dois produtos, muito confortáveis. Estou muito satisfeito com a compra!",
+    "review_2": "As caneleiras mais bonitas. Protegem muito bem, são super fáceis de colocar e ficam perfeitamente no lugar durante o jogo.",
+    "review_3": "O meu filho adora estas caneleiras. Leves, muito seguras e ele diz que parece que nem está a usá-las. As meias foram um extra muito agradável, obrigado.",
+    "review_4": "Sem dúvida, as melhores caneleiras que já experimentei. Não se mexem durante o jogo e oferecem uma proteção muito confortável. Qualidade excelente.",
+    "review_5": "10/10! Qualidade top, proteção sólida, leves, entrega rápida e design super limpo. Recomendo totalmente!",
+    "review_6": "A qualidade é incrível. Estas caneleiras ficam no lugar e dão total liberdade para jogar sem distrações. Recomendo muito!",
+    "review_7": "Adorei as caneleiras, a embalagem e as meias antiderrapantes que vêm junto. Combinação perfeita por um preço muito bom."
+  },
+  "carousel2": {
+    "previous_slide": "Slide anterior",
+    "next_slide": "Próximo slide"
+  },
+  "reviews2_section": {
+    "subtitle": "20.000+ JOGADORES SATISFEITOS",
+    "title": "Joga com Confiança",
+    "stars_alt": "Classificação de 5 estrelas",
+    "trusted_by": "Avaliado como Excelente | 500+ Avaliações"
+  },
+  "sleeve_features": {
+    "feature_1": {
+      "alt": "Ícone de Proteção",
+      "title": "TECNOLOGIA TTP",
+      "text": "A Tecnologia TTP usa almofadas de alto desempenho que absorvem o impacto e distribuem a força pela caneleira, mantendo a tua perna protegida."
+    },
+    "feature_2": {
+      "alt": "Ícone de Leveza",
+      "title": "FEITAS PARA PROFISSIONAIS",
+      "text": "Desenhadas para alta performance, estas caneleiras oferecem leveza sem sacrificar a resistência ao impacto, colocando-te em vantagem sobre o adversário."
+    },
+    "feature_3": {
+      "alt": "Ícone de Segurança",
+      "title": "ADERÊNCIA ANTI-DESLIZE",
+      "text": "Equipadas com uma fita anti-deslizante, as Caneleiras 1OF1 permanecem no lugar durante todo o jogo, mantendo-te focado no jogo até ao apito final."
+    }
+  },
+  "newsletter_section": {
+    "title": "JUNTA-TE AO CLUBE",
+    "main_offer_before": "RECEBE UM",
+    "main_offer_highlight": "DESCONTO MISTERIOSO",
+    "main_offer_after": "NA TUA PRIMEIRA COMPRA",
+    "subtext": "Fica à frente com acesso exclusivo a novos lançamentos, edições especiais e promoções só para membros.",
+    "placeholder": "INSERE O TEU EMAIL",
+    "button": "REGISTA-TE AGORA",
+    "consent": "Ao inscreveres-te, concordas em receber emails sobre os nossos produtos, aplicações, promoções, conteúdo exclusivo e muito mais.",
+    "image_alt": "Imagem promocional da newsletter"
+  },
+  "newsletter_icons": {
+    "icon1_alt": "Qualidade Premium",
+    "icon1_text": "Qualidade Premium",
+    "icon2_alt": "Testa 30 Dias Sem Risco",
+    "icon2_text": "Testa 30 Dias Sem Risco",
+    "icon3_alt": "Confiado por Profissionais",
+    "icon3_text": "Confiado por Profissionais",
+    "icon4_alt": "Envio Gratuito",
+    "icon4_text": "Envio Gratuito"
+  },
+  "footer": {
+    "logo_alt": "Logótipo 1OF1 Fútbol",
+    "title": "Num mundo de cópias, sê 1OF1.",
+    "description": "A 1OF1 Fútbol nasceu da paixão e foi construída para jogadores destemidos que vivem o jogo com obsessão, que valorizam a exclusividade e recusam ser apenas mais um jogador.",
+    "menu_shop": "Loja",
+    "menu_info": "Informações",
+    "menu_legal": "Legal",
+    "links": {
+      "shop_all": "Todos os Produtos",
+      "shin_pads": "Caneleiras",
+      "socks": "Meias",
+      "bundles": "Kits",
+      "kids": "Crianças",
+      "accessories": "Acessórios",
+      "about": "Sobre Nós",
+      "help": "Centro de Ajuda",
+      "contact": "Contacta-nos",
+      "track": "Segue a tua Encomenda",
+      "shipping": "Envios",
+      "returns": "Devoluções",
+      "privacy": "Política de Privacidade",
+      "refund": "Política de Reembolso",
+      "shipping_policy": "Política de Envio",
+      "terms": "Termos de Serviço"
+    },
+    "copyright": "© 2026, 1OF1 Fútbol - Todos os Direitos Reservados"
+  },
+  "banner": {
+    "desktop_alt": "Banner Desktop",
+    "mobile_alt": "Banner Mobile",
+    "rating_prefix": "Mais de",
+    "rating_suffix": "jogadores satisfeitos",
+    "title_line1": "OUSA SER DIFERENTE",
+    "title_line2": "JOGA COM 1OF1.",
+    "subtext_prefix": "A 1OF1 ajudou milhares de jogadores a melhorarem o seu",
+    "subtext_middle": "estilo, desempenho e confiança",
+    "subtext_suffix": "em campo.",
+    "button": "COMPRAR BESTSELLERS",
+    "moneyback_icon_alt": "Ícone de Garantia de Devolução",
+    "moneyback": "Testa 30 Dias Sem Risco"
+  },
+  "features": {
+    "secure_payments": "Pagamentos Seguros",
+    "secure_payments_alt": "Ícone de Pagamentos Seguros",
+    "guarantee": "Garantia de 30 Dias",
+    "guarantee_alt": "Ícone de Garantia de 30 Dias",
+    "trusted": "Aprovado por Profissionais",
+    "trusted_alt": "Ícone de Aprovado por Profissionais",
+    "free_shipping": "Envio Grátis CTT 2-4 Dias Úteis",
+    "free_shipping_alt": "Ícone de Envio Grátis"
+  },
+  "favourites": {
+    "rating_badge": "Avaliado como Excelente | 4.8 / 5.0",
+    "stars_alt": "Classificação em estrelas",
+    "title": "OS NOSSOS FAVORITOS",
+    "subtitle": "Compra os Bestsellers da 1OF1. Usados em todo o mundo.",
+    "tab_best_sellers": "BestSellers",
+    "tab_bundles": "Kits",
+    "tab_shin_pads": "Caneleiras",
+    "add_icon_alt": "Ícone de adicionar ao carrinho",
+    "quick_buy": "COMPRA RÁPIDA",
+    "reviews_count": "500+ avaliações",
+    "left_arrow_alt": "Produtos anteriores",
+    "right_arrow_alt": "Próximos produtos",
+    "shop_bestsellers": "COMPRAR BESTSELLERS",
+    "guarantee_icon_alt": "Ícone de garantia",
+    "guarantee_text": "Testa 30 Dias Sem Risco"
+  },
+  "league": {
+    "title": "VISTO EM",
+    "logo_alt": "Logótipo da Liga",
+    "more": "e muito mais..."
+  },
+  "collections": {
+    "title": "COMPRA POR CATEGORIA",
+    "subtitle": "Muda o teu jogo com a 1OF1."
+  },
+  "product_features": {
+    "subtitle": "Como nós comparamos",
+    "title": "PORQUE OS JOGADORES ESCOLHEM 1OF1 FÚTBOL",
+    "left_image_alt": "Jogador com sleeve",
+    "right_image_alt": "Caneleiras concorrente",
+    "left_1": "Design superleve com menos de 40g",
+    "left_2": "Proteção contra impactos de nível profissional",
+    "left_3": "Molda-se perfeitamente à sua perna",
+    "left_4": "Fica no lugar durante todo o jogo",
+    "left_5": "Máxima confiança em campo",
+    "right_1": "Construção pesada que o atrasa",
+    "right_2": "Estrutura padrão, sem inovação",
+    "right_3": "Forma rígida que não se molda à perna",
+    "right_4": "Escorrega constantemente, precisa de ajuste a meio do jogo",
+    "right_5": "Desconfortável, causa mais dor que ajuda",
+    "add_to_cart": "Comprar Bestsellers",
+    "money_back": "Testa 30 Dias Sem Risco"
+  },
+  "custom": {
+    "free_gift_included": "OFERTA INCLUÍDA",
+    "pro_grip_socks": "MEIAS PRO GRIP",
+    "free_price": "GRÁTIS",
+    "grip_socks_alt": "Meias Grip",
+    "free_shipping_alt": "Envio Grátis",
+    "free_shipping": "Envio grátis CTT",
+    "on_orders": "2-4 Dias Úteis",
+    "over_amount": "",
+    "money_back_alt": "Garantia de Reembolso",
+    "money_back_line1": "Testa 30 Dias",
+    "money_back_line2": "Sem Risco",
+    "money_back_line3": "."
+  },
+  "manual_related_products": {
+    "title": "COMBINA PERFEITO COM"
+  },
+  "about_section": {
+    "line1": "A 1OF1 nasceu do amor pelo jogo — pelas ruas, pelo estilo, pela individualidade.",
+    "line2": "Não estamos aqui para seguir tendências. Estamos aqui para trazer a cultura do futebol para a frente, com propósito e atitude.",
+    "line3": "Sem grandes investidores. Sem atalhos. Apenas jogadores criando para jogadores. E agora? Estamos a construir algo maior do que equipamento — estamos a construir um movimento.",
+    "button": "História da 1OF1"
+  },
+  "carousel_section": {
+    "inspiration": "Inspiração",
+    "design": "Design",
+    "product": "Produto",
+    "branding": "Branding"
+  },
+  "socials_section": {
+    "top_image_alt": "rasgo",
+    "title": "@1of1futbol nas redes sociais"
+  },
+  "cta_bestsellers_section": {
+    "button": "Comprar BestSellers",
+    "icon_alt": "ícone de garantia de reembolso",
+    "subtext": "Testa 30 Dias Sem Risco"
+  },
+  "header_drawer": {
+    "shop": "Loja",
+    "money_back_alt": "Garantia de Devolução",
+    "money_back_line1": "Testa 30 Dias",
+    "money_back_line2": "Sem Risco",
+    "trusted_alt": "Confiado por Profissionais",
+    "trusted_line1": "Confiado por",
+    "trusted_line2": "Profissionais",
+    "collection_shin_pads_alt": "Caneleiras",
+    "collection_shin_pads": "CANELEIRAS",
+    "collection_socks_alt": "Meias",
+    "collection_socks": "MEIAS",
+    "collection_kids_alt": "Infantil",
+    "collection_kids": "INFANTIL",
+    "collection_bundles_alt": "Kits",
+    "collection_bundles": "KITS",
+    "collection_accessories_alt": "Acessórios",
+    "collection_accessories": "ACESSÓRIOS",
+    "collection_shop_all_alt": "Comprar Tudo",
+    "collection_shop_all": "COMPRAR TUDO",
+    "shop_now": "COMPRAR AGORA",
+    "about": "Sobre a 1OF1",
+    "help_center": "Central de Ajuda",
+    "instagram_alt": "Instagram",
+    "tiktok_alt": "TikTok",
+    "facebook_alt": "Facebook"
+  },
+  "collections_row": {
+    "bestsellers_alt": "BestSellers",
+    "bestsellers": "BestSellers",
+    "shin_pads_alt": "Caneleiras",
+    "shin_pads": "Caneleiras",
+    "socks_alt": "Meias",
+    "socks": "Meias",
+    "bundles_alt": "Kits",
+    "bundles": "Kits"
+  },
+  "promo_bar": {
+    "offer": "MEIAS ANTIDERRAPANTES GRÁTIS!",
+    "shop_now": "COMPRAR"
+  },
+  "purpose_section": {
+    "title": "A marca que precisávamos não existia. Então nós a criámos.",
+    "intro_p1": "Tudo o que existia parecia igual. Equipamento genérico, sem identidade, sem alma. Jogadores que queriam destacar-se não tinham opções — apenas marcas feitas para as massas.",
+    "intro_p2": "Começou com um problema. Tornou-se um movimento.",
+    "intro_p3": "Criámos a 1OF1 para aqueles que exigem mais do que o comum. Para quem quer que o seu equipamento combine com a sua mentalidade: confiante, estiloso e destemido. Para jogadores que conhecem o seu valor.",
+    "highlight_quote": "Todo jogador merece equipamento que reflita a sua ambição.",
+    "design_phase_alt": "Fase de design",
+    "minimalist_design": "DESIGN MINIMALISTA",
+    "final_product_alt": "Produto final",
+    "exclusive_products": "PRODUTOS EXCLUSIVOS",
+    "final_p1": "Não nos contentámos com o comum. Por isso criámos melhor.",
+    "final_p2": "De Canaleiras Embutidas que ficam no lugar a caneleiras leves que não te abrandam, cada produto foi feito para performance — e criado para refletir quem tu és.",
+    "final_p3": "Porque o futebol é mais do que um jogo — é autoexpressão."
+  },
+  "community_section": {
+    "divider_alt": "Divisor decorativo superior",
+    "title": "Construída com a comunidade. Apoiada por jogadores.",
+    "p1": "Dos jogos de rua aos estádios, a 1OF1 é moldada pelos verdadeiros.",
+    "p2": "Cada produto que criamos é inspirado por jogadores que procuram algo diferente. Não é hype. Não é tendência. É equipamento que reflete quem eles são — e como jogam.",
+    "p3": "Ouvimos. Testamos. Melhoramos. Porque a grandeza é um desporto de equipa.",
+    "p4": "Não estás apenas a usar 1OF1. Estás a honrá-la.",
+    "player1_alt": "Jogador 1",
+    "player2_alt": "Jogador 2",
+    "player3_alt": "Jogador 3",
+    "player4_alt": "Jogador 4"
+  },
+  "mission_section": {
+    "title": "A Missão 1OF1",
+    "p1": "A 1OF1 não é apenas sobre equipamento — é sobre identidade.",
+    "p2": "Existimos para os jogadores que ousam ser diferentes. Que jogam com propósito.",
+    "p3": "A nossa missão é redefinir o que significa estilo no futebol. Dar aos jogadores as ferramentas para se destacarem — com confiança, elegância e atitude.",
+    "p4": "Estamos aqui para inspirar expressão ousada e jogo destemido. Porque ser 1OF1 não é sobre ser melhor que os outros. É sobre ser a melhor versão de ti mesmo.",
+    "banner_alt": "Banner da Missão 1OF1"
+  },
+  "contact_banner": {
+    "banner_alt": "Banner do Centro de Ajuda",
+    "title": "CENTRO DE AJUDA",
+    "subtitle": "Estamos aqui para ajudar a encontrar respostas rapidamente — fale connosco a qualquer momento."
+  },
+  "grid_links_section": {
+    "heading": "AS SUAS PERGUNTAS, RESPONDIDAS",
+    "returns": "Devoluções e Reembolsos",
+    "returns_alt": "Devoluções e Reembolsos",
+    "shipping": "Envios",
+    "shipping_alt": "Envios",
+    "track": "Acompanhar encomenda",
+    "track_alt": "Acompanhar a sua encomenda",
+    "policies": "Políticas",
+    "policies_alt": "Políticas",
+    "contact": "Contacte-nos",
+    "contact_alt": "Contacte-nos",
+    "shinpads": "Caneleiras",
+    "shinpads_alt": "Caneleiras"
+  },
+  "faq_cta": {
+    "heading": "AINDA TEM PERGUNTAS?",
+    "text": "A nossa equipa de especialistas em futebol está pronta para ajudar. Contacte-nos a qualquer momento — estamos aqui para si.",
+    "button": "CONTACTE-NOS"
+  },
+  "custom_product": {
+    "save": "POUPA"
+  },
+  "custom_2": {
+    "footer_logo_alt": "Logótipo 1OF1 Fútbol",
+    "footer_slogan": "NUM MUNDO DE CÓPIAS, SÊ 1OF1",
+    "footer_description": "A 1OF1 Fútbol nasceu da paixão e foi criada para jogadores destemidos que vivem o jogo com obsessão. Para quem valoriza exclusividade e recusa ser apenas mais um jogador.",
+    "footer_shop_title": "Loja",
+    "footer_shop_all": "Ver Tudo",
+    "footer_shin_pads": "Caneleiras",
+    "footer_socks": "Meias",
+    "footer_bundles": "Conjuntos",
+    "footer_kids": "Crianças",
+    "footer_accessories": "Acessórios",
+    "footer_info_title": "Informações",
+    "footer_about": "Sobre Nós",
+    "footer_help_center": "Centro de Ajuda",
+    "footer_contact": "Contacte-nos",
+    "footer_track": "Acompanhar Encomenda",
+    "footer_shipping": "Envio",
+    "footer_returns": "Devoluções",
+    "footer_legal_title": "Legal",
+    "footer_privacy": "Política de Privacidade",
+    "footer_refund": "Política de Reembolso",
+    "footer_shipping_policy": "Política de Envio",
+    "footer_terms": "Termos de Serviço",
+    "footer_copyright": "© 2026, 1OF1 Fútbol - Todos os direitos reservados",
+    "payment_icon": "Ícone de Pagamento"
+  },
+  "custom_returns": {
+    "title": "Devoluções",
+    "policy_intro": "Oferecemos uma política de devolução de 30 dias, dando-lhe 30 dias a partir da data de receção do seu artigo para solicitar a devolução.",
+    "eligibility": "Para ser elegível para devolução, o artigo deve estar na sua condição original — não usado nem lavado, com etiquetas anexadas e na embalagem original. Também é necessário apresentar o recibo ou comprovativo de compra.",
+    "initiate": "Para iniciar uma devolução, contacte-nos através de hello@1of1futbol.com. Assim que a devolução for aceite, forneceremos instruções detalhadas sobre como e para onde enviar o artigo.",
+    "no_authorization": "Artigos enviados sem autorização prévia de devolução não serão aceites.",
+    "questions": "Para qualquer dúvida sobre devoluções, envie-nos um email para hello@1of1futbol.com.",
+    "shipping_costs": "Nota: os custos de envio da devolução são da responsabilidade do cliente.",
+    "damages_title": "Danos e Problemas",
+    "damages_text": "Verifique a sua encomenda assim que a receber. Se receber um artigo defeituoso, danificado ou incorreto, contacte-nos imediatamente para podermos resolver o problema.",
+    "exchanges_title": "Trocas",
+    "exchanges_text": "A forma mais rápida de obter o artigo que deseja é devolver o que tem. Assim que a devolução for aceite, faça uma nova encomenda para o artigo de substituição.",
+    "eu_rights": "Se a sua encomenda foi enviada para a União Europeia, tem o direito de cancelar ou devolver a sua compra no prazo de 14 dias, por qualquer motivo e sem necessidade de justificação. Os artigos devem estar sem uso, sem lavagem, com etiquetas e na embalagem original, acompanhados do comprovativo de compra.",
+    "refunds_title": "Reembolsos",
+    "refunds_process": "Notificá-lo-emos assim que recebermos e inspecionarmos a sua devolução, confirmando se o reembolso foi aprovado. Se aprovado, o valor será automaticamente devolvido para o método de pagamento original no prazo de 10 dias úteis.",
+    "refunds_timing": "Por favor, note que pode levar algum tempo até o seu banco ou operadora de cartão de crédito processar e disponibilizar o reembolso.",
+    "refunds_contact": "Se tiverem passado mais de 15 dias úteis desde que aprovámos a sua devolução, contacte-nos através de hello@1of1futbol.com."
+  },
+  "custom_shipping": {
+    "title": "Envio",
+    "intro_1": "Na 1OF1 Fútbol, comprometemo-nos a entregar a sua encomenda de forma rápida e sem complicações.",
+    "intro_2": "Cada encomenda é cuidadosamente embalada pela nossa equipa para garantir que chega em perfeitas condições.",
+    "free_shipping": "Envio Grátis CTT 2-4 Dias Úteis",
+    "tracking_info": "Um código de rastreamento será enviado ao cliente no prazo de 24 horas após o processamento da encomenda. Todas as encomendas serão enviadas do nosso armazém em 1–2 dias úteis. Todos os prazos de envio são calculados a partir da data de expedição.",
+    "portugal_title": "PORTUGAL 🇵🇹",
+    "portugal_text": "Envio Padrão Rastreado (1–2 dias úteis)",
+    "spain_title": "ESPANHA 🇪🇸",
+    "spain_text": "Envio Padrão Rastreado (2–3 dias úteis)",
+    "europe_title": "EUROPA 🇪🇺",
+    "europe_text": "Envio Padrão Rastreado (4–6 dias úteis)",
+    "world_title": "RESTO DO MUNDO 🌍",
+    "world_text": "Envio Padrão Rastreado (7–10 dias úteis)",
+    "disclaimer_1": "Todos os prazos de preparação e envio são estimados em dias úteis (segunda a sexta-feira). Os prazos não incluem atrasos na alfândega ou quaisquer outros atrasos fora do nosso controlo.",
+    "disclaimer_2": "Não podemos alterar o endereço de envio ou redirecionar a encomenda depois de esta ter sido confirmada.",
+    "contact": "Tem alguma dúvida sobre a entrega? Contacte-nos para hello@1of1futbol.com."
+  },
+  "custom_contact_banner": {
+    "alt": "Banner de Contacto",
+    "title": "CONTACTE-NOS",
+    "subtitle": "Tem dúvidas sobre a sua encomenda ou os nossos produtos? Estamos a uma mensagem de distância."
+  },
+  "sleeve-video": {
+    "subtitle": "CONFIADO POR PROFISSIONAIS. FEITO PARA TODOS.",
+    "title": "QUALIDADE PURA. DESEMPENHO TOTAL."
+  },
+  "compare_airflow": {
+    "subtitle": "Como nos comparamos",
+    "title": "PORQUE OS CRAQUES ESCOLHEM 1OF1",
+    "airflow_pro_alt": "Airflow Pro",
+    "competitor_alt": "Concorrente",
+    "left_1": "Design ultraleve aumenta a sua velocidade",
+    "left_2": "Molda-se perfeitamente ao seu corpo",
+    "left_3": "Tecido respirável evita odores",
+    "left_4": "Se parece bem, joga bem",
+    "left_5": "Adorado pelos profissionais",
+    "right_1": "Peso excessivo que o abranda",
+    "right_2": "Design genérico nunca encaixa bem",
+    "right_3": "Acumula suor na pele",
+    "right_4": "Com visual de jogador amador",
+    "right_5": "Pior pesadelo dos profissionais",
+    "guarantee_alt": "Ícone de Garantia",
+    "guarantee_text": "Testa 30 Dias Sem Risco"
+  },
+  "compare_socks": {
+    "subtitle": "Como nos comparamos",
+    "title": "PORQUE OS CRAQUES ESCOLHEM 1OF1",
+    "socks_pro_alt": "Meias Grip 1OF1",
+    "competitor_alt": "Meias concorrentes",
+    "left_1": "Tração perfeita ao driblar os adversários",
+    "left_2": "Extremamente duráveis",
+    "left_3": "Previne bolhas e desconforto",
+    "left_4": "Material ultra elástico como uma segunda pele",
+    "left_5": "Adoradas pelos profissionais",
+    "right_1": "Escorregam em viragens cruciais",
+    "right_2": "Rasgam após apenas 2-3 jogos",
+    "right_3": "Fricção dolorosa afeta o desempenho",
+    "right_4": "Tecido fraco limita o movimento natural",
+    "right_5": "Pior pesadelo dos profissionais",
+    "guarantee_alt": "Ícone de Garantia",
+    "guarantee_text": "Testa 30 Dias Sem Risco"
+  },
+  "compare_shin": {
+    "subtitle": "Como nos comparamos",
+    "title": "PORQUE OS CRAQUES ESCOLHEM 1OF1",
+    "mini_shin_alt": "Mini Shin Pads 1OF1",
+    "competitor_alt": "Concorrente",
+    "left_1": "Velocidade e agilidade focadas",
+    "left_2": "Toque e controlo de bola melhorados",
+    "left_3": "Se parece bem, joga bem",
+    "left_4": "Conforto seguro que não desliza",
+    "left_5": "Adoradas pelos profissionais",
+    "right_1": "Peso excessivo abranda-te",
+    "right_2": "Toque limitado com caneleiras a atrapalhar",
+    "right_3": "Com visual de jogador amador",
+    "right_4": "Deslizam e exigem reajustes constantes",
+    "right_5": "Pior pesadelo dos profissionais",
+    "guarantee_alt": "Ícone de Garantia",
+    "guarantee_text": "Testa 30 Dias Sem Risco"
+  },
+  "cart": {
+    "secure_checkout": "CONTINUAR ⭢"
+  },
+  "cart_footer": {
+    "subtotal": "TOTAL",
+    "secure_checkout": "CONTINUAR ⭢",
+    "trust_reviews": "Excelente +500 Avaliações",
+    "trust_stars_alt": "Estrelas do Trustpilot"
+  },
+  "shopify": {
+    "checkout": {
+      "thank_you": {
+        "location_title": "Localização"
+      },
+      "alternative_payment_method_banner": {
+        "express_checkout": "Com pressa? Finalize a compra rapidamente aqui.",
+        "or": "MBWAY e Multibanco abaixo"
+      },
+      "order_payment_collection": {
+        "pay_now": "FINALIZAR ENCOMENDA ⭢"
+      },
+      "general": {
+        "pay_now_button_label": "FINALIZAR ENCOMENDA ⭢"
+      }
+    }
+  },
+  "section-ctt": {
+    "ctt_1": "Envio grátis",
+    "ctt_2": "CTT 2-4 Dias Úteis",
+    "test_1": "Testa 30 Dias",
+    "test_2": "Sem Risco",
+    "test_3": "",
+    "garantia_1": "Garantia",
+    "garantia_2": "De 3 anos"
+  },
+  "tracking": {
+    "ordered": "Encomendado",
+    "shipped": "Enviado",
+    "delivered": "Entregue"
+  },
+  "carrossel-ctt": {
+    "logo_alt": "CTT Logo",
+    "prev_alt": "Seta Esquerda",
+    "next_alt": "Seta Direita",
+    "slide_1_title": "Envio Rápido e Grátis",
+    "slide_1_text": "Recebe a tua encomenda em 2-4 dias via CTT Expresso. Envio grátis para todo o país com rastreio disponível.",
+    "slide_2_title": "Testa 30 Dias Sem Risco",
+    "slide_2_text": "Mudaste de ideias? Não te preocupes, podes devolver ou trocar facilmente no período de 30 dias, sem risco.",
+    "slide_3_title": "Qualidade Premium",
+    "slide_3_text": "Escolhido por profissionais e 30,000+ atletas, que confiam na nossa marca para qualidade excepcional."
+  },
+  "cart_progress": {
+    "add_1_15": "Adiciona +1 → 15% OFF",
+    "add_1_25": "Adiciona +1 → 25% OFF",
+    "best_price": "DESBLOQUEASTE O NOSSO MELHOR PREÇO!",
+    "free_shipping_1": "ENVIO",
+    "free_shipping_2": "GRÁTIS",
+    "extra_15_1": "15%",
+    "extra_15_2": "EXTRA",
+    "extra_25_1": "25%",
+    "extra_25_2": "EXTRA"
+  },
+  "reserve_timer": {
+    "last_units": "Últimas unidades. Reservado por"
+  },
+  "cart_delivery": {
+    "label": "Entrega",
+    "free": "Grátis"
+  },
+  "cart_upsell": {
+    "title": "Complete sua encomenda",
+    "button": "Adicionar",
+    "adding": "Adicionando...",
+    "added": "Adicionado!",
+    "error": "Erro"
+  }
+}

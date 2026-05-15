@@ -1,0 +1,250 @@
+<!-- ===================== -->
+<!--  WHY GRIP SOCKS BLOCK -->
+<!-- ===================== -->
+
+<style>
+  @font-face {
+    font-family: 'Questrial';
+    src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Questrial-Regular.ttf?v=1746300481') format('truetype');
+  }
+  @font-face {
+    font-family: 'Poppins';
+    src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/poppins.extrabold.ttf?v=1747688794') format('truetype');
+    font-weight: 800;
+  }
+
+  .why-grip-socks-section {
+    background-color: fff;
+    padding: 1rem 2rem;
+    font-family: 'Helvetica Neue', sans-serif;
+    min-height: 800px;
+  }
+
+  .why-grip-socks-columns {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .why-grip-socks-feature-column { text-align: center; }
+  .why-grip-socks-feature-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 2rem;
+  }
+  .why-grip-socks-feature-item img {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+  }
+
+  .why-grip-socks-feature-text {
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+
+  .why-grip-socks-black { color: #000; }
+  .why-grip-socks-white { color: #fff; }
+
+  .why-grip-socks-subtitle {
+    font-family: 'Questrial', sans-serif;
+    font-size: 1.1rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 0;
+    color: #000;
+  }
+  .why-grip-socks-subtitle::after {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 1px;
+    background-color: #333;
+    margin: 0.5rem auto 0;
+  }
+
+  .why-grip-socks-title {
+    font-size: 24px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+    color: #000;
+    text-transform: uppercase;
+    margin: 10px auto 2rem;
+    text-align: center;
+  }
+
+  .why-grip-socks-main-image {
+    width: 100%;
+    max-width: 150px;
+    border-radius: 10px;
+   transform-origin: top center;
+  }
+  .why-grip-socks-feature-column:last-child .why-grip-socks-main-image {
+    transform: scale(1.15);
+    transform-origin: top center;
+    margin-top: -110px !important;
+    margin-bottom: 3.5rem !important;
+  }
+
+  .why-grip-socks-addtocart {
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  .why-grip-socks-addtocart button {
+    width: 100%;
+    margin-top: 6px;
+    background-color: #fff304;
+    color: #000;
+    border: 1.5px solid #000;
+    border-radius: 9999px;
+    padding: 14px 30px;
+    font-family: PoppinsBold, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all .3s ease;
+    outline: none;
+    display: block;
+    box-shadow: 0 4px 6px 2px #0000001a, 0 2px 4px -1px #0000000f;
+    border: 1px solid #ffe304;
+  }
+  .why-grip-socks-addtocart button:hover {
+    background-color: #000;
+    color: #fff;
+  }
+
+  .why-grip-socks-moneyback {
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-family: 'Questrial', sans-serif;
+    color: #000;
+    font-size: 14px;
+  }
+  .why-grip-socks-moneyback img {
+    width: 20px;
+    height: 20px;
+  }
+
+  @media screen and (max-width: 767px) {
+    .why-grip-socks-main-image {
+      transform: scale(1.2);
+      transform-origin: top center;
+      margin-top: -130px !important;
+      margin-bottom: 3rem !important;
+    }
+    .why-grip-socks-feature-column:last-child .why-grip-socks-main-image {
+      transform: scale(1.15);
+      transform-origin: top center;
+      margin-top: -110px !important;
+      margin-bottom: 3.5rem !important;
+    }
+    .why-grip-socks-title {
+      margin-bottom: 10rem;
+    }
+    .why-grip-socks-addtocart button {
+      font-size: 15px !important;
+      padding: 10px 60px !important;
+    }
+  }
+
+  @media screen and (min-width: 1024px) {
+    .why-grip-socks-section {
+      background-color: fff !important;
+    }
+    .why-grip-socks-title {
+      font-size: 40px !important;
+      margin-bottom: 12rem !important;
+    }
+    .why-grip-socks-subtitle {
+      font-size: 18px !important;
+    }
+    .why-grip-socks-main-image-left {
+      margin-top: -220px !important;
+    }
+    .why-grip-socks-addtocart button {
+      padding: 15px 270px !important;
+      font-size: 25px !important;
+    }
+  }
+</style>
+
+<div class="why-grip-socks-section">
+  <hr style="border: none; border-top: 1px solid #000; margin-bottom: 2.5rem; width: 100vw; position: relative; left: 50%; transform: translateX(-50%);">
+
+  <div style="text-align: center;">
+    <div class="why-grip-socks-subtitle">{{ 'compare_socks.subtitle' | t }}</div>
+    <h2 class="why-grip-socks-title">{{ 'compare_socks.title' | t }}</h2>
+  </div>
+
+  <div class="why-grip-socks-columns">
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin-top: 8rem;">
+
+      <!-- COLUNA ESQUERDA (ATUALIZADA) -->
+      <div style="background:#000; padding:2rem; max-width:420px; flex:1; border-radius:10px;" class="why-grip-socks-feature-column">
+        <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Why_ballers_choose_1.png?v=1765062596" class="why-grip-socks-main-image why-grip-socks-main-image-left">
+
+        <div class="why-grip-socks-feature-item">
+          <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/7_783a73cc-ea48-48aa-aeb2-714c29771dfc.png?v=1763238051">
+          <div class="why-grip-socks-feature-text why-grip-socks-white">{{ 'compare_socks.left_1' | t }}</div>
+        </div>
+
+        <div class="why-grip-socks-feature-item">
+          <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Design_semASSA_nome.png?v=1763238625">
+          <div class="why-grip-socks-feature-text why-grip-socks-white">{{ 'compare_socks.left_2' | t }}</div>
+        </div>
+
+        <div class="why-grip-socks-feature-item">
+          <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/3_3ea23202-157c-441a-bc90-a9531d7f0426.png?v=1763238050">
+          <div class="why-grip-socks-feature-text why-grip-socks-white">{{ 'compare_socks.left_3' | t }}</div>
+        </div>
+
+        <div class="why-grip-socks-feature-item">
+          <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/6_081fe6a5-983a-4fdf-ae47-868aa07e3152.png?v=1763238051">
+          <div class="why-grip-socks-feature-text why-grip-socks-white">{{ 'compare_socks.left_4' | t }}</div>
+        </div>
+
+        <div class="why-grip-socks-feature-item">
+          <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/5_970b2e13-e90c-4c95-8e18-66cb0acc75e6.png?v=1763238050">
+          <div class="why-grip-socks-feature-text why-grip-socks-white">{{ 'compare_socks.left_5' | t }}</div>
+        </div>
+      </div>
+
+      <!-- COLUNA DIREITA -->
+      <div style="border:2px solid #000; background:fff; padding:2rem; max-width:420px; flex:1; border-radius:10px;" class="why-grip-socks-feature-column">
+        <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Imagens_Produtos_2.png?v=1751020723" class="why-grip-socks-main-image" style="max-width:100px;">
+
+        {% assign cross_icon = "https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Design_sem_nome_19.png?v=1747694101" %}
+
+        <div class="why-grip-socks-feature-item"><img src="{{ cross_icon }}"><div class="why-grip-socks-feature-text why-grip-socks-black">{{ 'compare_socks.right_1' | t }}</div></div>
+        <div class="why-grip-socks-feature-item"><img src="{{ cross_icon }}"><div class="why-grip-socks-feature-text why-grip-socks-black">{{ 'compare_socks.right_2' | t }}</div></div>
+        <div class="why-grip-socks-feature-item"><img src="{{ cross_icon }}"><div class="why-grip-socks-feature-text why-grip-socks-black">{{ 'compare_socks.right_3' | t }}</div></div>
+        <div class="why-grip-socks-feature-item"><img src="{{ cross_icon }}"><div class="why-grip-socks-feature-text why-grip-socks-black">{{ 'compare_socks.right_4' | t }}</div></div>
+        <div class="why-grip-socks-feature-item"><img src="{{ cross_icon }}"><div class="why-grip-socks-feature-text why-grip-socks-black">{{ 'compare_socks.right_5' | t }}</div></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- BOTÃO -->
+  <div class="why-grip-socks-addtocart">
+    <form method="post" action="/cart/add" class="product-form" data-type="add-to-cart-form">
+      <input type="hidden" name="id" value="{{ product.variants.first.id }}">
+      <button type="submit" name="add" class="product-form__submit button button--full-width">
+        {{ 'products.product.add_to_cart' | t }}
+      </button>
+    </form>
+
+    <div class="why-grip-socks-moneyback">
+      <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Iconasas.png?v=1747770903">
+      <span>{{ 'product_features.money_back' | t }}</span>
+    </div>
+  </div>
+
+</div>

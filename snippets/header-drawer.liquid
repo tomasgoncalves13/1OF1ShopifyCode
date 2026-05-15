@@ -1,0 +1,435 @@
+<header-drawer data-breakpoint="desktop">
+  <details id="Details-menu-drawer-container" class="menu-drawer-container">
+    <summary class="header__icon header__icon--menu header__icon--summary link focus-inset" aria-label="{{ 'sections.header.menu' | t }}">
+      <span>
+        {{ 'icon-hamburger.svg' | inline_asset_content }}
+        {{ 'icon-close.svg' | inline_asset_content }}
+      </span>
+    </summary>
+
+    <div id="menu-drawer" class="gradient menu-drawer motion-reduce color-{{ section.settings.menu_color_scheme }}">
+      <div class="menu-drawer__inner-container">
+
+        {%- comment -%} Prefixo do locale com slash garantido {%- endcomment -%}
+        {% assign lp = routes.root_url %}
+        {% assign last_char = lp | slice: -1 %}
+        {% if last_char != '/' %}
+          {% assign lp = lp | append: '/' %}
+        {% endif %}
+
+        <!-- TOPO FIXO -->
+        <div class="drawer-fixed-top">
+          <div class="drawer-shop-title">{{ 'header_drawer.shop' | t }}</div>
+          <div class="drawer-feature-boxes">
+            <div class="drawer-feature">
+              <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Icons_4_faf23a24-678d-48e9-b8ac-2f3dc4556e59.png?v=1748474359" alt="{{ 'header_drawer.money_back_alt' | t }}" />
+              <div class="feature-text">
+                {{ 'header_drawer.money_back_line1' | t }}<br>
+                {{ 'header_drawer.money_back_line2' | t }}
+              </div>
+            </div>
+            <div class="drawer-feature">
+              <img class="trusted-icon" src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Icons_12.png?v=1748474352" alt="{{ 'header_drawer.trusted_alt' | t }}" />
+              <div class="feature-text">
+                {{ 'header_drawer.trusted_line1' | t }}<br>
+                {{ 'header_drawer.trusted_line2' | t }}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CONTEÚDO ROLÁVEL -->
+        <div class="drawer-scrollable">
+          <div class="custom-menu-images-wrapper">
+            <div class="custom-menu-images">
+
+              <!-- COLEÇÕES -->
+              <div class="collection-card">
+                <a href="{{ lp }}collections/shin-pads" class="collection-link">
+                  <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/4_e0afe3a5-daaf-4bde-9e80-41287ae091e8.png?v=1749398071" alt="{{ 'header_drawer.collection_shin_pads_alt' | t }}" />
+                  <div class="overlay">
+                    <div class="collection-title">{{ 'header_drawer.collection_shin_pads' | t }}</div>
+                    <div class="shop-button">{{ 'header_drawer.shop_now' | t }}</div>
+                  </div>
+                </a>
+              </div>
+
+              <div class="collection-card">
+                <a href="{{ lp }}collections/socks" class="collection-link">
+                  <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/16_4cdda5a0-77aa-4614-b77a-9fd2182d02a2.png?v=1749398083" alt="{{ 'header_drawer.collection_socks_alt' | t }}" />
+                  <div class="overlay">
+                    <div class="collection-title">{{ 'header_drawer.collection_socks' | t }}</div>
+                    <div class="shop-button">{{ 'header_drawer.shop_now' | t }}</div>
+                  </div>
+                </a>
+              </div>
+
+              <div class="collection-card">
+                <a href="{{ lp }}collections/kids" class="collection-link">
+                  <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/8_6f747211-33cc-41a0-ae5a-964d6ca42493.png?v=1749398073" alt="{{ 'header_drawer.collection_kids_alt' | t }}" />
+                  <div class="overlay">
+                    <div class="collection-title">{{ 'header_drawer.collection_kids' | t }}</div>
+                    <div class="shop-button">{{ 'header_drawer.shop_now' | t }}</div>
+                  </div>
+                </a>
+              </div>
+
+              <div class="collection-card">
+                <a href="{{ lp }}collections/bundles" class="collection-link">
+                  <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/12_d72fc4da-fb93-48ab-9877-81dcd8dd270c.png?v=1749398079" alt="{{ 'header_drawer.collection_bundles_alt' | t }}" />
+                  <div class="overlay">
+                    <div class="collection-title">{{ 'header_drawer.collection_bundles' | t }}</div>
+                    <div class="shop-button">{{ 'header_drawer.shop_now' | t }}</div>
+                  </div>
+                </a>
+              </div>
+
+              <div class="collection-card">
+                <a href="{{ lp }}collections/accessories" class="collection-link">
+                  <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/14_a7e49f96-5968-4524-b766-e976fe079c50.png?v=1749398082" alt="{{ 'header_drawer.collection_accessories_alt' | t }}" />
+                  <div class="overlay">
+                    <div class="collection-title">{{ 'header_drawer.collection_accessories' | t }}</div>
+                    <div class="shop-button">{{ 'header_drawer.shop_now' | t }}</div>
+                  </div>
+                </a>
+              </div>
+
+              <div class="collection-card">
+                <a href="{{ lp }}collections/shop-all" class="collection-link">
+                  <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/2_d7ceed99-5b1f-4cb3-a3b3-5b79f29c84a3.png?v=1749398070" alt="{{ 'header_drawer.collection_shop_all_alt' | t }}" />
+                  <div class="overlay">
+                    <div class="collection-title">{{ 'header_drawer.collection_shop_all' | t }}</div>
+                    <div class="shop-button">{{ 'header_drawer.shop_now' | t }}</div>
+                  </div>
+                </a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="drawer-fixed-footer">
+          <div class="drawer-footer-links">
+            <!-- links internos de páginas: usar lp -->
+            <a href="{{ lp }}pages/about-1of1-futbol">{{ 'header_drawer.about' | t }}</a>
+            <a href="{{ lp }}pages/help-center">{{ 'header_drawer.help_center' | t }}</a>
+          </div>
+
+          <div class="drawer-footer-bottom">
+            {%- if section.settings.enable_language_selector and localization.available_languages.size > 1 -%}
+              <localization-form data-prevent-hide>
+                {%- form 'localization', id: 'DrawerLanguageForm', class: 'localization-form' -%}
+                  <div>
+                    <h2 class="visually-hidden" id="DrawerLanguageLabel">{{ 'localization.language_label' | t }}</h2>
+                    {%- render 'language-localization', localPosition: 'DrawerLanguage' -%}
+                  </div>
+                {%- endform -%}
+              </localization-form>
+            {%- endif -%}
+
+            <div class="drawer-social-icons">
+              <!-- externos: manter absolutos -->
+              <a href="https://www.instagram.com/1of1futbol/" target="_blank">
+                <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Icons_b634f1dd-1521-4b16-aa04-995cc0cf6d5a.png?v=1749399426" alt="{{ 'header_drawer.instagram_alt' | t }}" />
+              </a>
+              <a href="https://www.tiktok.com/@1of1futbol" target="_blank">
+                <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Icons_1_d3074836-1843-462f-82d8-21b7cb2012ed.png?v=1749399424" alt="{{ 'header_drawer.tiktok_alt' | t }}" />
+              </a>
+              <a href="https://www.facebook.com/profile.php?id=61571727680181" target="_blank">
+                <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Icons_2_caba1e26-98bb-42b8-b298-ac64d44b6c8a.png?v=1749399425" alt="{{ 'header_drawer.facebook_alt' | t }}" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </details>
+</header-drawer>
+
+<!--  do tele está no component-menu-drawer -->
+<style>
+  @font-face {
+    font-family: 'PoppinsExtraBold';
+    src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/poppins.extrabold.ttf?v=1747688794') format('truetype');
+    font-weight: 800;
+  }
+
+  @font-face {
+    font-family: 'PoppinsMedium';
+    src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/poppins.medium.ttf?v=1747688794') format('truetype');
+    font-weight: 500;
+  }
+
+
+.drawer-selects {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 1.4rem;
+}
+
+.drawer-selects select {
+  flex: 1;
+  padding: 0.6rem;
+  font-size: 1.4rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: white;
+}
+
+.drawer-footer-bottom {
+  display: flex;
+  align-items: center;
+}
+
+.drawer-footer-bottom .drawer-social-icons {
+  margin-left: auto;
+  display: flex;
+  gap: 8px;
+  margin-right: 3px; /* encostado à direita */
+}
+
+.drawer-footer-bottom .drawer-social-icons img {
+  width: 28px;
+  height: 28px;
+}
+
+
+@media screen and (max-width: 749px) {
+  .drawer-fixed-footer .localization-form {
+    width: auto !important;
+    flex: 1;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .drawer-fixed-footer .localization-form__select {
+    min-width: auto !important;
+    font-size: 1.3rem;
+    padding: 0.4rem 1rem !important;
+  }
+
+  .drawer-fixed-footer localization-form {
+    position: relative;
+    top: -10px;   /* sobe */
+    left: -10px;  /* move para a esquerda */
+  }
+}
+
+@media screen and (min-width: 990px) {
+.menu-drawer {
+  width: 100% !important;
+  max-width: 560px !important;
+  margin: 0 auto !important;
+  background: white !important;
+  box-shadow: 5px 0 18px rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+}
+
+
+  .drawer-shop-title {
+    font-family: 'Poppins ExtraBold' !important;
+    font-size: 2.5rem;
+    padding: 1.8rem 2.2rem 1.2rem;
+    color: black;
+    text-transform: uppercase;
+  }
+
+  .drawer-feature-boxes {
+    display: flex;
+    justify-content: space-between;
+    gap: 18px;
+    padding: 0 2.2rem 2.2rem;
+  }
+  
+  .feature-text {
+  font-family: 'Poppins Medium' !important;
+  font-size: 1.4rem !important;
+    margin-left:6px;
+  line-height: 1.4;
+  color: black;
+  text-transform: uppercase;
+}
+
+  .drawer-feature {
+    flex: 1;
+    background: #f1f1f1;
+    border: 1px solid #ccc;
+    text-align: left;
+    padding: 1.4rem;
+    font-family: 'Poppins Medium' !important;
+    font-size: 2rem;
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    min-height: 75px;
+  }
+
+  .drawer-feature img {
+    margin-left:8px;
+    height: 30px;
+    width: auto;
+  }
+
+  .drawer-feature .trusted-icon {
+    height: 34px;
+    width: auto;
+  }
+
+  .drawer-scrollable {
+    flex: none;
+    height: calc(var(--viewport-height, 100vh) - 310px);
+    overflow-y: auto;
+    padding: 0 2.2rem;
+  }
+
+  .custom-menu-images {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .collection-card {
+    position: relative;
+    width: 100%;
+  }
+
+  .collection-link img {
+    width: 100%;
+    display: block;
+    border-radius: 0 !important;
+    background: white !important;
+  }
+
+  .collection-link .overlay {
+    position: absolute;
+    bottom: 26px;
+    left: 26px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 9px;
+  }
+
+  .collection-title {
+    font-family: 'Poppins ExtraBold' !important;
+    font-size: 2.5rem !important;
+    color: white;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+    text-transform: uppercase;
+  }
+
+  .shop-button {
+    font-family: 'Poppins ExtraBold' !important;
+    font-size: 1.7rem;
+    background: #FFD700;
+    color: black;
+    padding: 0.9rem 2.2rem;
+    border-radius: 999px;
+    border: 2px solid black;
+    box-shadow: 0 3px 0 black;
+    transition: transform 0.2s ease;
+  }
+
+  .shop-button:hover {
+    transform: scale(1.06);
+  }
+
+.drawer-fixed-footer {
+  background: white;
+  padding: 1.8rem 2.2rem 0rem; /* topo, laterais, baixo */
+  border-top: 1px solid #ddd;
+  position: sticky;
+  bottom: 0;
+  z-index: 5;
+}
+
+  .drawer-footer-links {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Poppins Medium' !important;
+    font-size: 1.5rem;
+    margin-bottom: 1.4rem;
+  }
+
+  .drawer-footer-links a {
+    text-decoration: none;
+    color: black;
+    font-family: 'Poppins Medium' !important;
+  }
+
+  .drawer-footer-links a:hover {
+    text-decoration: underline;
+  }
+
+  .drawer-social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .drawer-social-icons img {
+    width: 30px;
+    height: 30px;
+  }
+
+  body.no-scroll {
+  overflow: hidden !important;
+  height: 100vh !important;
+  position: fixed !important;
+  width: 100% !important;
+  top: 0;
+  left: 0;
+}
+}
+
+@media screen and (max-width: 749px) {
+  .drawer-fixed-footer {
+    background: white;
+    padding: 1.2rem 2.2rem 0rem; /* topo, lados, baixo */
+    border-top: 1px solid #ddd;
+    position: sticky;
+    bottom: 0;
+    z-index: 5;
+  }
+}
+@media screen and (min-width: 990px) {
+.drawer-scrollable {
+  flex: none;
+  height: calc(var(--viewport-height, 100vh) - 360px) !important;
+  overflow-y: auto;
+  padding: 0 2.2rem;
+}
+  
+.drawer-fixed-footer {
+  background: white;
+  padding: 1.2rem 2.2rem 0rem; /* reduzido */
+  border-top: 1px solid #ddd;
+  position: sticky;
+  bottom: 0;
+  z-index: 5;
+}
+
+}
+
+
+</style>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const drawerToggle = document.getElementById("Details-menu-drawer-container");
+
+    if (!drawerToggle) return;
+
+    drawerToggle.addEventListener("toggle", function () {
+      if (drawerToggle.open) {
+        document.body.classList.add("no-scroll");
+      } else {
+        document.body.classList.remove("no-scroll");
+      }
+    });
+  });
+</script>

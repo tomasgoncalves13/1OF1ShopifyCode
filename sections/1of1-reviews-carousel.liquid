@@ -1,0 +1,382 @@
+<style>
+  .oneofone-carousel-wrapper {
+    position: relative;
+    padding: 40px 0 30px 0;
+    background: fff;
+  }
+
+  .oneofone-review-subtitle {
+    font-family: 'PoppinsMedium', sans-serif;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #000;
+    margin-bottom: 0;
+    position: relative;
+    display: inline-block;
+  }
+
+  .oneofone-review-subtitle::after {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 1px;
+    background-color: #333;
+    margin: 3px auto 0;
+  }
+
+  .oneofone-carousel-track-container {
+    overflow: hidden;
+    position: relative;
+    max-width: 100%;
+    margin: 0 auto;
+    touch-action: pan-y;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .oneofone-carousel {
+    display: flex;
+    transition: transform 0.4s ease-in-out;
+    will-change: transform;
+  }
+
+  .oneofone-review-card {
+    flex: 0 0 230px;
+    margin: 0 10px;
+    background: white;
+    border: 1px solid black;
+    border-radius: 16px;
+    font-family: 'Questrial', sans-serif;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .oneofone-review-photo {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+    border-top-left-radius: 14px;
+    border-top-right-radius: 14px;
+    display: block;
+  }
+
+  .oneofone-review-content {
+    padding: 16px;
+  }
+
+  .oneofone-review-name {
+    font-weight: bold;
+    font-size: 12px;
+    margin-bottom: 4px;
+  }
+
+  .oneofone-review-stars img {
+    width: 80px;
+    display: block;
+  }
+
+  .oneofone-review-text {
+    font-size: 11px;
+    line-height: 1.5;
+    color: #333;
+  }
+
+  .oneofone-carousel-dots {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .oneofone-carousel-dot {
+    height: 12px;
+    width: 12px;
+    margin: 0 5px;
+    background-color: #fff;
+    border: 2px solid #000;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+  }
+
+  .oneofone-carousel-dot.active {
+    background-color: #000;
+  }
+
+  .oneofone-carousel-arrows {
+    display: none;
+  }
+
+  @media (min-width: 1024px) {
+    .oneofone-carousel-track-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      overflow-x: auto;
+      overflow-y: hidden;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .oneofone-carousel {
+      gap: 28px;
+      padding-bottom: 10px;
+      width: max-content;
+    }
+
+    .oneofone-carousel-track-container::-webkit-scrollbar {
+      display: none;
+    }
+
+    .oneofone-carousel-arrows {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      width: 100%;
+      transform: translateY(-50%);
+      display: flex;
+      justify-content: space-between;
+      pointer-events: none;
+    }
+
+    .oneofone-carousel-arrow {
+      background: none;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      pointer-events: auto;
+      font-size: 0; /* remove fallback de texto tipo "<>" */
+    }
+
+    .oneofone-carousel-arrow img {
+      width: 20px;
+      height: 20px;
+      display: block;
+    }
+
+    .oneofone-arrow-left {
+      margin-left: 20px;
+    }
+
+    .oneofone-arrow-right {
+      margin-right: 20px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .oneofone-review-card {
+      flex: 0 0 67%;
+    }
+
+    .oneofone-review-name {
+      font-size: 14px;
+    }
+
+    .oneofone-review-text {
+      margin-top:5px;
+      font-size: 12px;
+      line-height: 1.4;
+    }
+
+    .oneofone-review-stars img {
+      width: 70px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+  .oneofone-review-subtitle {
+    margin-top:30px;
+    font-size: 16px;
+  }
+
+  .oneofone-carousel-wrapper > div:nth-child(2) div:nth-child(2) {
+    font-size: 32px;
+  }
+
+  .oneofone-carousel-wrapper > div:nth-child(2) div:nth-child(3) {
+    font-size: 14px;
+  }
+}
+
+</style>
+
+<section class="oneofone-carousel-wrapper">
+  <div class="oneofone-carousel-arrows">
+    <button class="oneofone-carousel-arrow oneofone-arrow-left" id="oneofonePrevArrow" aria-label="{{ 'carousel.previous_slide' | t }}">
+      <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Icons_6.png?v=1748183986" alt="{{ 'carousel.previous_slide' | t }}" />
+    </button>
+    <button class="oneofone-carousel-arrow oneofone-arrow-right" id="oneofoneNextArrow" aria-label="{{ 'carousel.next_slide' | t }}">
+      <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Icons_7.png?v=1748183986" alt="{{ 'carousel.next_slide' | t }}" />
+    </button>
+  </div>
+
+  <div style="text-align: center; margin-bottom: 1.5rem;">
+    <div class="oneofone-review-subtitle">{{ 'reviews_section.subtitle' | t }}</div>
+    <div style="font-family: 'PoppinsExtraBold', sans-serif; font-size: 22px; font-weight: 800; text-transform: uppercase; color: #000;">
+      {{ 'reviews_section.title' | t }}
+    </div>
+    <div style="display: flex; justify-content: center; align-items: center; font-family: 'PoppinsLight', sans-serif; font-size: 11px; color: #000; margin-top: 2px; margin-bottom: 20px;">
+      <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Design_sem_nome_31_2.png?v=1775505343" alt="{{ 'reviews_section.stars_alt' | t }}" style="height: 10px; margin-right: 6px;" />
+      {{ 'reviews_section.trusted_by' | t }}
+    </div>
+  </div>
+
+  
+<div class="oneofone-carousel-track-container" id="oneofoneCarouselContainer">
+  <div class="oneofone-carousel" id="oneofoneCarouselTrack">
+    {% assign clone_start_indices = "2,3,4,5,6" | split: "," %}
+
+    {% assign review_names = "Jonh K.,Chris L.,Sophie R.,Daniel M.,Jamie D.,Andre F.,Leo M." | split: "," %}
+
+    {% assign review_images = "
+      https://cdn.shopify.com/s/files/1/0907/8472/7374/files/3_d3043d2c-e0f0-4097-9c34-7947972599e4.png?v=1766841023,
+      https://cdn.shopify.com/s/files/1/0907/8472/7374/files/2_e8dd79ed-f52b-4465-8f53-bb262a6807b7.png?v=1766841025,
+      https://cdn.shopify.com/s/files/1/0907/8472/7374/files/7_6352142c-a5d2-4efa-8e9e-f2c5e4423a9d.png?v=1766841024,
+      https://cdn.shopify.com/s/files/1/0907/8472/7374/files/5_f55a0cc3-36fa-49fd-b066-77041ffd0b87.png?v=1766841023,
+      https://cdn.shopify.com/s/files/1/0907/8472/7374/files/icons3_815ed324-6b2d-4901-8d20-ce6d2519626c.png?v=1766837563,
+      https://cdn.shopify.com/s/files/1/0907/8472/7374/files/1_fbb6fd3a-cbc7-400b-9ec6-bbceedf4df6c.png?v=1766841024,
+      https://cdn.shopify.com/s/files/1/0907/8472/7374/files/4_f5d0f6e9-8f75-487a-a339-56e66c683fe9.png?v=1766841024
+    " | split: "," %}
+
+    {% assign r1 = 'reviews_texts.review_1' | t %}
+    {% assign r2 = 'reviews_texts.review_2' | t %}
+    {% assign r3 = 'reviews_texts.review_3' | t %}
+    {% assign r4 = 'reviews_texts.review_4' | t %}
+    {% assign r5 = 'reviews_texts.review_5' | t %}
+    {% assign r6 = 'reviews_texts.review_6' | t %}
+    {% assign r7 = 'reviews_texts.review_7' | t %}
+
+    {% assign review_texts_joined = r1 | append: '||' | append: r2 | append: '||' | append: r3 | append: '||' | append: r4 | append: '||' | append: r5 | append: '||' | append: r6 | append: '||' | append: r7 %}
+    {% assign review_texts = review_texts_joined | split: '||' %}
+
+
+      {% for i in clone_start_indices %}
+        {% assign idx = i | plus: 0 %}
+        <div class="oneofone-review-card clone">
+          <img class="oneofone-review-photo" src="{{ review_images[idx] }}" alt="{{ review_names[idx] }}" />
+          <div class="oneofone-review-content">
+            <div class="oneofone-review-name">{{ review_names[idx] }}</div>
+            <div class="oneofone-review-stars">
+              <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Design_sem_nome_21.png?v=1748038798" />
+            </div>
+            <div class="oneofone-review-text">{{ review_texts[idx] }}</div>
+          </div>
+        </div>
+      {% endfor %}
+
+      {% for i in (0..6) %}
+        <div class="oneofone-review-card">
+          <img class="oneofone-review-photo" src="{{ review_images[i] }}" alt="{{ review_names[i] }}" />
+          <div class="oneofone-review-content">
+            <div class="oneofone-review-name">{{ review_names[i] }}</div>
+            <div class="oneofone-review-stars">
+              <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Design_sem_nome_21.png?v=1748038798" />
+            </div>
+            <div class="oneofone-review-text">{{ review_texts[i] }}</div>
+          </div>
+        </div>
+      {% endfor %}
+
+      {% for i in (0..4) %}
+        <div class="oneofone-review-card clone">
+          <img class="oneofone-review-photo" src="{{ review_images[i] }}" alt="{{ review_names[i] }}" />
+          <div class="oneofone-review-content">
+            <div class="oneofone-review-name">{{ review_names[i] }}</div>
+            <div class="oneofone-review-stars">
+              <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Design_sem_nome_21.png?v=1748038798" />
+            </div>
+            <div class="oneofone-review-text">{{ review_texts[i] }}</div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="oneofone-carousel-dots" id="oneofoneCarouselDots">
+    {% for i in (0..6) %}
+      <span class="oneofone-carousel-dot{% if forloop.first %} active{% endif %}" data-index="{{ i }}"></span>
+    {% endfor %}
+  </div>
+</section>
+
+<script>
+  const oneofoneTrack = document.getElementById("oneofoneCarouselTrack");
+  const oneofoneDots = document.querySelectorAll(".oneofone-carousel-dot");
+  const oneofoneContainer = document.getElementById("oneofoneCarouselContainer");
+  const oneofoneCards = oneofoneTrack.children;
+  const oneofoneTotalRealSlides = 7;
+  const oneofoneTotalClones = 5;
+  let oneofoneIndex = 2;
+
+  const updateOneofoneDots = (i) => {
+    oneofoneDots.forEach(dot => dot.classList.remove("active"));
+    oneofoneDots[i % oneofoneTotalRealSlides].classList.add("active");
+  };
+
+  const goToOneofoneSlide = (i, animate = true) => {
+    const cardWidth = oneofoneCards[0].offsetWidth + 20;
+    const offset = ((i + oneofoneTotalClones) * cardWidth) - (oneofoneContainer.offsetWidth / 2) + (cardWidth / 2);
+    oneofoneTrack.style.transition = animate ? "transform 0.4s ease-in-out" : "none";
+    oneofoneTrack.style.transform = `translateX(-${offset}px)`;
+    oneofoneIndex = i;
+    updateOneofoneDots(i);
+
+    setTimeout(() => {
+      if (i >= oneofoneTotalRealSlides) {
+        oneofoneIndex = 0;
+        const resetOffset = ((oneofoneIndex + oneofoneTotalClones) * cardWidth) - (oneofoneContainer.offsetWidth / 2) + (cardWidth / 2);
+        oneofoneTrack.style.transition = "none";
+        oneofoneTrack.style.transform = `translateX(-${resetOffset}px)`;
+        updateOneofoneDots(oneofoneIndex);
+      } else if (i < 0) {
+        oneofoneIndex = oneofoneTotalRealSlides - 1;
+        const resetOffset = ((oneofoneIndex + oneofoneTotalClones) * cardWidth) - (oneofoneContainer.offsetWidth / 2) + (cardWidth / 2);
+        oneofoneTrack.style.transition = "none";
+        oneofoneTrack.style.transform = `translateX(-${resetOffset}px)`;
+        updateOneofoneDots(oneofoneIndex);
+      }
+    }, 400);
+  };
+
+  const nextOneofoneSlide = () => goToOneofoneSlide(oneofoneIndex + 1);
+  const prevOneofoneSlide = () => goToOneofoneSlide(oneofoneIndex - 1);
+
+  oneofoneDots.forEach(dot => {
+    dot.addEventListener("click", () => {
+      const i = parseInt(dot.getAttribute("data-index"));
+      goToOneofoneSlide(i);
+    });
+  });
+
+  let oneofoneAutoplay = setInterval(nextOneofoneSlide, 5000);
+
+  document.getElementById("oneofonePrevArrow").addEventListener("click", () => {
+    clearInterval(oneofoneAutoplay);
+    prevOneofoneSlide();
+    oneofoneAutoplay = setInterval(nextOneofoneSlide, 5000);
+  });
+
+  document.getElementById("oneofoneNextArrow").addEventListener("click", () => {
+    clearInterval(oneofoneAutoplay);
+    nextOneofoneSlide();
+    oneofoneAutoplay = setInterval(nextOneofoneSlide, 5000);
+  });
+
+  let xStart = null;
+  oneofoneContainer.addEventListener("touchstart", e => {
+    xStart = e.touches[0].clientX;
+  });
+
+  oneofoneContainer.addEventListener("touchend", e => {
+    if (!xStart) return;
+    const xEnd = e.changedTouches[0].clientX;
+    const xDiff = xStart - xEnd;
+    if (Math.abs(xDiff) > 50) {
+      clearInterval(oneofoneAutoplay);
+      xDiff > 0 ? nextOneofoneSlide() : prevOneofoneSlide();
+      oneofoneAutoplay = setInterval(nextOneofoneSlide, 5000);
+    }
+    xStart = null;
+  });
+
+  window.onload = () => goToOneofoneSlide(oneofoneIndex, false);
+  window.addEventListener("resize", () => goToOneofoneSlide(oneofoneIndex, false));
+</script>

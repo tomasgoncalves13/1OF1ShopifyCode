@@ -1,0 +1,216 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "promotion_bar": {
+      "type": "promotion-bar",
+      "settings": {}
+    },
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "square"
+          }
+        },
+        "custom_liquid_7XEWVF": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": ""
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          }
+        },
+        "description": {
+          "type": "description",
+          "disabled": true,
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "title",
+        "price",
+        "variant_picker",
+        "custom_liquid_7XEWVF",
+        "buy_buttons",
+        "description"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "color_scheme": "scheme-2",
+        "media_size": "medium",
+        "constrain_to_viewport": false,
+        "media_fit": "contain",
+        "gallery_layout": "thumbnail_slider",
+        "mobile_thumbnails": "hide",
+        "media_position": "left",
+        "image_zoom": "none",
+        "hide_variants": false,
+        "enable_video_looping": false,
+        "padding_top": 8,
+        "padding_bottom": 16
+      }
+    },
+    "manual_related_products_airflow": {
+      "type": "manual-related-products-airflow",
+      "settings": {}
+    },
+    "sleeve_reviews_carousel": {
+      "type": "sleeve-reviews-carousel",
+      "settings": {}
+    },
+    "video_unboxing_1of1": {
+      "type": "video-unboxing-1of1",
+      "settings": {}
+    },
+    "flag-carousel": {
+      "type": "flag-carousel",
+      "disabled": true,
+      "settings": {}
+    },
+    "1of1_airflow_comparison": {
+      "type": "why-ballers-choose-airflow",
+      "settings": {}
+    },
+    "collapsible_content_MpnV9r": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_NVKrcL": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "O que torna o Airflow Pro especial?",
+            "icon": "none",
+            "row_content": "<p>Espuma EVA premium com furos de ventilação integrados para respirabilidade máxima, e um design que molda à tua canela para um encaixe personalizado. A combinação perfeita de ventilação, proteção e conforto em jogo.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_jqwt39": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Quanto tempo demora a entrega?",
+            "icon": "none",
+            "row_content": "<p>A tua encomenda é enviada no próprio dia ou no próximo dia útil e chega em 3 a 5 dias úteis.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_Lr4W9C": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Têm garantia?",
+            "icon": "none",
+            "row_content": "<p>Sim. Todos os nossos produtos incluem 3 anos de garantia contra defeitos de fabrico.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_yGD9Gj": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Que tamanho devo escolher?",
+            "icon": "none",
+            "row_content": "<p>O <strong>Airflow</strong> molda-se à canela. Escolhe:</p><p><strong>9 × 6 cm</strong> – Máxima agilidade e sensação mínima.</p><p><strong>15 × 9 cm</strong> – Maior cobertura e proteção sem sacrificar o conforto.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_L4b6Rh": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "São duráveis e oferecem proteção?",
+            "icon": "none",
+            "row_content": "<p>Desenvolvidas para atletas de alta competição, combinam agilidade ultra-leve com materiais de proteção avançados para uma durabilidade de nível profissional.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_9NkFMM": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Têm envio gratuito?",
+            "icon": "check_mark",
+            "row_content": "<p>Sim, todas as encomendas têm envio gratuito.<br/><br/></p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_NVKrcL",
+        "collapsible_row_jqwt39",
+        "collapsible_row_Lr4W9C",
+        "collapsible_row_yGD9Gj",
+        "collapsible_row_L4b6Rh",
+        "collapsible_row_9NkFMM"
+      ],
+      "settings": {
+        "caption": "Joga com Confiança — Tudo o que Precisas de Saber",
+        "heading": "PERGUNTAS FREQUENTES",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "layout": "none",
+        "container_color_scheme": "",
+        "color_scheme": "",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "reviews_1of1_box": {
+      "type": "reviews-1of1-box",
+      "settings": {}
+    },
+    "carrossel_ctt": {
+      "type": "carrossel-ctt",
+      "disabled": true,
+      "settings": {}
+    },
+    "scrolling_columns": {
+      "type": "scrolling-columns",
+      "settings": {}
+    },
+    "custom_newsletter": {
+      "type": "custom-newsletter",
+      "settings": {}
+    },
+    "custom_footer_brand": {
+      "type": "custom-footer-brand",
+      "settings": {}
+    }
+  },
+  "order": [
+    "promotion_bar",
+    "main",
+    "manual_related_products_airflow",
+    "sleeve_reviews_carousel",
+    "video_unboxing_1of1",
+    "flag-carousel",
+    "1of1_airflow_comparison",
+    "collapsible_content_MpnV9r",
+    "reviews_1of1_box",
+    "carrossel_ctt",
+    "scrolling_columns",
+    "custom_newsletter",
+    "custom_footer_brand"
+  ]
+}

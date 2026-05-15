@@ -1,0 +1,45 @@
+<!-- Fonte Poppins ExtraBold -->
+<style>
+  @font-face {
+    font-family: 'Poppins ExtraBold';
+    src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/poppins.extrabold.ttf?v=1747688794') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+  }
+</style>
+
+<!-- Secção com imagem e título centralizado -->
+<style>
+  .socials-section {
+    background: fff;
+    padding: 0;
+    text-align: center;
+  }
+
+  .socials-top-image {
+    width: 100%;
+    display: block;
+    margin-bottom: -4px;
+  }
+
+  .socials-title {
+    font-family: 'Poppins ExtraBold', sans-serif !important;
+    color: #000;
+    font-size: 30px;
+    margin: 30px auto 30px auto;
+    text-align: center;
+    max-width: 95%;
+  }
+
+  @media (max-width: 768px) {
+    .socials-title {
+      font-size: 20px;
+      margin-top: 35px;
+    }
+  }
+</style>
+
+<section class="socials-section">
+  <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Design_sem_nome_18_3e8b8b14-abf2-442c-bbc1-ad08b472bf05.png?v=1767108619" alt="{{ 'socials_section.top_image_alt' | t }}" class="socials-top-image">
+  <div class="socials-title">{{ 'socials_section.title' | t }}</div>
+</section>

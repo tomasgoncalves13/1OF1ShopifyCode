@@ -1,0 +1,522 @@
+<!-- ============================================================
+     1of1 – Aprovado por Atletas
+     Colar como Custom HTML no Shopify
+     ============================================================ -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;1,700;1,800&display=swap" rel="stylesheet">
+
+<style>
+/* ── Reset localizado ── */
+.oof-wrap *,
+.oof-wrap *::before,
+.oof-wrap *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── Wrapper ── */
+.oof-wrap {
+  font-family: 'Montserrat', sans-serif;
+  background: #fff;
+  overflow: hidden;
+  padding: 15px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* ── Header ── */
+.oof-header {
+  text-align: center;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.oof-eyebrow {
+  display: block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: #4f92c7;
+  margin-top: 10px;
+}
+
+.oof-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(28px, 5vw, 44px);
+  font-weight: 800;
+  line-height: 1.1;
+  color: #111;
+}
+
+/* ── Scroll-snap track ── */
+.oof-track {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 82%;
+  gap: 12px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  padding: 0 20px 6px;
+}
+
+.oof-track::-webkit-scrollbar { display: none; }
+
+@media (min-width: 640px)  { .oof-track { grid-auto-columns: 47%; } }
+@media (min-width: 1000px) { .oof-track { grid-auto-columns: 31%; } }
+
+/* ── Card ── */
+.oof-card {
+  scroll-snap-align: start;
+  background: #f2f2f2;
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+/* ── Duas fotos, sem gap ── */
+.oof-media {
+  display: flex;
+  height: 280px;
+  overflow: hidden;
+}
+
+.oof-media img {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+/* ── Corpo ── */
+.oof-body {
+  padding: 20px 18px 18px;
+}
+
+.oof-quote {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.68;
+  color: #444;
+  margin-bottom: 14px;
+}
+
+.oof-quote::before { content: '\201C'; }
+.oof-quote::after  { content: '\201D'; }
+
+.oof-name {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #111;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.oof-tick {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  background: #0057ff;
+  flex-shrink: 0;
+}
+
+.oof-tick.green { background: #00aa5b; }
+
+.oof-tick svg {
+  width: 9px;
+  height: 9px;
+  stroke: #fff;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 3;
+}
+
+.oof-role {
+  margin-top: 4px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10.5px;
+  font-weight: 400;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,.35);
+  margin-bottom: 16px;
+}
+
+/* ── CTA produto ── */
+.oof-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  background: #fff;
+  border-radius: 12px;
+  padding: 10px 12px;
+  text-decoration: none;
+  color: inherit;
+  transition: background .2s;
+}
+
+.oof-cta:hover { background: #ebebeb; }
+
+.oof-cta-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.oof-thumb {
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: #e0e0e0;
+}
+
+.oof-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.oof-cta-info {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.oof-pname {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  color: #111;
+  line-height: 1.3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 155px;
+}
+
+.oof-prices {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 3px;
+}
+
+.oof-price-now {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: #111;
+}
+
+.oof-price-was {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  color: #bbb;
+  text-decoration: line-through;
+}
+
+.oof-badge {
+  padding: 6px 10px;
+  border-radius: 99px;
+  background: linear-gradient(90deg, #fb770f, #ffba06);
+  flex-shrink: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: .3px;
+  white-space: nowrap;
+}
+
+/* ── Setas – sem círculo ── */
+.oof-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  margin-top: 20px;
+  padding: 0 20px;
+  margin-bottom: 40px;
+}
+
+.oof-arrow {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  color: #111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: .4;
+  transition: opacity .2s;
+  line-height: 0;
+}
+
+.oof-arrow:hover { opacity: 1; }
+
+.oof-arrow svg {
+  width: 25px;
+  height: 25px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+</style>
+
+
+<!-- ════════════════════════════════════════════════ HTML ════ -->
+
+<div class="oof-wrap" id="oof-authority">
+
+  <div class="oof-header">
+    <h2 class="oof-title">Aprovado por Atletas</h2>
+    <span class="oof-eyebrow">Os melhores</span>
+  </div>
+
+  <div class="oof-track" id="oof-track">
+
+    <!-- CARD 1 · Pedro Ramos · shin-pad-sleeve -->
+    <article class="oof-card" data-product="shin-pad-sleeve">
+      <div class="oof-media">
+        <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Design_sem_nome_1_e764f1ea-7bd0-4e4b-a58f-4119b6cc99eb.png?v=1766841149"
+             alt="Pedro Ramos" loading="lazy" decoding="async">
+        <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/587778925_18418272736114561_5562695037590276611_n.jpg?v=1766763251"
+             alt="Pedro Ramos em ação" loading="lazy" decoding="async">
+      </div>
+      <div class="oof-body">
+        <p class="oof-quote">As caneleiras da 1of1 são as melhores que já usei. Ficam no sítio certo, protegem como deve ser e mal se nota que as trazemos em campo.</p>
+        <div class="oof-name">
+          Pedro Ramos
+          <span class="oof-tick"><svg viewBox="0 0 24 24"><path d="M6 12.5l4 4 8-9"/></svg></span>
+        </div>
+        <div class="oof-role">Jogador de Futebol</div>
+        <a class="oof-cta" href="/products/shin-pad-sleeve">
+          <div class="oof-cta-left">
+            <div class="oof-thumb"><img src="" alt="" loading="lazy"></div>
+            <div class="oof-cta-info">
+              <span class="oof-pname"></span>
+              <div class="oof-prices">
+                <span class="oof-price-now">—</span>
+                <span class="oof-price-was"></span>
+              </div>
+            </div>
+          </div>
+          <div class="oof-badge">—</div>
+        </a>
+      </div>
+    </article>
+
+    <!-- CARD 2 · Júlia M. (mãe) · shin-pad-sleeve -->
+    <article class="oof-card" data-product="shin-pad-sleeve">
+      <div class="oof-media">
+        <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Design_sem_nome_f2c09a1c-5049-43a9-a38e-c5c733e072b4.png?v=1778365433"
+             alt="Júlia M." loading="lazy" decoding="async">
+        <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Design_sem_nome_34.png?v=1778365452"
+             alt="Filho de Júlia M." loading="lazy" decoding="async">
+      </div>
+      <div class="oof-body">
+        <p class="oof-quote">O meu filho queria muito estas caneleiras e não me arrependo nada. Qualidade real, chegaram perfeitas e ele não quer usar outras. Mãe aprovada!</p>
+        <div class="oof-name">
+          Júlia M.
+          <span class="oof-tick green"><svg viewBox="0 0 24 24"><path d="M6 12.5l4 4 8-9"/></svg></span>
+        </div>
+        <div class="oof-role">Mãe · Compra verificada</div>
+        <a class="oof-cta" href="/products/shin-pad-sleeve">
+          <div class="oof-cta-left">
+            <div class="oof-thumb"><img src="" alt="" loading="lazy"></div>
+            <div class="oof-cta-info">
+              <span class="oof-pname"></span>
+              <div class="oof-prices">
+                <span class="oof-price-now">—</span>
+                <span class="oof-price-was"></span>
+              </div>
+            </div>
+          </div>
+          <div class="oof-badge">—</div>
+        </a>
+      </div>
+    </article>
+
+    <!-- CARD 3 · Rodrigo Geraldo · mini-shin-pads -->
+    <article class="oof-card" data-product="mini-shin-pads">
+      <div class="oof-media">
+        <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Design_sem_nome_36.png?v=1778370499"
+             alt="Rodrigo Geraldo" loading="lazy" decoding="async">
+        <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Design_sem_nome_35.png?v=1778365983"
+             alt="Rodrigo Geraldo em ação" loading="lazy" decoding="async">
+      </div>
+      <div class="oof-body">
+        <p class="oof-quote">As mini caneleiras da 1of1 são outra dimensão. Leves, discretas e com proteção a sério. Uso em todos os treinos e nunca mais quero voltar atrás.</p>
+        <div class="oof-name">
+          Rodrigo Geraldo
+          <span class="oof-tick"><svg viewBox="0 0 24 24"><path d="M6 12.5l4 4 8-9"/></svg></span>
+        </div>
+        <div class="oof-role">Jogador de Futebol</div>
+        <a class="oof-cta" href="/products/mini-shin-pads">
+          <div class="oof-cta-left">
+            <div class="oof-thumb"><img src="" alt="" loading="lazy"></div>
+            <div class="oof-cta-info">
+              <span class="oof-pname"></span>
+              <div class="oof-prices">
+                <span class="oof-price-now">—</span>
+                <span class="oof-price-was"></span>
+              </div>
+            </div>
+          </div>
+          <div class="oof-badge">—</div>
+        </a>
+      </div>
+    </article>
+
+    <!-- CARD 4 · Gonçalo Semedo · shin-pad-sleeve -->
+    <article class="oof-card" data-product="shin-pad-sleeve">
+      <div class="oof-media">
+        <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/frame_0_19_14f.jpg?v=1778363995"
+             alt="Gonçalo Semedo" loading="lazy" decoding="async">
+        <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Design_sem_nome_37.png?v=1778371119"
+             alt="Gonçalo Semedo em campo" loading="lazy" decoding="async">
+      </div>
+      <div class="oof-body">
+        <p class="oof-quote">A 1of1 percebe o que os atletas precisam. Qualidade top, conforto real e nota-se logo a diferença em campo. É o que uso, é o que recomendo.</p>
+        <div class="oof-name">
+          Gonçalo Semedo
+          <span class="oof-tick"><svg viewBox="0 0 24 24"><path d="M6 12.5l4 4 8-9"/></svg></span>
+        </div>
+        <div class="oof-role">Jogador de Futebol</div>
+        <a class="oof-cta" href="/products/shin-pad-sleeve">
+          <div class="oof-cta-left">
+            <div class="oof-thumb"><img src="" alt="" loading="lazy"></div>
+            <div class="oof-cta-info">
+              <span class="oof-pname"></span>
+              <div class="oof-prices">
+                <span class="oof-price-now">—</span>
+                <span class="oof-price-was"></span>
+              </div>
+            </div>
+          </div>
+          <div class="oof-badge">—</div>
+        </a>
+      </div>
+    </article>
+
+  </div><!-- /track -->
+
+  <!-- Setas limpas -->
+  <div class="oof-footer">
+    <button class="oof-arrow" id="oof-prev" aria-label="Anterior">
+      <svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg>
+    </button>
+    <button class="oof-arrow active" id="oof-next" aria-label="Seguinte">
+      <svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg>
+    </button>
+  </div>
+
+</div><!-- /wrap -->
+
+
+<!-- ═══════════════════════════════════════════ JavaScript ═══ -->
+
+<script>
+(function () {
+
+  function fmt(cents) {
+    if (!cents) return '';
+    return '€' + (cents / 100).toFixed(2).replace('.', ',');
+  }
+
+  function fillCard(card, product) {
+    var img = card.querySelector('.oof-thumb img');
+    if (img && product.featured_image) {
+      img.src = product.featured_image;
+      img.alt = product.title;
+    }
+
+    var nameEl = card.querySelector('.oof-pname');
+    if (nameEl && product.title) nameEl.textContent = product.title;
+
+    var nowEl = card.querySelector('.oof-price-now');
+    if (nowEl) nowEl.textContent = fmt(product.price) || '—';
+
+    var compareAt = product.compare_at_price_max;
+    var wasEl = card.querySelector('.oof-price-was');
+    var badge = card.querySelector('.oof-badge');
+
+    if (compareAt && compareAt > product.price) {
+      var pct = Math.round((1 - product.price / compareAt) * 100);
+      if (wasEl) wasEl.textContent = fmt(compareAt);
+      if (badge) badge.textContent = '-' + pct + '%';
+    } else {
+      if (wasEl) wasEl.style.display = 'none';
+      if (badge) badge.style.display = 'none';
+    }
+  }
+
+  var fetched = {};
+
+  document.querySelectorAll('#oof-authority .oof-card[data-product]').forEach(function (card) {
+    var handle = card.dataset.product;
+    if (!handle) return;
+
+    if (!fetched[handle]) {
+      fetched[handle] = fetch('/products/' + handle + '.js')
+        .then(function (r) { return r.json(); });
+    }
+
+    fetched[handle].then(function (product) {
+      fillCard(card, product);
+    }).catch(function () {});
+  });
+
+  var track   = document.getElementById('oof-track');
+  var btnPrev = document.getElementById('oof-prev');
+  var btnNext = document.getElementById('oof-next');
+
+  function cardWidth() {
+    var c = track.querySelector('.oof-card');
+    return c ? c.offsetWidth + 12 : 300;
+  }
+
+  function updateArrows() {
+    var atStart = track.scrollLeft < 10;
+    var atEnd   = track.scrollLeft + track.offsetWidth >= track.scrollWidth - 10;
+    btnPrev.style.opacity = atStart ? '.25' : '.9';
+    btnNext.style.opacity = atEnd   ? '.25' : '.9';
+  }
+
+  if (btnPrev && btnNext) {
+    btnPrev.addEventListener('click', function () {
+      track.scrollBy({ left: -cardWidth(), behavior: 'smooth' });
+    });
+    btnNext.addEventListener('click', function () {
+      track.scrollBy({ left: cardWidth(), behavior: 'smooth' });
+    });
+    track.addEventListener('scroll', updateArrows, { passive: true });
+    updateArrows();
+  }
+
+})();
+</script>

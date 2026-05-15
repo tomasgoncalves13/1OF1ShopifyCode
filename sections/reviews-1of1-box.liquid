@@ -1,0 +1,213 @@
+<section class="reviews-1of1-box">
+  <div class="reviews-1of1-box__container">
+
+    <div class="reviews-1of1-box__headline">
+      <h2>O QUE DIZEM OS JOGADORES</h2>
+    </div>
+
+    {%- assign review_names = "Pedro Ramos,Carla Micaela,Afonso Moura,Tiago Campas,Tiago Rosa,Rui Lebre" | split: "," -%}
+
+{%- assign review_images = "
+https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Design_sem_nome_1_e764f1ea-7bd0-4e4b-a58f-4119b6cc99eb.png?v=1766841149,
+https://cdn.shopify.com/s/files/1/0907/8472/7374/files/6_e66f88ce-3be9-49d4-841c-4da6f6b83db1.png?v=1766841024,
+https://cdn.shopify.com/s/files/1/0907/8472/7374/files/IMG_9946.jpg?v=1766789489,
+https://cdn.shopify.com/s/files/1/0907/8472/7374/files/10_3a7007b8-8f46-4a20-ae78-5988bfd06c64.png?v=1766841024,
+https://cdn.shopify.com/s/files/1/0907/8472/7374/files/9_3d69b63b-1ade-4bb2-95ab-972217327aa7.png?v=1766841024,
+https://cdn.shopify.com/s/files/1/0907/8472/7374/files/8_28135218-8a7d-4954-8a1f-94d1dca07d93.png?v=1766841024
+
+" | split: "," -%}
+
+
+    {%- assign author_images = "https://cdn.shopify.com/s/files/1/0907/8472/7374/files/587778925_18418272736114561_5562695037590276611_n.jpg?v=1766763251,https://cdn.shopify.com/s/files/1/0907/8472/7374/files/468353936_10160764819009646_4989448966034454864_n.jpg?v=1766763251,https://cdn.shopify.com/s/files/1/0907/8472/7374/files/WhatsApp_Image_2025-12-26_at_15.19.41.jpg?v=1766763253,https://cdn.shopify.com/s/files/1/0907/8472/7374/files/547763259_18384705229123518_6389558453401531268_n.jpg?v=1766763251,https://cdn.shopify.com/s/files/1/0907/8472/7374/files/SnapInsta.to_241821491_540792870327119_4112143861675249692_n.jpg?v=1766763252,https://cdn.shopify.com/s/files/1/0907/8472/7374/files/468832735_8725440484189575_8180509570370854917_n.jpg?v=1767117886" | split: "," -%}
+
+    {%- assign review_texts = "
+Uso em todos os treinos e jogos e finalmente consigo jogar sem distrações. Ficam sempre no sítio e não incomodam nada.
+|
+Muito satisfeita 😍 O meu filho adora jogar com elas e sente-se mais confortável e protegido. 
+|
+Adorei, parecem feitas à medida. Chegaram ao Porto em apenas 1 dia e nota-se logo a qualidade, até no packaging!
+|
+Adorei! São super confortáveis e protegem mesmo. Já não me preocupo mais com as caneleiras durante o jogo.
+|
+Qualidade top! O equipamento perfeito para quem quer proteção sem perder mobilidade.
+|
+Já é o meu segundo par e estou a adorar. Sinto-me livre e seguro, já não consigo jogar com as caneleiras antigas. 😄
+" | split: "|" -%}
+
+    <div class="reviews-1of1-box__grid">
+      {% for i in (0..5) %}
+        <div class="reviews-1of1-box__item">
+
+          <img src="{{ review_images[i] }}" alt="Review {{ review_names[i] }}">
+
+          <svg class="reviews-1of1-box__stars" width="101" height="20" viewBox="0 0 101 20">
+            <g fill="#00b67a">
+              <polygon points="10 15 4 18 5 11 0 7 7 6 10 0 13 6 20 7 15 11 16 18"/>
+              <polygon points="30 15 24 18 25 11 21 7 28 6 30 0 33 6 40 7 35 11 36 18"/>
+              <polygon points="50 15 44 18 45 11 41 7 48 6 50 0 53 6 60 7 55 11 56 18"/>
+              <polygon points="70 15 64 18 65 11 61 7 68 6 70 0 73 6 80 7 75 11 76 18"/>
+              <polygon points="90 15 84 18 85 11 81 7 88 6 90 0 93 6 100 7 95 11 96 18"/>
+            </g>
+          </svg>
+
+          <p>{{ review_texts[i] | strip }}</p>
+
+<figcaption class="reviews-1of1-box__author">
+  <img src="{{ author_images[i] }}" alt="{{ review_names[i] }}">
+  <div style="line-height:1.2;">
+    <strong style="display:inline;">
+      {{ review_names[i] }}
+    </strong>
+    {% if review_names[i] == "Tiago Campas" %}
+      <img 
+        src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/ilustracao-vetorial-de-icone-de-midia-social-do-cracha-de-conta-verificada_34480-1607.avif?v=1766766829"
+        style="
+          width:15px;
+          height:15px;
+          display:inline-block;
+          vertical-align:bottom;
+          margin-left:2px;
+        ">
+    {% endif %}
+  </div>
+</figcaption>
+
+
+
+
+        </div>
+      {% endfor %}
+    </div>
+
+  </div>
+</section>
+
+<style>
+@font-face {
+  font-family: 'PoppinsRegular';
+  src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Poppins-Regular.ttf?v=1753909133') format('truetype');
+}
+
+@font-face {
+  font-family: 'PoppinsMedium';
+  src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/poppins.medium.ttf?v=1747688794') format('truetype');
+}
+
+@font-face {
+  font-family: 'PoppinsLight';
+  src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/poppins.light.ttf?v=1748130416') format('truetype');
+}
+
+/* ===== REVIEWS 1OF1 BOX (ISOLADO) ===== */
+.reviews-1of1-box {
+  padding: 5px 10px 0px 10px;
+  box-sizing: border-box;
+}
+
+.reviews-1of1-box * {
+  box-sizing: border-box;
+}
+
+.reviews-1of1-box__container {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0px 10px 0px 10px;
+}
+
+.reviews-1of1-box__headline h2 {
+  text-align: center;
+  font-family: 'PoppinsRegular', sans-serif;
+  font-size: 22px;
+  margin-bottom: 25px;
+}
+
+.reviews-1of1-box__grid {
+  column-count: 2;
+  column-gap: 20px;
+}
+
+.reviews-1of1-box__item {
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 12px;
+}
+
+.reviews-1of1-box__item {
+  position: relative;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.20);
+  padding: 0 0 60px 0;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.reviews-1of1-box__item > img {
+  width: 100%;
+  display: block;
+}
+
+.reviews-1of1-box__stars {
+  margin: 7px 0px 0px 10px;
+}
+
+.reviews-1of1-box__stars g {
+  fill: #00b67a;
+}
+
+.reviews-1of1-box__item p {
+  padding: 0 12px;
+  font-family: 'PoppinsMedium', sans-serif;
+  font-size: 14px;
+  line-height: 1.4;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+.reviews-1of1-box__author {
+  position: absolute;
+  bottom: 10px;
+  left: 12px;
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  gap: 10px;
+  align-items: center;
+  font-family: 'PoppinsRegular', sans-serif;
+}
+
+.reviews-1of1-box__author img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.reviews-1of1-box__author div {
+  line-height: 1.2;
+  margin: 0;
+  padding-right: 15px;
+  font-size: 13px;
+  font-family: 'PoppinsRegular', sans-serif;
+}
+
+/* MOBILE */
+@media (max-width: 800px) {
+  .reviews-1of1-box {
+            padding: 5px 10px 0px 10px;
+
+  }
+
+  .reviews-1of1-box__container {
+        padding: 0px 10px 0px 10px;
+  }
+
+  .reviews-1of1-box__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+  }
+
+  .reviews-1of1-box__item p {
+    font-size: 13px;
+  }
+}
+</style>

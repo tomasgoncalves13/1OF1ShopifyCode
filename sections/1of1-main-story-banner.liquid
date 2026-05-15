@@ -1,0 +1,150 @@
+<section class="our-story-banner">
+  <style>
+    /* Fontes */
+    @font-face {
+      font-family: 'Poppins Light';
+      src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/poppins.light.ttf?v=1748130416') format('truetype');
+    }
+
+    @font-face {
+      font-family: 'Poppins ExtraBold';
+      src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/poppins.extrabold.ttf?v=1747688794') format('truetype');
+    }
+
+    @font-face {
+      font-family: 'Poppins SemiBold';
+      src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/poppins.semibold.ttf?v=1747688794') format('truetype');
+    }
+
+    .our-story-banner {
+      margin: 0;
+      padding: 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .our-story-img-mobile {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .our-story-desktop {
+      display: none;
+    }
+
+    @media screen and (min-width: 768px) {
+      .our-story-img-mobile {
+        display: none;
+      }
+
+      .our-story-desktop {
+        display: block;
+        position: relative;
+        width: 100%;
+      }
+
+      .our-story-desktop img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      .our-story-content {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        width: 100%;
+        padding-inline: 2rem;
+        box-sizing: border-box;
+        color: #000;
+      }
+
+.our-story-inner {
+  max-width: 900px;
+  transform: translate(15%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* <<< aqui está a centralização entre elas */
+  text-align: center;   /* <<< para que o texto fique centrado */
+  gap: 1.5rem;
+}
+
+      .our-story-title {
+        font-family: 'Poppins Light';
+        font-size: 2.5rem;
+        letter-spacing: 0.05em;
+        color: #000;
+      }
+
+      .our-story-sub {
+        font-family: 'Poppins ExtraBold';
+           margin-top: 1.5rem;
+        font-size: 4rem;
+        line-height: 1.2;
+        color: #000;
+      }
+
+      .our-story-sub strong {
+        display: block;
+        font-size: 6.5rem;
+        margin-top: 0.5rem;
+        color: #000;
+      }
+
+      .our-story-desc {
+        font-family: 'Poppins SemiBold';
+        font-size: 2.2rem;
+        line-height: 1.6;
+        margin-top: 3.5rem;
+        color: #000;
+      }
+
+.our-story-final {
+  font-family: 'Poppins SemiBold';
+  font-size: 2rem;
+  color: #000;
+  margin-top: 3.5rem;
+}
+
+    }
+  </style>
+
+  <!-- Mobile image -->
+  <img 
+    src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Futbol.png?v=1748955620" 
+    alt="Our Story Mobile" 
+    class="our-story-img-mobile"
+  >
+
+  <!-- Desktop image + texto -->
+  <div class="our-story-desktop">
+    <img 
+      src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/in_a_world_of_copies_be_1of1..png?v=1751310177" 
+      alt="Our Story Desktop"
+    >
+
+    <div class="our-story-content">
+      <div class="our-story-inner">
+        <div class="our-story-title">OUR STORY</div>
+
+        <div class="our-story-sub">
+          The Brand We Needed Didn't Exist
+          <strong>So We Built It.</strong>
+        </div>
+
+        <div class="our-story-desc">
+          Everything looked the same — normal, boring, forgettable.<br>
+          But football isn’t meant to be played like that.<br>
+          So we built what we couldn’t find.
+        </div>
+
+        <div class="our-story-final">
+  1OF1 Fútbol is more than just a brand; it’s a movement challenging players to break the norm and embrace their individuality. Built for those who dare to stand out, 1OF1 empowers footballers to express their true style — on and off the pitch.
+</div>
+
+      </div>
+    </div>
+  </div>
+</section>

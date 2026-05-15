@@ -1,0 +1,16 @@
+<form method="post" action="/cart/add" enctype="multipart/form-data" id="product_form_{{ product.id }}" class="product-form">
+  {% if product.variants.size > 1 %}
+    <label for="ProductSelect-{{ product.id }}">Escolha a variante</label>
+    <select name="id" id="ProductSelect-{{ product.id }}">
+      {% for variant in product.variants %}
+        <option value="{{ variant.id }}" {% if variant == product.selected_or_first_available_variant %}selected{% endif %}>
+          {{ variant.title }} - {{ variant.price | money }}
+        </option>
+      {% endfor %}
+    </select>
+  {% else %}
+    <input type="hidden" name="id" value="{{ product.variants.first.id }}">
+  {% endif %}
+
+  <button type="submit" name="add" class="btn btn--primary">Adicionar ao carrinho +</button>
+</form>

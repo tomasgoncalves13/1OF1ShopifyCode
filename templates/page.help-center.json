@@ -1,0 +1,40 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "help_center_banner": {
+      "type": "help-center-banner",
+      "settings": {}
+    },
+    "links": {
+      "type": "help-center-links",
+      "settings": {
+      }
+    },
+        "button": {
+      "type": "help-center-button",
+      "settings": {
+      }
+    },
+    "custom_footer_brand": {
+      "type": "custom-footer-white",
+      "settings": {}
+    },"promotion_bar": {
+      "type": "promotion-bar",
+      "settings": {}
+    }
+  },
+  "order": ["promotion_bar",
+    "help_center_banner",
+    "links",
+    "button",
+    "custom_footer_brand"
+  ]
+}

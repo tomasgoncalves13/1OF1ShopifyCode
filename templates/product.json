@@ -1,0 +1,205 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "promotion_bar": {
+      "type": "promotion-bar",
+      "settings": {}
+    },
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "square"
+          }
+        },
+        "custom_liquid_7XEWVF": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": ""
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          }
+        },
+        "description": {
+          "type": "description",
+          "disabled": true,
+          "settings": {}
+        },
+        "dealeasy_vd_cards_mVaHBB": {
+          "type": "shopify://apps/dealeasy/blocks/vd-cards/e47a8634-0496-480d-9e46-6f7fafd34b30",
+          "settings": {
+            "lb-product-handle": "",
+            "lb-product-id": ""
+          }
+        },
+        "dealeasy_app_block_QMPEaR": {
+          "type": "shopify://apps/dealeasy/blocks/app-block/e47a8634-0496-480d-9e46-6f7fafd34b30",
+          "disabled": true,
+          "settings": {
+            "lb-product-handle": "",
+            "lb-product-id": ""
+          }
+        }
+      },
+      "block_order": [
+        "title",
+        "price",
+        "variant_picker",
+        "custom_liquid_7XEWVF",
+        "buy_buttons",
+        "description",
+        "dealeasy_vd_cards_mVaHBB",
+        "dealeasy_app_block_QMPEaR"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "color_scheme": "scheme-2",
+        "media_size": "medium",
+        "constrain_to_viewport": false,
+        "media_fit": "contain",
+        "gallery_layout": "thumbnail_slider",
+        "mobile_thumbnails": "hide",
+        "media_position": "left",
+        "image_zoom": "none",
+        "hide_variants": false,
+        "enable_video_looping": false,
+        "padding_top": 8,
+        "padding_bottom": 16
+      }
+    },
+    "manual_related_products_mini_shin_pads": {
+      "type": "manual-related-products-mini-shin-pads",
+      "settings": {}
+    },
+    "sleeve_reviews_carousel": {
+      "type": "sleeve-reviews-carousel",
+      "settings": {}
+    },
+    "video_unboxing_1of1": {
+      "type": "video-unboxing-1of1",
+      "settings": {}
+    },
+    "flag-carousel": {
+      "type": "flag-carousel",
+      "settings": {}
+    },
+    "collapsible_content_MpnV9r": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_NVKrcL": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Quanto tempo demora a entrega?",
+            "icon": "none",
+            "row_content": "<p>A tua encomenda é enviada no próprio dia ou no próximo dia útil e chega em 3 a 5 dias úteis.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_wggrMG": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Têm garantia?",
+            "icon": "check_mark",
+            "row_content": "<p>Sim. Todos os nossos produtos incluem 3 anos de garantia contra defeitos de fabrico.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_jJDAzd": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Têm envio gratuito?",
+            "icon": "check_mark",
+            "row_content": "<p>Sim, todas as encomendas têm envio gratuito.</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_NVKrcL",
+        "collapsible_row_wggrMG",
+        "collapsible_row_jJDAzd"
+      ],
+      "name": "t:sections.collapsible_content.presets.name",
+      "settings": {
+        "caption": "Joga com Confiança — Tudo o que Precisas de Saber",
+        "heading": "PERGUNTAS FREQUENTES",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "layout": "none",
+        "container_color_scheme": "",
+        "color_scheme": "",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "reviews_1of1_box": {
+      "type": "reviews-1of1-box",
+      "settings": {}
+    },
+    "carrossel_ctt": {
+      "type": "carrossel-ctt",
+      "disabled": true,
+      "settings": {}
+    },
+    "17513142046cf8012d": {
+      "type": "apps",
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "scrolling_columns": {
+      "type": "scrolling-columns",
+      "settings": {}
+    },
+    "custom_newsletter": {
+      "type": "custom-newsletter",
+      "settings": {}
+    },
+    "custom_footer_brand": {
+      "type": "custom-footer-brand",
+      "settings": {}
+    }
+  },
+  "order": [
+    "promotion_bar",
+    "main",
+    "manual_related_products_mini_shin_pads",
+    "sleeve_reviews_carousel",
+    "video_unboxing_1of1",
+    "flag-carousel",
+    "collapsible_content_MpnV9r",
+    "reviews_1of1_box",
+    "carrossel_ctt",
+    "17513142046cf8012d",
+    "scrolling_columns",
+    "custom_newsletter",
+    "custom_footer_brand"
+  ]
+}

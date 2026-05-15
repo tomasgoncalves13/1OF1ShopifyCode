@@ -1,0 +1,1136 @@
+
+
+
+<style>
+@font-face {
+  font-family: 'PoppinsRegular';
+  src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Poppins-Regular.ttf?v=1753909133') format('truetype');
+}
+
+@font-face {
+  font-family: 'PoppinsSemiBold';
+  src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/poppins.semibold.ttf?v=1747688794') format('truetype');
+}
+
+@font-face {
+  font-family: 'PoppinsMedium';
+  src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/poppins.medium.ttf?v=1747688794') format('truetype');
+}
+
+.oneofone-cc-total {
+  font-family: 'PoppinsMedium', sans-serif;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    background: #f7f7f5;
+    border-radius: 10px;
+    font-size: 13px;
+    border: 1px solid #edeae5;
+    margin: 10px 0;
+}
+
+.oneofone-cc-total-left {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+}
+
+.oneofone-cc-total-label {
+    font-size: 10px;
+    font-weight: 400;
+    color: #aaa;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+}
+
+.oneofone-cc-total-compare {
+    font-size: 11px;
+    color: #bbb;
+    text-decoration: line-through;
+}
+
+.oneofone-cc-total-final {
+  font-family: 'PoppinsMedium', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #e03030;
+    letter-spacing: -.01em;
+}
+
+.oneofone-cc-saving {
+    font-family: 'PoppinsBold', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    color: #2fb66d;
+    background: rgba(47, 182, 109, .1);
+    border: 1px solid rgba(47, 182, 109, .2);
+    padding: 4px 9px;
+    border-radius: 6px;
+    white-space: nowrap;
+}
+
+.oneofone-cc {
+    background: #fff;
+    border: 1px solid #edeae5;
+    border-radius: 16px;
+    padding: 16px;
+    max-width: 380px;
+    margin: 0 auto 30px;
+    text-align: center;
+    font-family: var(--font-body-family, sans-serif);
+}
+
+.oneofone-cc-title {
+    font-size: 24px;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+.oneofone-cc-sub {
+    font-size: 13px;
+    margin-bottom: 12px;
+    margin-top:0;
+    font-size: 11px;
+    color: #aaa;
+    font-family: 'PoppinsMedium', sans-serif;
+}
+
+.oneofone-cc-products {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+}
+
+.oneofone-cc-item {
+    background: #f6f6f6;
+    border-radius: 10px;
+    padding: 10px;
+    border: 1.5px solid #edeae5;
+    cursor: pointer;
+    text-align: center;
+    position: relative;
+    transition: border-color .2s, box-shadow .2s, opacity .2s;
+    border-color: #4f92c7;
+    box-shadow: 0 0 0 3px rgba(79, 146, 199, .12);
+}
+
+.oneofone-cc-item--selected {
+    border-color: #4f92c7;
+    box-shadow: 0 0 0 3px rgba(79, 146, 199, 0.12);
+}
+
+.oneofone-cc-img-wrap img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.oneofone-cc-plus {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.oneofone-cc-prices {
+    font-size: 13px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.oneofone-cc-compare {
+    text-decoration: line-through;
+    font-family: 'PoppinsMedium', sans-serif;
+    color: #999;
+    margin-right: 4px;
+}
+
+.oneofone-cc-actual {
+    font-family: 'PoppinsSemiBold', sans-serif;
+}
+
+.oneofone-cc-total {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 12px;
+    background: #f7f7f5;
+    border-radius: 10px;
+    margin: 10px 0;
+    font-size: 13px;
+    border: 1px solid #edeae5;
+    align-items: center;
+}
+
+.oneofone-cc-total-compare {
+    text-decoration: line-through;
+    color: #999;
+}
+
+
+.oneofone-cc-badge {
+    background: #4f92c7;
+    color: #fff;
+    padding: 2px 6px;
+    border-radius: 6px;
+    font-size: 11px;
+}
+
+.oneofone-cc-form {
+    margin-top: 8px;
+}
+
+.oneofone-cc-btn {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    background: linear-gradient(90deg, #4f92c7, #38beef);
+    color: #fff;
+    font-family: 'PoppinsBold', sans-serif;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.oneofone-cc-btn-shimmer {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    animation: oneofone-shimmer 2.2s infinite;
+}
+
+@keyframes oneofone-shimmer {
+    100% { left: 120%; }
+}
+
+
+.combo-sleeve-card { 
+  background: #fff;
+  border-radius: 10px;
+  padding: 0 15px 22px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+  max-width: 380px;
+  text-align: center;
+  margin-bottom: 30px;
+  border: none;
+  font-family: 'PoppinsRegular', sans-serif;
+}
+
+.combo-sleeve-title {
+  font-size: 24px;
+  margin-bottom: 4px;
+  padding-top: 20px;
+  margin-top: 0px;
+}
+
+.bf-gradient {
+  background:  linear-gradient(90deg, #4f92c7 0%, #38beef 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.combo-sleeve-sub {
+  font-size: 12px;
+  line-height: 1.2;
+  color: #555;
+  font-family: 'PoppinsMedium', sans-serif;
+  margin-bottom: 15px;
+  white-space: nowrap;
+  text-align: center; /* 👈 centrado */
+      margin-top: 0;
+}
+
+
+.combo-sleeve-products {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.combo-item {
+  background: #f6f6f6;
+  border-radius: 7px;
+  padding: 10px 9px;
+  text-align: center;
+}
+
+.combo-item img {
+  max-width: 100%;
+}
+
+.compare {
+  text-decoration: line-through;
+  opacity: .6;
+  color: #333;
+  font-size: 12px;
+}
+
+.actual {
+font-family: 'PoppinsSemiBold', sans-serif;
+  color: #1f4e79;
+  font-size: 13px;
+}
+
+.combo-plus {
+  font-size: 30px;
+  font-weight: 700;
+  color: #2f75b5;
+}
+
+.combo-sleeve-total {
+  font-size: 13.5px;
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+.combo-sleeve-total .label {
+  font-weight: normal; 
+  margin-right: 4px;
+}
+
+.total-compare {
+  font-family: 'PoppinsMedium', sans-serif;
+  color: #333;
+  opacity: .6;
+  text-decoration: line-through;
+}
+
+.total-final {
+  font-family: 'PoppinsBold', sans-serif;
+  color: #1f4e79 !important;
+}
+
+.bundle-badge {
+  background:linear-gradient(90deg, #1f4e79 0%, #25618f 45%, #2f75b5 100%);
+  font-family: 'PoppinsSemiBold', sans-serif;
+  color: #fff;
+  font-size: 10px;
+  padding: 3px 10px;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px;
+}
+
+.badge-icon {
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.combo-sleeve-button {
+  width: 95%;
+  padding: 12px 16px;
+  border: none;
+  background: linear-gradient(90deg, #4f92c7 0%, #38beef 100%);
+  color: #ffffff;
+  font-size: 13.5px;
+  font-family: 'PoppinsBold', sans-serif;
+  border-radius: 6px;
+  cursor: pointer;
+  animation: combo-sleeve-pulse-natal 1.6s ease-in-out infinite;
+}
+
+@media (min-width: 1024px) {
+
+  /* Combo ocupa toda largura do full-wrapper e margens maiores */
+  .combo-sleeve-card {
+    max-width: none;
+    width: 100%;
+    margin: 50px 0; /* margem superior e inferior ainda maior */
+    padding: 15px 30px 40px; /* padding-top do card menor */
+  }
+
+  /* Título com padding-top muito reduzido */
+  .combo-sleeve-title {
+    font-size: 34px;
+    margin-bottom: 12px;
+    padding-top: 0px; /* praticamente colado ao topo */
+    
+  }
+
+  /* Subtítulo maior */
+  .combo-sleeve-sub {
+    font-size: 18px;
+    margin-bottom: 22px;
+  }
+
+  /* Produtos maiores */
+  .combo-sleeve-products {
+    gap: 35px;
+  }
+
+  .combo-item {
+    padding: 22px 16px;
+    border-radius: 12px;
+  }
+
+  .combo-item img {
+    max-width: 200px; /* imagens maiores */
+  }
+
+  /* Preços maiores */
+  .compare {
+    font-size: 17px;
+  }
+  .actual {
+    font-size: 20px;
+  }
+
+  /* Sinal de "+" maior */
+  .combo-plus {
+    font-size: 46px;
+  }
+
+  /* Total e badge maiores */
+  .combo-sleeve-total {
+    font-size: 19px;
+    gap: 14px;
+    margin-top: 22px;
+    margin-bottom: 28px;
+  }
+
+  .total-compare {
+    font-size: 17px;
+  }
+
+  .total-final {
+    font-size: 22px;
+  }
+
+  .bundle-badge {
+    font-size: 15px;
+    padding: 7px 16px;
+    border-radius: 6px;
+  }
+
+  .badge-icon {
+    width: 16px;
+    height: 16px;
+  }
+
+  /* Botão grande mas ocupando 75% da largura */
+  .combo-sleeve-button {
+    font-size: 17px;
+    padding: 16px 20px;
+    max-width: 75%;
+    margin: 0 auto;
+    display: block;
+  }
+}
+
+
+@keyframes combo-sleeve-pulse-natal {
+  0% { transform: scale(1);     box-shadow: 0 0 0 0 rgba(47, 117, 181, .28) }
+  50% { transform: scale(1.06);     box-shadow: 0 0 18px 6px rgba(47, 117, 181, .22); }
+  100% { transform: scale(1);     box-shadow: 0 0 0 0 rgba(47, 117, 181, .28); }
+}
+</style>
+
+<section class="full-wrapper">
+
+<!-- Start Tracking Section
+<div class="section-tracking-container">
+  <div class="section-tracking-line"></div>
+  
+  <div class="section-tracking-grid">
+    
+    <div class="section-tracking-item section-tracking-completed">
+      <div class="section-tracking-icon" style="background-color: #2FB66D;">
+        <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/4_7b609227-3b73-4801-99b4-3d66aa0bd6ea.png?v=1765916087" alt="{{ 'tracking.ordered' | t }}" />
+      </div>
+      <p>{{ 'tracking.ordered' | t }}</p>
+      <span class="section-tracking-date" id="section-tracking-date1"></span>
+    </div>
+    
+    <div class="section-tracking-item section-tracking-ongoing">
+      <div class="section-tracking-icon">
+        <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/5_dfd832ab-02b7-4210-9e5e-7dcf766505f3.png?v=1765916087" alt="{{ 'tracking.shipped' | t }}" />
+      </div>
+      <p>{{ 'tracking.shipped' | t }}</p>
+      <span class="section-tracking-date" id="section-tracking-date2"></span>
+    </div>
+    
+    <div class="section-tracking-item section-tracking-pending">
+      <div class="section-tracking-icon">
+        <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/amiaaso.png?v=1765923594" alt="{{ 'tracking.delivered' | t }}" />
+      </div>
+      <p>{{ 'tracking.delivered' | t }}</p>
+      <span class="section-tracking-date" id="section-tracking-date3"></span>
+    </div>
+    
+  </div>
+</div>
+
+<script>
+function formatSectionTrackingDate(date) {
+  let day = date.getDate();
+  let month = date.getMonth() + 1;
+  if(day < 10) day = '0' + day;
+  if(month < 10) month = '0' + month;
+  return `${day}/${month}`;
+}
+
+function nextSectionTrackingBusinessDay(date, addDays = 1) {
+  let result = new Date(date);
+  let added = 0;
+  while(added < addDays) {
+    result.setDate(result.getDate() + 1);
+    let day = result.getDay();
+    if(day !== 0 && day !== 6) added++;
+  }
+  return result;
+}
+
+let sectionTrackingToday = new Date();
+document.getElementById('section-tracking-date1').textContent = formatSectionTrackingDate(sectionTrackingToday);
+
+let sectionTrackingNextDay = nextSectionTrackingBusinessDay(sectionTrackingToday, 1);
+document.getElementById('section-tracking-date2').textContent = formatSectionTrackingDate(sectionTrackingNextDay);
+
+let sectionTrackingFourthDay = nextSectionTrackingBusinessDay(sectionTrackingToday, 4);
+document.getElementById('section-tracking-date3').textContent = formatSectionTrackingDate(sectionTrackingFourthDay);
+</script>
+-->
+<style>
+.section-tracking-container {
+  width: 100%;
+  padding: 0 10px;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  position: relative;
+}
+
+.section-tracking-line {
+  width: 100%;
+  border-top: 2px solid #E5E8EB;
+  position: absolute;
+  top: 14px;
+  left: 0;
+  z-index: 1;
+}
+
+.section-tracking-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.section-tracking-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  position: relative;
+}
+
+.section-tracking-completed:first-child::before {
+  content: '';
+  position: absolute;
+  top: 14px;
+  left: 0;
+  width: 50%;
+  border-top: 2px solid #2FB66D;
+  z-index: 2;
+}
+
+.section-tracking-completed:first-child::after {
+  content: '';
+  position: absolute;
+  top: 14px;
+  left: 50%;
+  width: 50%;
+  border-top: 2px solid #E5E8EB;
+  z-index: 1;
+}
+
+.section-tracking-ongoing::after,
+.section-tracking-pending::after {
+  content: '';
+  position: absolute;
+  top: 14px;
+  left: 0;
+  width: 100%;
+  border-top: 2px solid #E5E8EB;
+  z-index: 1;
+}
+
+.section-tracking-icon {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+  overflow: hidden;
+}
+
+.section-tracking-icon img {
+  width: 60%;
+  height: 60%;
+  object-fit: contain;
+}
+
+.section-tracking-completed .section-tracking-icon {
+  border-color: #2FB66D;
+  color: #2FB66D;
+}
+
+.section-tracking-ongoing .section-tracking-icon {
+  border-color: #ccc;
+}
+
+.section-tracking-pending .section-tracking-icon {
+  border-color: #ccc;
+}
+
+.section-tracking-item p {
+  margin: 0;
+  font-size: 14px;
+  font-family: 'PoppinsMedium', sans-serif;
+}
+
+.section-tracking-date {
+  display: inline-block;
+  padding: 4px 10px;
+  font-size: 12px;
+  color: #333;
+  font-family: 'PoppinsMedium', sans-serif;
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+}
+</style>
+
+
+<!-- End Tracking Section -->
+
+<div class="new_section_container">
+  <div class="new_section_shipping">
+
+    <!-- Box Garantia de 3 anos -->
+    <div class="new_section_guarantee_box">
+      <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/a.png?v=1765669570" class="new_section_shipping_icon" />
+      <span>
+        {{ 'section-ctt.garantia_1' | t }} <br>
+        {{ 'section-ctt.garantia_2' | t }}
+      </span>
+    </div>
+
+    <!-- Box Envio grátis CTT -->
+    <div class="new_section_shipping_box">
+      <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/1_c6b9f526-4b73-4bbb-b775-fdf05f6785da.png?v=1765667649" class="new_section_shipping_icon" />
+      <span>
+        {{ 'section-ctt.ctt_1' | t }} <br>
+        {{ 'section-ctt.ctt_2' | t }}
+      </span>
+    </div>
+
+    <!-- Box Testa 30 Dias Sem Risco -->
+    <div class="new_section_test_box">
+      <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/2_08c50601-68d3-4bd2-99ab-7790defae0c6.png?v=1765667648" class="new_section_shipping_icon" />
+      <span>
+        {{ 'section-ctt.test_1' | t }} <br>
+        {{ 'section-ctt.test_2' | t }} <br>
+        {{ 'section-ctt.test_3' | t }}
+      </span>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+
+
+<!-- CSS -->
+<style>
+  @font-face {
+    font-family: 'Questrial';
+    src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Questrial-Regular.ttf?v=1746300481') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+    @font-face {
+    font-family: 'PoppinsLight';
+    src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/poppins.light.ttf?v=1748130416') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+.product-form__submit {
+  margin-bottom: 10px;
+  /* box-shadow: 1.5px 1.5px #000 !important; */
+/* border-radius: 8px !important; */
+}
+
+.shopify-payment-button__more-options { 
+   margin-top: 10px;
+   margin-bottom: 0px !important;
+  text-decoration: none; /* Remover o sublinhado */
+  font-family: 'PoppinsMedium', sans-serif !important;
+  }
+
+.product__info-container .product-form {
+    margin: 0px;
+}
+
+.product__info-container > * + * {
+    margin: 1rem 0;
+}
+
+  .payment-text {
+  text-align: center;
+  font-size: 12px;
+  margin-top: 0px !important; /* Garante que o margin-top seja zero */
+  margin-bottom: 5px; /* Define um pequeno margin-bottom */
+  line-height: 1.1; /* Ajusta o line-height */
+  font-family: 'PoppinsRegular', sans-serif !important;
+  color: #000;
+}
+  
+.new_section_container {
+  background-color: #fff; /* Cor de fundo branco */
+  border-radius: 10px; /* Borda arredondada */
+  margin-bottom: 25px; /* Margem inferior */
+    padding-top: 10px; /* Padding superior */
+  padding-bottom: 0.1px; /* Padding inferior */
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); /* Sombrinha suave para destacar o container */
+}
+
+.new_section_shipping {
+  display: flex;
+  justify-content: space-between; /* Garante o espaçamento entre as caixas */
+  align-items: center;
+  gap: 3px; /* Distância de 3px entre as caixas */
+  margin-top: 5px;
+  margin-bottom: 25px;
+  width: 100%; /* Garante que a seção ocupe toda a largura disponível */
+  padding: 0; /* Remove qualquer padding que possa estar afetando as laterais */
+}
+
+.new_section_guarantee_box, .new_section_shipping_box, .new_section_test_box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 10px;
+  width: calc(33.333%); /* Ajusta para que as caixas fiquem lado a lado com 3px de distância */
+  box-sizing: border-box; /* Considera o padding e a margem dentro do cálculo do tamanho */
+}
+
+.new_section_shipping_icon {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+}
+
+.new_section_guarantee_box span,
+.new_section_shipping_box span,
+.new_section_test_box span {
+  font-family: 'PoppinsMedium', sans-serif !important;
+  color: #000;
+  font-size: 11px;
+  text-transform: uppercase; /* Aplica maiúsculas */
+  line-height: 1.4;
+}
+
+
+  .payment-shipping-strip {
+    text-align: center;
+    margin: 10px 0;
+    margin-top: 0px !important;
+  }
+
+  .payment-icons {
+    display: flex;
+    justify-content: center;
+    gap: 0px;
+    flex-wrap: wrap;
+    margin-top: 0px !important;
+    margin-bottom: 5px !important;
+  }
+
+  .payment-icons img {
+    height: 30px;
+    object-fit: contain;
+  }
+
+
+.section-template--25483201282382__main-padding {
+    padding-top: 6px;
+    padding-bottom: 5px;
+}
+.separator {
+  font-size: 12px !important;
+  line-height: 11px !important;
+  color: #000000 !important;
+  font-weight: normal !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  font-family: 'PoppinsRegular', sans-serif !important;
+}
+
+</style>
+
+<!--´Fim da seção de pagamentos e garantias -->
+
+
+<!-- START TABS -->
+<div class="tabs">
+  <!-- Agora o primeiro botão é o antigo Tab 2 -->
+  <div class="tab-button active" onclick="showTab(0)">{{ 'tabs.features' | t }}</div>
+  <div class="tab-button" onclick="showTab(1)">{{ 'tabs.performance' | t }}</div>
+  <div class="tab-button" onclick="showTab(2)">{{ 'tabs.shipping_returns' | t }}</div>
+</div>
+
+<!-- Tab 1 (agora FEATURES e DEFAULT) -->
+<div class="tab-content active">
+  <div class="custom-title">{{ 'tabs.main_title' | t }}</div>
+  <ul>
+    <li><span class="negrito">{{ 'tabs.locked_in' | t }}</span> {{ 'tabs.locked_in_text' | t }}</li>
+    <li><span class="negrito">{{ 'tabs.locked_in_fit' | t }}</span> {{ 'tabs.locked_in_fit_text' | t }}</li>
+    <li><span class="negrito">{{ 'tabs.protection' | t }}</span> {{ 'tabs.protection_text' | t }}</li>
+  </ul>
+</div>
+
+<!-- Tab 2 (antiga Performance) -->
+<div class="tab-content">
+  <div class="features-icons">
+    <div class="feature-item">
+      <video src="https://cdn.shopify.com/videos/c/o/v/1283f7f55c8f45598813ef312e73d398.mp4" autoplay loop muted playsinline></video>
+      <p>{{ 'tabs.seamless_fit' | t }}</p>
+    </div>
+    <div class="feature-item">
+      <video src="https://cdn.shopify.com/videos/c/o/v/edc49ae6c633468995e29ad942343568.mp4" autoplay loop muted playsinline></video>
+      <p>{{ 'tabs.breathable_fabric' | t }}</p>
+    </div>
+    <div class="feature-item">
+      <video src="https://cdn.shopify.com/videos/c/o/v/ce180722e73e403fb40aed5075d8db45.mp4" autoplay loop muted playsinline></video>
+      <p>{{ 'tabs.one_size_fits_all' | t }}</p>
+    </div>
+    <div class="feature-item">
+      <video src="https://cdn.shopify.com/videos/c/o/v/dba63c4868594960b5d5693c9aeb212f.mp4" autoplay loop muted playsinline></video>
+      <p>{{ 'tabs.enhanced_flexibility' | t }}</p>
+    </div>
+    <div class="feature-item">
+      <video src="https://cdn.shopify.com/videos/c/o/v/aeeb754ccc214dad850fccff42f327fd.mp4" autoplay loop muted playsinline></video>
+      <p>{{ 'tabs.in_built_shin_pad' | t }}</p>
+    </div>
+    <div class="feature-item">
+      <video src="https://cdn.shopify.com/videos/c/o/v/7b719fc10b174a96883310df316de695.mp4" autoplay loop muted playsinline></video>
+      <p>{{ 'tabs.stylish_aesthetic' | t }}</p>
+    </div>
+  </div>
+</div>
+
+<!-- Tab 3 (igual) -->
+<div class="tab-content shipping-returns">
+  <p><span class="negrito">{{ 'tabs.shipping' | t }}</span></p>
+  <ul>
+    <li><span class="negrito">{{ 'tabs.shipping_portugal' | t }}</span> {{ 'tabs.shipping_portugal_desc' | t }}</li>
+    <li><span class="negrito">{{ 'tabs.shipping_spain' | t }}</span> {{ 'tabs.shipping_spain_desc' | t }}</li>
+    <li><span class="negrito">{{ 'tabs.shipping_world' | t }}</span> {{ 'tabs.shipping_world_desc' | t }}</li>
+  </ul>
+
+  <p class="footer">{{ 'tabs.more_details' | t }}</p>
+
+  <ul>
+    <li>{{ 'tabs.worldwide_shipping' | t }}</li>
+    <li>{{ 'tabs.money_back' | t }}</li>
+  </ul>
+</div>
+
+<script>
+  function showTab(index) {
+    const buttons = document.querySelectorAll('.tab-button');
+    const contents = document.querySelectorAll('.tab-content');
+    buttons.forEach(btn => btn.classList.remove('active'));
+    contents.forEach(c => c.classList.remove('active'));
+    buttons[index].classList.add('active');
+    contents[index].classList.add('active');
+  }
+</script>
+
+
+<style>
+/* ============================= */
+/* ======= FONTES POPPINS ======= */
+/* ============================= */
+@font-face {
+  font-family: 'PoppinsRegular';
+  src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Poppins-Regular.ttf?v=1753909133') format('truetype');
+  font-style: normal;
+}
+@font-face {
+  font-family: 'PoppinsSemiBold';
+  src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/poppins.semibold.ttf?v=1747688794') format('truetype');
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Anton';
+  src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Anton-Regular.ttf?v=1761583609') format('truetype');
+  font-style: normal;
+}
+/* ============================= */
+/* ======= BASE GERAL ========= */
+/* ============================= */
+.tabs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 colunas iguais */
+  gap: 10px; /* Espaço entre as tabs */
+  justify-content: center;
+  align-items: stretch; /* todas com a mesma altura */
+  margin-bottom: 20px;
+  width: 100%;
+  padding: 0 0px; /* padding igual ao tab-content */
+  box-sizing: border-box;
+  font-family: 'PoppinsSemiBold', sans-serif;
+}
+
+.features-icons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; /* Alinha os itens de maneira espaçada */
+}
+
+.feature-item {
+  width: 30%; /* Cada item ocupa 30% da largura para que 3 itens caibam por linha */
+  margin-bottom: 0px; /* Espaço entre as linhas */
+  margin-top: 0px;
+  text-align: center; /* Alinha o texto e os ícones ao centro */
+}
+
+.feature-item video {
+  margin-top: 10px;
+  width: 45px; /* Ajuste de largura do vídeo */
+  height: 45px; /* Ajuste de altura do vídeo */
+  object-fit: cover; /* Ajuste para o vídeo preencher o espaço sem distorcer */
+}
+
+.feature-item p {
+  margin-top: 0px; /* Distância entre o vídeo e o texto */
+  font-size: 13px; /* Ajuste do tamanho da fonte */
+  line-height: 1.3 !important; /* Diminui o espaço entre as linhas */
+  margin-bottom: 0px !important; 
+   color: #000000 !important;
+   font-family: 'PoppinsMedium', sans-serif;
+}
+.tab-content ul li {
+  font-size: 12px;
+}
+
+.tab-content ul li span {
+  margin-right: 0px; /* Espaço entre o ícone e o texto */
+}
+
+
+
+/* Customização do título */
+.custom-title {
+  font-family: 'Anton', sans-serif !important; /* Força a aplicação da fonte Anton */
+  font-size: 20px !important; /* Tamanho da fonte */
+  margin-bottom: 14px !important; /* Margem inferior ajustada para aproximar as linhas */
+  text-align: left; /* Alinhamento à esquerda */
+  color: #000000 !important; /* Cor preta */
+   line-height: 1.3 !important; /* Diminui o espaço entre as linhas */
+}
+
+.negrito {
+font-family: 'PoppinsBold', sans-serif;
+  color: #000000 !important; /* Cor preta */
+}
+
+.tab-button {
+  padding: 14px 16px;
+  background: #fff;
+  cursor: pointer;
+  font-size: 12px;
+  border-radius: 6px;
+  white-space: nowrap;
+  transition: background 0.3s, color 0.3s, border-color 0.3s;
+  font-family: 'PoppinsSemiBold', sans-serif;
+  text-align: center;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.tab-button.active {
+  background: #000;
+  color: #fff;
+  border-color: #000;
+}
+
+/* ============================= */
+/* ======= CONTEÚDO TAB ======= */
+/* ============================= */
+.tab-content {
+  display: none;
+  padding: 18px;
+  background: #fff;
+  border-radius: 8px;
+  margin-top: 10px;
+  font-family: 'PoppinsRegular', sans-serif;
+  font-size: 12px;
+  color: #333;
+  width: 100%; /* Usar toda a largura disponível */
+  max-width: 100%; /* Garantir que não ultrapasse o limite da tela */
+  margin: 0 auto; /* Centraliza o conteúdo */
+  box-sizing: border-box;
+  text-align: left; /* Alinha o texto à esquerda */
+      box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.tab-content.active {
+  display: block;
+}
+
+.save-percent {
+  display: inline-block;
+  padding: 4px 15px;
+  background-color: #fff304; /* Cor de fundo */
+  color: #000000; /* Cor do texto */
+  font-size: 11px; /* Tamanho do texto */
+  text-transform: uppercase;
+  border-radius: 500px; /* Bordas arredondadas */
+  margin-left: 2px;
+  line-height: 1.4;
+  font-family: 'PoppinsSemiBold', sans-serif !important;
+  position: relative;
+  top: -2px;
+}
+
+.price.price--large.price--show-badge .price-item.price-item--regular {
+    color: #333333;
+    font-size: 16px;
+}
+
+.price.price--large.price--show-badge .price-item.price-item--last {
+    font-size: 23px;
+   margin-left: 2px;
+}
+
+/* ============================= */
+/* ======= LISTAS & ÍCONES ===== */
+/* ============================= */
+.tab-content ul {
+  padding-left: 0;
+  margin: 0;
+}
+
+.tab-content li {
+  margin-bottom: 10px;
+  list-style: none;
+  position: relative;
+  padding-left: 26px;
+  line-height: 1.4;
+  font-size: 12px;
+  color: #000;
+  font-family: 'PoppinsRegular', sans-serif;
+  text-align: left; /* Alinha as listas à esquerda */
+}
+
+.tab-content li::before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 0;
+  width: 14px;
+  height: 14px;
+  background-image: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Design_sem_nomzze.png?v=1778290015');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.tab-content ul.no-icons li::before {
+  content: none;
+}
+
+/* ============================= */
+/* ======= FOOTER ============== */
+/* ============================= */
+.footer {
+  margin-top: 0px;
+  font-size: 12px;
+  line-height: 1.2;
+  color: #000;
+  font-family: 'PoppinsRegular', sans-serif !important;
+  text-align: left; /* Alinha o footer à esquerda */
+}
+
+
+/* ============================= */
+/* ======= RESPONSIVIDADE ===== */
+/* ============================= */
+@media screen and (max-width: 850px) {
+  .tabs {
+    grid-template-columns: repeat(3, 1fr); /* As tabs continuam lado a lado no mobile */
+    padding: 0 0px; /* Manter o padding lateral igual ao do tab-content */
+    gap: 10px;
+  }
+
+  .tab-button {
+    width: 100%;
+    padding: 12px;
+    font-size: 12px;
+  }
+
+  .tab-content {
+    width: calc(100%);
+    padding: 18px;
+  }
+}
+
+/* ============================= */
+/* ======= SHIPPING RETURNS ==== */
+/* ============================= */
+.shipping-returns {
+  padding-top: 8px !important;
+}
+@media (min-width: 1024px) {
+  .full-wrapper {
+    max-width: 1000px; /* 300px de cada lado */
+    margin: 0 auto; /* centraliza horizontalmente */
+    padding-left: 0; /* remove padding interno lateral se houver */
+    padding-right: 0;
+    padding-bottom: 50px;
+    box-sizing: border-box;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .full-wrapper {
+    padding-left: 15px; /* Ajusta o padding lateral para o full-wrapper */
+    padding-right: 15px; /* Ajusta o padding lateral para o full-wrapper */
+    padding-bottom: 30px;
+    padding-top: 0px;
+  }
+  
+</style>
+<!-- END TABS -->
+</section> 

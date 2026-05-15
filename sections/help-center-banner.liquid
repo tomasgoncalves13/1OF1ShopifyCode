@@ -1,0 +1,101 @@
+<style>
+  @font-face {
+    font-family: 'Poppins ExtraBold';
+    src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/poppins.extrabold.ttf?v=1747688794') format('truetype');
+    font-weight: 800;
+  }
+
+  @font-face {
+    font-family: 'Poppins Medium';
+    src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/poppins.medium.ttf?v=1747688794') format('truetype');
+    font-weight: 500;
+  }
+
+  .contact-banner-wrapper {
+    position: relative;
+    width: 100%;
+    height: auto;
+  }
+
+  .contact-banner-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .contact-banner-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
+    z-index: 2;
+    color: #fff;
+  }
+
+  .contact-banner-content h1 {
+    font-family: 'Poppins ExtraBold', sans-serif !important;
+    font-size: 100px;
+    margin-bottom: 12px;
+    color: #fff;
+    padding: 0 20px;
+  }
+
+  .contact-banner-content p {
+    font-family: 'Poppins Medium', sans-serif !important;
+    font-size: 22px;
+    margin: 0;
+    padding: 0 20px;
+    line-height: 1.8;
+    margin-bottom: 150px;
+  }
+
+  @media screen and (max-width: 767px) {
+    .contact-banner-content {
+      padding: 0;
+    }
+
+    .contact-banner-content h1 {
+      margin-bottom: 5px;
+      font-size: 38px;
+      padding: 0 5px;
+    }
+
+    .contact-banner-content p {
+      font-size: 12px;
+      padding: 0 40px;
+      line-height: 1.7;
+      margin-bottom: 35px;
+      margin-top: 0px;
+    }
+  }
+</style>
+
+<section class="contact-banner-wrapper">
+  <picture>
+    <source media="(max-width: 767px)" srcset="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Banners_Desktop_13.png?v=1767111709">
+    <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Banners_Colecoes_Desktop_2_d2e4e94f-992d-4a09-ae5d-67be1d06a154.png?v=1752855613" alt="{{ 'contact_banner.banner_alt' | t }}">
+  </picture>
+
+  <div class="contact-banner-content">
+    <h1>{{ 'contact_banner.title' | t }}</h1>
+    <p>{{ 'contact_banner.subtitle' | t }}</p>
+  </div>
+</section>
+
+
+{% schema %}
+{
+  "name": "Help Center Banner",
+  "tag": "section",
+  "class": "contact-banner",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Help Center Banner"
+    }
+  ]
+}
+{% endschema %}

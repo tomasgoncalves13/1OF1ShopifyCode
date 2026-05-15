@@ -1,0 +1,18 @@
+{% if product.selected_or_first_available_variant.available %}
+  
+  <style>
+    /* Fonte apenas para este bloco */
+    .instock-pulse,
+    .instock-pulse span {
+      font-family: 'PoppinsMedium', sans-serif;
+    }
+  </style>
+
+  <div class="instock-pulse">
+    <span class="icon--pulsing"></span>
+    <span style="font-size: 12px;">
+      {{ 'product.in_stock_ready' | t }}
+    </span>
+  </div>
+
+{% endif %}

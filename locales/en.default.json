@@ -1,0 +1,1615 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "general": {
+    "password_page": {
+      "login_form_heading": "Enter store using password:",
+      "login_password_button": "Enter using password",
+      "login_form_password_label": "Password",
+      "login_form_password_placeholder": "Your password",
+      "login_form_error": "Wrong password!",
+      "login_form_submit": "Enter",
+      "admin_link_html": "Are you the store owner? <a href=\"/admin\" class=\"link underlined-link\">Log in here</a>",
+      "powered_by_shopify_html": "This shop will be powered by {{ shopify }}"
+    },
+    "social": {
+      "alt_text": {
+        "share_on_facebook": "Share on Facebook",
+        "share_on_twitter": "Share on X",
+        "share_on_pinterest": "Pin on Pinterest"
+      },
+      "links": {
+        "twitter": "X (Twitter)",
+        "facebook": "Facebook",
+        "pinterest": "Pinterest",
+        "instagram": "Instagram",
+        "tumblr": "Tumblr",
+        "snapchat": "Snapchat",
+        "youtube": "YouTube",
+        "vimeo": "Vimeo",
+        "tiktok": "TikTok"
+      }
+    },
+    "continue_shopping": "Continue shopping",
+    "pagination": {
+      "label": "Pagination",
+      "page": "Page {{ number }}",
+      "next": "Next page",
+      "previous": "Previous page"
+    },
+    "search": {
+      "search": "Search",
+      "reset": "Clear search term"
+    },
+    "cart": {
+      "view": "View cart ({{ count }})",
+      "view_empty_cart": "View cart",
+      "item_added": "Item added to your cart"
+    },
+    "share": {
+      "close": "Close share",
+      "copy_to_clipboard": "Copy link",
+      "share_url": "Link",
+      "success_message": "Link copied to clipboard"
+    },
+    "slider": {
+      "of": "of",
+      "next_slide": "Slide right",
+      "previous_slide": "Slide left",
+      "name": "Slider"
+    }
+  },
+  "newsletter": {
+    "label": "Email",
+    "success": "Thanks for subscribing",
+    "button_label": "Subscribe"
+  },
+  "accessibility": {
+    "skip_to_text": "Skip to content",
+    "skip_to_product_info": "Skip to product information",
+    "close": "Close",
+    "unit_price_separator": "per",
+    "vendor": "Vendor:",
+    "error": "Error",
+    "refresh_page": "Choosing a selection results in a full page refresh.",
+    "link_messages": {
+      "new_window": "Opens in a new window.",
+      "external": "Opens external website."
+    },
+    "loading": "Loading...",
+    "total_reviews": "total reviews",
+    "star_reviews_info": "{{ rating_value }} out of {{ rating_max }} stars",
+    "collapsible_content_title": "Collapsible content",
+    "complementary_products": "Complementary products"
+  },
+  "blogs": {
+    "article": {
+      "blog": "Blog",
+      "read_more_title": "Read more: {{ title }}",
+      "comments": {
+        "one": "{{ count }} comment",
+        "other": "{{ count }} comments",
+        "many": "{{ count }} comments"
+      },
+      "moderated": "Please note, comments need to be approved before they are published.",
+      "comment_form_title": "Leave a comment",
+      "name": "Name",
+      "email": "Email",
+      "message": "Comment",
+      "post": "Post comment",
+      "back_to_blog": "Back to blog",
+      "share": "Share this article",
+      "success": "Your comment was posted successfully! Thank you!",
+      "success_moderated": "Your comment was posted successfully. We will publish it in a little while, as our blog is moderated."
+    }
+  },
+  "onboarding": {
+    "product_title": "Example product title",
+    "collection_title": "Your collection's name"
+  },
+  "products": {
+    "product": {
+      "add_to_cart": "Add to cart +",
+      "choose_options": "Choose options",
+      "choose_product_options": "Choose options for {{ product_name }}",
+      "description": "Description",
+      "inventory_in_stock": "In stock",
+      "inventory_in_stock_show_count": "{{ quantity }} in stock",
+      "inventory_low_stock": "Low stock",
+      "inventory_low_stock_show_count": "Low stock: {{ quantity }} left",
+      "inventory_out_of_stock": "Out of stock",
+      "inventory_out_of_stock_continue_selling": "In stock",
+      "sku": "SKU",
+      "on_sale": "Sale",
+      "product_variants": "Product variants",
+      "media": {
+        "gallery_viewer": "Gallery Viewer",
+        "load_image": "Load image {{ index }} in gallery view",
+        "load_model": "Load 3D Model {{ index }} in gallery view",
+        "load_video": "Play video {{ index }} in gallery view",
+        "image_available": "Image {{ index }} is now available in gallery view",
+        "open_media": "Open media {{ index }} in modal",
+        "play_model": "Play 3D Viewer",
+        "play_video": "Play video"
+      },
+      "quantity": {
+        "label": "Quantity",
+        "input_label": "Quantity for {{ product }}",
+        "increase": "Increase quantity for {{ product }}",
+        "decrease": "Decrease quantity for {{ product }}",
+        "minimum_of": "Minimum of {{ quantity }}",
+        "maximum_of": "Maximum of {{ quantity }}",
+        "multiples_of": "Increments of {{ quantity }}",
+        "min_of": "Min {{ quantity }}",
+        "max_of": "Max {{ quantity }}",
+        "in_cart_html": "<span class=\"quantity-cart\">{{ quantity }}</span> in cart",
+        "note": "View quantity rules"
+      },
+      "volume_pricing": {
+        "title": "Volume Pricing",
+        "note": "Volume pricing available",
+        "minimum": "{{ quantity }}+",
+        "price_at_each_html": "at {{ price }}/ea",
+        "price_range": "{{ minimum }} - {{ maximum }}"
+      },
+      "pickup_availability": {
+        "view_store_info": "View store information",
+        "check_other_stores": "Check availability at other stores",
+        "pick_up_available": "Pickup available",
+        "pick_up_available_at_html": "Pickup available at <span class=\"color-foreground\">{{ location_name }}</span>",
+        "pick_up_unavailable_at_html": "Pickup currently unavailable at <span class=\"color-foreground\">{{ location_name }}</span>",
+        "unavailable": "Couldn't load pickup availability",
+        "refresh": "Refresh"
+      },
+      "price": {
+        "from_price_html": "From {{ price }}",
+        "regular_price": "Regular price",
+        "sale_price": "Sale price",
+        "unit_price": "Unit price"
+      },
+      "share": "Share this product",
+      "sold_out": "Sold out",
+      "unavailable": "Unavailable",
+      "vendor": "Vendor",
+      "value_unavailable": "{{ option_value }} - Unavailable",
+      "variant_sold_out_or_unavailable": "Variant sold out or unavailable",
+      "video_exit_message": "{{ title }} opens full screen video in same window.",
+      "view_full_details": "View full details",
+      "xr_button": "View in your space",
+      "xr_button_label": "View in your space, loads item in augmented reality window",
+      "taxes_included": "",
+      "duties_included": "",
+      "duties_and_taxes_included": "",
+      "shipping_policy_html": ""
+    },
+    "modal": {
+      "label": "Media gallery"
+    },
+    "facets": {
+      "filter_and_operator_subtitle": "Match all",
+      "apply": "Apply",
+      "clear": "Clear",
+      "clear_all": "Remove all",
+      "from": "From",
+      "filter_and_sort": "Filter and sort",
+      "filter_by_label": "Filter:",
+      "filter_button": "Filter",
+      "filters_selected": {
+        "one": "{{ count }} selected",
+        "other": "{{ count }} selected",
+        "many": "{{ count }} selected"
+      },
+      "filter_selected_accessibility": "{{ type }} ({{ count }} filters selected)",
+      "show_more": "Show more",
+      "show_less": "Show less",
+      "max_price": "The highest price is {{ price }}",
+      "product_count": {
+        "one": "{{ product_count }} of {{ count }} product",
+        "other": "{{ product_count }} of {{ count }} products",
+        "many": "{{ product_count }} of {{ count }} products"
+      },
+      "product_count_simple": {
+        "one": "{{ count }} product",
+        "other": "{{ count }} products",
+        "many": "{{ count }} products"
+      },
+      "reset": "Reset",
+      "sort_button": "Sort",
+      "sort_by_label": "Sort by:",
+      "to": "To",
+      "clear_filter": "Remove filter"
+    }
+  },
+  "templates": {
+    "404": {
+      "title": "Page not found",
+      "subtext": "404"
+    },
+    "search": {
+      "no_results": "No results found for “{{ terms }}”. Check the spelling or use a different word or phrase.",
+      "page": "Page",
+      "products": "Products",
+      "results_pages_with_count": {
+        "one": "{{ count }} page",
+        "other": "{{ count }} pages",
+        "many": "{{ count }} pages"
+      },
+      "results_suggestions_with_count": {
+        "one": "{{ count }} suggestion",
+        "other": "{{ count }} suggestions",
+        "many": "{{ count }} suggestions"
+      },
+      "results_products_with_count": {
+        "one": "{{ count }} product",
+        "other": "{{ count }} products",
+        "many": "{{ count }} products"
+      },
+      "results_with_count": {
+        "one": "{{ count }} result",
+        "other": "{{ count }} results",
+        "many": "{{ count }} results"
+      },
+      "results_with_count_and_term": {
+        "one": "{{ count }} result found for “{{ terms }}”",
+        "other": "{{ count }} results found for “{{ terms }}”",
+        "many": "{{ count }} result found for “ {{ terms }} ”"
+      },
+      "title": "Search results",
+      "search_for": "Search for “{{ terms }}”",
+      "suggestions": "Suggestions",
+      "pages": "Pages"
+    },
+    "cart": {
+      "cart": "Cart"
+    },
+    "contact": {
+      "form": {
+        "title": "Contact form",
+        "name": "Name",
+        "email": "Email",
+        "phone": "Phone number",
+        "comment": "Comment",
+        "send": "Send",
+        "post_success": "Thanks for contacting us. We'll get back to you as soon as possible.",
+        "error_heading": "Please adjust the following:"
+      }
+    }
+  },
+  "sections": {
+    "announcements": {
+      "previous_announcement": "Previous announcement",
+      "next_announcement": "Next announcement",
+      "carousel": "Carousel",
+      "announcement": "Announcement",
+      "announcement_bar": "Announcement bar"
+    },
+    "header": {
+      "announcement": "Announcement",
+      "menu": "Menu",
+      "cart_count": {
+        "one": "{{ count }} item",
+        "other": "{{ count }} items",
+        "many": "{{ count }} items"
+      }
+    },
+    "cart": {
+      "title": "Your cart",
+      "caption": "Cart items",
+      "remove_title": "Remove {{ title }}",
+      "estimated_total": "Estimated total",
+      "new_estimated_total": "New estimated total",
+      "note": "Order special instructions",
+      "checkout": "Check out",
+      "empty": "Your cart is empty",
+      "cart_error": "There was an error while updating your cart. Please try again.",
+      "cart_quantity_error_html": "You can only add {{ quantity }} of this item to your cart.",
+      "duties_and_taxes_included_shipping_at_checkout_with_policy_html": "",
+      "duties_and_taxes_included_shipping_at_checkout_without_policy": "",
+      "taxes_included_shipping_at_checkout_with_policy_html": "",
+      "taxes_included_shipping_at_checkout_without_policy": "",
+      "duties_included_taxes_at_checkout_shipping_at_checkout_with_policy_html": "",
+      "duties_included_taxes_at_checkout_shipping_at_checkout_without_policy": "",
+      "taxes_at_checkout_shipping_at_checkout_with_policy_html": "",
+      "taxes_at_checkout_shipping_at_checkout_without_policy": "",
+      "headings": {
+        "product": "Product",
+        "price": "Price",
+        "total": "Total",
+        "quantity": "Quantity",
+        "image": "Product image"
+      },
+      "update": "Update",
+      "login": {
+        "title": "Have an account?",
+        "paragraph_html": "<a href=\"{{ link }}\" class=\"link underlined-link\">Log in</a> to check out faster."
+      }
+    },
+    "footer": {
+      "payment": "Payment methods"
+    },
+    "featured_blog": {
+      "view_all": "View all",
+      "onboarding_title": "Blog post",
+      "onboarding_content": "Give your customers a summary of your blog post"
+    },
+    "featured_collection": {
+      "view_all": "View all",
+      "view_all_label": "View all products in the {{ collection_name }} collection"
+    },
+    "collection_list": {
+      "view_all": "View all"
+    },
+    "collection_template": {
+      "empty": "No products found",
+      "title": "Collection",
+      "use_fewer_filters_html": "Use fewer filters or <a class=\"{{ class }}\" href=\"{{ link }}\">remove all</a>"
+    },
+    "video": {
+      "load_video": "Load video: {{ description }}"
+    },
+    "slideshow": {
+      "load_slide": "Load slide",
+      "previous_slideshow": "Previous slide",
+      "next_slideshow": "Next slide",
+      "pause_slideshow": "Pause slideshow",
+      "play_slideshow": "Play slideshow",
+      "carousel": "Carousel",
+      "slide": "Slide"
+    },
+    "page": {
+      "title": "Page title"
+    },
+    "quick_order_list": {
+      "product_total": "Product subtotal",
+      "view_cart": "View cart",
+      "each": "{{ money }}/ea",
+      "product": "Product",
+      "variant": "Variant",
+      "variant_total": "Variant total",
+      "items_added": {
+        "one": "{{ quantity }} item added",
+        "other": "{{ quantity }} items added",
+        "many": "{{ quantity }} items added"
+      },
+      "items_removed": {
+        "one": "{{ quantity }} item removed",
+        "other": "{{ quantity }} items removed",
+        "many": "{{ quantity }} items removed"
+      },
+      "product_variants": "Product variants",
+      "total_items": "Total items",
+      "remove_all_single_item_confirmation": "Remove 1 item from your cart?",
+      "remove_all_items_confirmation": "Remove all {{ quantity }} items from your cart?",
+      "remove_all": "Remove all",
+      "cancel": "Cancel",
+      "min_error": "This item has a minimum of {{ min }}",
+      "max_error": "This item has a maximum of {{ max }}",
+      "step_error": "You can only add this item in increments of {{ step }}"
+    }
+  },
+  "localization": {
+    "country_label": "Country/region",
+    "language_label": "Language",
+    "update_language": "Update language",
+    "update_country": "Update country/region",
+    "search": "Search",
+    "popular_countries_regions": "Popular countries/regions",
+    "country_results_count": "{{ count }} countries/regions found"
+  },
+  "customer": {
+    "account": {
+      "title": "Account",
+      "details": "Account details",
+      "view_addresses": "View addresses",
+      "return": "Return to Account details"
+    },
+    "account_fallback": "Account",
+    "activate_account": {
+      "title": "Activate account",
+      "subtext": "Create your password to activate your account.",
+      "password": "Password",
+      "password_confirm": "Confirm password",
+      "submit": "Activate account",
+      "cancel": "Decline invitation"
+    },
+    "addresses": {
+      "title": "Addresses",
+      "default": "Default",
+      "add_new": "Add a new address",
+      "edit_address": "Edit address",
+      "first_name": "First name",
+      "last_name": "Last name",
+      "company": "Company",
+      "address1": "Address 1",
+      "address2": "Address 2",
+      "city": "City",
+      "country": "Country/region",
+      "province": "Province",
+      "zip": "Postal/ZIP code",
+      "phone": "Phone",
+      "set_default": "Set as default address",
+      "add": "Add address",
+      "update": "Update address",
+      "cancel": "Cancel",
+      "edit": "Edit",
+      "delete": "Delete",
+      "delete_confirm": "Are you sure you wish to delete this address?"
+    },
+    "log_in": "Log in",
+    "log_out": "Log out",
+    "login_page": {
+      "cancel": "Cancel",
+      "create_account": "Create account",
+      "email": "Email",
+      "forgot_password": "Forgot your password?",
+      "guest_continue": "Continue",
+      "guest_title": "Continue as a guest",
+      "password": "Password",
+      "title": "Login",
+      "sign_in": "Sign in",
+      "submit": "Submit",
+      "alternate_provider_separator": "or"
+    },
+    "order": {
+      "title": "Order {{ name }}",
+      "date_html": "Placed on {{ date }}",
+      "cancelled_html": "Order Cancelled on {{ date }}",
+      "cancelled_reason": "Reason: {{ reason }}",
+      "billing_address": "Billing Address",
+      "payment_status": "Payment Status",
+      "shipping_address": "Shipping Address",
+      "fulfillment_status": "Fulfillment Status",
+      "discount": "Discount",
+      "shipping": "Shipping",
+      "tax": "Tax",
+      "product": "Product",
+      "sku": "SKU",
+      "price": "Price",
+      "quantity": "Quantity",
+      "total": "Total",
+      "total_refunded": "Refunded",
+      "fulfilled_at_html": "Fulfilled {{ date }}",
+      "track_shipment": "Track shipment",
+      "tracking_url": "Tracking link",
+      "tracking_company": "Carrier",
+      "tracking_number": "Tracking number",
+      "subtotal": "Subtotal",
+      "total_duties": "Duties"
+    },
+    "orders": {
+      "title": "Order history",
+      "order_number": "Order",
+      "order_number_link": "Order number {{ number }}",
+      "date": "Date",
+      "payment_status": "Payment status",
+      "fulfillment_status": "Fulfillment status",
+      "total": "Total",
+      "none": "You haven't placed any orders yet."
+    },
+    "recover_password": {
+      "title": "Reset your password",
+      "subtext": "We will send you an email to reset your password",
+      "success": "We've sent you an email with a link to update your password."
+    },
+    "register": {
+      "title": "Create account",
+      "first_name": "First name",
+      "last_name": "Last name",
+      "email": "Email",
+      "password": "Password",
+      "submit": "Create"
+    },
+    "reset_password": {
+      "title": "Reset account password",
+      "subtext": "Enter a new password",
+      "password": "Password",
+      "password_confirm": "Confirm password",
+      "submit": "Reset password"
+    }
+  },
+  "gift_cards": {
+    "issued": {
+      "how_to_use_gift_card": "Use the gift card code online or QR code in-store",
+      "title": "Here's your {{ value }} gift card balance for {{ shop }}!",
+      "subtext": "Your gift card",
+      "gift_card_code": "Gift card code",
+      "shop_link": "Visit online store",
+      "add_to_apple_wallet": "Add to Apple Wallet",
+      "qr_image_alt": "QR code — scan to redeem gift card",
+      "copy_code": "Copy gift card code",
+      "expiration_date": "Expires {{ expires_on }}",
+      "copy_code_success": "Code copied successfully",
+      "expired": "Expired"
+    }
+  },
+  "recipient": {
+    "form": {
+      "checkbox": "I want to send this as a gift",
+      "expanded": "Gift card recipient form expanded",
+      "collapsed": "Gift card recipient form collapsed",
+      "email_label": "Recipient email",
+      "email_label_optional_for_no_js_behavior": "Recipient email (optional)",
+      "email": "Email",
+      "name_label": "Recipient name (optional)",
+      "name": "Name",
+      "message_label": "Message (optional)",
+      "message": "Message",
+      "max_characters": "{{ max_chars }} characters max",
+      "send_on": "YYYY-MM-DD",
+      "send_on_label": "Send on (optional)"
+    }
+  },
+  "pagefly": {
+    "products": {
+      "product": {
+        "regular_price": "Regular price",
+        "sold_out": "Sold out",
+        "unavailable": "Unavailable",
+        "on_sale": "Sale",
+        "quantity": "Quantity",
+        "add_to_cart": "Add to cart",
+        "back_to_collection": "Back to {{ title }}",
+        "view_details": "View details"
+      }
+    },
+    "article": {
+      "tags": "Tags:",
+      "all_topics": "All topics",
+      "by_author": "by {{ author }}",
+      "posted_in": "Posted in",
+      "read_more": "Read more",
+      "back_to_blog": "Back to {{ title }}"
+    },
+    "comments": {
+      "title": "Leave a comment",
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "post": "Post comment",
+      "moderated": "Please note, comments must be approved before they are published",
+      "success_moderated": "Your comment was posted successfully. We will publish it in a little while, as our blog is moderated.",
+      "success": "Your comment was posted successfully! Thank you!",
+      "comments_with_count": {
+        "one": "{{ count }} comment",
+        "other": "{{ count }} comments"
+      }
+    },
+    "password_page": {
+      "login_form_message": "Enter store using password:",
+      "login_form_password_label": "Password",
+      "login_form_password_placeholder": "Your password",
+      "login_form_submit": "Enter",
+      "signup_form_email_label": "Email",
+      "signup_form_success": "We will send you an email right before we open!",
+      "password_link": "Enter using password"
+    }
+  },
+  "shopify": {
+    "checkout": {
+      "general": {
+        "map": {
+          "cluster_title": {
+            "many": "Cluster of {{number}} markers"
+          }
+        },
+        "pay_now_button_label": "Complete Purchase"
+      },
+      "customer_account": {
+        "saved_address_option_description": {
+          "many": "You have {{count}} addresses saved."
+        }
+      },
+      "stock": {
+        "unshippable_product": {
+          "header": {
+            "many": "No delivery available for %{count} items"
+          },
+          "message": {
+            "many": "These items will be removed from your cart because there are no shipping methods available to your address."
+          }
+        },
+        "item_label": {
+          "many": "{{count}} items"
+        },
+        "unfulfillable_product": {
+          "message": {
+            "many": "%{delivery_method} is no longer available for these items."
+          },
+          "default_message": {
+            "many": "The selected shipping method is no longer available for these items."
+          }
+        }
+      },
+      "order_summary": {
+        "unit_price": {
+          "per_item": {
+            "many": "%{price} for %{count} items"
+          }
+        },
+        "expand_component_information": {
+          "many": "Show %{count} items"
+        },
+        "collapse_component_information": {
+          "many": "Hide %{count} items"
+        },
+        "discount_discovery": {
+          "merchandise_quantity_label": {
+            "many": "%{count} items"
+          }
+        },
+        "discount_title_stacking": {
+          "many": "Discounts"
+        },
+        "discount_order_stacking": {
+          "many": "Order discounts"
+        },
+        "subtotal_label_with_quantity": {
+          "many": "Subtotal · %{count} items"
+        },
+        "number_items": {
+          "many": "%{count} items"
+        },
+        "view_all_items": {
+          "many": "View all %{count} items"
+        },
+        "pickup_unavailable_banner_title": {
+          "many": "No stores available with your items"
+        }
+      },
+      "shipping": {
+        "estimated_delivery_date": {
+          "many": "%{count} business days"
+        },
+        "other_method": {
+          "many": "%{count} other methods available from"
+        },
+        "subscription_delivery_description": {
+          "prepaid_delivery_frequency": {
+            "many": "for %{count} deliveries"
+          },
+          "subscription_delivery_frequency": {
+            "day": {
+              "many": "every %{count} days"
+            },
+            "week": {
+              "many": "every %{count} weeks"
+            },
+            "month": {
+              "many": "every %{count} months"
+            },
+            "year": {
+              "many": "every %{count} years"
+            }
+          },
+          "first_n_order_free": {
+            "many": "First %{count} orders free"
+          },
+          "free_for_first_n_order": {
+            "many": "For the first %{count} orders"
+          },
+          "free_shipping_cycles": {
+            "many": "Free shipping on more than %{count} deliveries"
+          },
+          "free_shipping_cycles_delivery_not_included": {
+            "many": "Free shipping for %{count} deliveries"
+          },
+          "first_n_order_free_with_cycle": {
+            "many": "Free shipping on %{count} more deliveries thereafter %{recurring_order_shipping_price}"
+          },
+          "first_n_order_free_with_cycle_delivery_not_included": {
+            "many": "Free shipping for %{count} deliveries, thereafter %{recurring_order_shipping_price}"
+          },
+          "max_cycles_base_shipping": {
+            "many": "More %{count} deliveries for %{shipping_price} each"
+          },
+          "max_cycles_base_shipping_delivery_not_included": {
+            "many": "More %{count} deliveries for %{shipping_price} each"
+          },
+          "prepaid_free_shipping_with_cycles": {
+            "many": "Free shipping for the first %{cycle}, followed by %{recurring_order_shipping_price}"
+          },
+          "prepaid_order_one_cycle": {
+            "many": "%{shipping_price} for more than %{count} deliveries (%{per_delivery_cost})"
+          },
+          "prepaid_order_one_cycle_delivery_not_included": {
+            "many": "%{shipping_price} for %{count} deliveries (%{per_delivery_cost})"
+          },
+          "prepaid_order_no_cycle": {
+            "many": "%{shipping_price} for more than %{count} deliveries (%{per_delivery_cost}), followed by %{recurring_order_shipping_price}"
+          },
+          "prepaid_order_no_cycle_delivery_not_included": {
+            "many": "%{shipping_price} for %{count} deliveries (%{per_delivery_cost}), followed by %{recurring_order_shipping_price}"
+          }
+        },
+        "shipping_method_first_shipment_group_title": {
+          "many": "First shipments"
+        },
+        "shipping_method_recurring_shipments_group_title": {
+          "many": "Recurring shipments"
+        }
+      },
+      "payment": {
+        "order_covered_by_gift_cards_notice": {
+          "many": "The value of your purchase is covered by your gift cards."
+        },
+        "card_fields_unavailable_html": {
+          "many": "Credit card payments are currently not available.<br> <a href=\"%{current_url}\">Please refresh this page</a> or use a different payment method."
+        },
+        "expired_cards_info": {
+          "many": "There are %{count} expired cards, which you can view and edit in your account."
+        },
+        "order_edit_banner_items_added": {
+          "many": "Added %{count}"
+        }
+      },
+      "shipping_errors": {
+        "shipping_method_not_available_generic": {
+          "many": "Some items in your cart can't be shipped to the address you entered. Please review your address to ensure it's correct and try again, or select a different address."
+        },
+        "shipping_method_not_available_updated": {
+          "many": "One or more items you added aren't shipping to your location. Remove them to complete your purchase or contact the store."
+        }
+      },
+      "processing": {
+        "wait": {
+          "medium": {
+            "many": "Your order is being processed. The estimated wait time is %{count} minutes."
+          }
+        }
+      },
+      "thank_you": {
+        "login_reorder_link_text": {
+          "many": "also buy these products"
+        },
+        "location_title": "Location",
+        "gift_card_confirmation_by_text_typ": {
+          "many": "You'll receive a text message with your gift cards within a few minutes."
+        },
+        "gift_card_confirmation_by_email_typ": {
+          "many": "You will receive an email with your gift cards within a few minutes."
+        },
+        "gift_card_email_title": {
+          "many": "Gift cards have been sent via email"
+        },
+        "gift_card_text_title": {
+          "many": "Gift cards were sent via text message"
+        },
+        "gift_card_resent_confirmation": {
+          "many": "Gift cards have been resent."
+        },
+        "gift_card_resend_failure": {
+          "many": "There was a problem resending your gift cards. Please try again or contact us."
+        }
+      },
+      "order_payment_collection": {
+        "changes_summary": {
+          "added": {
+            "many": "%{count} added"
+          }
+        }
+      },
+      "open_graph_meta_tag": {
+        "title_with_products": {
+          "many": "Buy %{product_name} and %{count} other items"
+        }
+      },
+      "subscriptions": {
+        "recurring_totals_with_policies": {
+          "first_cycles": {
+            "many": "First %{count} payments %{total_price} each"
+          }
+        },
+        "recurring_total_intervals": {
+          "day": {
+            "many": "%{count} days"
+          },
+          "week": {
+            "many": "%{count} weeks"
+          },
+          "month": {
+            "many": "%{count} months"
+          },
+          "year": {
+            "many": "%{count} years"
+          }
+        },
+        "recurring_totals_with_initial_order_shipping_discount_with_policies": {
+          "first_cycles": {
+            "many": "then %{count} payments at %{total_price} each"
+          }
+        }
+      },
+      "contextual_availability": {
+        "title": {
+          "many": "Unavailable products"
+        },
+        "products_not_available": {
+          "many": "These products will be removed from your cart because they are not available in your country/region."
+        },
+        "all_products_in_cart_unavailable": {
+          "many": "These products are not available in your country/region."
+        }
+      },
+      "throttle": {
+        "estimated_wait_time": {
+          "many": "Estimated waiting time: {{count}} minutes"
+        }
+      },
+      "deliverability": {
+        "not_deliverable": {
+          "title": {
+            "many": "No delivery available for %{count} items"
+          },
+          "message": {
+            "many": "These items will be removed from your cart because there are no shipping methods available to your address."
+          }
+        }
+      },
+      "pickup_point": {
+        "paginator": {
+          "header": {
+            "many": "Showing %{first} - %{last} of %{count} points"
+          },
+          "selected_pickup_point_label": {
+            "many": "%{pickup_point_index} of %{count} points"
+          },
+          "selected_page": {
+            "many": "%{first} - %{last} of %{count} points"
+          }
+        },
+        "number_of_pickup_points_near_location": {
+          "many": "%{count} collection points near your location"
+        },
+        "pickup_unavailable_banner_title": {
+          "many": "No collection point available for your items"
+        }
+      },
+      "review_address_modal": {
+        "subtitle": {
+          "many": "This order will be shipped to the address specified by {{merchant}} . Please select a shipping address."
+        }
+      },
+      "local_pickup": {
+        "location_information": {
+          "many": "%{count} stores with stock near %{address}"
+        },
+        "paginator": {
+          "label": {
+            "many": "%{first} - %{last} of %{count} stores"
+          }
+        },
+        "reveal_more_label": {
+          "many": "Show more %{count} locations"
+        }
+      },
+      "merchandise_unavailable_in_buyer_location": {
+        "remove_items_action": {
+          "many": "remove unavailable items"
+        }
+      },
+      "alternative_payment_method_banner": {
+        "or": "Or"
+      }
+    },
+    "notices": {
+      "order": {
+        "cancel_reason": {
+          "many": "Others"
+        }
+      }
+    },
+    "page_titles": {
+      "search_results": {
+        "many": "Search: %{count} results found for \"%{terms}\""
+      }
+    }
+  },
+  "customer_accounts": {
+    "orders": {
+      "order_list": {
+        "items": {
+          "many": "{{count}} items"
+        }
+      },
+      "order_status": {
+        "delivered_description_gift_card": {
+          "many": "Gift cards have been sent via email."
+        },
+        "gift_card_label": {
+          "many": "Gift cards"
+        },
+        "confirmed_gift_card_additional_description": {
+          "many": "Each gift card will be sent in a separate email."
+        },
+        "delivered_description_gift_card_text": {
+          "many": "Gift cards were sent via message."
+        },
+        "confirmed_gift_card_additional_description_text": {
+          "many": "Each gift card will be sent in a separate message."
+        },
+        "gift_resend_success": {
+          "many": "Gift cards resent"
+        },
+        "gift_resend_failure": {
+          "many": "There was a problem resending your gift cards. Please try again or contact us."
+        },
+        "delivered_description_digital": {
+          "many": "These items are complete."
+        },
+        "tracking_number": {
+          "many": "Tracking numbers"
+        },
+        "gift_card_resend_button": {
+          "many": "Resend gift cards"
+        }
+      }
+    },
+    "order_details": {
+      "image_gallery": {
+        "load_more_items": {
+          "many": "Load more {{count}} item"
+        }
+      }
+    },
+    "B2B": {
+      "orders": {
+        "draft_order_list": {
+          "pending_tab_accessibility_label": {
+            "pending_orders": {
+              "many": "You have {{count}} pending orders"
+            }
+          }
+        }
+      },
+      "draft_order_details": {
+        "payment_status": {
+          "pending": {
+            "banner_overdue": {
+              "many": "Your payment is {{count}} days overdue"
+            },
+            "banner_due": {
+              "many": "Your payment expires in {{count}} days"
+            }
+          }
+        }
+      }
+    },
+    "errors": {
+      "banner_title": {
+        "many": "There are {{count}} errors"
+      }
+    },
+    "ui_components": {
+      "autocompleteOptionsAvailable": {
+        "many": "{{count}} items available"
+      },
+      "month": {
+        "many": "months"
+      },
+      "mapClusterTitle": {
+        "many": "Cluster of {{number}} markers"
+      }
+    },
+    "date": {
+      "humanize": {
+        "lessThanOneHourAgo": {
+          "many": "{{count}} minutes ago"
+        }
+      }
+    }
+  },
+  "shipping": {
+    "guarantee_alt": "Free Shipping",
+    "guarantee": "Free Shipping",
+    "guarantee_on_orders": "Free Shipping CTT",
+    "free_shipping_alt": "Free Shipping",
+    "free_shipping": "Free Shipping CTT",
+    "on_orders": "2-4 Business Days",
+    "over_amount": "",
+    "money_back_alt": "Money-Back Guarantee",
+    "money_back_guarantee": "Try 30 Days",
+    "of": "Risk-Free",
+    "days": ""
+  },
+  "reviews": {
+    "excellent_stars_alt": "Excellent rating stars",
+    "excellent_text": "EXCELLENT | {{ count }} reviews"
+  },
+  "tabs": {
+    "features": "Benefits",
+    "performance": "Features",
+    "main_title": "Next Level Shin Pads - Built For Ballers Like You",
+    "shipping_returns": "Shipping",
+    "adaptive_fit_alt": "Adaptive Fit",
+    "adaptive_fit_title": "ADAPTIVE FIT",
+    "adaptive_fit_desc": "Adapts perfectly to your leg shape.",
+    "max_protection_alt": "Maximum Protection",
+    "max_protection_title": "MAXIMUM PROTECTION",
+    "max_protection_desc": "Shields you from high-impact tackles.",
+    "ultimate_comfort_alt": "Ultimate Comfort",
+    "ultimate_comfort_title": "ULTIMATE COMFORT",
+    "ultimate_comfort_desc": "Feels like you're wearing nothing.",
+    "ultralight_design": "Ultralight design for explosive speed",
+    "protection_level": "Professional-level impact protection",
+    "secure_fit": "Anatomical secure fit",
+    "moisture_wicking": "Moisture-wicking comfort",
+    "footer": "Used and trusted by pro players worldwide, pushing limits in football’s top leagues.",
+    "movement_optimized_label": "Movement optimized:",
+    "movement_optimized_desc": "Designed to stay firmly in place while allowing unrestricted movement and maximum comfort during the game.",
+    "enhanced_playability_label": "Enhanced playability:",
+    "enhanced_playability_desc": "Minimizes distractions by keeping the guards securely positioned, even during the most intense matches.",
+    "lightweight_design_label": "Lightweight design:",
+    "lightweight_design_desc": "Feels like a second skin while offering top-level protection with minimal bulk.",
+    "sweat_absorbing_label": "Sweat-absorbing material:",
+    "sweat_absorbing_desc": "Keeps your legs dry and comfortable, preventing irritation during long periods of play.",
+    "professional_quality_label": "Professional quality:",
+    "professional_quality_desc": "Trusted by players of all levels, from grassroots to elite competition.",
+    "shipping": "Shipping & Returns:",
+    "free_shipping_over": "We offer free shipping on orders over {{ amount }}",
+    "standard_delivery": "Standard delivery: 1–2 business days (Portugal), 2–3 (Spain), 4–6 (EU), 7–10 (International).",
+    "returns": "Returns:",
+    "return_policy": "We offer a 30-day return policy",
+    "return_conditions": "Items must be returned in their original condition, with tags and packaging intact, for a full refund or exchange",
+    "return_instructions": "To return a product, contact our support team with your order details to begin the process",
+    "shipping_portugal": "Portugal:",
+    "shipping_portugal_desc": "1-2 working days (free over €45)",
+    "shipping_spain": "Spain:",
+    "shipping_spain_desc": "2-3 working days (free over €45)",
+    "shipping_europe": "Rest of Europe:",
+    "shipping_europe_desc": "4-6 working days (free over €45)",
+    "shipping_world": "Rest of the world:",
+    "shipping_world_desc": "7-10 working days (free over €45)",
+    "more_details": "For more details, visit our Shipping Policy and Refund Policy.",
+    "worldwide_shipping": "We offer worldwide shipping",
+    "money_back": "30 days money back guarantee",
+    "locked_in": "Unmatched Freedom and Confidence:",
+    "locked_in_fit": "Locked-In Fit, No Distractions:",
+    "protection": "Protection, Without Compromise:",
+    "locked_in_text": "Super light and streamlined, these feel almost weightless, letting you focus entirely on your game, not your gear.",
+    "locked_in_fit_text": "No slippage, no tape required. Built-in shin pads stay securely in place, so you stay fully focused on the game.",
+    "protection_text": "With TTP anti-collision technology, these offer the protection you need while allowing for your natural movement.",
+    "seamless_fit": "Perfect Fit",
+    "breathable_fabric": "Breathable Fabric",
+    "one_size_fits_all": "One Size Fits All",
+    "enhanced_flexibility": "Enhanced Flexibility",
+    "in_built_shin_pad": "In-Built Shin Pad",
+    "stylish_aesthetic": "Stylish Aesthetic"
+  },
+  "gift": {
+    "banner_highlight": "FREE GIFT INCLUDED",
+    "banner_title": "PRO GRIP SOCKS",
+    "banner_free": "FREE",
+    "banner_old_price": "{{ price }}",
+    "banner_image_alt": "Grip Socks"
+  },
+  "product": {
+    "in_stock_ready": "In stock – Ready to ship"
+  },
+  "flags": {
+    "trusted_by": "TRUSTED BY PLAYERS FROM",
+    "and_more": "and more..."
+  },
+  "compare": {
+    "subtitle": "How we compare",
+    "title": "WHY BALLERS CHOOSE 1OF1 SHIN PADS",
+    "alt": {
+      "player_sleeve": "Player with sleeve",
+      "competitor": "Competitor shin guards",
+      "guarantee": "Guarantee Icon"
+    },
+    "left_1": "Superlight design under 40g",
+    "left_2": "Pro-level impact protection",
+    "left_3": "Molds perfectly to your leg",
+    "left_4": "Stays in place all game",
+    "left_5": "Maximum confidence on the field",
+    "right_1": "Heavy build that slows you down",
+    "right_2": "Standard shell, without innovation",
+    "right_3": "Rigid shape, doesn't mold to your leg",
+    "right_4": "Constant sliding, always needs fixing mid-game",
+    "right_5": "Uncomfortable, hurts more than it helps",
+    "money_back": "30-Day Money-Back Guarantee"
+  },
+  "reviews_texts": {
+    "review_1": "Amazing update! Got two pairs of shin pads and two free grip socks with them. Everything arrived quickly and well packed. Great quality on both items, very comfortable and perfect fit. Really happy with this order!",
+    "review_2": "Drippiest shin pads. They protect really well, super easy to put on, and stay perfectly in place during the game.",
+    "review_3": "My son absolutely loves these shin pads. Lightweight, super secure and he says they feel like nothing’s there. The socks were a lovely extra, thank you.",
+    "review_4": "For sure the best shin guards I’ve tried so far. They don’t move at all during the game and protect really comfortable. Great quality all around.",
+    "review_5": "10/10! Top quality, solid protection, lightweight, quick delivery, and super clean design. Fully recommend!",
+    "review_6": "Quality is amazing. These pads stay in place and give total freedom to play without distractions. Highly recommend!",
+    "review_7": "Love the shin pads, the packaging, and the grip sock that comes with it all amazing. Very good combo for the low price."
+  },
+  "carousel": {
+    "previous_slide": "Previous slide",
+    "next_slide": "Next slide"
+  },
+  "reviews_section": {
+    "subtitle": "1OF1 TESTIMONIALS",
+    "title": "Game-Changing Fit",
+    "stars_alt": "5 star rating",
+    "trusted_by": "Trusted by Elite Players"
+  },
+  "reviews2_texts": {
+    "review_1": "Amazing update! Got two pairs of shin pads and two free grip socks with them. Everything arrived quickly and well packed. Great quality on both items, very comfortable and perfect fit. Really happy with this order!",
+    "review_2": "Drippiest shin pads. They protect really well, super easy to put on, and stay perfectly in place during the game.",
+    "review_3": "My son absolutely loves these shin pads. Lightweight, super secure and he says they feel like nothing’s there. The socks were a lovely extra, thank you.",
+    "review_4": "For sure the best shin guards I’ve tried so far. They don’t move at all during the game and protect really comfortable. Great quality all around.",
+    "review_5": "10/10! Top quality, solid protection, lightweight, quick delivery, and super clean design. Fully recommend!",
+    "review_6": "Quality is amazing. These pads stay in place and give total freedom to play without distractions. Highly recommend!",
+    "review_7": "Love the shin pads, the packaging, and the grip sock that comes with it all amazing. Very good combo for the low price."
+  },
+  "carousel2": {
+    "previous_slide": "Previous slide",
+    "next_slide": "Next slide"
+  },
+  "reviews2_section": {
+    "subtitle": "20,000+ HAPPY BALLERS",
+    "title": "Play with Confidence",
+    "stars_alt": "5 star rating",
+    "trusted_by": "Rated Excellent | 500+ Reviews"
+  },
+  "sleeve_features": {
+    "feature_1": {
+      "alt": "Protection Icon",
+      "title": "TTP TECHNOLOGY",
+      "text": "TTP Technology is built with high-performance padding that absorbs impact and spreads the force across the sleeve, reducing the shock so your leg stays locked in and protected."
+    },
+    "feature_2": {
+      "alt": "Lightweight Icon",
+      "title": "MADE FOR BALLERS",
+      "text": "Designed to disappear in play, these pads deliver next-level lightness without sacrificing impact resistance, keeping you agile, quick, and two steps ahead of your opponent."
+    },
+    "feature_3": {
+      "alt": "Secure Icon",
+      "title": "NO-SLIP GRIP",
+      "text": "Equipped with an anti-slip lining, the 1OF1 Sleeve Shin Pads stay in place all game, keeping you focused and confident from kickoff to the final whistle."
+    }
+  },
+  "newsletter_section": {
+    "title": "JOIN THE CLUB",
+    "main_offer_before": "GET",
+    "main_offer_highlight": "MYSTERIOUS DISCOUNT",
+    "main_offer_after": "ON YOUR FIRST ORDER",
+    "subtext": "Stay ahead with exclusive access to new releases, special editions, and members-only sales.",
+    "placeholder": "ENTER YOUR EMAIL",
+    "button": "SIGN UP NOW",
+    "consent": "By signing up, you agree to receive emails about our products, apps, sales, exclusive content and more.",
+    "image_alt": "Newsletter promotional image"
+  },
+  "newsletter_icons": {
+    "icon1_alt": "Top Quality",
+    "icon1_text": "Top Quality Products",
+    "icon2_alt": "30 Day Guarantee",
+    "icon2_text": "30-Day Guarantee",
+    "icon3_alt": "Trusted by Pros",
+    "icon3_text": "Trusted By The Pros",
+    "icon4_alt": "Free Shipping",
+    "icon4_text": "Free shipping over €45"
+  },
+  "footer": {
+    "logo_alt": "1OF1 Fútbol Logo",
+    "title": "In a world of copies, be 1OF1.",
+    "description": "1OF1 Fútbol was born from passion and built for fearless players who live the game with obsession, who value exclusivity and refuse to be just another player.",
+    "menu_shop": "Shop",
+    "menu_info": "Information",
+    "menu_legal": "Legal",
+    "links": {
+      "shop_all": "Shop All",
+      "shin_pads": "Shin Pads",
+      "socks": "Socks",
+      "bundles": "Bundles",
+      "kids": "Kids",
+      "accessories": "Accessories",
+      "about": "About Us",
+      "help": "Help Center",
+      "contact": "Contact Us",
+      "track": "Track Your Order",
+      "shipping": "Shipping",
+      "returns": "Returns",
+      "privacy": "Privacy Policy",
+      "refund": "Refund Policy",
+      "shipping_policy": "Shipping Policy",
+      "terms": "Terms of Service"
+    },
+    "copyright": "© 2026, 1OF1 Fútbol - All Rights Reserved"
+  },
+  "banner": {
+    "desktop_alt": "Banner Desktop",
+    "mobile_alt": "Banner Mobile",
+    "rating_prefix": "Over",
+    "rating_suffix": "Happy Ballers",
+    "title_line1": "RETURN DIFFERENT",
+    "title_line2": "BACK TO SZN",
+    "subtext_prefix": "1OF1 has helped thousands of ballers improve their",
+    "subtext_middle": "style, performance, and confidence",
+    "subtext_suffix": "on the pitch.",
+    "button": "SHOP BESTSELLERS",
+    "moneyback_icon_alt": "Money Back Icon",
+    "moneyback": "30-Day Money-Back Guarantee"
+  },
+  "features": {
+    "secure_payments": "Secure Payments",
+    "secure_payments_alt": "Secure Payments Icon",
+    "guarantee": "30-Day Guarantee",
+    "guarantee_alt": "30-Day Guarantee Icon",
+    "trusted": "Trusted By Pros",
+    "trusted_alt": "Trusted By Pros Icon",
+    "free_shipping": "Free Shipping over €45",
+    "free_shipping_alt": "Free Shipping Icon"
+  },
+  "favourites": {
+    "rating_badge": "Rated Excellent | 4.8 / 5.0",
+    "stars_alt": "Stars Rating",
+    "title": "OUR FAVOURITES",
+    "subtitle": "Shop 1OF1’s Bestsellers. Worn by ballers worldwide.",
+    "tab_best_sellers": "Best Sellers",
+    "tab_bundles": "Bundles",
+    "tab_shin_pads": "Shin Pads",
+    "add_icon_alt": "Add to cart icon",
+    "quick_buy": "QUICK BUY",
+    "reviews_count": "500+ reviews",
+    "left_arrow_alt": "Previous products",
+    "right_arrow_alt": "Next products",
+    "shop_bestsellers": "SHOP BESTSELLERS",
+    "guarantee_icon_alt": "Guarantee Icon",
+    "guarantee_text": "30-Day Money-Back Guarantee"
+  },
+  "league": {
+    "title": "AS SEEN ON",
+    "logo_alt": "League Logo",
+    "more": "and more..."
+  },
+  "collections": {
+    "title": "SHOP BY CATEGORY",
+    "subtitle": "Change your game with 1OF1."
+  },
+  "product_features": {
+    "subtitle": "How we compare",
+    "title": "WHY BALLERS CHOOSE 1OF1 FÚTBOL",
+    "left_image_alt": "Player with sleeve",
+    "right_image_alt": "Competitor shin guards",
+    "left_1": "Superlight design under 40g",
+    "left_2": "Pro-level impact protection",
+    "left_3": "Molds perfectly to your leg",
+    "left_4": "Stays in place all game",
+    "left_5": "Maximum confidence on the field",
+    "right_1": "Heavy build that slows you down",
+    "right_2": "Standard shell, without innovation",
+    "right_3": "Rigid shape, doesn't mold to your leg",
+    "right_4": "Constant sliding, always needs fixing mid-game",
+    "right_5": "Uncomfortable, hurts more than it helps",
+    "add_to_cart": "Shop Bestsellers",
+    "money_back": "30-Day Money-Back Guarantee"
+  },
+  "custom": {
+    "free_gift_included": "FREE GIFT INCLUDED",
+    "pro_grip_socks": "PRO GRIP SOCKS",
+    "free_price": "FREE",
+    "grip_socks_alt": "Grip Socks",
+    "free_shipping_alt": "Free Shipping",
+    "free_shipping": "Free shipping",
+    "on_orders": "on orders",
+    "over_amount": "over {{ amount }}+",
+    "money_back_alt": "Money-back Guarantee",
+    "money_back_line1": "Guarantee of",
+    "money_back_line2": "refund",
+    "money_back_line3": "30 days"
+  },
+  "manual_related_products": {
+    "title": "PAIRS PERFECTLY WITH"
+  },
+  "about_section": {
+    "line1": "1OF1 was born from love for the game — for the streets, the drip, the individuality.",
+    "line2": "We’re not here to follow trends. We’re here to bring football culture to the front — with purpose, with attitude.",
+    "line3": "No big investors. No shortcuts. Just players creating for players. And now? We’re building something bigger than gear — we’re building a movement.",
+    "button": "The 1OF1 Story"
+  },
+  "carousel_section": {
+    "inspiration": "Inspiration",
+    "design": "Design",
+    "product": "Product",
+    "branding": "Branding"
+  },
+  "socials_section": {
+    "top_image_alt": "tear",
+    "title": "@1of1futbol on socials"
+  },
+  "cta_bestsellers_section": {
+    "button": "Shop Bestsellers",
+    "icon_alt": "money back guarantee icon",
+    "subtext": "30-day money-back guarantee"
+  },
+  "header_drawer": {
+    "shop": "Shop",
+    "money_back_alt": "Money-back Guarantee",
+    "money_back_line1": "30-Day",
+    "money_back_line2": "Guarantee",
+    "trusted_alt": "Trusted by Pros",
+    "trusted_line1": "Trusted by",
+    "trusted_line2": "Pros",
+    "collection_shin_pads_alt": "Shin Pads",
+    "collection_shin_pads": "SHIN PADS",
+    "collection_socks_alt": "Socks",
+    "collection_socks": "SOCKS",
+    "collection_kids_alt": "Kids",
+    "collection_kids": "KIDS",
+    "collection_bundles_alt": "Bundles",
+    "collection_bundles": "BUNDLES",
+    "collection_accessories_alt": "Accessories",
+    "collection_accessories": "ACCESSORIES",
+    "collection_shop_all_alt": "Shop All",
+    "collection_shop_all": "SHOP ALL",
+    "shop_now": "SHOP NOW",
+    "about": "About 1OF1",
+    "help_center": "Help Center",
+    "instagram_alt": "Instagram",
+    "tiktok_alt": "TikTok",
+    "facebook_alt": "Facebook"
+  },
+  "collections_row": {
+    "bestsellers_alt": "Bestsellers",
+    "bestsellers": "Bestsellers",
+    "shin_pads_alt": "Shin Pads",
+    "shin_pads": "Shin Pads",
+    "socks_alt": "Socks",
+    "socks": "Socks",
+    "bundles_alt": "Bundles",
+    "bundles": "Bundles"
+  },
+  "promo_bar": {
+    "offer": "BLACK FRIDAY SALE - BUY 1 GET 1 FREE GRIP SOCK!",
+    "shop_now": "SHOP NOW"
+  },
+  "purpose_section": {
+    "title": "The Brand We Needed Didn't Exist. So We Built It.",
+    "intro_p1": "Everything out there looked the same. Generic gear, no identity, no soul. Players who wanted to stand out had no options — only brands built for the masses.",
+    "intro_p2": "It started with a problem. It became a movement.",
+    "intro_p3": "We created 1OF1 for those who demand more than average. For those who want their gear to match their mindset: confident, stylish, fearless. For players who know their worth.",
+    "highlight_quote": "Every player deserves gear that reflects their ambition.",
+    "design_phase_alt": "Design Phase",
+    "minimalist_design": "MINIMALIST DESIGN",
+    "final_product_alt": "Final Product",
+    "exclusive_products": "EXCLUSIVE PRODUCTS",
+    "final_p1": "We weren’t satisfied with average. So we designed better.",
+    "final_p2": "From sleeves that stay locked to lightweight shin pads that don’t slow you down, every product was built for performance — and crafted to reflect who you are.",
+    "final_p3": "Because football is more than a game — it’s self-expression."
+  },
+  "community_section": {
+    "divider_alt": "Top Decoration Divider",
+    "title": "Built With the Community. Backed by Players.",
+    "p1": "From street pitches to stadiums, 1OF1 is shaped by the real ones.",
+    "p2": "Every product we build is inspired by players who crave something different. Not hype. Not trends. Just gear that reflects who they are — and how they play.",
+    "p3": "We listen. We test. We improve. Because greatness is a team sport.",
+    "p4": "You’re not just wearing 1OF1. You’re shaping it.",
+    "player1_alt": "Player 1",
+    "player2_alt": "Player 2",
+    "player3_alt": "Player 3",
+    "player4_alt": "Player 4"
+  },
+  "mission_section": {
+    "title": "The 1OF1 Mission",
+    "p1": "1OF1 isn’t just about gear — it’s about identity.",
+    "p2": "We exist for the players who dare to be different. Who play with purpose.",
+    "p3": "Our mission is to redefine what football style means. To give players the tools to stand out — with confidence, elegance, and attitude.",
+    "p4": "We’re here to inspire bold expression and fearless play. Because being 1OF1 isn’t about being better than others. It’s about being the best version of yourself.",
+    "banner_alt": "The 1OF1 Mission Banner"
+  },
+  "contact_banner": {
+    "banner_alt": "Help Center Banner",
+    "title": "HELP CENTER",
+    "subtitle": "We’re here to help you find answers, fast — reach out anytime."
+  },
+  "grid_links_section": {
+    "heading": "YOUR QUESTIONS, ANSWERED",
+    "returns": "Returns & Refunds",
+    "returns_alt": "Returns & Refunds",
+    "shipping": "Shipping",
+    "shipping_alt": "Shipping",
+    "track": "Track your order",
+    "track_alt": "Track your order",
+    "policies": "Policies",
+    "policies_alt": "Policies",
+    "contact": "Contact Us",
+    "contact_alt": "Contact Us",
+    "shinpads": "Shin Pads",
+    "shinpads_alt": "Shin Pads"
+  },
+  "faq_cta": {
+    "heading": "STILL HAVE QUESTIONS?",
+    "text": "Our team of football experts is ready to assist. Reach out anytime — we're here to help you.",
+    "button": "CONTACT US"
+  },
+  "custom_2": {
+    "footer_logo_alt": "1OF1 Fútbol Logo",
+    "footer_slogan": "IN A WORLD OF COPIES, BE 1OF1.",
+    "footer_description": "1OF1 Fútbol was born from passion and built for fearless players who live the game with obsession. For those who value exclusivity and refuse to be just another player.",
+    "footer_shop_title": "Shop",
+    "footer_shop_all": "Shop All",
+    "footer_shin_pads": "Shin Pads",
+    "footer_socks": "Socks",
+    "footer_bundles": "Bundles",
+    "footer_kids": "Kids",
+    "footer_accessories": "Accessories",
+    "footer_info_title": "Information",
+    "footer_about": "About Us",
+    "footer_help_center": "Help Center",
+    "footer_contact": "Contact Us",
+    "footer_track": "Track Your Order",
+    "footer_shipping": "Shipping",
+    "footer_returns": "Returns",
+    "footer_legal_title": "Legal",
+    "footer_privacy": "Privacy Policy",
+    "footer_refund": "Refund Policy",
+    "footer_shipping_policy": "Shipping Policy",
+    "footer_terms": "Terms of Service",
+    "footer_copyright": "© 2026, 1OF1 Fútbol - All Rights Reserved",
+    "payment_icon": "Payment Icon"
+  },
+  "custom_returns": {
+    "title": "Returns",
+    "policy_intro": "We offer a 30-day return policy, giving you 30 days from the date you receive your item to request a return.",
+    "eligibility": "To qualify for a return, your item must be in its original condition—unworn or unused, with tags attached, and in the original packaging. A receipt or proof of purchase is also required.",
+    "initiate": "To initiate a return, please contact us at hello@1of1futbol.com. Once your return is accepted, we’ll provide detailed instructions on how and where to send your item.",
+    "no_authorization": "Items sent back without prior return authorization will not be accepted.",
+    "questions": "For any questions regarding returns, feel free to email us at hello@1of1futbol.com.",
+    "shipping_costs": "Note: return shipping costs are the responsibility of the customer.",
+    "damages_title": "Damages and Issues",
+    "damages_text": "Please inspect your order upon arrival. If you receive a defective, damaged, or incorrect item, contact us immediately so we can address the issue and make things right.",
+    "exchanges_title": "Exchanges",
+    "exchanges_text": "The fastest way to get what you want is to return the item you have. Once the return is accepted, place a new order for the replacement item.",
+    "eu_rights": "If your order was shipped into the EU, you have the right to cancel or return your order within 14 days, for any reason and without justification. Items must be unworn, unused, with tags, and in original packaging, along with proof of purchase.",
+    "refunds_title": "Refunds",
+    "refunds_process": "We’ll notify you once we’ve received and inspected your return, and confirm if the refund is approved. If approved, you’ll be automatically refunded to your original payment method within 10 business days.",
+    "refunds_timing": "Please note it can take time for your bank or credit card company to process and post the refund.",
+    "refunds_contact": "If more than 15 business days have passed since we approved your return, please contact us at hello@1of1futbol.com."
+  },
+  "custom_shipping": {
+    "title": "Shipping",
+    "intro_1": "At 1OF1 Fútbol, we’re committed to getting your order to you fast and hassle-free.",
+    "intro_2": "Every order is carefully packed by our team to make sure it arrives in perfect condition.",
+    "free_shipping": "Free shipping for orders over €45 (Worldwide).",
+    "tracking_info": "A Track & Trace will be sent to the customer within 24 hours of the order being processed. All orders placed will be shipped from our warehouse within 1–2 business days. All shipping times are calculated from the date of shipment.",
+    "portugal_title": "PORTUGAL 🇵🇹",
+    "portugal_text": "Tracked Standard Shipping (1–2 business days)",
+    "spain_title": "SPAIN 🇪🇸",
+    "spain_text": "Tracked Standard Shipping (2–3 business days)",
+    "europe_title": "EUROPE 🇪🇺",
+    "europe_text": "Tracked Standard Shipping (4–6 business days)",
+    "world_title": "REST OF WORLD 🌍",
+    "world_text": "Tracked Standard Shipping (7–10 business days)",
+    "disclaimer_1": "All dispatch and shipping times are estimated in business days (Monday - Friday). Shipping times exclude customs clearance delays and any other delays caused in circumstances outside our control.",
+    "disclaimer_2": "We cannot make changes to your shipping address or redirect your parcel once your order has been confirmed.",
+    "contact": "Do you have any questions about the delivery? Feel free to contact hello@1of1futbol.com."
+  },
+  "custom_contact_banner": {
+    "alt": "Contact Banner",
+    "title": "CONTACT US",
+    "subtitle": "Questions about your order or our products? We're just a message away."
+  },
+  "compare_airflow": {
+    "subtitle": "How we compare",
+    "title": "WHY BALLERS CHOOSE 1OF1 AIRFLOW PRO",
+    "airflow_pro_alt": "Airflow Pro",
+    "competitor_alt": "Competitor",
+    "left_1": "Ultralight design boosts your speed",
+    "left_2": "Molds perfectly to your shape",
+    "left_3": "Breathable fabric prevents odor",
+    "left_4": "Look good, play good",
+    "left_5": "Loved by pros",
+    "right_1": "Bulky weight slows you down",
+    "right_2": "Generic design never truly fits",
+    "right_3": "Traps sweat against your skin",
+    "right_4": "Look like a Sunday league dinosaur",
+    "right_5": "Pros' worst nightmare",
+    "guarantee_alt": "Guarantee Icon",
+    "guarantee_text": "30-Day Money-Back Guarantee"
+  },
+  "custom_product": {
+    "save": "SAVE"
+  },
+  "compare_socks": {
+    "subtitle": "How we compare",
+    "title": "WHY BALLERS CHOOSE 1OF1 GRIP SOCKS",
+    "socks_pro_alt": "1OF1 Grip Socks",
+    "competitor_alt": "Competitor socks",
+    "left_1": "Perfect traction when cutting past defenders",
+    "left_2": "Extremely durable",
+    "left_3": "Prevents blisters and discomfort",
+    "left_4": "Ultra-stretchy material feels like a second skin",
+    "left_5": "Loved by pros",
+    "right_1": "Slip during crucial turns",
+    "right_2": "Tear open after just 2-3 matches",
+    "right_3": "Painful friction disrupts your performance",
+    "right_4": "Poor fabric restricts natural movement",
+    "right_5": "Pros' worst nightmare",
+    "guarantee_alt": "Guarantee Icon",
+    "guarantee_text": "30-Day Money-Back Guarantee"
+  },
+  "compare_shin": {
+    "subtitle": "How we compare",
+    "title": "WHY BALLERS CHOOSE 1OF1 MINI SHIN PADS",
+    "mini_shin_alt": "1OF1 Mini Shin Pads",
+    "competitor_alt": "Competitor",
+    "left_1": "Focused speed and agility",
+    "left_2": "Enhanced touch and ball control",
+    "left_3": "Look good, play good",
+    "left_4": "Secure comfort that stays in place",
+    "left_5": "Loved by pros",
+    "right_1": "Bulky weight slows you down",
+    "right_2": "Restricted touch with shin pads in the way",
+    "right_3": "Look like a Sunday league dinosaur",
+    "right_4": "Constant sliding and readjustment",
+    "right_5": "Pros' worst nightmare",
+    "guarantee_alt": "Guarantee Icon",
+    "guarantee_text": "30-Day Money-Back Guarantee"
+  },
+  "cart": {
+    "secure_checkout": "SECURE CHECKOUT"
+  },
+  "cart_footer": {
+    "subtotal": "SUBTOTAL",
+    "secure_checkout": "SECURE CHECKOUT",
+    "trust_reviews": "Excellent +500 Reviews",
+    "trust_stars_alt": "Trustpilot Stars"
+  },
+  "sleeve-video": {
+    "subtitle": "TRUSTED BY PROS. MADE FOR EVERYONE.",
+    "title": "PURE QUALITY. PURE GAME."
+  },
+  "section-ctt": {
+    "ctt_1": "Free Shipping",
+    "ctt_2": "CTT 2-4 Business Days",
+    "test_1": "Try 30 Days",
+    "test_2": "Risk Free",
+    "test_3": "",
+    "garantia_1": "Warranty",
+    "garantia_2": "3 Years"
+  },
+  "tracking": {
+    "ordered": "Ordered",
+    "shipped": "Shipped",
+    "delivered": "Delivered"
+  },
+  "carrossel-ctt": {
+    "logo_alt": "CTT Logo",
+    "prev_alt": "Left Arrow",
+    "next_alt": "Right Arrow",
+    "slide_1_title": "Fast & Free Shipping",
+    "slide_1_text": "Receive your order in 2-4 days via CTT Express. Free shipping nationwide with tracking available.",
+    "slide_2_title": "Try 30 Days Risk Free",
+    "slide_2_text": "Changed your mind? Don’t worry, you can easily return or exchange within 30 days, risk free.",
+    "slide_3_title": "Premium Quality",
+    "slide_3_text": "Chosen by professionals and 30,000+ athletes who trust our brand for exceptional quality."
+  },
+  "cart_progress": {
+    "add_1_15": "Add +1 → 15% OFF",
+    "add_1_25": "Add +1 → 25% OFF",
+    "best_price": "YOU UNLOCKED OUR BEST PRICE!",
+    "free_shipping_1": "FREE",
+    "free_shipping_2": "SHIPPING",
+    "extra_15_1": "15%",
+    "extra_15_2": "EXTRA",
+    "extra_25_1": "25%",
+    "extra_25_2": "EXTRA"
+  },
+  "reserve_timer": {
+    "last_units": "Last units. Reserved for"
+  },
+  "cart_delivery": {
+    "label": "Delivery",
+    "free": "Free"
+  },
+  "cart_upsell": {
+    "title": "Complete your order",
+    "button": "Add",
+    "adding": "Adding...",
+    "added": "Added!",
+    "error": "Error"
+  }
+}

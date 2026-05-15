@@ -1,0 +1,198 @@
+{% schema %}
+{
+  "name": "Abas de Coleção",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "collection_tab",
+      "name": "Aba de Coleção",
+      "settings": [
+        {
+          "type": "text",
+          "id": "tab_label",
+          "label": "Nome da aba",
+          "default": "Nova aba"
+        },
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Coleção"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 3,
+  "presets": [
+    {
+      "name": "Abas de Coleção",
+      "category": "Custom",
+      "blocks": [
+        {
+          "type": "collection_tab",
+          "settings": {
+            "tab_label": "Shin Pads"
+          }
+        },
+        {
+          "type": "collection_tab",
+          "settings": {
+            "tab_label": "Socks"
+          }
+        },
+        {
+          "type": "collection_tab",
+          "settings": {
+            "tab_label": "Bundles"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<div id="collectiontab" class="section section-blends section-full collectiontabs">
+  <div class="tabs">
+    {% for block in section.blocks %}
+      <button class="tab-button{% if forloop.first %} active{% endif %}" data-tab="tab-{{ block.id }}">
+        {{ block.settings.tab_label }}
+      </button>
+    {% endfor %}
+  </div>
+
+ <div class="tabs-content">
+  {% for block in section.blocks %}
+    {% assign collection = block.settings.collection %}
+
+    <!-- DEBUG -->
+    <div style="margin-bottom: 20px; font-size: 14px; color: #888;">
+      <strong>DEBUG:</strong>
+      <p><strong>Coleção:</strong> {{ collection.title }}</p>
+      <p><strong>Total de produtos:</strong> {{ collection.products_count }}</p>
+    </div>
+    <!-- FIM DEBUG -->
+
+    <div class="tab-content{% if forloop.first %} active{% endif %}" id="tab-{{ block.id }}">
+      {% if collection and collection.products_count > 0 %}
+        {% assign products = collection.products | slice: 0, 4 %}
+        <div class="product-grid">
+          {% for product in products %}
+            <!-- DEBUG do produto -->
+            <p style="font-size: 12px; color: gray;">Produto: {{ product.title }}</p>
+
+           {% assign image = product.images.first %}
+
+{% if image %}
+  <div class="product-card">
+    <a href="{{ product.url }}">
+      <img src="{{ image | image_url: '400x' }}" alt="{{ product.title }}">
+      <h3>{{ product.title }}</h3>
+      <p>{{ product.price | money }}</p>
+    </a>
+  </div>
+{% else %}
+
+              <p style="color: red;">Produto sem imagem: {{ product.title }}</p>
+            {% endif %}
+          {% endfor %}
+        </div>
+      {% else %}
+        <p>Sem produtos nesta coleção.</p>
+      {% endif %}
+    </div>
+  {% endfor %}
+</div>
+
+
+</div>
+
+<style>
+  .collectiontabs {
+    text-align: center;
+    padding: 40px 20px;
+  }
+
+  .tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .tab-button {
+    background: #f5f5f5;
+    border: none;
+    padding: 12px 24px;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 30px;
+    transition: background 0.3s;
+    text-transform: uppercase;
+  }
+
+  .tab-button.active {
+    background: black;
+    color: white;
+  }
+
+  .tabs-content .tab-content {
+    display: none;
+  }
+
+  .tabs-content .tab-content.active {
+    display: block;
+  }
+
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+  }
+
+  .product-card {
+    border: 1px solid #eee;
+    padding: 15px;
+    border-radius: 10px;
+    transition: transform 0.2s;
+  }
+
+  .product-card:hover {
+    transform: scale(1.03);
+  }
+
+  .product-card img {
+    width: 100%;
+    border-radius: 10px;
+  }
+
+  .product-card h3 {
+    margin: 10px 0 5px;
+    font-size: 1.1rem;
+  }
+
+  .product-card p {
+    color: #555;
+    font-weight: bold;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const buttons = document.querySelectorAll('.tab-button');
+    const contents = document.querySelectorAll('.tab-content');
+
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        const tab = button.dataset.tab;
+
+        buttons.forEach(btn => btn.classList.remove('active'));
+        contents.forEach(content => content.classList.remove('active'));
+
+        button.classList.add('active');
+        document.getElementById(tab).classList.add('active');
+      });
+    });
+  });
+</script>

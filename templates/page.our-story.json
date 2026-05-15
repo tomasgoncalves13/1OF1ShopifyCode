@@ -1,0 +1,34 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "banner": { "type": "1of1-banner-story", "settings": {} },
+    "purpose": { "type": "1of1-purpose-story", "settings": {} },
+    "carousel": { "type": "1of1-carousel-story", "settings": {} },
+    "mission": { "type": "1of1-mission-story", "settings": {} },
+     "scrolling_columns": {
+      "type": "scrolling-collumns-story",
+      "settings": {}
+    },
+    "custom_newsletter": {
+      "type": "custom-newsletter",
+      "settings": {}
+    },
+    "promotion_bar": {
+      "type": "promotion-bar",
+      "settings": {}
+    },
+    "custom_footer_brand": {
+      "type": "custom-footer-brand",
+      "settings": {}
+    },
+  },
+  "order": ["promotion_bar","banner", "purpose", "carousel", "mission", "scrolling_columns","custom_newsletter","custom_footer_brand"]
+}

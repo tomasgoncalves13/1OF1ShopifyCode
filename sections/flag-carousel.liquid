@@ -1,0 +1,96 @@
+<!-- Secção: Bandeiras Europeias com linhas pretas e fontes personalizadas -->
+<style>
+  @font-face {
+    font-family: 'Poppins ExtraBold';
+    src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/poppins.extrabold.ttf?v=1747688794') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Questrial';
+    src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Questrial-Regular.ttf?v=1746300481') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  .flag-carousel {
+    width: 100%;
+    overflow: hidden;
+    background: fff;
+    padding: 1rem 0;
+  }
+
+  .flag-track {
+    display: inline-block;
+    white-space: nowrap;
+    animation: scrollLoop 150s linear infinite;
+  }
+
+  .flag-track img {
+    width: 50px;
+    height: auto;
+    margin: 0 12px;
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  @media (min-width: 768px) {
+    .flag-track img {
+      width: 140px;
+      margin: 0 30px;
+    }
+  }
+
+  @keyframes scrollLoop {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .flag-title {
+    text-align: center;
+    font-family: 'Poppins ExtraBold', sans-serif !important;
+    font-size: 16px;
+    font-weight: 800 !important;
+    color: #000;
+    margin: 2rem 0;
+  }
+
+  .flag-more {
+    text-align: center;
+    font-family: 'Questrial', sans-serif;
+    font-size: 0.9rem;
+    color: #333;
+    margin-top: 1rem;
+  }
+</style>
+
+<div style="background-color: fff; overflow: hidden; position: relative;">
+  <!-- Linha preta topo -->
+  <div style="width: 100%; height: 1px; background-color: #000;"></div>
+
+  <!-- Título com fonte aplicada -->
+  <h2 class="flag-title">{{ 'flags.trusted_by' | t }}</h2>
+
+  <!-- Carousel -->
+  <div class="flag-carousel">
+    <div class="flag-track">
+      {% assign flags = "Cartoes_de_Credito,Cartoes_de_Credito_1,Cartoes_de_Credito_4,Cartoes_de_Credito_3,Cartoes_de_Credito_2,Cartoes_de_Credito_6,Cartoes_de_Credito_5" | split: "," %}
+      {% for i in (1..10) %}
+        {% for flag in flags %}
+          <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/{{ flag }}.png?v=1747742949" alt="Flag" />
+        {% endfor %}
+      {% endfor %}
+    </div>
+  </div>
+
+  <!-- Texto "and more..." -->
+  <div class="flag-more">{{ 'flags.and_more' | t }}</div>
+
+  <!-- Linha preta fundo -->
+  <div style="width: 100%; height: 1px; background-color: #000;"></div>
+</div>

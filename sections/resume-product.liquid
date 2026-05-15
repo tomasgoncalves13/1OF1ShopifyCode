@@ -1,0 +1,72 @@
+{% schema %}
+{
+  "name": "Custom Featured Product",
+  "settings": [
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Selecione o produto"
+    },
+    {
+      "type": "image_picker",
+      "id": "custom_image",
+      "label": "Imagem fixa para mostrar na section"
+    }
+  ]
+}
+{% endschema %}
+
+{% assign product = all_products[section.settings.product] %}
+{% if product %}
+  <section class="custom-featured-product">
+    <div class="custom-image-wrapper">
+      {% if section.settings.custom_image %}
+        <img src="{{ section.settings.custom_image | img_url: 'medium' }}" alt="Imagem fixa">
+      {% endif %}
+    </div>
+
+    <div class="product-details">
+      <h2>{{ product.title }}</h2>
+
+      <!-- Variantes -->
+      {% if product.variants.size > 1 %}
+        <select id="product-variants-{{ product.id }}">
+          {% for variant in product.variants %}
+            <option value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money }}</option>
+          {% endfor %}
+        </select>
+      {% endif %}
+
+      <!-- Quantidade -->
+      <label for="quantity-{{ product.id }}">Quantidade:</label>
+      <input type="number" id="quantity-{{ product.id }}" name="quantity" min="1" value="1" />
+
+      <!-- Botão Comprar -->
+      <form method="post" action="/cart/add">
+        <input type="hidden" name="id" id="selected-variant-{{ product.id }}" value="{{ product.variants.first.id }}" />
+        <input type="hidden" name="quantity" id="selected-quantity-{{ product.id }}" value="1" />
+        <button type="submit" class="btn btn--primary">Comprar</button>
+      </form>
+    </div>
+  </section>
+
+  <script>
+    // Atualizar variante selecionada no input hidden e quantidade
+    const variantSelect = document.getElementById('product-variants-{{ product.id }}');
+    const variantInput = document.getElementById('selected-variant-{{ product.id }}');
+    const quantityInput = document.getElementById('quantity-{{ product.id }}');
+    const quantityHidden = document.getElementById('selected-quantity-{{ product.id }}');
+
+    if (variantSelect) {
+      variantSelect.addEventListener('change', function() {
+        variantInput.value = this.value;
+      });
+    }
+
+    quantityInput.addEventListener('change', function() {
+      quantityHidden.value = this.value;
+    });
+  </script>
+{% else %}
+  <p>Produto não encontrado</p>
+{% endif %}

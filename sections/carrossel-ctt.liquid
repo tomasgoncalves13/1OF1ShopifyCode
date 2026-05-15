@@ -1,0 +1,217 @@
+<style>
+  @font-face {
+    font-family: 'PoppinsSemibold';
+    src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/poppins.semibold.ttf?v=1747688794') format('truetype');
+  }
+
+  @font-face {
+    font-family: 'PoppinsRegular';
+    src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Poppins-Regular.ttf?v=1753909133') format('truetype');
+  }
+
+  .carrossel-ctt-container {
+    position: relative;
+    width: 100%;
+    text-align: center;
+    background-color: fff;
+    overflow: hidden;
+    margin-top: 5px;
+    margin-bottom: 5px;
+
+  }
+
+  .carrossel-ctt {
+    background-color: fff;
+    padding: 0px 20px 20px 20px;
+    border-radius: 8px;
+    touch-action: pan-y;
+    margin-bottom: 10px;
+  }
+
+  .carrossel-ctt-logo { width: 80px; }
+
+  .carrossel-ctt-title {
+    font-family: 'PoppinsSemibold', sans-serif;
+    font-weight: 600;
+    margin: 10px;
+    font-size: 18px;
+    color: #000;
+    text-transform: uppercase;
+  }
+  .carrossel-ctt-text {
+    font-family: 'PoppinsMedium', sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+    color: #555;
+    margin: 10px 15px;
+  }
+
+  .carrossel-ctt-navigation {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    pointer-events: auto;
+  }
+
+  .carrossel-ctt-arrow-left, .carrossel-ctt-arrow-right {
+    cursor: pointer;
+  }
+
+  @media (max-width: 768px) {
+    .carrossel-ctt-arrow-left, .carrossel-ctt-arrow-right { width: 11px; height: 11px; }
+  }
+
+  @media (min-width: 769px) {
+    .carrossel-ctt-arrow-left, .carrossel-ctt-arrow-right { width: 20px; height: 20px; }
+  }
+
+  .carrossel-ctt-arrow-left:hover, .carrossel-ctt-arrow-right:hover { opacity: 0.7; }
+
+@media (min-width: 769px) {
+  /* Container geral centrado */
+  .carrossel-ctt-container {
+    width: 100%;
+    display: flex;
+    justify-content: center; /* centraliza horizontalmente */
+    align-items: center; /* centraliza verticalmente se necessário */
+  }
+
+  /* Carrossel interno */
+  .carrossel-ctt {
+    max-width: 600px; /* largura máxima do carrossel */
+    width: 100%;
+    text-align: center; /* centraliza logo, título e texto */
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  /* Logo */
+  .carrossel-ctt-logo {
+    display: block;
+    margin: 0 auto 20px auto; /* centraliza horizontalmente */
+    width: 80px;
+  }
+
+  /* Título */
+  .carrossel-ctt-title {
+    font-family: 'PoppinsSemibold', sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+    margin: 0 0 20px 0; /* margem inferior maior */
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  /* Texto */
+  .carrossel-ctt-text {
+    font-family: 'PoppinsMedium', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0 15px 30px 15px;
+    text-align: center;
+  }
+
+  /* Navegação setas */
+  .carrossel-ctt-navigation {
+    display: flex;
+    justify-content: center; /* centraliza setas */
+    gap: 30px;
+  }
+
+  .carrossel-ctt-arrow-left,
+  .carrossel-ctt-arrow-right {
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+  }
+}
+
+
+</style>
+
+<section class="carrossel-ctt-container">
+  <div class="carrossel-ctt">
+      <img class="carrossel-ctt-logo" id="carrossel-logo" src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/CLAIM_YOUR_EXCLUSIVE_DISCOUNT.png?v=1765578737" alt="{{ 'carrossel-ctt.logo_alt' | t }}">
+      <h2 class="carrossel-ctt-title" id="carrossel-title">{{ 'carrossel-ctt.slide_1_title' | t }}</h2>
+      <p class="carrossel-ctt-text" id="carrossel-text">{{ 'carrossel-ctt.slide_1_text' | t }}</p>
+  </div>
+  <div class="carrossel-ctt-navigation">
+      <img class="carrossel-ctt-arrow-left" src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Icons_6.png?v=1748183986" alt="{{ 'carrossel-ctt.prev_alt' | t }}" id="prev-slide">
+      <img class="carrossel-ctt-arrow-right" src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Icons_7.png?v=1748183986" alt="{{ 'carrossel-ctt.next_alt' | t }}" id="next-slide">
+  </div>
+</section>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const leftArrow = document.getElementById('prev-slide');
+  const rightArrow = document.getElementById('next-slide');
+  const logo = document.getElementById('carrossel-logo');
+  const title = document.getElementById('carrossel-title');
+  const text = document.getElementById('carrossel-text');
+  const container = document.querySelector('.carrossel-ctt-container');
+
+  let index = 0;
+  const slides = [
+    {
+      logo: "https://cdn.shopify.com/s/files/1/0907/8472/7374/files/CLAIM_YOUR_EXCLUSIVE_DISCOUNT.png?v=1765578737",
+      title: "{{ 'carrossel-ctt.slide_1_title' | t }}",
+      text: "{{ 'carrossel-ctt.slide_1_text' | t }}"
+    },
+    {
+      logo: "https://cdn.shopify.com/s/files/1/0907/8472/7374/files/CLAIM_YOUR_EXCLUSIVE_DISCOsUNT.png?v=1765580624",
+      title: "{{ 'carrossel-ctt.slide_2_title' | t }}",
+      text: "{{ 'carrossel-ctt.slide_2_text' | t }}"
+    },
+    {
+      logo: "https://cdn.shopify.com/s/files/1/0907/8472/7374/files/CLAIM_YOUR_EXCLUSIVE_DISasCOUNT.png?v=1765580625",
+      title: "{{ 'carrossel-ctt.slide_3_title' | t }}",
+      text: "{{ 'carrossel-ctt.slide_3_text' | t }}"
+    }
+  ];
+
+  function updateCarrossel() {
+    const slide = slides[index];
+    logo.src = slide.logo;
+    title.textContent = slide.title;
+    text.textContent = slide.text;
+  }
+
+  leftArrow.addEventListener('click', () => {
+    index = (index > 0) ? index - 1 : slides.length - 1;
+    updateCarrossel();
+  });
+
+  rightArrow.addEventListener('click', () => {
+    index = (index < slides.length - 1) ? index + 1 : 0;
+    updateCarrossel();
+  });
+
+  // Swipe mobile
+  let startX = 0;
+  let isDragging = false;
+
+  container.addEventListener('touchstart', e => {
+    startX = e.touches[0].clientX;
+    isDragging = true;
+  });
+
+  container.addEventListener('touchmove', e => {
+    if(!isDragging) return;
+    const diffX = e.touches[0].clientX - startX;
+    if(Math.abs(diffX) > 50) {
+      if(diffX > 0) index = (index > 0) ? index - 1 : slides.length - 1;
+      else index = (index < slides.length - 1) ? index + 1 : 0;
+      updateCarrossel();
+      isDragging = false;
+    }
+  });
+
+  container.addEventListener('touchend', () => { isDragging = false; });
+
+  updateCarrossel();
+});
+</script>

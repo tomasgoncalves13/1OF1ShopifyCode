@@ -1,0 +1,201 @@
+<section class="oneofone-sleeve-highlights">
+  <div class="container">
+    <div class="features-grid">
+      
+      <!-- Bloco 1 - agora com vídeo -->
+      <div class="feature-block">
+        <video autoplay loop muted playsinline preload="auto" class="video-mobile" style="width: 100%; height: auto; object-fit: cover; display: block;">
+          <source src="https://cdn.shopify.com/videos/c/o/v/194fac52cc02416385cf4e28c19274a3.mp4" type="video/mp4">
+          O teu browser não suporta vídeo HTML5.
+        </video>
+        <div class="feature-text">
+          <h3>{{ 'sleeve_features.feature_1.title' | t }}</h3>
+          <p>{{ 'sleeve_features.feature_1.text' | t }}</p>
+        </div>
+      </div>
+
+      <!-- Bloco 2 -->
+      <div class="feature-block">
+        <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/4_abe205f5-ff50-4f44-a293-9f7fbebdba1f.png?v=1763329311" alt="{{ 'sleeve_features.feature_2.alt' | t }}" />
+        <div class="feature-text">
+          <h3>{{ 'sleeve_features.feature_2.title' | t }}</h3>
+          <p>{{ 'sleeve_features.feature_2.text' | t }}</p>
+        </div>
+      </div>
+
+      <!-- Bloco 3 -->
+      <div class="feature-block">
+        <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/2_b8cd63b8-4445-42df-baf7-32f501db2856.png?v=1763329311" alt="{{ 'sleeve_features.feature_3.alt' | t }}" />
+        <div class="feature-text">
+          <h3>{{ 'sleeve_features.feature_3.title' | t }}</h3>
+          <p>{{ 'sleeve_features.feature_3.text' | t }}</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+@font-face {
+  font-family: 'Anton';
+  src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Anton-Regular.ttf?v=1761583609') format('truetype');
+}
+
+@font-face {
+  font-family: 'Poppins Medium';
+  src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/poppins.medium.ttf?v=1747688794') format('truetype');
+}
+
+.oneofone-sleeve-highlights {
+  padding: 60px 15px;
+  background: fff;
+  font-family: 'Poppins Medium', sans-serif;
+  display: flex;
+  justify-content: center;
+}
+
+.features-grid {
+  display: grid;
+  gap: 40px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+/* Desktop layout */
+@media (min-width: 769px) {
+  .features-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .feature-block {
+    border-radius: 15px;
+    background: #fff;
+    text-align: center;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    color: #000;
+    overflow: hidden;
+  }
+
+.feature-block img,
+.feature-block video {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;  /* Proporção 4:5 para as imagens */
+  object-fit: cover;
+  display: block;
+  border-top-left-radius: 15px !important;  /* Arredonda apenas o lado superior esquerdo */
+  border-top-right-radius: 15px !important;  /* Arredonda apenas o lado superior direito */
+  margin: 0;
+}
+
+
+  .feature-text {
+    padding: 15px 0px;
+  }
+
+  .feature-block h3 {
+    font-size: 25px;
+    font-family: 'Anton', sans-serif !important;
+    font-weight: 700 !important;
+    color: #000 !important;
+    margin-bottom: 0 !important;
+    text-transform: uppercase !important;
+    text-align: center !important;
+    margin-right: 10px;
+  }
+
+  .feature-block p {
+    font-size: 14px;
+    font-family: 'Poppins Medium', sans-serif !important;
+    color: #000000BF !important;
+    padding: 10px 20px;
+    line-height: 1.6 !important;
+    text-align: center !important;
+    text-transform: none !important;
+  }
+}
+
+/* Mobile layout */
+@media (max-width: 768px) {
+  .features-grid {
+    display: grid;
+    gap: 15px;
+  }
+
+  .feature-block {
+    border-radius: 15px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background: #fff;
+    padding: 0;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    height: auto;
+  }
+
+  /* Remover o outline preto em volta do bloco */
+  .feature-block {
+    outline: none !important;
+  }
+
+  /* Título no mobile (20px) */
+  .feature-block h3 {
+    font-size: 20px !important; /* Ajustando o tamanho do título */
+    font-family: 'Anton', sans-serif !important;
+    color: #000 !important;
+    margin-bottom: 5px !important; /* Ajustando a distância do título */
+    padding: 0 !important; /* Remover qualquer padding extra */
+    text-align: left !important; /* Garantir alinhamento à esquerda */
+  }
+
+/* Texto no mobile (12px) */
+.feature-block p {
+  font-size: 12px !important; /* Ajustando o tamanho do texto */
+  font-family: 'Poppins Medium', sans-serif !important;
+  color: #000000BF !important;
+  line-height: 1.4 !important; /* Ajustando o espaçamento entre as linhas */
+  padding-left: 0px !important; /* Sem padding à esquerda */
+  padding-right: 20px !important; /* Apenas 15px de padding à direita */
+  text-align: left !important;
+}
+
+  /* Ajustar o alinhamento e o padding para que o texto fique alinhado com o título */
+  .feature-text {
+    flex: 1 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    text-align: left !important;
+    padding-left: 10px !important; /* Ajuste para alinhamento correto */
+  }
+
+  /* Limitar a largura do vídeo e da imagem */
+/* Limitar a largura do vídeo e da imagem */
+.feature-block .video-mobile {
+  max-width: 136px !important;  /* Largura máxima de 136px para o vídeo no mobile */
+  height: auto !important;
+  object-fit: cover !important;
+  border-top-left-radius: 15px !important;  /* Arredonda apenas o lado superior esquerdo */
+  border-bottom-left-radius: 15px !important;  /* Arredonda apenas o lado inferior esquerdo */
+  margin-left: 0 !important;
+  margin-right: 15px !important;  /* Espaçamento à direita da imagem */
+}
+
+/* Ajuste para as imagens no mobile */
+.feature-block img {
+  max-width: 136px !important;   /* Largura máxima de 136px para a imagem no mobile */
+  height: auto !important;
+  object-fit: cover !important;
+  border-top-left-radius: 15px !important;  /* Arredonda apenas o lado superior esquerdo */
+  border-bottom-left-radius: 15px !important;  /* Arredonda apenas o lado inferior esquerdo */
+  margin-left: 0 !important;
+  margin-right: 15px !important; /* Espaçamento à direita da imagem */
+}
+
+  .oneofone-sleeve-highlights {
+    padding-top: 0px !important;  /* Remover padding superior */
+    padding-bottom: 0 !important;  /* Remover padding inferior */
+  }
+}
+</style>

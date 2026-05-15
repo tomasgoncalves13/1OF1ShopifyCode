@@ -1,0 +1,30 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "returns-content": {
+      "type": "returns-content",
+      "settings": {}
+    },
+   "custom_footer_brand": {
+      "type": "custom-footer-white",
+      "custom_css": [],
+      "settings": {}
+    },
+      "promotion_bar": {
+      "type": "promotion-bar",
+      "settings": {}
+    }
+  },
+  "order": ["promotion_bar",
+    "returns-content",
+    "custom_footer_brand"
+  ]
+}
