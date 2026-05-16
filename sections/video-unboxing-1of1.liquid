@@ -1,31 +1,33 @@
-<div class="video-unboxing-1of1-wrap">
-  <div class="video-unboxing-1of1-grid video-unboxing-1of1-grid-left">
+{%- liquid
+  assign uid = section.id | replace: '_', '-'
+-%}
 
-    <div class="video-unboxing-1of1-column video-unboxing-1of1-column-video">
-      <div class="video-unboxing-1of1-video-container">
-        <video
-          class="video-unboxing-1of1-video"
-          playsinline
-          autoplay
-          loop
-          muted
-          preload="auto"
-        >
-          <source src="https://cdn.shopify.com/videos/c/o/v/5112af9b7c534d689b6fb20e248f38ae.mp4" type="video/mp4">
-        </video>
-      </div>
+<div class="video-unboxing-1of1-wrap oneofone-tu oneofone-tu--{{ uid }}">
+  <div class="oneofone-tu__inner">
+
+    <div class="oneofone-tu__img-col">
+      <video
+        class="oneofone-tu__video"
+        id="oneofone-tu-vid-{{ uid }}"
+        src="https://cdn.shopify.com/videos/c/o/v/5112af9b7c534d689b6fb20e248f38ae.mp4"
+        muted
+        playsinline
+        loop
+        preload="metadata"
+        aria-hidden="true"
+      ></video>
     </div>
 
-    <div class="video-unboxing-1of1-column video-unboxing-1of1-column-text">
-      <h2 class="video-unboxing-1of1-heading">EXPERIÊNCIA 1OF1</h2>
-
-      <div class="video-unboxing-1of1-rt">
-        <p>Equipa-te como um profissional.</p>
+    <div class="oneofone-tu__text-col">
+      <div class="oneofone-tu__copy">
+        <h2 class="oneofone-tu__section-title video-unboxing-1of1-heading">EXPERIÊNCIA 1OF1</h2>
+        <span class="oneofone-tu__overline">Equipa-te como um profissional</span>
       </div>
 
-      <div class="video-unboxing-1of1-atc-wrap">
+      <div class="oneofone-tu__cta video-unboxing-1of1-atc-wrap">
         <button
-          class="video-unboxing-1of1-atc-btn"
+          type="button"
+          class="oneofone-tu__btn video-unboxing-1of1-atc-btn"
           data-variant-id="55735470129527"
         >
           50% DESCONTO ⭢
@@ -37,206 +39,267 @@
 </div>
 
 <style>
-/* VIDEO */
-.video-unboxing-1of1-grid video {
-  aspect-ratio: 5 / 6;
-  object-fit: cover;
-  width: 100%;
-  display: block;
-  border-radius: 10px;
-  box-shadow: 0 0 5px 0 rgba(0,0,0,.20);
-}
+  @font-face { font-family: 'PoppinsExtraBold'; src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/poppins.extrabold.ttf?v=1747688794') format('truetype'); }
+  @font-face { font-family: 'PoppinsBold';      src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/poppins.bold.ttf?v=1747688795') format('truetype'); }
+  @font-face { font-family: 'PoppinsSemiBold';  src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/poppins.semibold.ttf?v=1747688794') format('truetype'); }
+  @font-face { font-family: 'PoppinsMedium';    src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/poppins.medium.ttf?v=1747688794') format('truetype'); }
+  @font-face { font-family: 'PoppinsLight';     src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/poppins.light.ttf?v=1748130416') format('truetype'); }
+  @font-face { font-family: 'MontserratExtraBold'; src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Montserrat-ExtraBold.ttf?v=1775402219') format('truetype'); font-display: swap; }
+  @font-face { font-family: 'MontserratBold';      src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Montserrat-Bold.ttf?v=1775402219') format('truetype'); font-display: swap; }
+  @font-face { font-family: 'MontserratSemiBold';  src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Montserrat-SemiBold.ttf?v=1775402091') format('truetype'); font-display: swap; }
+  @font-face { font-family: 'MontserratMedium';    src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Montserrat-Medium.ttf?v=1775402219') format('truetype'); font-display: swap; }
+  @font-face { font-family: 'Montserratregular';   src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Montserrat-Regular.ttf?v=1775402219') format('truetype'); font-display: swap; }
 
-/* IMG + VIDEO RESET */
-.video-unboxing-1of1-wrap img,
-.video-unboxing-1of1-wrap video {
-  max-width: 100%;
-  height: auto;
-  vertical-align: bottom;
-}
-
-/* SECTION PADDING */
-.video-unboxing-1of1-wrap {
-  padding-left: 15px;
-  padding-right: 15px;
-  margin-bottom: 15px;
-}
-
-/* TEXT CENTER */
-.video-unboxing-1of1-rt {
-  text-align: center;
-}
-
-/* MOBILE */
-@media only screen and (max-width: 900px) {
-  .video-unboxing-1of1-column-video {
-    margin: 0 0 15px 0;
-  }
-}
-
-/* HEADINGS */
-.video-unboxing-1of1-wrap h2 {
-  font-size: 21px;
-}
-
-.video-unboxing-1of1-wrap h1,
-.video-unboxing-1of1-wrap h2,
-.video-unboxing-1of1-wrap h3,
-.video-unboxing-1of1-wrap h4,
-.video-unboxing-1of1-wrap h5 {
-  font-size: 22px;
-  font-family: Poppins, sans-serif;
-  line-height: 1.5;
-  color: #111111;
-  text-align: center;
-  margin: 2px 0 10px 0;
-  letter-spacing: 0.05em;
-  padding: 0;
-}
-
-/* TEXT */
-.video-unboxing-1of1-wrap p,
-.video-unboxing-1of1-wrap li,
-.video-unboxing-1of1-wrap a {
-margin-top:0px;
-  font-size: 15px;
-  font-family: Poppins, sans-serif;
-  font-weight: 400;
-  line-height: 1.05;
-  color: #111111;
-  margin-bottom: 20px;
-
-}
-
-/* ATC BUTTON */
-.video-unboxing-1of1-atc-wrap {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 12px;
-}
-
-.video-unboxing-1of1-atc-btn {
-  background: linear-gradient(90deg, #4f92c7 0%, #38beef 100%);
-  color: #fff;
-  border: none;
-  padding: 12px 24px;
-  border-radius: 10px;
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: 700;
-  transition: transform .15s ease, opacity .15s ease;
-  animation: video-unboxing-1of1-pulse 1.6s ease-in-out infinite;
-}
-
-@keyframes video-unboxing-1of1-pulse {
-  0%   { transform: scale(1); box-shadow: 0 0 0 0 rgba(50,155,255,.35); }
-  50%  { transform: scale(1.05); box-shadow: 0 0 14px 6px rgba(50,155,255,.25); }
-  100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(50,155,255,.35); }
-}
-
-.video-unboxing-1of1-atc-btn:hover {
-  opacity: .92;
-  transform: scale(1.06);
-}
-
-@media (min-width: 1024px) {
-  .video-unboxing-1of1-wrap {
-    max-width: 1000px;  
-    margin-left: auto;    
-    margin-right: auto;   
-    padding-left: 0;      
-    padding-right: 0;
-    padding-top: 40px;    /* mais espaço acima */
-    padding-bottom: 40px; /* mais espaço abaixo */
+  .oneofone-tu--{{ uid }} {
+    background: #fff;
+    font-family: 'Montserratregular', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    padding: 12px 16px 24px;
+    text-align: left;
   }
 
-  .video-unboxing-1of1-grid {
+  .oneofone-tu--{{ uid }} .oneofone-tu__inner {
+    max-width: 860px;
+    margin: 0 auto;
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+    border: 1.5px solid #edeae5;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #fff;
+  }
+
+  .oneofone-tu--{{ uid }} .oneofone-tu__img-col {
+    flex: 0 0 50%;
+    position: relative;
+    overflow: hidden;
+    background: #f4f4f2;
+    aspect-ratio: 5 / 6;
+  }
+
+  .oneofone-tu--{{ uid }} .oneofone-tu__video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: transform .6s cubic-bezier(.4,0,.2,1);
+  }
+
+  .oneofone-tu--{{ uid }} .oneofone-tu__inner:hover .oneofone-tu__video {
+    transform: scale(1.03);
+  }
+
+  .oneofone-tu--{{ uid }} .oneofone-tu__text-col {
+    flex: 1;
+    padding: 28px 26px;
+    border-left: 1.5px solid #edeae5;
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    text-align: left;
+  }
+
+  .oneofone-tu--{{ uid }} .oneofone-tu__copy {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .oneofone-tu--{{ uid }} .oneofone-tu__section-title {
+    font-family: 'PoppinsExtraBold', sans-serif !important;
+    font-weight: 800 !important;
+    font-size: clamp(20px, 3vw, 28px) !important;
+    color: #111 !important;
+    margin: 0 0 8px !important;
+    line-height: 1.15 !important;
+    letter-spacing: 0.5px !important;
+    text-align: left !important;
+    padding: 0 !important;
+  }
+
+  .oneofone-tu--{{ uid }} .oneofone-tu__overline {
+    display: block;
+    font-family: 'MontserratBold', sans-serif;
+    font-size: 16px;
+    text-transform: uppercase;
+    color: #4f92c7;
+    margin: 0;
+  }
+
+  .oneofone-tu--{{ uid }} .oneofone-tu__cta {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    margin: 0 !important;
+    justify-content: flex-end !important;
+  }
+
+  .oneofone-tu--{{ uid }} .oneofone-tu__btn {
+    display: inline-flex;
+    align-items: center;
     justify-content: center;
-    gap: 50px; /* espaço maior entre vídeo e texto */
+    padding: 14px 26px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-family: 'PoppinsBold', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #fff;
+    background: linear-gradient(90deg, #4f92c7, #38beef);
+    position: relative;
+    overflow: hidden;
+    transition: transform .18s cubic-bezier(.34,1.56,.64,1), box-shadow .2s ease;
+    -webkit-tap-highlight-color: transparent;
+    animation: none;
+    white-space: nowrap;
   }
 
-  .video-unboxing-1of1-column-video,
-  .video-unboxing-1of1-column-text {
-    flex: 1; 
+  .oneofone-tu--{{ uid }} .oneofone-tu__btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(79,146,199,0.4);
   }
 
-  /* Aumenta o vídeo */
-  .video-unboxing-1of1-column-video video {
-    width: 100%;
-    height: auto;
-    max-height: 550px; /* vídeo maior */
-    border-radius: 12px;
-    box-shadow: 0 0 12px rgba(0,0,0,0.25);
+  .oneofone-tu--{{ uid }} .oneofone-tu__btn:active {
+    transform: translateY(0);
   }
 
-  /* Título maior e com espaçamento entre letras */
-  .video-unboxing-1of1-heading {
-    font-size: 32px;
-    letter-spacing: 2px;
-    margin-bottom: 20px;
+  .oneofone-tu--{{ uid }} .oneofone-tu__btn::after {
+    content: '';
+    position: absolute;
+    top: 0; bottom: 0; left: 0;
+    width: 55%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,.22), transparent);
+    transform: translateX(-120%);
+    animation: oneofone-tu-shimmer-{{ uid }} 2.4s ease-in-out infinite;
+    pointer-events: none;
   }
 
-  .video-unboxing-1of1-wrap h2 {
-    font-size: 32px;
-    letter-spacing: 2px;
-    margin-bottom: 20px;
-  }
-  /* Texto maior e mais espaçado */
-  .video-unboxing-1of1-rt p {
-    font-size: 18px;
-    line-height: 1.6;
-    margin-bottom: 25px;
-    letter-spacing: 0.5px;
+  @keyframes oneofone-tu-shimmer-{{ uid }} {
+    0%   { transform: translateX(-120%); }
+    100% { transform: translateX(280%); }
   }
 
-  /* Botão maior e com mais padding */
-  .video-unboxing-1of1-atc-btn {
-    font-size: 22px;
-    padding: 18px 50px;
-    border-radius: 12px;
+  @media (max-width: 749px) {
+    .oneofone-tu--{{ uid }} {
+      padding: 8px 12px 16px;
+    }
+    .oneofone-tu--{{ uid }} .oneofone-tu__section-title {
+      font-size: 18px !important;
+      margin: 0 0 6px !important;
+      text-align: left !important;
+    }
+    .oneofone-tu--{{ uid }} .oneofone-tu__inner {
+      flex-direction: column;
+    }
+    .oneofone-tu--{{ uid }} .oneofone-tu__img-col {
+      flex: none;
+      width: 100%;
+      aspect-ratio: 5 / 6;
+    }
+    .oneofone-tu--{{ uid }} .oneofone-tu__text-col {
+      border-left: none;
+      border-top: 1.5px solid #edeae5;
+      padding: 18px 16px;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .oneofone-tu--{{ uid }} .oneofone-tu__overline {
+      font-size: 13px;
+    }
+    .oneofone-tu--{{ uid }} .oneofone-tu__btn {
+      padding: 12px 18px;
+      font-size: 13px;
+      letter-spacing: 1px;
+    }
   }
-}
 
-
+  @media (min-width: 1024px) {
+    .oneofone-tu--{{ uid }} {
+      padding: 40px 0;
+    }
+    .oneofone-tu--{{ uid }} .oneofone-tu__section-title {
+      font-size: 32px !important;
+      margin: 0 0 10px !important;
+      text-align: left !important;
+    }
+    .oneofone-tu--{{ uid }} .oneofone-tu__text-col {
+      padding: 36px 32px;
+    }
+    .oneofone-tu--{{ uid }} .oneofone-tu__overline {
+      font-size: 18px;
+    }
+    .oneofone-tu--{{ uid }} .oneofone-tu__btn {
+      font-size: 17px;
+      padding: 16px 32px;
+    }
+  }
 </style>
 
 <script>
-document.querySelector('.video-unboxing-1of1-atc-btn')
-  .addEventListener('click', async function () {
-    const variantId = this.dataset.variantId;
+  (function () {
+    var root = document.querySelector('.oneofone-tu--{{ uid }}');
+    if (!root || root.dataset.oneofoneTuReady === '1') return;
+    root.dataset.oneofoneTuReady = '1';
 
-    try {
-      const res = await fetch('/cart/add.js', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ id: Number(variantId), quantity: 1 })
-      });
-      if (!res.ok) throw new Error();
-
-      const cartRes = await fetch('/cart/update.js', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          updates: {},
-          sections: ['cart-drawer', 'cart-icon-bubble']
-        })
-      });
-
-      const cartData = await cartRes.json();
-      const drawer = document.querySelector('cart-drawer');
-
-      if (drawer && typeof drawer.renderContents === 'function') {
-        drawer.renderContents(cartData);
-        drawer.classList.remove('is-empty');
-      } else {
-        window.location.href = '/cart';
-      }
-    } catch {
-      alert('Erro ao adicionar ao carrinho');
+    var vid = document.getElementById('oneofone-tu-vid-{{ uid }}');
+    if (vid) {
+      var io = new IntersectionObserver(function (entries, obs) {
+        if (entries[0].isIntersecting) {
+          vid.play().catch(function () {});
+          obs.disconnect();
+        }
+      }, { rootMargin: '100px' });
+      io.observe(vid);
     }
-});
+
+    var btn = root.querySelector('.oneofone-tu__btn');
+    if (!btn) return;
+
+    btn.addEventListener('click', async function () {
+      var variantId = btn.dataset.variantId;
+      try {
+        var res = await fetch('/cart/add.js', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ id: Number(variantId), quantity: 1 })
+        });
+        if (!res.ok) throw new Error();
+
+        var cartRes = await fetch('/cart/update.js', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            updates: {},
+            sections: ['cart-drawer', 'cart-icon-bubble']
+          })
+        });
+
+        var cartData = await cartRes.json();
+        var drawer = document.querySelector('cart-drawer');
+
+        if (drawer && typeof drawer.renderContents === 'function') {
+          drawer.renderContents(cartData);
+          drawer.classList.remove('is-empty');
+        } else {
+          window.location.href = '/cart';
+        }
+      } catch (e) {
+        alert('Erro ao adicionar ao carrinho');
+      }
+    });
+  })();
 </script>

@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(shopify theme *)",
+      "WebSearch",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Bash(npx skills *)"
+    ]
+  }
+}

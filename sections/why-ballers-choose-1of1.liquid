@@ -111,10 +111,10 @@
   }
   .add-to-cart-section-whyballers button {
     width: 100%;
+    box-sizing: border-box;
     margin-top: 6px;
     background-color: #fff304;
     color: #000;
-    border: 1.5px solid #000;
     border-radius: 9999px;
     padding: 14px 30px;
     font-family: PoppinsBold, sans-serif;
@@ -137,12 +137,16 @@
   .add-to-cart-wrapper-whyballers {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: stretch;
+  }
+  .add-to-cart-wrapper-whyballers .product-form {
+    width: 100%;
   }
   .money-back-whyballers {
     margin-top: 1rem;
     display: flex;
     align-items: center;
+    justify-content: center;
     font-family: 'Questrial', sans-serif;
     font-size: 14px;
     color: #000;
@@ -166,8 +170,8 @@
       font-size: 18px;
     }
     .add-to-cart-section-whyballers button {
-      padding: 15px 280px !important;
-      font-size: 25px !important;
+      padding: 18px 30px !important;
+      font-size: 20px !important;
     }
   }
 
@@ -183,15 +187,13 @@
     }
     .add-to-cart-section-whyballers button {
       font-size: 15px !important;
-      padding: 10px 60px !important;
+      padding: 14px 20px !important;
     }
   }
 </style>
 
 <!-- SECTION COMPARATIVA WHYBALLERS -->
 <div class="compare-section-whyballers">
-  <hr style="border: none; border-top: 1px solid #000; margin: 0 0 2.5rem 0; width: 100vw; position: relative; left: 50%; transform: translateX(-50%);">
-
   <div style="text-align: center; margin-bottom: 2.5rem;">
     <div class="compare-subtitle-whyballers">{{ 'compare.subtitle' | t }}</div>
     <h2 class="compare-title-whyballers">{{ 'compare.title' | t }}</h2>

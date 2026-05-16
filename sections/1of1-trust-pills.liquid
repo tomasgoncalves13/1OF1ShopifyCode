@@ -2,7 +2,7 @@
   assign uid = section.id | replace: '_', '-'
 -%}
 
-<div class="oneofone-trustpills-wrap" style="margin: {{ section.settings.margin_top }}px {{ section.settings.margin_horizontal }}px {{ section.settings.margin_bottom }}px;">
+<div class="oneofone-trustpills-wrap" style="margin: {{ section.settings.margin_top }}px {{ section.settings.margin_horizontal }}px {{ section.settings.margin_bottom }}px; padding: {{ section.settings.padding_top }}px {{ section.settings.padding_horizontal }}px {{ section.settings.padding_bottom }}px;">
   <div class="oneofone-tp" id="oneofone-tp-{{ uid }}" data-oneofone-tp>
 
     <div class="oneofone-tp__row">
@@ -80,7 +80,7 @@
   }
   #oneofone-tp-{{ uid }} .oneofone-tp__icon svg { width: 16px; height: 16px; stroke: #999; transition: stroke .2s; }
   #oneofone-tp-{{ uid }} .oneofone-tp__img { width: 22px; height: auto; object-fit: contain; display: block; }
-  #oneofone-tp-{{ uid }} .oneofone-tp__item.is-active .oneofone-tp__icon { background: {{ section.settings.accent_color }}; border-color: {{ section.settings.accent_color }}; }
+  #oneofone-tp-{{ uid }} .oneofone-tp__item.is-active .oneofone-tp__icon { background: #000000; border-color: #000000; color: #fff; }
   #oneofone-tp-{{ uid }} .oneofone-tp__item.is-active .oneofone-tp__icon svg { stroke: #fff; }
   #oneofone-tp-{{ uid }} .oneofone-tp__item.is-active .oneofone-tp__img { filter: brightness(0) invert(1); }
   #oneofone-tp-{{ uid }} .oneofone-tp__label {
@@ -195,9 +195,9 @@
       "label": "Margem topo",
       "min": 0,
       "max": 60,
-      "step": 2,
+      "step": 1,
       "unit": "px",
-      "default": 12
+      "default": 10
     },
     {
       "type": "range",
@@ -205,9 +205,9 @@
       "label": "Margem fundo",
       "min": 0,
       "max": 60,
-      "step": 2,
+      "step": 1,
       "unit": "px",
-      "default": 12
+      "default": 15
     },
     {
       "type": "range",
@@ -218,6 +218,36 @@
       "step": 1,
       "unit": "px",
       "default": 15
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding topo",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding fundo",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_horizontal",
+      "label": "Padding lateral",
+      "min": 0,
+      "max": 60,
+      "step": 1,
+      "unit": "px",
+      "default": 0
     }
   ],
   "blocks": [
