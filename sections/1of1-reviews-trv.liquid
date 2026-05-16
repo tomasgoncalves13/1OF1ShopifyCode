@@ -1,0 +1,345 @@
+{%- liquid
+  assign uid = section.id | replace: '_', '-'
+-%}
+
+<div class="oneofone-trv oneofone-trv--{{ uid }}" id="oneofone-trv-{{ uid }}">
+  <div class="oneofone-trv__inner">
+
+    {%- if section.settings.heading_strong != blank or section.settings.heading_em != blank -%}
+      <div class="oneofone-trv__head">
+        <h2 class="oneofone-trv__title">
+          {{ section.settings.heading_strong }}{% if section.settings.heading_em != blank %} <em>{{ section.settings.heading_em }}</em>{% endif %}
+        </h2>
+      </div>
+    {%- endif -%}
+
+    <div class="oneofone-trv__shell">
+      <div class="oneofone-trv__track" data-oneofone-trv-track>
+        {%- for block in section.blocks -%}
+          <article class="oneofone-trv__card" data-oneofone-trv-card {{ block.shopify_attributes }}>
+
+            <div class="oneofone-trv__body">
+              <div class="oneofone-trv__top">
+                <div class="oneofone-trv__stars">
+                  <img src="{{ section.settings.stars_image | default: 'https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Design_sem_nome_31_2.png?v=1775505343' }}"
+                       alt="5 estrelas" width="80" height="16" loading="lazy" decoding="async">
+                </div>
+                {%- if block.settings.verified -%}
+                  <div class="oneofone-trv__verified">
+                    <span class="oneofone-trv__verified-badge" aria-hidden="true">
+                      <svg viewBox="0 0 24 24"><path d="M6 12.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </span>
+                    <span>Verificado</span>
+                  </div>
+                {%- endif -%}
+              </div>
+
+              {%- if block.settings.title != blank -%}
+                <p class="oneofone-trv__rtitle">{{ block.settings.title }}</p>
+              {%- endif -%}
+              {%- if block.settings.body != blank -%}
+                <p class="oneofone-trv__rbody">{{ block.settings.body }}</p>
+              {%- endif -%}
+
+              <div class="oneofone-trv__meta">
+                {{ block.settings.name }}{% if block.settings.date != blank %} <span class="oneofone-trv__meta-date">{{ block.settings.date }}</span>{% endif %}
+              </div>
+            </div>
+          </article>
+        {%- endfor -%}
+      </div>
+    </div>
+
+    <div class="oneofone-trv__footer">
+      <div class="oneofone-trv__dots" data-oneofone-trv-dots aria-hidden="true"></div>
+      {%- if section.settings.showing_text != blank -%}
+        <p class="oneofone-trv__showing">{{ section.settings.showing_text }}</p>
+      {%- endif -%}
+      <img class="oneofone-trv__tp" src="{{ section.settings.trustpilot_logo | default: 'https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Trustpilot_Logo__2022__svg.webp?v=1778896353' }}" alt="Trustpilot" width="110" height="28" loading="lazy" decoding="async">
+    </div>
+
+  </div>
+</div>
+
+<style>
+  @font-face { font-family: 'PoppinsExtraBold'; src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/poppins.extrabold.ttf?v=1747688794') format('truetype'); }
+  @font-face { font-family: 'PoppinsBold';      src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/poppins.bold.ttf?v=1747688795') format('truetype'); }
+  @font-face { font-family: 'PoppinsSemiBold';  src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/poppins.semibold.ttf?v=1747688794') format('truetype'); }
+  @font-face { font-family: 'PoppinsMedium';    src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/poppins.medium.ttf?v=1747688794') format('truetype'); }
+  @font-face { font-family: 'PoppinsLight';     src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/poppins.light.ttf?v=1748130416') format('truetype'); }
+  @font-face { font-family: 'MontserratExtraBold'; src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Montserrat-ExtraBold.ttf?v=1775402219') format('truetype'); font-display: swap; }
+  @font-face { font-family: 'MontserratBold';      src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Montserrat-Bold.ttf?v=1775402219') format('truetype'); font-display: swap; }
+  @font-face { font-family: 'MontserratSemiBold';  src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Montserrat-SemiBold.ttf?v=1775402091') format('truetype'); font-display: swap; }
+  @font-face { font-family: 'MontserratMedium';    src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Montserrat-Medium.ttf?v=1775402219') format('truetype'); font-display: swap; }
+  @font-face { font-family: 'Montserratregular';   src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Montserrat-Regular.ttf?v=1775402219') format('truetype'); font-display: swap; }
+
+  .oneofone-trv--{{ uid }} {
+    background: {{ section.settings.bg_color }};
+    padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px;
+    font-family: 'PoppinsMedium', sans-serif;
+    color: #111;
+  }
+  .oneofone-trv--{{ uid }} .oneofone-trv__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  .oneofone-trv--{{ uid }} .oneofone-trv__head {
+    text-align: center;
+    margin-bottom: 22px;
+  }
+  .oneofone-trv--{{ uid }} .oneofone-trv__title {
+    margin: 0;
+    font-family: 'PoppinsBold', sans-serif !important;
+    font-size: clamp(22px, 2.6vw, 32px);
+    line-height: 1.15;
+    color: #000;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+  }
+  .oneofone-trv--{{ uid }} .oneofone-trv__title em {
+    font-family: 'MontserratSemiBold', sans-serif !important;
+    font-style: italic;
+    font-weight: 500;
+    text-transform: none;
+    color: {{ section.settings.accent_color }};
+    letter-spacing: 0;
+    margin-left: 4px;
+  }
+
+  .oneofone-trv--{{ uid }} .oneofone-trv__shell {
+    position: relative;
+  }
+  .oneofone-trv--{{ uid }} .oneofone-trv__track {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 320px;
+    gap: 18px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding: 4px 2px 18px;
+  }
+  .oneofone-trv--{{ uid }} .oneofone-trv__track::-webkit-scrollbar { display: none; }
+
+  .oneofone-trv--{{ uid }} .oneofone-trv__card {
+    scroll-snap-align: start;
+    background: #fff;
+    border: 1px solid #ececec;
+    border-radius: 14px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+  }
+  .oneofone-trv--{{ uid }} .oneofone-trv__photo {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    background: #f4f4f4;
+    overflow: hidden;
+  }
+  .oneofone-trv--{{ uid }} .oneofone-trv__photo img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+  }
+  .oneofone-trv--{{ uid }} .oneofone-trv__body {
+    padding: 14px 16px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+  }
+  .oneofone-trv--{{ uid }} .oneofone-trv__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+  }
+  .oneofone-trv--{{ uid }} .oneofone-trv__stars img {
+    height: 16px;
+    width: auto;
+    display: block;
+  }
+  .oneofone-trv--{{ uid }} .oneofone-trv__verified {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-family: 'PoppinsMedium', sans-serif;
+    font-size: 11px;
+    color: #6c6c6c;
+  }
+  .oneofone-trv--{{ uid }} .oneofone-trv__verified-badge {
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    background: #00b67a;
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .oneofone-trv--{{ uid }} .oneofone-trv__verified-badge svg {
+    width: 10px; height: 10px;
+  }
+
+  .oneofone-trv--{{ uid }} .oneofone-trv__rtitle {
+    margin: 6px 0 0;
+    font-family: 'PoppinsBold', sans-serif;
+    font-size: 15px;
+    line-height: 1.25;
+    color: #000;
+  }
+  .oneofone-trv--{{ uid }} .oneofone-trv__rbody {
+    margin: 2px 0 0;
+    font-family: 'PoppinsMedium', sans-serif;
+    font-size: 13px;
+    line-height: 1.45;
+    color: #444;
+  }
+  .oneofone-trv--{{ uid }} .oneofone-trv__meta {
+    margin-top: auto;
+    padding-top: 10px;
+    font-family: 'PoppinsSemiBold', sans-serif;
+    font-size: 12px;
+    color: #111;
+  }
+  .oneofone-trv--{{ uid }} .oneofone-trv__meta-date {
+    color: #999;
+    font-family: 'PoppinsMedium', sans-serif;
+    margin-left: 4px;
+  }
+
+  .oneofone-trv--{{ uid }} .oneofone-trv__footer {
+    margin-top: 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  .oneofone-trv--{{ uid }} .oneofone-trv__dots {
+    display: flex;
+    gap: 7px;
+  }
+  .oneofone-trv--{{ uid }} .oneofone-trv__dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(0,0,0,0.18);
+    padding: 0;
+    cursor: pointer;
+    transition: background .2s ease, transform .2s ease;
+  }
+  .oneofone-trv--{{ uid }} .oneofone-trv__dot.is-active {
+    background: #000;
+    transform: scale(1.25);
+  }
+  .oneofone-trv--{{ uid }} .oneofone-trv__showing {
+    margin: 0;
+    font-family: 'PoppinsMedium', sans-serif;
+    font-size: 12px;
+    color: #777;
+  }
+  .oneofone-trv--{{ uid }} .oneofone-trv__tp {
+    width: 110px;
+    height: auto;
+    margin-top: 2px;
+    opacity: 0.85;
+  }
+
+  @media (max-width: 700px) {
+    .oneofone-trv--{{ uid }} .oneofone-trv__track { grid-auto-columns: 80%; gap: 12px; }
+    .oneofone-trv--{{ uid }} .oneofone-trv__inner { padding: 0 14px; }
+  }
+</style>
+
+<script>
+  (function () {
+    var root = document.getElementById('oneofone-trv-{{ uid }}');
+    if (!root || root.dataset.oneofoneTrvReady === '1') return;
+    root.dataset.oneofoneTrvReady = '1';
+
+    var track = root.querySelector('[data-oneofone-trv-track]');
+    var dotsWrap = root.querySelector('[data-oneofone-trv-dots]');
+    var cards = Array.from(root.querySelectorAll('[data-oneofone-trv-card]'));
+    if (!track || !dotsWrap || cards.length < 2) return;
+
+    cards.forEach(function (_, i) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'oneofone-trv__dot' + (i === 0 ? ' is-active' : '');
+      b.setAttribute('aria-label', 'Ir para review ' + (i + 1));
+      b.addEventListener('click', function () {
+        cards[i].scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' });
+      });
+      dotsWrap.appendChild(b);
+    });
+
+    var dots = Array.from(dotsWrap.children);
+    var ticking = false;
+    track.addEventListener('scroll', function () {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function () {
+        var tr = track.getBoundingClientRect();
+        var center = tr.left + tr.width / 2;
+        var closest = 0, min = Infinity;
+        cards.forEach(function (c, i) {
+          var r = c.getBoundingClientRect();
+          var d = Math.abs(r.left + r.width / 2 - center);
+          if (d < min) { min = d; closest = i; }
+        });
+        dots.forEach(function (d, i) { d.classList.toggle('is-active', i === closest); });
+        ticking = false;
+      });
+    }, { passive: true });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "1of1 Reviews Carousel",
+  "tag": "section",
+  "class": "section-1of1-reviews-trv",
+  "settings": [
+    { "type": "text", "id": "heading_strong", "label": "Título (parte forte)", "default": "O QUE DIZEM OS" },
+    { "type": "text", "id": "heading_em",     "label": "Título (parte itálica/destaque)", "default": "Jogadores" },
+    { "type": "text", "id": "showing_text",   "label": "Texto pequeno (footer)", "default": "A mostrar avaliações de 5 estrelas" },
+    { "type": "image_picker", "id": "stars_image", "label": "Imagem das estrelas (opcional, default fornecida)" },
+    { "type": "text", "id": "trustpilot_logo", "label": "URL do logo Trustpilot (opcional — usa default se vazio)" },
+    { "type": "header", "content": "Cores" },
+    { "type": "color", "id": "bg_color",     "label": "Fundo",      "default": "#ffffff" },
+    { "type": "color", "id": "accent_color", "label": "Destaque (italic)", "default": "#FFD500" },
+    { "type": "header", "content": "Espaçamento" },
+    { "type": "range", "id": "padding_top",    "label": "Padding topo",  "min": 0, "max": 160, "step": 2, "unit": "px", "default": 40 },
+    { "type": "range", "id": "padding_bottom", "label": "Padding fundo", "min": 0, "max": 160, "step": 2, "unit": "px", "default": 40 }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Review",
+      "limit": 20,
+      "settings": [
+        { "type": "image_picker", "id": "photo", "label": "Foto (upload)" },
+        { "type": "text",         "id": "photo_url", "label": "Foto (URL — usado se 'Foto upload' vazio)" },
+        { "type": "text", "id": "name",  "label": "Nome",   "default": "Cliente 1OF1" },
+        { "type": "text", "id": "date",  "label": "Data (ex.: Jan 2026)" },
+        { "type": "text", "id": "title", "label": "Título da review" },
+        { "type": "textarea", "id": "body", "label": "Texto da review" },
+        { "type": "checkbox", "id": "verified", "label": "Mostrar 'Verificado'", "default": true }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "1of1 Reviews Carousel",
+      "blocks": [
+        { "type": "review", "settings": { "name": "Pedro Ramos",    "date": "Fev 2026", "title": "Jogo sem distrações",       "body": "Uso em todos os treinos e jogos e finalmente consigo jogar sem distrações. Ficam sempre no sítio e não incomodam nada.", "verified": true } },
+        { "type": "review", "settings": { "name": "Carla Micaela",  "date": "Jan 2026", "title": "O meu filho adora 😍",      "body": "Muito satisfeita 😍 O meu filho adora jogar com elas e sente-se mais confortável e protegido.", "verified": true } },
+        { "type": "review", "settings": { "name": "Afonso Moura",   "date": "Dez 2025", "title": "Parecem feitas à medida",   "body": "Adorei, parecem feitas à medida. Chegaram ao Porto em apenas 1 dia e nota-se logo a qualidade, até no packaging!", "verified": true } },
+        { "type": "review", "settings": { "name": "Tiago Campas",   "date": "Nov 2025", "title": "Conforto e proteção total", "body": "Adorei! São super confortáveis e protegem mesmo. Já não me preocupo mais com as caneleiras durante o jogo.", "verified": true } },
+        { "type": "review", "settings": { "name": "Tiago Rosa",     "date": "Out 2025", "title": "Qualidade top!",            "body": "Qualidade top! O equipamento perfeito para quem quer proteção sem perder mobilidade.", "verified": true } },
+        { "type": "review", "settings": { "name": "Rui Lebre",      "date": "Set 2025", "title": "Já é o meu segundo par 😄", "body": "Já é o meu segundo par e estou a adorar. Sinto-me livre e seguro, já não consigo jogar com as caneleiras antigas. 😄", "verified": true } }
+      ]
+    }
+  ]
+}
+{% endschema %}

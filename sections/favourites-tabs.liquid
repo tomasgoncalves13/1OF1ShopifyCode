@@ -538,6 +538,15 @@ background-color: #fff304;
               <a href="{{ product.url }}" class="product-link">
                 <img src="{{ product.featured_image | img_url: 'master' }}" alt="{{ product.title }}">
               </a>
+
+              <div class="dzpb-overlay" style="position: absolute; top: 0; left: 0; z-index: 10; display: flex; flex-direction: column; gap: 0.4rem; padding: 0.8rem 0.9rem;">
+                <div class="dzpb dzpb--disc">
+                  <span class="dzpb__inner">
+                    <span class="dzpb__text">Meias GRIP Grátis</span>
+                  </span>
+                </div>
+              </div>
+
               <button class="quick-buy-button" onclick="openQuickBuy('{{ product.handle }}')">
                 <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Icons_10.png?v=1748384481" alt="{{ 'favourites.add_icon_alt' | t }}">
                 {{ 'favourites.quick_buy' | t }}

@@ -1,0 +1,272 @@
+{%- liquid
+  assign uid = section.id | replace: '_', '-'
+  assign initial_count = section.settings.initial_count | default: 5
+-%}
+
+<div class="oneofone-faq oneofone-faq--{{ uid }}" data-oneofone-faq>
+  <div class="oneofone-faq__header">
+    {%- if section.settings.eyebrow != blank -%}
+      <span class="oneofone-faq__eyebrow">{{ section.settings.eyebrow }}</span>
+    {%- endif -%}
+    {%- if section.settings.heading_strong != blank or section.settings.heading_em != blank -%}
+      <h2 class="oneofone-faq__title">
+        {{ section.settings.heading_strong }}{% if section.settings.heading_em != blank %} <em>{{ section.settings.heading_em }}</em>{% endif %}
+      </h2>
+    {%- endif -%}
+  </div>
+
+  {%- assign visible_blocks = section.blocks | slice: 0, initial_count -%}
+  {%- assign extra_count = section.blocks.size | minus: initial_count -%}
+
+  {%- for block in section.blocks limit: initial_count -%}
+    {%- assign delay = forloop.index0 | times: 70 -%}
+    <details class="oneofone-faq__item" style="transition-delay:{{ delay }}ms" {{ block.shopify_attributes }}>
+      <summary>
+        <span class="oneofone-faq__q">{{ block.settings.question }}</span>
+        <span class="oneofone-faq__icon" aria-hidden="true"></span>
+      </summary>
+      <div class="oneofone-faq__a">{{ block.settings.answer }}</div>
+    </details>
+  {%- endfor -%}
+
+  {%- if extra_count > 0 -%}
+    <button type="button" class="oneofone-faq__more" data-oneofone-faq-more style="transition-delay:{{ initial_count | times: 70 }}ms">
+      <span>{{ section.settings.more_label | default: 'Ver mais perguntas' }}</span>
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg>
+    </button>
+
+    <div class="oneofone-faq__extra" data-oneofone-faq-extra>
+      {%- for block in section.blocks offset: initial_count -%}
+        {%- assign delay = forloop.index0 | times: 70 -%}
+        <details class="oneofone-faq__item" style="transition-delay:{{ delay }}ms" {{ block.shopify_attributes }}>
+          <summary>
+            <span class="oneofone-faq__q">{{ block.settings.question }}</span>
+            <span class="oneofone-faq__icon" aria-hidden="true"></span>
+          </summary>
+          <div class="oneofone-faq__a">{{ block.settings.answer }}</div>
+        </details>
+      {%- endfor -%}
+
+      <button type="button" class="oneofone-faq__more oneofone-faq__more--close" data-oneofone-faq-close>
+        <span>{{ section.settings.less_label | default: 'Ver menos' }}</span>
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"></path></svg>
+      </button>
+    </div>
+  {%- endif -%}
+</div>
+
+<style>
+  @font-face { font-family: 'PoppinsExtraBold'; src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/poppins.extrabold.ttf?v=1747688794') format('truetype'); }
+  @font-face { font-family: 'PoppinsBold';      src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/poppins.bold.ttf?v=1747688795') format('truetype'); }
+  @font-face { font-family: 'PoppinsSemiBold';  src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/poppins.semibold.ttf?v=1747688794') format('truetype'); }
+  @font-face { font-family: 'PoppinsMedium';    src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/poppins.medium.ttf?v=1747688794') format('truetype'); }
+  @font-face { font-family: 'PoppinsLight';     src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/poppins.light.ttf?v=1748130416') format('truetype'); }
+  @font-face { font-family: 'MontserratExtraBold'; src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Montserrat-ExtraBold.ttf?v=1775402219') format('truetype'); font-display: swap; }
+  @font-face { font-family: 'MontserratBold';      src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Montserrat-Bold.ttf?v=1775402219') format('truetype'); font-display: swap; }
+  @font-face { font-family: 'MontserratSemiBold';  src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Montserrat-SemiBold.ttf?v=1775402091') format('truetype'); font-display: swap; }
+  @font-face { font-family: 'MontserratMedium';    src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Montserrat-Medium.ttf?v=1775402219') format('truetype'); font-display: swap; }
+  @font-face { font-family: 'Montserratregular';   src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Montserrat-Regular.ttf?v=1775402219') format('truetype'); font-display: swap; }
+
+  .oneofone-faq--{{ uid }} {
+    max-width: 750px;
+    margin: 0 auto;
+    padding: {{ section.settings.padding_top }}px 20px {{ section.settings.padding_bottom }}px;
+    background: {{ section.settings.bg_color }};
+    font-family: 'PoppinsMedium', sans-serif;
+  }
+
+  .oneofone-faq--{{ uid }} .oneofone-faq__header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 24px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e6e6e6;
+  }
+  .oneofone-faq--{{ uid }} .oneofone-faq__eyebrow {
+    font-family: 'PoppinsBold', sans-serif !important;
+    font-size: 21px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: {{ section.settings.accent_color }};
+    flex-shrink: 0;
+  }
+  .oneofone-faq--{{ uid }} .oneofone-faq__title {
+    margin: 0;
+    font-family: 'MontserratSemiBold', serif !important;
+    font-style: italic;
+    font-weight: 500;
+    font-size: clamp(20px, 3.5vw, 26px);
+    color: #111;
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+  .oneofone-faq--{{ uid }} .oneofone-faq__title em {
+    font-family: 'MontserratSemiBold', serif !important;
+    font-style: italic;
+    color: #111;
+  }
+
+  .oneofone-faq--{{ uid }} .oneofone-faq__item {
+    margin: 0 0 6px 0;
+    border-radius: 10px;
+    background: #f2f2f2;
+    overflow: hidden;
+  }
+  .oneofone-faq--{{ uid }} .oneofone-faq__item summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 14px;
+    cursor: pointer;
+    list-style: none;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+  }
+  .oneofone-faq--{{ uid }} .oneofone-faq__item summary::-webkit-details-marker { display: none; }
+
+  .oneofone-faq--{{ uid }} .oneofone-faq__q {
+    font-family: 'PoppinsSemiBold', sans-serif;
+    font-size: 10.5px;
+    letter-spacing: 1.3px;
+    text-transform: uppercase;
+    color: #111;
+    line-height: 1.5;
+    transition: color 0.2s ease;
+  }
+  .oneofone-faq--{{ uid }} .oneofone-faq__item summary:hover .oneofone-faq__q { color: {{ section.settings.accent_color }}; }
+
+  .oneofone-faq--{{ uid }} .oneofone-faq__icon {
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    border: 1.5px solid #d8d8d8;
+    display: grid; place-items: center;
+    flex-shrink: 0; position: relative;
+    transition: border-color 0.25s ease, background 0.25s ease;
+  }
+  .oneofone-faq--{{ uid }} .oneofone-faq__icon::before,
+  .oneofone-faq--{{ uid }} .oneofone-faq__icon::after {
+    content: '';
+    position: absolute;
+    background: #333;
+    border-radius: 2px;
+    transition: transform 0.32s cubic-bezier(0.4,0,0.2,1), background 0.2s ease;
+  }
+  .oneofone-faq--{{ uid }} .oneofone-faq__icon::before { width: 10px; height: 1.5px; }
+  .oneofone-faq--{{ uid }} .oneofone-faq__icon::after  { width: 1.5px; height: 10px; }
+
+  .oneofone-faq--{{ uid }} .oneofone-faq__item summary:hover .oneofone-faq__icon { border-color: {{ section.settings.accent_color }}; background: rgba(0,0,0,0.04); }
+  .oneofone-faq--{{ uid }} .oneofone-faq__item summary:hover .oneofone-faq__icon::before,
+  .oneofone-faq--{{ uid }} .oneofone-faq__item summary:hover .oneofone-faq__icon::after { background: {{ section.settings.accent_color }}; }
+
+  .oneofone-faq--{{ uid }} .oneofone-faq__item[open] summary .oneofone-faq__icon { background: #111; border-color: #111; }
+  .oneofone-faq--{{ uid }} .oneofone-faq__item[open] summary .oneofone-faq__icon::before,
+  .oneofone-faq--{{ uid }} .oneofone-faq__item[open] summary .oneofone-faq__icon::after { background: #fff; }
+  .oneofone-faq--{{ uid }} .oneofone-faq__item[open] summary .oneofone-faq__icon::before { transform: rotate(45deg); }
+  .oneofone-faq--{{ uid }} .oneofone-faq__item[open] summary .oneofone-faq__icon::after  { transform: rotate(45deg); }
+
+  .oneofone-faq--{{ uid }} .oneofone-faq__a {
+    padding: 0 14px 16px;
+    font-family: 'PoppinsMedium', sans-serif;
+    font-size: 13px;
+    color: rgba(0,0,0,0.52);
+    line-height: 1.8;
+  }
+  .oneofone-faq--{{ uid }} .oneofone-faq__a p { margin: 0 0 6px 0; }
+  .oneofone-faq--{{ uid }} .oneofone-faq__a p:last-child { margin-bottom: 0; }
+  .oneofone-faq--{{ uid }} .oneofone-faq__a strong { font-family: 'PoppinsBold', sans-serif; color: #111; }
+
+  .oneofone-faq--{{ uid }} .oneofone-faq__extra { display: none; }
+  .oneofone-faq--{{ uid }} .oneofone-faq__extra.is-open { display: block; }
+
+  .oneofone-faq--{{ uid }} .oneofone-faq__more {
+    display: inline-flex; align-items: center; gap: 7px;
+    margin-top: 12px;
+    background: none;
+    border: 1.5px solid rgba(0,0,0,0.18);
+    border-radius: 99px;
+    padding: 8px 18px;
+    font-family: 'PoppinsBold', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: #111;
+    cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .oneofone-faq--{{ uid }} .oneofone-faq__more:hover {
+    background: #111;
+    border-color: #111;
+    color: #fff;
+  }
+</style>
+
+<script>
+  (function () {
+    var root = document.querySelector('.oneofone-faq--{{ uid }}');
+    if (!root || root.dataset.oneofoneFaqReady === '1') return;
+    root.dataset.oneofoneFaqReady = '1';
+
+    var moreBtn  = root.querySelector('[data-oneofone-faq-more]');
+    var closeBtn = root.querySelector('[data-oneofone-faq-close]');
+    var extra    = root.querySelector('[data-oneofone-faq-extra]');
+
+    if (moreBtn && extra) {
+      moreBtn.addEventListener('click', function () {
+        extra.classList.add('is-open');
+        moreBtn.style.display = 'none';
+      });
+    }
+    if (closeBtn && extra) {
+      closeBtn.addEventListener('click', function () {
+        extra.classList.remove('is-open');
+        if (moreBtn) moreBtn.style.display = '';
+      });
+    }
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "1of1 FAQs",
+  "tag": "section",
+  "class": "section-1of1-faqs",
+  "settings": [
+    { "type": "text", "id": "eyebrow",        "label": "Eyebrow (curto)",       "default": "FAQ" },
+    { "type": "text", "id": "heading_strong", "label": "Título (parte forte)",  "default": "Perguntas" },
+    { "type": "text", "id": "heading_em",     "label": "Título (parte itálica)", "default": "frequentes" },
+    { "type": "text", "id": "more_label",     "label": "Texto botão 'ver mais'", "default": "Ver mais perguntas" },
+    { "type": "text", "id": "less_label",     "label": "Texto botão 'ver menos'", "default": "Ver menos" },
+    { "type": "range", "id": "initial_count", "label": "Perguntas visíveis no início", "min": 1, "max": 12, "step": 1, "default": 5 },
+    { "type": "header", "content": "Cores" },
+    { "type": "color", "id": "bg_color",     "label": "Fundo",    "default": "#ffffff" },
+    { "type": "color", "id": "accent_color", "label": "Destaque", "default": "#FFD500" },
+    { "type": "header", "content": "Espaçamento" },
+    { "type": "range", "id": "padding_top",    "label": "Padding topo",  "min": 0, "max": 120, "step": 2, "unit": "px", "default": 24 },
+    { "type": "range", "id": "padding_bottom", "label": "Padding fundo", "min": 0, "max": 120, "step": 2, "unit": "px", "default": 24 }
+  ],
+  "blocks": [
+    {
+      "type": "faq",
+      "name": "Pergunta",
+      "limit": 20,
+      "settings": [
+        { "type": "text",        "id": "question", "label": "Pergunta" },
+        { "type": "richtext",    "id": "answer",   "label": "Resposta" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "1of1 FAQs",
+      "blocks": [
+        { "type": "faq", "settings": { "question": "Quanto tempo demora a entrega?", "answer": "<p>A tua encomenda é enviada no próprio dia ou no próximo dia útil e chega em 3 a 5 dias úteis.</p>" } },
+        { "type": "faq", "settings": { "question": "Têm garantia?", "answer": "<p>Sim. Todos os produtos 1OF1 incluem 3 anos de garantia contra defeitos de fabrico.</p>" } },
+        { "type": "faq", "settings": { "question": "Têm envio gratuito?", "answer": "<p>Sim, todas as encomendas têm envio gratuito.</p>" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

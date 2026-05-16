@@ -9,8 +9,18 @@
  */
 {
   "sections": {
-    "promotion_bar": {
+    "promotion_bar":  {
       "type": "promotion-bar",
+      "settings": {}
+    },
+    "trust_pills_1of1": {
+      "type": "1of1-trust-pills",
+      "blocks": {
+        "pill_garantia": { "type": "pill", "settings": { "label": "Garantia 3 Anos",   "description": "Todos os produtos 1OF1 têm garantia de 3 anos contra defeitos de fabrico. Se algo não estiver bem, tratamos do assunto.", "icon_type": "shield" } },
+        "pill_envio":    { "type": "pill", "settings": { "label": "Envio Grátis CTT",  "description": "Enviamos por CTT Expresso. A encomenda sai no dia útil seguinte e chega entre 3 a 5 dias. Recebes informações de rastreio por email.", "icon_type": "ctt" } },
+        "pill_testa":    { "type": "pill", "settings": { "label": "Testa 30 Dias",     "description": "Tens 30 dias para experimentar. Se não ficares satisfeito, devolves e reembolsamos o valor do produto. Sem complicações.", "icon_type": "pin" } }
+      },
+      "block_order": ["pill_garantia", "pill_envio", "pill_testa"],
       "settings": {}
     },
     "main": {
@@ -104,88 +114,29 @@
       "settings": {}
     },
     "collapsible_content_MpnV9r": {
-      "type": "collapsible-content",
+      "type": "1of1-faqs",
       "blocks": {
-        "collapsible_row_NVKrcL": {
-          "type": "collapsible_row",
-          "settings": {
-            "heading": "Qual é a diferença entre caneleiras embutidas e tradicionais?",
-            "icon": "none",
-            "row_content": "<p>Ao contrário das caneleiras de plástico rígido, as Caneleiras Embutidas 1OF1 usam espuma de Proteção Hexagonal (HTP) que absorve impactos.<br/><br/>São leves, flexíveis e discretas — conforto total e liberdade de movimento completa para jogares com confiança.</p>",
-            "page": ""
-          }
-        },
-        "collapsible_row_9CBKQJ": {
-          "type": "collapsible_row",
-          "settings": {
-            "heading": "Quanto tempo demora a entrega?",
-            "icon": "none",
-            "row_content": "<p>A tua encomenda é enviada no próprio dia ou no próximo dia útil e chega em 3 a 5 dias úteis.</p>",
-            "page": ""
-          }
-        },
-        "collapsible_row_yGD9Gj": {
-          "type": "collapsible_row",
-          "settings": {
-            "heading": "Têm garantia?",
-            "icon": "none",
-            "row_content": "<p>Sim. Todos os nossos produtos incluem 3 anos de garantia contra defeitos de fabrico.</p>",
-            "page": ""
-          }
-        },
-        "collapsible_row_Lr4W9C": {
-          "type": "collapsible_row",
-          "settings": {
-            "heading": "Que tamanho devo escolher?",
-            "icon": "none",
-            "row_content": "<p>As Caneleiras Embutidas adaptam-se a qualquer perna. A única diferença é a área de proteção:<br/><br/><strong>MINI</strong> – Máxima leveza e sensação mínima.<br/><br/><strong>MIDI</strong> – Mais cobertura sem perder conforto nem liberdade de movimento.</p>",
-            "page": ""
-          }
-        },
-        "collapsible_row_H7L7Ai": {
-          "type": "collapsible_row",
-          "settings": {
-            "heading": "Como as lavo?",
-            "icon": "check_mark",
-            "row_content": "<p>Podem ser lavadas à máquina em programa delicado a 30 °C ou à mão, mantendo a proteção e o conforto como novos.</p>",
-            "page": ""
-          }
-        },
-        "collapsible_row_7M7wMM": {
-          "type": "collapsible_row",
-          "settings": {
-            "heading": "Têm envio gratuito?",
-            "icon": "check_mark",
-            "row_content": "<p>Sim, todas as encomendas têm envio gratuito.<br/><br/></p>",
-            "page": ""
-          }
-        }
+        "q1": { "type": "faq", "settings": { "question": "Qual é a diferença entre caneleiras embutidas e tradicionais?", "answer": "<p>Ao contrário das caneleiras de plástico rígido, as Caneleiras Embutidas 1OF1 usam espuma de Proteção Hexagonal (HTP) que absorve impactos.</p><p>São <strong>leves, flexíveis e discretas</strong> — conforto total e liberdade de movimento completa para jogares com confiança.</p>" } },
+        "q2": { "type": "faq", "settings": { "question": "Quanto tempo demora a entrega?", "answer": "<p>A tua encomenda é enviada no próprio dia ou no próximo dia útil e chega em <strong>3 a 5 dias úteis</strong>.</p>" } },
+        "q3": { "type": "faq", "settings": { "question": "Têm garantia?", "answer": "<p>Sim. Todos os nossos produtos incluem <strong>3 anos de garantia</strong> contra defeitos de fabrico.</p>" } },
+        "q4": { "type": "faq", "settings": { "question": "Que tamanho devo escolher?", "answer": "<p>As Caneleiras Embutidas adaptam-se a qualquer perna. A única diferença é a área de proteção:</p><p><strong>MINI</strong> – Máxima leveza e sensação mínima.</p><p><strong>MIDI</strong> – Mais cobertura sem perder conforto nem liberdade de movimento.</p>" } },
+        "q5": { "type": "faq", "settings": { "question": "Como as lavo?", "answer": "<p>Podem ser lavadas à máquina em programa delicado a 30 °C ou à mão, mantendo a proteção e o conforto como novos.</p>" } },
+        "q6": { "type": "faq", "settings": { "question": "Têm envio gratuito?", "answer": "<p>Sim, todas as encomendas têm <strong>envio gratuito</strong>.</p>" } }
       },
-      "block_order": [
-        "collapsible_row_NVKrcL",
-        "collapsible_row_9CBKQJ",
-        "collapsible_row_yGD9Gj",
-        "collapsible_row_Lr4W9C",
-        "collapsible_row_H7L7Ai",
-        "collapsible_row_7M7wMM"
-      ],
-      "settings": {
-        "caption": "Joga com Confiança — Tudo o que Precisas de Saber",
-        "heading": "PERGUNTAS FREQUENTES",
-        "heading_size": "h2",
-        "heading_alignment": "center",
-        "layout": "none",
-        "container_color_scheme": "",
-        "color_scheme": "",
-        "open_first_collapsible_row": false,
-        "image_ratio": "adapt",
-        "desktop_layout": "image_second",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
+      "block_order": ["q1", "q2", "q3", "q4", "q5", "q6"],
+      "settings": {}
     },
-    "reviews_1of1_box": {
-      "type": "reviews-1of1-box",
+    "reviews_trv": {
+      "type": "1of1-reviews-trv",
+      "blocks": {
+        "r1": { "type": "review", "settings": { "name": "Pedro Ramos",   "date": "Fev 2026", "title": "Jogo sem distrações",       "body": "Uso em todos os treinos e jogos e finalmente consigo jogar sem distrações. Ficam sempre no sítio e não incomodam nada.", "verified": true, "photo_url": "https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Design_sem_nome_1_e764f1ea-7bd0-4e4b-a58f-4119b6cc99eb.png?v=1766841149" } },
+        "r2": { "type": "review", "settings": { "name": "Carla Micaela", "date": "Jan 2026", "title": "O meu filho adora 😍",      "body": "Muito satisfeita 😍 O meu filho adora jogar com elas e sente-se mais confortável e protegido.", "verified": true, "photo_url": "https://cdn.shopify.com/s/files/1/0907/8472/7374/files/6_e66f88ce-3be9-49d4-841c-4da6f6b83db1.png?v=1766841024" } },
+        "r3": { "type": "review", "settings": { "name": "Afonso Moura",  "date": "Dez 2025", "title": "Parecem feitas à medida",   "body": "Adorei, parecem feitas à medida. Chegaram ao Porto em apenas 1 dia e nota-se logo a qualidade, até no packaging!", "verified": true, "photo_url": "https://cdn.shopify.com/s/files/1/0907/8472/7374/files/IMG_9946.jpg?v=1766789489" } },
+        "r4": { "type": "review", "settings": { "name": "Tiago Campas",  "date": "Nov 2025", "title": "Conforto e proteção total", "body": "Adorei! São super confortáveis e protegem mesmo. Já não me preocupo mais com as caneleiras durante o jogo.", "verified": true, "photo_url": "https://cdn.shopify.com/s/files/1/0907/8472/7374/files/10_3a7007b8-8f46-4a20-ae78-5988bfd06c64.png?v=1766841024" } },
+        "r5": { "type": "review", "settings": { "name": "Tiago Rosa",    "date": "Out 2025", "title": "Qualidade top!",            "body": "Qualidade top! O equipamento perfeito para quem quer proteção sem perder mobilidade.", "verified": true, "photo_url": "https://cdn.shopify.com/s/files/1/0907/8472/7374/files/9_3d69b63b-1ade-4bb2-95ab-972217327aa7.png?v=1766841024" } },
+        "r6": { "type": "review", "settings": { "name": "Rui Lebre",     "date": "Set 2025", "title": "Já é o meu segundo par 😄", "body": "Já é o meu segundo par e estou a adorar. Sinto-me livre e seguro, já não consigo jogar com as caneleiras antigas. 😄", "verified": true, "photo_url": "https://cdn.shopify.com/s/files/1/0907/8472/7374/files/8_28135218-8a7d-4954-8a1f-94d1dca07d93.png?v=1766841024" } }
+      },
+      "block_order": ["r1", "r2", "r3", "r4", "r5", "r6"],
       "settings": {}
     },
     "carrossel_ctt": {
@@ -209,6 +160,7 @@
   "order": [
     "promotion_bar",
     "main",
+    "trust_pills_1of1",
     "main_product_details",
     "manual_related_products",
     "1of1_sleeve_highlight",
@@ -217,7 +169,7 @@
     "flag-carousel",
     "1of1_sleeve_comparison",
     "collapsible_content_MpnV9r",
-    "reviews_1of1_box",
+    "reviews_trv",
     "carrossel_ctt",
     "scrolling_columns",
     "custom_newsletter",

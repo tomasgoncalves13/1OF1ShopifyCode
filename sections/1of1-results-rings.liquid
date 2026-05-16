@@ -1,0 +1,413 @@
+{%- liquid
+  assign uid = section.id | replace: '_', '-'
+-%}
+
+<div class="oneofone-rr oneofone-rr--{{ uid }}">
+  <div class="oneofone-rr__inner">
+
+    {%- if section.settings.heading_strong != blank or section.settings.heading_italic != blank -%}
+      <div class="oneofone-rr__header">
+        <div class="oneofone-rr__line"></div>
+        <div class="oneofone-rr__heading-wrap">
+          <h2 class="oneofone-rr__heading">
+            {{ section.settings.heading_strong }}{% if section.settings.heading_italic != blank %} <span class="oneofone-rr__heading-accent">{{ section.settings.heading_italic }}</span>{% endif %}
+          </h2>
+          {%- if section.settings.subtitle != blank -%}
+            <p class="oneofone-rr__source">{{ section.settings.subtitle }}</p>
+          {%- endif -%}
+        </div>
+        <div class="oneofone-rr__line"></div>
+      </div>
+    {%- endif -%}
+
+    <div class="oneofone-rr__cards">
+      {%- for block in section.blocks -%}
+        {%- assign pct = block.settings.percent | default: 0 -%}
+        {%- assign circumference = 201.0619 -%}
+        {%- assign offset_calc = 100.0 | minus: pct | times: circumference | divided_by: 100.0 -%}
+        <div class="oneofone-rr__card" data-oneofone-rr-target="{{ pct }}" {{ block.shopify_attributes }}>
+          <div class="oneofone-rr__ring">
+            <svg viewBox="0 0 80 80" class="oneofone-rr__ring-svg" aria-hidden="true">
+              <defs>
+                <linearGradient id="oneofone-rr-grad-{{ uid }}-{{ forloop.index0 }}" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="{{ section.settings.ring_color_start }}"></stop>
+                  <stop offset="100%" stop-color="{{ section.settings.ring_color_end }}"></stop>
+                </linearGradient>
+              </defs>
+              <circle class="oneofone-rr__ring-bg" cx="40" cy="40" r="32"></circle>
+              <circle class="oneofone-rr__ring-fill" cx="40" cy="40" r="32"
+                      stroke="url(#oneofone-rr-grad-{{ uid }}-{{ forloop.index0 }})"
+                      style="stroke-dashoffset: {{ offset_calc }};"
+                      data-oneofone-rr-circle></circle>
+            </svg>
+            <div class="oneofone-rr__number">
+              <span class="oneofone-rr__value" data-oneofone-rr-value>{{ pct }}</span><span class="oneofone-rr__pct">%</span>
+            </div>
+          </div>
+          {%- if block.settings.title != blank -%}
+            <span class="oneofone-rr__title">{{ block.settings.title }}</span>
+          {%- endif -%}
+        </div>
+      {%- endfor -%}
+    </div>
+
+  </div>
+</div>
+
+<style>
+  @font-face { font-family: 'PoppinsExtraBold'; src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/poppins.extrabold.ttf?v=1747688794') format('truetype'); }
+  @font-face { font-family: 'PoppinsBold';      src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/poppins.bold.ttf?v=1747688795') format('truetype'); }
+  @font-face { font-family: 'PoppinsSemiBold';  src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/poppins.semibold.ttf?v=1747688794') format('truetype'); }
+  @font-face { font-family: 'PoppinsMedium';    src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/poppins.medium.ttf?v=1747688794') format('truetype'); }
+  @font-face { font-family: 'PoppinsLight';     src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/poppins.light.ttf?v=1748130416') format('truetype'); }
+  @font-face { font-family: 'MontserratExtraBold'; src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Montserrat-ExtraBold.ttf?v=1775402219') format('truetype'); font-display: swap; }
+  @font-face { font-family: 'MontserratBold';      src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Montserrat-Bold.ttf?v=1775402219') format('truetype'); font-display: swap; }
+  @font-face { font-family: 'MontserratSemiBold';  src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Montserrat-SemiBold.ttf?v=1775402091') format('truetype'); font-display: swap; }
+  @font-face { font-family: 'MontserratMedium';    src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Montserrat-Medium.ttf?v=1775402219') format('truetype'); font-display: swap; }
+  @font-face { font-family: 'Montserratregular';   src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Montserrat-Regular.ttf?v=1775402219') format('truetype'); font-display: swap; }
+
+  .oneofone-rr--{{ uid }} {
+    background: {{ section.settings.bg_color }};
+    padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px;
+    font-family: 'PoppinsSemiBold', 'PoppinsMedium', sans-serif;
+    color: #111;
+  }
+  .oneofone-rr--{{ uid }} .oneofone-rr__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  .oneofone-rr--{{ uid }} .oneofone-rr__header {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 44px;
+  }
+  .oneofone-rr--{{ uid }} .oneofone-rr__line {
+    height: 1px;
+    background: #e5e5e5;
+    width: 100%;
+  }
+  .oneofone-rr--{{ uid }} .oneofone-rr__heading-wrap {
+    text-align: center;
+  }
+  .oneofone-rr--{{ uid }} .oneofone-rr__heading {
+    margin: 0;
+    font-family: 'PoppinsBold', sans-serif !important;
+    font-size: clamp(24px, 3vw, 38px);
+    letter-spacing: 0;
+    text-transform: uppercase;
+    line-height: 1.1;
+    color: #000;
+    white-space: nowrap;
+  }
+  .oneofone-rr--{{ uid }} .oneofone-rr__heading-accent {
+    font-family: 'MontserratSemiBold', sans-serif !important;
+    color: {{ section.settings.accent_color }};
+    text-transform: none;
+    font-style: italic;
+    font-weight: 500;
+    letter-spacing: 0;
+    margin-left: 6px;
+  }
+  .oneofone-rr--{{ uid }} .oneofone-rr__source {
+    margin: 10px 0 0;
+    font-family: 'PoppinsMedium', sans-serif;
+    font-size: 12px;
+    color: #555;
+    letter-spacing: 0.02em;
+  }
+  .oneofone-rr--{{ uid }} .oneofone-rr__source strong {
+    color: #111;
+    font-family: 'PoppinsBold', sans-serif;
+  }
+
+  .oneofone-rr--{{ uid }} .oneofone-rr__cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .oneofone-rr--{{ uid }} .oneofone-rr__card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background: #ffffff;
+    border: 1px solid #efefef;
+    border-radius: 16px;
+    padding: 28px 18px 24px;
+    transition: box-shadow .25s ease, transform .25s ease, border-color .25s ease;
+  }
+  .oneofone-rr--{{ uid }} .oneofone-rr__card:hover {
+    box-shadow: 0 10px 28px rgba(255, 213, 0, 0.18);
+    border-color: #f3e9b1;
+    transform: translateY(-2px);
+  }
+  .oneofone-rr--{{ uid }} .oneofone-rr__ring {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin-bottom: 18px;
+  }
+  .oneofone-rr--{{ uid }} .oneofone-rr__ring-svg {
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+  }
+  .oneofone-rr--{{ uid }} .oneofone-rr__ring-bg {
+    fill: none;
+    stroke: #f0f0f0;
+    stroke-width: 5;
+  }
+  .oneofone-rr--{{ uid }} .oneofone-rr__ring-fill {
+    fill: none;
+    stroke-width: 5;
+    stroke-linecap: round;
+    stroke-dasharray: 201.0619;
+    transition: stroke-dashoffset 1.6s cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
+  .oneofone-rr--{{ uid }} .oneofone-rr__number {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #111;
+  }
+  .oneofone-rr--{{ uid }} .oneofone-rr__value {
+    font-family: 'MontserratExtraBold', sans-serif;
+    font-size: 40px;
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+  .oneofone-rr--{{ uid }} .oneofone-rr__pct {
+    font-family: 'MontserratExtraBold', sans-serif;
+    font-size: 20px;
+    margin-left: 2px;
+    color: #111;
+  }
+  .oneofone-rr--{{ uid }} .oneofone-rr__title {
+    font-family: 'PoppinsSemiBold', sans-serif;
+    font-size: 10.5px;
+    font-weight: 600;
+    color: #444;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    text-align: center;
+    line-height: 1.5;
+  }
+
+  @media (max-width: 880px) {
+    .oneofone-rr--{{ uid }} .oneofone-rr__cards { grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    .oneofone-rr--{{ uid }} .oneofone-rr__card { padding: 16px 8px 14px; border-radius: 12px; }
+    .oneofone-rr--{{ uid }} .oneofone-rr__header { grid-template-columns: 1fr; gap: 12px; margin-bottom: 28px; }
+    .oneofone-rr--{{ uid }} .oneofone-rr__line { display: none; }
+    .oneofone-rr--{{ uid }} .oneofone-rr__ring { width: 96px; height: 96px; margin-bottom: 12px; }
+    .oneofone-rr--{{ uid }} .oneofone-rr__value { font-size: 24px; }
+    .oneofone-rr--{{ uid }} .oneofone-rr__pct { font-size: 13px; }
+    .oneofone-rr--{{ uid }} .oneofone-rr__title { font-size: 10px; letter-spacing: 0.04em; line-height: 1.3; }
+  }
+</style>
+
+<script>
+  (function () {
+    var root = document.querySelector('.oneofone-rr--{{ uid }}');
+    if (!root || root.dataset.oneofoneRrReady === '1') return;
+    root.dataset.oneofoneRrReady = '1';
+
+    var cards = Array.from(root.querySelectorAll('.oneofone-rr__card'));
+    if (!cards.length) return;
+
+    var circumference = 201.0619;
+    var FILL_MS  = 1000;
+    var PAUSE_MS = 3000;
+
+    function reset() {
+      cards.forEach(function (card) {
+        var circle = card.querySelector('[data-oneofone-rr-circle]');
+        var value  = card.querySelector('[data-oneofone-rr-value]');
+        if (circle) {
+          circle.style.transition = 'none';
+          circle.style.strokeDashoffset = circumference;
+        }
+        if (value) value.textContent = '0';
+      });
+      // force reflow so the next transition kicks in
+      void root.offsetWidth;
+    }
+
+    function animateOne(card) {
+      return new Promise(function (resolve) {
+        var target = parseInt(card.getAttribute('data-oneofone-rr-target'), 10) || 0;
+        var circle = card.querySelector('[data-oneofone-rr-circle]');
+        var value  = card.querySelector('[data-oneofone-rr-value]');
+
+        if (circle) {
+          circle.style.transition = 'stroke-dashoffset ' + FILL_MS + 'ms cubic-bezier(0.22, 0.61, 0.36, 1)';
+          requestAnimationFrame(function () {
+            circle.style.strokeDashoffset = circumference - (circumference * target / 100);
+          });
+        }
+
+        if (value) {
+          var start = null;
+          function step(ts) {
+            if (start === null) start = ts;
+            var t = Math.min((ts - start) / FILL_MS, 1);
+            var eased = 1 - Math.pow(1 - t, 3);
+            value.textContent = Math.round(eased * target);
+            if (t < 1) requestAnimationFrame(step);
+          }
+          requestAnimationFrame(step);
+        }
+
+        setTimeout(resolve, FILL_MS);
+      });
+    }
+
+    function runCycle() {
+      reset();
+      var p = Promise.resolve();
+      cards.forEach(function (card) {
+        p = p.then(function () { return animateOne(card); });
+      });
+      p.then(function () {
+        setTimeout(runCycle, PAUSE_MS);
+      });
+    }
+
+    var started = false;
+    function start() {
+      if (started) return;
+      started = true;
+      runCycle();
+    }
+
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { start(); io.disconnect(); }
+        });
+      }, { threshold: 0.35 });
+      io.observe(root);
+    } else {
+      start();
+    }
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "1of1 Results Rings",
+  "tag": "section",
+  "class": "section-1of1-results-rings",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading_strong",
+      "label": "Título (parte forte)",
+      "default": "RESULTADOS"
+    },
+    {
+      "type": "text",
+      "id": "heading_italic",
+      "label": "Título (parte itálica/destaque)",
+      "default": "Comprovados"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtítulo",
+      "default": "Baseado em questionário pós-compra a +<strong>2.500</strong> jogadores"
+    },
+    {
+      "type": "header",
+      "content": "Cores"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Fundo",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Destaque (amarelo)",
+      "default": "#FFD500"
+    },
+    {
+      "type": "color",
+      "id": "ring_color_start",
+      "label": "Gradiente do anel — início",
+      "default": "#FFD500"
+    },
+    {
+      "type": "color",
+      "id": "ring_color_end",
+      "label": "Gradiente do anel — fim",
+      "default": "#FFB800"
+    },
+    {
+      "type": "header",
+      "content": "Espaçamento"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding topo",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 15
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding fundo",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 45
+    }
+  ],
+  "blocks": [
+    {
+      "type": "stat",
+      "name": "Resultado",
+      "limit": 6,
+      "settings": [
+        {
+          "type": "range",
+          "id": "percent",
+          "label": "Percentagem",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "default": 95
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Título",
+          "default": "Conforto de Outro Nível"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "1of1 Results Rings",
+      "blocks": [
+        { "type": "stat", "settings": { "percent": 96, "title": "Conforto de Outro Nível" } },
+        { "type": "stat", "settings": { "percent": 95, "title": "Mais Frescos, Por Mais Tempo" } },
+        { "type": "stat", "settings": { "percent": 92, "title": "Mais Rápido em Campo" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

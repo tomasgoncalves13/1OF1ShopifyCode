@@ -620,6 +620,7 @@ document.getElementById('section-tracking-date3').textContent = formatSectionTra
 
 <!-- End Tracking Section -->
 
+{% comment %}
 <div class="new_section_container">
   <div class="new_section_shipping">
 
@@ -653,6 +654,7 @@ document.getElementById('section-tracking-date3').textContent = formatSectionTra
 
   </div>
 </div>
+{% endcomment %}
 
 
 
@@ -766,8 +768,6 @@ document.getElementById('section-tracking-date3').textContent = formatSectionTra
     justify-content: center;
     gap: 0px;
     flex-wrap: wrap;
-    margin-top: 0px !important;
-    margin-bottom: 5px !important;
   }
 
   .payment-icons img {
@@ -950,12 +950,14 @@ document.getElementById('section-tracking-date3').textContent = formatSectionTra
 
 /* Customização do título */
 .custom-title {
-  font-family: 'Anton', sans-serif !important; /* Força a aplicação da fonte Anton */
-  font-size: 20px !important; /* Tamanho da fonte */
-  margin-bottom: 14px !important; /* Margem inferior ajustada para aproximar as linhas */
-  text-align: left; /* Alinhamento à esquerda */
-  color: #000000 !important; /* Cor preta */
-   line-height: 1.3 !important; /* Diminui o espaço entre as linhas */
+  font-family: 'PoppinsExtraBold', sans-serif !important;
+  font-size: 20px !important;
+  margin-bottom: 14px !important;
+  text-align: left;
+  color: #000000 !important;
+  line-height: 1.3 !important;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
 }
 
 .negrito {
@@ -966,18 +968,21 @@ font-family: 'PoppinsBold', sans-serif;
 .tab-button {
   padding: 14px 16px;
   background: #fff;
+  border: 1px solid #edeae5;
   cursor: pointer;
   font-size: 12px;
-  border-radius: 6px;
+  border-radius: 14px;
   white-space: nowrap;
-  transition: background 0.3s, color 0.3s, border-color 0.3s;
+  transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
   font-family: 'PoppinsSemiBold', sans-serif;
   text-align: center;
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: none;
+  color: #555;
+  letter-spacing: 0.06rem;
 }
 
 .tab-button.active {
@@ -993,17 +998,18 @@ font-family: 'PoppinsBold', sans-serif;
   display: none;
   padding: 18px;
   background: #fff;
-  border-radius: 8px;
+  border: 1px solid #edeae5;
+  border-radius: 14px;
   margin-top: 10px;
   font-family: 'PoppinsRegular', sans-serif;
   font-size: 12px;
   color: #333;
-  width: 100%; /* Usar toda a largura disponível */
-  max-width: 100%; /* Garantir que não ultrapasse o limite da tela */
-  margin: 0 auto; /* Centraliza o conteúdo */
+  width: 100%;
+  max-width: 100%;
+  margin: 10px auto 0;
   box-sizing: border-box;
-  text-align: left; /* Alinha o texto à esquerda */
-      box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  box-shadow: none;
 }
 
 .tab-content.active {
