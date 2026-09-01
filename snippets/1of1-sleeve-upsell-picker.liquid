@@ -1,0 +1,351 @@
+{% comment %}
+  Upsell quantity picker for the shin-pad-sleeve alternate landing page.
+  1 unit at regular price vs. 2 units bundle price + free grip socks + free shipping messaging.
+  Usage: {% render '1of1-sleeve-upsell-picker' %}
+{% endcomment %}
+{%- liquid
+  assign shin = product
+  assign grip = all_products['grip-socks']
+  assign bundle_price_cents = 5000
+  assign bundle_compare_cents = shin.price | times: 2
+-%}
+<div class="oneofone-sup" id="oneofone-sup">
+
+  <div class="oneofone-sup-opt" data-qty="1">
+    <div class="oneofone-sup-opt__top">
+      <span class="oneofone-sup-opt__bullet"></span>
+      <span class="oneofone-sup-opt__name">Shin Pad Sleeve</span>
+      <span class="oneofone-sup-opt__price">{{ shin.price | money }}</span>
+    </div>
+  </div>
+
+  <div class="oneofone-sup-opt oneofone-sup-opt--strong" data-qty="2">
+    <div class="oneofone-sup-opt__badge">Melhor Oferta</div>
+    <div class="oneofone-sup-opt__top">
+      <span class="oneofone-sup-opt__bullet"></span>
+      <span class="oneofone-sup-opt__name">x2 Shin Pad Sleeves</span>
+      <span class="oneofone-sup-opt__prices">
+        <s class="oneofone-sup-opt__compare">{{ bundle_compare_cents | money }}</s>
+        <span class="oneofone-sup-opt__price">{{ bundle_price_cents | money }}</span>
+      </span>
+    </div>
+
+    <div class="oneofone-sup-slots"></div>
+
+    <div class="oneofone-sup-perks">
+      <div class="oneofone-sup-perk">
+        {{- 'icon-discount.svg' | inline_asset_content -}}
+        <span>+ Meia Grip Grátis</span>
+      </div>
+      <div class="oneofone-sup-perk">
+        {{- 'icon-discount.svg' | inline_asset_content -}}
+        <span>+ Envio Grátis</span>
+      </div>
+    </div>
+  </div>
+
+  <button class="oneofone-sup-btn" id="oneofone-sup-btn" type="button">
+    ADICIONAR AO CARRINHO +
+  </button>
+</div>
+
+<style>
+  @font-face { font-family: 'PoppinsExtraBold'; src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/poppins.extrabold.ttf?v=1747688794') format('truetype'); }
+  @font-face { font-family: 'PoppinsBold';      src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/poppins.bold.ttf?v=1747688795') format('truetype'); }
+  @font-face { font-family: 'PoppinsSemiBold';  src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/poppins.semibold.ttf?v=1747688794') format('truetype'); }
+  @font-face { font-family: 'PoppinsMedium';    src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/poppins.medium.ttf?v=1747688794') format('truetype'); }
+  @font-face { font-family: 'PoppinsLight';     src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/poppins.light.ttf?v=1748130416') format('truetype'); }
+
+  #oneofone-sup {
+    margin: 16px 0;
+    font-family: 'PoppinsMedium', sans-serif;
+  }
+
+  #oneofone-sup .oneofone-sup-opt {
+    position: relative;
+    border: 1.5px solid #e5e5e5;
+    border-radius: 12px;
+    padding: 14px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    background: #fff;
+    overflow: hidden;
+    transition: border-color .18s;
+  }
+  #oneofone-sup .oneofone-sup-opt--active {
+    border-color: #111;
+  }
+
+  #oneofone-sup .oneofone-sup-opt__badge {
+    background: linear-gradient(90deg, #fff304, #ffd000);
+    color: #111;
+    font-family: 'PoppinsSemiBold', sans-serif !important;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 5px 14px;
+    margin: -14px -14px 12px -14px;
+    display: block;
+  }
+
+  #oneofone-sup .oneofone-sup-opt__top {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  #oneofone-sup .oneofone-sup-opt__bullet {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+    flex-shrink: 0;
+    transition: background .18s, border-color .18s, box-shadow .18s;
+  }
+  #oneofone-sup .oneofone-sup-opt--active .oneofone-sup-opt__bullet {
+    background: #111;
+    border: 2px solid #fff;
+    box-shadow: 0 0 0 1px #111;
+  }
+
+  #oneofone-sup .oneofone-sup-opt__name {
+    flex: 1;
+    font-family: 'PoppinsBold', sans-serif !important;
+    font-size: 14px;
+    color: #111;
+  }
+
+  #oneofone-sup .oneofone-sup-opt__price {
+    font-family: 'MontserratSemiBold', sans-serif !important;
+    font-size: 15px;
+    color: #111;
+  }
+
+  #oneofone-sup .oneofone-sup-opt__prices {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  #oneofone-sup .oneofone-sup-opt__compare {
+    font-size: 12px;
+    color: #aaa;
+  }
+
+  #oneofone-sup .oneofone-sup-slots {
+    display: none;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 14px;
+  }
+  #oneofone-sup .oneofone-sup-opt--active .oneofone-sup-slots {
+    display: flex;
+  }
+
+  #oneofone-sup .oneofone-sup-slot {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  #oneofone-sup .oneofone-sup-slot__num {
+    font-family: 'PoppinsSemiBold', sans-serif !important;
+    font-size: 12px;
+    color: #888;
+    width: 14px;
+    text-align: center;
+    flex-shrink: 0;
+  }
+
+  #oneofone-sup .oneofone-sup-slot__select {
+    flex: 1;
+    padding: 9px 30px 9px 10px;
+    border-radius: 8px;
+    border: 1.5px solid #ddd;
+    background: #f7f7f7;
+    color: #111;
+    font-family: 'PoppinsMedium', sans-serif;
+    font-size: 12px;
+    appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+    outline: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath fill='%23111111' d='M0 0l5 6 5-6z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+  }
+
+  #oneofone-sup .oneofone-sup-perks {
+    margin: 14px -14px -14px -14px;
+  }
+
+  #oneofone-sup .oneofone-sup-perk {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    background: #f0f0f0;
+    color: #999;
+    font-family: 'PoppinsSemiBold', sans-serif !important;
+    font-size: 13px;
+    transition: background .18s, color .18s;
+  }
+  #oneofone-sup .oneofone-sup-perk svg {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+    color: inherit;
+  }
+  #oneofone-sup .oneofone-sup-opt--active .oneofone-sup-perk {
+    background: #111;
+    color: #fff;
+  }
+  #oneofone-sup .oneofone-sup-perks .oneofone-sup-perk:last-child {
+    border-radius: 0 0 10px 10px;
+  }
+
+  #oneofone-sup .oneofone-sup-btn {
+    width: 100%;
+    margin-top: 4px;
+    background: #111;
+    color: #fff;
+    border: none;
+    border-radius: 999px;
+    padding: 15px 30px;
+    font-family: 'PoppinsBold', sans-serif;
+    font-size: 14px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: opacity .2s ease;
+  }
+  #oneofone-sup .oneofone-sup-btn:disabled {
+    opacity: .5;
+    cursor: not-allowed;
+  }
+</style>
+
+<script>
+(function () {
+  var wrap = document.getElementById('oneofone-sup');
+  if (!wrap || wrap.dataset.supReady === '1') return;
+  wrap.dataset.supReady = '1';
+
+  var VARIANTS = {{ shin.variants | json }};
+  var GRIP_VARIANT_ID = {{ grip.first_available_variant.id | default: 'null' }};
+  var btn = document.getElementById('oneofone-sup-btn');
+  var opts = Array.from(wrap.querySelectorAll('.oneofone-sup-opt'));
+  var active = null;
+
+  function buildSlots(opt, qty) {
+    var slots = opt.querySelector('.oneofone-sup-slots');
+    if (!slots) return;
+    slots.innerHTML = '';
+    for (var i = 1; i <= qty; i++) {
+      var row = document.createElement('div');
+      row.className = 'oneofone-sup-slot';
+
+      var num = document.createElement('span');
+      num.className = 'oneofone-sup-slot__num';
+      num.textContent = i;
+
+      var sel = document.createElement('select');
+      sel.className = 'oneofone-sup-slot__select';
+      VARIANTS.forEach(function (v) {
+        var o = document.createElement('option');
+        o.value = v.id;
+        o.textContent = v.title + (v.available ? '' : ' — Esgotado');
+        sel.appendChild(o);
+      });
+
+      row.appendChild(num);
+      row.appendChild(sel);
+      slots.appendChild(row);
+    }
+  }
+
+  opts.forEach(function (opt) {
+    opt.addEventListener('click', function () {
+      if (active === opt) return;
+      opts.forEach(function (o) { o.classList.remove('oneofone-sup-opt--active'); });
+      active = opt;
+      opt.classList.add('oneofone-sup-opt--active');
+      var qty = parseInt(opt.dataset.qty);
+      if (qty > 1) buildSlots(opt, qty);
+    });
+  });
+
+  if (opts[0]) opts[0].click();
+
+  async function openCartDrawer() {
+    try {
+      var response = await fetch('/?sections=cart-drawer,cart-icon-bubble');
+      var sections = await response.json();
+      var parser = new DOMParser();
+
+      if (sections['cart-icon-bubble']) {
+        var el = parser.parseFromString(sections['cart-icon-bubble'], 'text/html').querySelector('#cart-icon-bubble');
+        var cur = document.querySelector('#cart-icon-bubble');
+        if (el && cur) cur.innerHTML = el.innerHTML;
+      }
+
+      if (sections['cart-drawer']) {
+        var el2 = parser.parseFromString(sections['cart-drawer'], 'text/html').querySelector('#CartDrawer');
+        var cur2 = document.querySelector('#CartDrawer');
+        if (el2 && cur2) cur2.innerHTML = el2.innerHTML;
+      }
+
+      var drawer = document.querySelector('cart-drawer');
+      if (drawer && typeof drawer.open === 'function') {
+        drawer.open();
+      } else {
+        window.location.href = '/cart';
+      }
+    } catch (e) {
+      window.location.href = '/cart';
+    }
+  }
+
+  btn.addEventListener('click', async function () {
+    if (!active) return;
+    var qty = parseInt(active.dataset.qty);
+    var items = [];
+
+    if (qty === 1) {
+      items.push({ id: VARIANTS[0].id, quantity: 1 });
+    } else {
+      var selects = active.querySelectorAll('.oneofone-sup-slot__select');
+      selects.forEach(function (s) {
+        items.push({ id: parseInt(s.value), quantity: 1 });
+      });
+      if (GRIP_VARIANT_ID) {
+        items.push({ id: GRIP_VARIANT_ID, quantity: 1 });
+      }
+    }
+
+    btn.disabled = true;
+    btn.textContent = 'A ADICIONAR...';
+
+    try {
+      var res = await fetch('/cart/add.js', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ items: items })
+      });
+
+      if (res.ok) {
+        await openCartDrawer();
+        btn.disabled = false;
+        btn.textContent = 'ADICIONAR AO CARRINHO +';
+      } else {
+        var err = await res.json();
+        btn.disabled = false;
+        btn.textContent = err.description || 'ERRO — TENTA NOVAMENTE';
+      }
+    } catch (e) {
+      btn.disabled = false;
+      btn.textContent = 'ERRO — TENTA NOVAMENTE';
+    }
+  });
+})();
+</script>
