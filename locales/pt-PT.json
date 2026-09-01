@@ -621,20 +621,20 @@
     "professional_quality_label": "Qualidade profissional:",
     "professional_quality_desc": "Confiada por jogadores de todos os níveis, do amador ao elite.",
     "shipping": "Envio:",
-    "free_shipping_over": "Envio Grátis CTT 2-4 Dias Úteis",
+    "free_shipping_over": "Envio Grátis acima de 40€ · CTT 2-4 Dias Úteis",
     "standard_delivery": "Entrega padrão: 1–2 dias úteis (Portugal), 2–3 (Espanha), 4–6 (UE), 7–10 (Internacional).",
     "returns": "Devoluções:",
     "return_policy": "Temos política de devolução de 30 dias",
     "return_conditions": "Os artigos devem ser devolvidos no estado original, com etiquetas e embalagem intacta, para reembolso total ou troca",
     "return_instructions": "Para devolver um produto, contacta a nossa equipa de apoio com os dados da encomenda para iniciar o processo",
     "shipping_portugal": "Portugal:",
-    "shipping_portugal_desc": "Envio Grátis CTT 2-4 Dias Úteis",
+    "shipping_portugal_desc": "Envio Grátis acima de 40€ · CTT 2-4 Dias Úteis",
     "shipping_spain": "Espanha:",
-    "shipping_spain_desc": "Envio Grátis CTT 3-5 Dias Úteis",
+    "shipping_spain_desc": "Envio Grátis acima de 40€ · CTT 3-5 Dias Úteis",
     "shipping_europe": "Resto da Europa:",
-    "shipping_europe_desc": "Envio Grátis CTT 4-7 Dias Úteis",
+    "shipping_europe_desc": "Envio Grátis acima de 40€ · CTT 4-7 Dias Úteis",
     "shipping_world": "Resto do Mundo:",
-    "shipping_world_desc": "Envio Grátis CTT 5-10 Dias Úteis",
+    "shipping_world_desc": "Envio Grátis acima de 40€ · CTT 5-10 Dias Úteis",
     "more_details": "Para mais detalhes, visita a nossa Política de Envio e Política de Devoluções.",
     "worldwide_shipping": "Oferecemos envio para todo o mundo",
     "money_back": "Testa 30 Dias Sem Risco",
@@ -775,8 +775,8 @@
     "icon2_text": "Testa 30 Dias Sem Risco",
     "icon3_alt": "Confiado por Profissionais",
     "icon3_text": "Confiado por Profissionais",
-    "icon4_alt": "Envio Gratuito",
-    "icon4_text": "Envio Gratuito"
+    "icon4_alt": "Envio CTT",
+    "icon4_text": "Envio CTT"
   },
   "footer": {
     "logo_alt": "Logótipo 1OF1 Fútbol",
@@ -826,8 +826,8 @@
     "guarantee_alt": "Ícone de Garantia de 30 Dias",
     "trusted": "Aprovado por Profissionais",
     "trusted_alt": "Ícone de Aprovado por Profissionais",
-    "free_shipping": "Envio Grátis CTT 2-4 Dias Úteis",
-    "free_shipping_alt": "Ícone de Envio Grátis"
+    "free_shipping": "Envio CTT 2-4 Dias Úteis",
+    "free_shipping_alt": "Ícone de Envio"
   },
   "favourites": {
     "rating_badge": "Avaliado como Excelente | 4.8 / 5.0",
@@ -878,8 +878,8 @@
     "pro_grip_socks": "MEIAS PRO GRIP",
     "free_price": "GRÁTIS",
     "grip_socks_alt": "Meias Grip",
-    "free_shipping_alt": "Envio Grátis",
-    "free_shipping": "Envio grátis CTT",
+    "free_shipping_alt": "Envio CTT",
+    "free_shipping": "Envio CTT",
     "on_orders": "2-4 Dias Úteis",
     "over_amount": "",
     "money_back_alt": "Garantia de Reembolso",
@@ -1062,7 +1062,7 @@
     "title": "Envio",
     "intro_1": "Na 1OF1 Fútbol, comprometemo-nos a entregar a sua encomenda de forma rápida e sem complicações.",
     "intro_2": "Cada encomenda é cuidadosamente embalada pela nossa equipa para garantir que chega em perfeitas condições.",
-    "free_shipping": "Envio Grátis CTT 2-4 Dias Úteis",
+    "free_shipping": "Envio Grátis acima de 40€ · CTT 2-4 Dias Úteis",
     "tracking_info": "Um código de rastreamento será enviado ao cliente no prazo de 24 horas após o processamento da encomenda. Todas as encomendas serão enviadas do nosso armazém em 1–2 dias úteis. Todos os prazos de envio são calculados a partir da data de expedição.",
     "portugal_title": "PORTUGAL 🇵🇹",
     "portugal_text": "Envio Padrão Rastreado (1–2 dias úteis)",
@@ -1183,8 +1183,8 @@
     "logo_alt": "CTT Logo",
     "prev_alt": "Seta Esquerda",
     "next_alt": "Seta Direita",
-    "slide_1_title": "Envio Rápido e Grátis",
-    "slide_1_text": "Recebe a tua encomenda em 2-4 dias via CTT Expresso. Envio grátis para todo o país com rastreio disponível.",
+    "slide_1_title": "Envio Rápido CTT",
+    "slide_1_text": "Recebe a tua encomenda em 2-4 dias via CTT Expresso, com rastreio disponível.",
     "slide_2_title": "Testa 30 Dias Sem Risco",
     "slide_2_text": "Mudaste de ideias? Não te preocupes, podes devolver ou trocar facilmente no período de 30 dias, sem risco.",
     "slide_3_title": "Qualidade Premium",
@@ -1199,7 +1199,11 @@
     "extra_15_1": "15%",
     "extra_15_2": "EXTRA",
     "extra_25_1": "25%",
-    "extra_25_2": "EXTRA"
+    "extra_25_2": "EXTRA",
+    "gift_1": "MEIA",
+    "gift_2": "GRÁTIS",
+    "free_shipping_unlocked": "DESBLOQUEASTE ENVIO GRÁTIS!",
+    "add_amount_free_shipping": "Faltam {{ amount }} para Envio Grátis"
   },
   "reserve_timer": {
     "last_units": "Últimas unidades. Reservado por"
@@ -1209,7 +1213,7 @@
     "free": "Grátis"
   },
   "cart_upsell": {
-    "title": "Complete sua encomenda",
+    "title": "Completa a encomenda",
     "button": "Adicionar",
     "adding": "Adicionando...",
     "added": "Adicionado!",

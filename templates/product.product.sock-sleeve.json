@@ -17,7 +17,7 @@
       "type": "1of1-trust-pills",
       "blocks": {
         "pill_garantia": { "type": "pill", "settings": { "label": "Garantia 3 Anos",   "description": "Todos os produtos 1OF1 têm garantia de 3 anos contra defeitos de fabrico. Se algo não estiver bem, tratamos do assunto.", "icon_type": "shield" } },
-        "pill_envio":    { "type": "pill", "settings": { "label": "Envio Grátis CTT",  "description": "Enviamos por CTT Expresso. A encomenda sai no dia útil seguinte e chega entre 3 a 5 dias. Recebes informações de rastreio por email.", "icon_type": "ctt" } },
+        "pill_envio":    { "type": "pill", "settings": { "label": "Envio CTT",  "description": "Enviamos por CTT Expresso. A encomenda sai no dia útil seguinte e chega entre 3 a 5 dias. Recebes informações de rastreio por email. Envio grátis a partir de 40 euros.", "icon_type": "ctt" } },
         "pill_testa":    { "type": "pill", "settings": { "label": "Testa 30 Dias",     "description": "Tens 30 dias para experimentar. Se não ficares satisfeito, devolves e reembolsamos o valor do produto. Sem complicações.", "icon_type": "pin" } }
       },
       "block_order": ["pill_garantia", "pill_envio", "pill_testa"],
@@ -84,10 +84,6 @@
         "padding_bottom": 16
       }
     },
-    "manual_related_products_sock_sleeve": {
-      "type": "manual-related-products-sock-sleeve",
-      "settings": {}
-    },
     "sleeve_reviews_carousel": {
       "type": "sleeve-reviews-carousel",
       "settings": {}
@@ -148,7 +144,6 @@
     "promotion_bar",
     "main",
     "trust_pills_1of1",
-    "manual_related_products_sock_sleeve",
     "sleeve_reviews_carousel",
     "video_unboxing_1of1",
     "flag-carousel",

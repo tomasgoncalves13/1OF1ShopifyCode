@@ -344,10 +344,6 @@
     {{ product.selected_or_first_available_variant.price | money }}
   </span>
 
-  <span class="oneofone-pb-delivery">
-    + ENVIO GRÁTIS
-  </span>
-
 </div>
 {% endunless %}
 
@@ -1214,6 +1210,8 @@
     <div class="payment-card"><img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/5_2e8d4079-0d01-4aaa-be14-2aa261edbacb.png?v=1765588534" alt="Visa" /></div>
     <div class="payment-card"><img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/6_db4a52b1-f5a7-4690-8cb0-eb65a9182127.png?v=1765588534" alt="Mastercard" /></div>
   </div>
+
+  {%- render '1of1-complete-the-set', section_id: section.id -%}
 
   {% endunless %}
               

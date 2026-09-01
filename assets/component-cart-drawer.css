@@ -411,7 +411,11 @@ cart-drawer-items::-webkit-scrollbar-track-piece {
     max-height: calc(100dvh - 100px) !important;
     overflow-y: auto !important;
   }
-  
+
+  cart-drawer-items.cart-drawer-items--no-delivery {
+    max-height: calc(100dvh - 145px) !important;
+  }
+
   .cart-drawer .cart-item__error {
     margin-left: 0;
   }
@@ -467,6 +471,10 @@ cart-drawer-items::-webkit-scrollbar-track-piece {
   cart-drawer-items {
     max-height: calc(100dvh - 170px) !important;
     overflow-y: auto !important;
+  }
+
+  cart-drawer-items.cart-drawer-items--no-delivery {
+    max-height: calc(100dvh - 145px) !important;
   }
 
   .drawer__inner {

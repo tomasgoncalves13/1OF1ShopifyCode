@@ -122,9 +122,7 @@ cart-drawer th {
 
 
       <cart-drawer-items
-        {% if cart == empty %}
-          class=" is-empty"
-        {% endif %}
+        class="{% if cart == empty %}is-empty {% endif %}{% if cart.total_price < 4000 %}cart-drawer-items--no-delivery{% endif %}"
       >
         <form
           action="{{ routes.cart_url }}"
@@ -155,56 +153,23 @@ cart-drawer th {
   </span>
 </div>
 
-{% assign excluded_handle = 'tape-desportivo-3-8-cm-x-10-metros' %}
-{% assign step = 0 %}
-
-{% for item in cart.items %}
-
-  {% assign is_valid = true %}
-
-  {%- comment -%} ❌ excluir tape {%- endcomment -%}
-  {% if item.product.handle == excluded_handle %}
-    {% assign is_valid = false %}
-  {% endif %}
-
-  {%- comment -%} ❌ excluir produtos grátis (REGRA PRINCIPAL) {%- endcomment -%}
-  {% if item.final_price == 0 %}
-    {% assign is_valid = false %}
-  {% endif %}
-
-  {%- comment -%} ❌ excluir por nome (backup) {%- endcomment -%}
-  {% if item.product.title contains 'Meias Grip' %}
-    {% assign is_valid = false %}
-  {% endif %}
-
-  {%- comment -%} ❌ excluir por tag (backup extra) {%- endcomment -%}
-  {% if item.product.tags contains 'free' or item.product.tags contains 'gift' %}
-    {% assign is_valid = false %}
-  {% endif %}
-
-  {%- comment -%} ✅ contar só válidos {%- endcomment -%}
-  {% if is_valid %}
-    {% assign step = step | plus: item.quantity %}
-  {% endif %}
-
-{% endfor %}
-
-{% assign progress = 0 %}
-{% if step == 1 %}
-  {% assign progress = 54.52727272727272 %}
-{% elsif step == 2 %}
-  {% assign progress = 92.72727272727272 %}
-{% elsif step >= 3 %}
+{% assign free_shipping_threshold_cents = 4000 %}
+{% assign cart_total_cents = cart.total_price %}
+{% assign progress = cart_total_cents | times: 100.0 | divided_by: free_shipping_threshold_cents %}
+{% if progress > 100 %}
   {% assign progress = 100 %}
 {% endif %}
+{% assign remaining_cents = free_shipping_threshold_cents | minus: cart_total_cents %}
+{% if remaining_cents < 0 %}
+  {% assign remaining_cents = 0 %}
+{% endif %}
+{% assign remaining_amount = remaining_cents | money %}
 
 <div class="cart-progress-texts">
-  {% if step == 1 %}
-    <p>{{ 'cart_progress.add_1_15' | t }}</p>
-  {% elsif step == 2 %}
-    <p>{{ 'cart_progress.add_1_25' | t }}</p>
-  {% elsif step >= 3 %}
-    <p>{{ 'cart_progress.best_price' | t }}</p>
+  {% if cart_total_cents >= free_shipping_threshold_cents %}
+    <p>{{ 'cart_progress.free_shipping_unlocked' | t }}</p>
+  {% else %}
+    <p>{{ 'cart_progress.add_amount_free_shipping' | t: amount: remaining_amount }}</p>
   {% endif %}
 </div>
 
@@ -221,25 +186,18 @@ cart-drawer th {
 
     <!-- ÍCONES -->
     <div class="cart-progress-bar__icon-wrapper">
-      <div class="cart-progress-bar__item" style="left:0%;">
-        <div class="cart-progress-bar__icon">
-          <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Design_sem_nom2e.png?v=1778291496">
-        </div>
-        <p>{{ 'cart_progress.free_shipping_1' | t }}<br>{{ 'cart_progress.free_shipping_2' | t }}</p>
-      </div>
-
-      <div class="cart-progress-bar__item" style="left:72%;">
+      <div class="cart-progress-bar__item" style="left:50%;">
         <div class="cart-progress-bar__icon">
           <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Design_sem_nome_00641e79-e1ef-41db-bcdb-002af8c84355.png?v=1778291497">
         </div>
-        <p>{{ 'cart_progress.extra_15_1' | t }}<br>{{ 'cart_progress.extra_15_2' | t }}</p>
+        <p>{{ 'cart_progress.gift_1' | t }}<br>{{ 'cart_progress.gift_2' | t }}</p>
       </div>
 
       <div class="cart-progress-bar__item" style="left:100%;">
         <div class="cart-progress-bar__icon">
-          <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Design_sem_nome_00641e79-e1ef-41db-bcdb-002af8c84355.png?v=1778291497">
+          <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Design_sem_nom2e.png?v=1778291496">
         </div>
-        <p>{{ 'cart_progress.extra_25_1' | t }}<br>{{ 'cart_progress.extra_25_2' | t }}</p>
+        <p>{{ 'cart_progress.free_shipping_1' | t }}<br>{{ 'cart_progress.free_shipping_2' | t }}</p>
       </div>
     </div>
 
@@ -676,23 +634,15 @@ cart-drawer .discounts__discount svg path {
                             <p class="product-option">{{ item.selling_plan_allocation.selling_plan.name }}</p>
                           {%- endif -%}
 
-                          <ul
-                            class="discounts list-unstyled"
-                            role="list"
-                            aria-label="{{ 'customer.order.discount' | t }}"
-                          >
-                            {%- for discount in item.line_level_discount_allocations -%}
-                              <li class="discounts__discount">
-                                {{- 'icon-discount.svg' | inline_asset_content -}}
-                                {{ discount.discount_application.title }}
-                              </li>
-                            {%- endfor -%}
-                          </ul>
-
 {% assign compare_price = item.variant.compare_at_price %}
 {% assign price = item.variant.price %}
+{% assign final_price = item.final_price %}
 
-{% if compare_price and compare_price > price %}
+{% if final_price == 0 or price == 0 or item.price == 0 %}
+  <div class="badge-carrinho badge-carrinho--gratis" style="{% if cart.item_count > 1 %}margin-top:6px !important;{% else %}margin-top:0 !important;{% endif %}">
+    <span class="badge-carrinho__shine" data-text="GRÁTIS">GRÁTIS</span>
+  </div>
+{% elsif compare_price and compare_price > price %}
   {% assign discount = compare_price | minus: price | times: 100 | divided_by: compare_price | round %}
   <div class="badge-carrinho" style="{% if cart.item_count > 1 %}margin-top:6px !important;{% else %}margin-top:0 !important;{% endif %}">
     50% DESCONTO
@@ -937,12 +887,6 @@ cart-drawer .discounts__discount svg path {
               {{ 'accessibility.loading' | t }}
             </p>
 
-{% if cart.items.size >= 1 %}
-  <div class="offer-box">
-    <p class="line">Compra 2 <span class="arrow">→</span> <span class="highlight">15% Extra</span></p>
-    <p class="line">Compra 3 <span class="arrow">→</span> <span class="highlight">25% Extra</span></p>
-  </div>
-{% endif %}
 
             
 {% if cart.items.size > 0 %}
@@ -1022,6 +966,7 @@ cart-drawer .discounts__discount svg path {
 {% if cart.items.size > 0 %}
 <div class="fixed-checkout-footer">
 
+{% if cart.total_price >= free_shipping_threshold_cents %}
 <div class="entrega-carrinho-footer">
   <div class="entrega-carrinho-footer__label">
     <span>{{ 'cart_delivery.label' | t }}</span>
@@ -1029,6 +974,7 @@ cart-drawer .discounts__discount svg path {
   </div>
   <div class="entrega-carrinho-footer__price">{{ 'cart_delivery.free' | t }}</div>
 </div>
+{% endif %}
 
 
 
@@ -1293,8 +1239,11 @@ document.addEventListener('click', async (e) => {
 }
 
 .cart-drawer .badge-carrinho {
-    background: linear-gradient(135deg, #ffe304, #fff304);
-    color: #000 !important;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #fb770f 0%, #ffba06 100%);
+    box-shadow: 0 3px 12px rgba(251, 119, 15, 0.32);
+    color: #fff !important;
     padding: 3px 8px !important;
     border-radius: 4px !important;
     font-family: 'MontserratSemiBold', sans-serif !important;
@@ -1309,15 +1258,87 @@ document.addEventListener('click', async (e) => {
     margin-top: 0 !important;
 }
 
+.cart-drawer .badge-carrinho::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -60%;
+    width: 40%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.45), transparent);
+    transform: skewX(-20deg);
+    animation: badge-carrinho-slide-shimmer 4.5s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 2;
+}
+
+@keyframes badge-carrinho-slide-shimmer {
+    0% { left: -60%; }
+    100% { left: 140%; }
+}
+
 /* 🔑 Esconde qualquer badge sem valor */
 .cart-drawer .badge-carrinho:empty {
     display: none !important;
+}
+
+/* Badge "GRÁTIS" — sem preenchimento, texto com brilho laranja a correr */
+.cart-drawer .badge-carrinho--gratis {
+    background: none !important;
+    box-shadow: none !important;
+    padding: 3px 2px !important;
+    position: relative;
+}
+
+.cart-drawer .badge-carrinho--gratis::before {
+    display: none !important;
+}
+
+.cart-drawer .badge-carrinho__shine {
+    position: relative;
+    display: inline-block;
+    font-family: 'MontserratSemiBold', sans-serif !important;
+    font-size: 11px !important;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    line-height: 1;
+    background: linear-gradient(90deg, #ff7a00 0%, #ff9d2f 50%, #ff7a00 100%);
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    text-shadow: 0 0 6px rgba(255, 157, 47, 0.28);
+}
+
+.cart-drawer .badge-carrinho__shine::after {
+    content: attr(data-text);
+    position: absolute;
+    inset: 0;
+    color: transparent;
+    background: linear-gradient(110deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.9) 42%, rgba(255,255,255,0) 58%);
+    background-size: 220% 100%;
+    background-repeat: no-repeat;
+    background-position: 220% 50%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: badge-gratis-sheen 5s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes badge-gratis-sheen {
+    0% { background-position: 220% 50%; }
+    60% { background-position: -220% 50%; }
+    100% { background-position: -220% 50%; }
 }
 
 
 
 /* 1️⃣ Esconde o preço normal quando NÃO há promoção */
 cart-drawer .cart-item__details > .product-option {
+  display: none;
+}
+
+/* Esconde o preço com desconto por baixo do nome do produto */
+cart-drawer .cart-item__details .cart-item__discounted-prices {
   display: none;
 }
 
@@ -1332,7 +1353,8 @@ cart-drawer .cart-item__discounted-prices .cart-item__final-price {
 cart-drawer .price,
 cart-drawer .price--end,
 cart-drawer s {
-  color: #606060 !important;
+  color: #111 !important;
+  font-size: 0.95em;
 }
 
 /* 🔴 PREÇO FINAL COM PROMOÇÃO (apenas dentro de discounted-prices) */

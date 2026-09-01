@@ -1,0 +1,275 @@
+{% comment %}
+  Renders "Most paired with these" complementary products list (image, title, price, quick Add+).
+  Usage: {% render '1of1-complete-the-set', section_id: section.id %}
+{% endcomment %}
+{%- liquid
+  assign cts_uid = section_id | default: 'default' | replace: '_', ''
+  assign cts_handles = 'grip-socks, sock-sleeve, mini-shin-pads' | split: ', '
+  assign cts_extra_handles = 'airflow, shin-pad-sleeve' | split: ', '
+-%}
+<div class="oneofone-cts--{{ cts_uid }}" id="oneofone-cts-{{ cts_uid }}">
+  <p class="oneofone-cts__title">Combina Perfeito com:</p>
+  <div class="oneofone-cts__list" data-cts-list>
+    {%- for handle in cts_handles -%}
+      {%- assign cts_product = all_products[handle] -%}
+      {%- if cts_product != blank -%}
+        {%- assign cts_variant = cts_product.selected_or_first_available_variant -%}
+        <div class="oneofone-cts__row">
+          <a href="{{ cts_product.url }}" class="oneofone-cts__media">
+            {%- if cts_product.featured_image -%}
+              <img
+                src="{{ cts_product.featured_image | image_url: width: 160 }}"
+                srcset="{{ cts_product.featured_image | image_url: width: 80 }} 80w, {{ cts_product.featured_image | image_url: width: 160 }} 160w"
+                alt="{{ cts_product.featured_image.alt | escape }}"
+                width="80"
+                height="100"
+                loading="lazy"
+              >
+            {%- endif -%}
+          </a>
+          <a href="{{ cts_product.url }}" class="oneofone-cts__info">
+            <p class="oneofone-cts__name">{{ cts_product.title }}</p>
+            <p class="oneofone-cts__price">
+              <span class="oneofone-cts__price-now">{{ cts_product.price | money }}</span>
+              {%- if cts_product.compare_at_price > cts_product.price -%}
+                <span class="oneofone-cts__price-was">{{ cts_product.compare_at_price | money }}</span>
+              {%- endif -%}
+            </p>
+          </a>
+          <product-form class="oneofone-cts__form">
+            {%- form 'product', cts_product, class: 'oneofone-cts__form-inner' -%}
+              <input type="hidden" name="id" value="{{ cts_variant.id }}">
+              <button
+                type="submit"
+                name="add"
+                class="oneofone-cts__add"
+                {% if cts_variant == null or cts_variant.available == false %}
+                  disabled
+                {% endif %}
+              >
+                <span>
+                  {%- if cts_variant == null or cts_variant.available == false -%}
+                    Esgotado
+                  {%- else -%}
+                    Adicionar +
+                  {%- endif -%}
+                </span>
+                {%- render 'loading-spinner' -%}
+              </button>
+            {%- endform -%}
+          </product-form>
+        </div>
+      {%- endif -%}
+    {%- endfor -%}
+    {%- for handle in cts_extra_handles -%}
+      {%- assign cts_product = all_products[handle] -%}
+      {%- if cts_product != blank -%}
+        {%- assign cts_variant = cts_product.selected_or_first_available_variant -%}
+        <div class="oneofone-cts__row oneofone-cts__row--extra" hidden>
+          <a href="{{ cts_product.url }}" class="oneofone-cts__media">
+            {%- if cts_product.featured_image -%}
+              <img
+                src="{{ cts_product.featured_image | image_url: width: 160 }}"
+                srcset="{{ cts_product.featured_image | image_url: width: 80 }} 80w, {{ cts_product.featured_image | image_url: width: 160 }} 160w"
+                alt="{{ cts_product.featured_image.alt | escape }}"
+                width="80"
+                height="100"
+                loading="lazy"
+              >
+            {%- endif -%}
+          </a>
+          <a href="{{ cts_product.url }}" class="oneofone-cts__info">
+            <p class="oneofone-cts__name">{{ cts_product.title }}</p>
+            <p class="oneofone-cts__price">
+              <span class="oneofone-cts__price-now">{{ cts_product.price | money }}</span>
+              {%- if cts_product.compare_at_price > cts_product.price -%}
+                <span class="oneofone-cts__price-was">{{ cts_product.compare_at_price | money }}</span>
+              {%- endif -%}
+            </p>
+          </a>
+          <product-form class="oneofone-cts__form">
+            {%- form 'product', cts_product, class: 'oneofone-cts__form-inner' -%}
+              <input type="hidden" name="id" value="{{ cts_variant.id }}">
+              <button
+                type="submit"
+                name="add"
+                class="oneofone-cts__add"
+                {% if cts_variant == null or cts_variant.available == false %}
+                  disabled
+                {% endif %}
+              >
+                <span>
+                  {%- if cts_variant == null or cts_variant.available == false -%}
+                    Esgotado
+                  {%- else -%}
+                    Adicionar +
+                  {%- endif -%}
+                </span>
+                {%- render 'loading-spinner' -%}
+              </button>
+            {%- endform -%}
+          </product-form>
+        </div>
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+  {%- if cts_extra_handles.size > 0 -%}
+    <button type="button" class="oneofone-cts__more" data-cts-more data-more-label="Ver mais" data-less-label="Ver menos" aria-expanded="false">Ver mais</button>
+  {%- endif -%}
+</div>
+
+<style>
+  @font-face { font-family: 'PoppinsExtraBold'; src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/poppins.extrabold.ttf?v=1747688794') format('truetype'); }
+  @font-face { font-family: 'PoppinsBold';      src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/poppins.bold.ttf?v=1747688795') format('truetype'); }
+  @font-face { font-family: 'PoppinsSemiBold';  src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/poppins.semibold.ttf?v=1747688794') format('truetype'); }
+  @font-face { font-family: 'PoppinsMedium';    src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/poppins.medium.ttf?v=1747688794') format('truetype'); }
+  @font-face { font-family: 'PoppinsLight';     src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/poppins.light.ttf?v=1748130416') format('truetype'); }
+  @font-face { font-family: 'MontserratExtraBold'; src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Montserrat-ExtraBold.ttf?v=1775402219') format('truetype'); font-display: swap; }
+  @font-face { font-family: 'MontserratBold';      src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Montserrat-Bold.ttf?v=1775402219') format('truetype'); font-display: swap; }
+  @font-face { font-family: 'MontserratSemiBold';  src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Montserrat-SemiBold.ttf?v=1775402091') format('truetype'); font-display: swap; }
+  @font-face { font-family: 'MontserratMedium';    src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Montserrat-Medium.ttf?v=1775402219') format('truetype'); font-display: swap; }
+  @font-face { font-family: 'Montserratregular';   src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Montserrat-Regular.ttf?v=1775402219') format('truetype'); font-display: swap; }
+
+  .oneofone-cts--{{ cts_uid }} {
+    margin-top: 24px;
+    text-align: left !important;
+  }
+  .oneofone-cts--{{ cts_uid }} p {
+    text-align: left !important;
+  }
+  .oneofone-cts--{{ cts_uid }} .oneofone-cts__title {
+    margin: 0 0 10px;
+    font-family: 'PoppinsBold', sans-serif !important;
+    font-size: 19px;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    color: #111;
+  }
+  .oneofone-cts--{{ cts_uid }} .oneofone-cts__list {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    border-radius: 12px;
+    padding: 0 16px;
+    overflow: hidden;
+  }
+  .oneofone-cts--{{ cts_uid }} .oneofone-cts__row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 2px 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+  }
+  .oneofone-cts--{{ cts_uid }} .oneofone-cts__row:first-child {
+    border-top: none;
+  }
+  .oneofone-cts--{{ cts_uid }} .oneofone-cts__row[hidden] {
+    display: none !important;
+  }
+  .oneofone-cts--{{ cts_uid }} .oneofone-cts__media {
+    flex: 0 0 auto;
+    width: 68px;
+    height: 72px;
+    border-radius: 6px;
+    overflow: hidden;
+    display: block;
+  }
+  .oneofone-cts--{{ cts_uid }} .oneofone-cts__media img {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100% !important;
+    object-fit: cover !important;
+    display: block;
+    margin: 0 !important;
+  }
+  .oneofone-cts--{{ cts_uid }} .oneofone-cts__info {
+    flex: 1 1 auto;
+    min-width: 0;
+    text-decoration: none;
+  }
+  .oneofone-cts--{{ cts_uid }} .oneofone-cts__name {
+    margin: 0 0 3px;
+    font-family: 'PoppinsSemiBold', sans-serif !important;
+    font-size: 12.5px;
+    color: #111;
+  }
+  .oneofone-cts--{{ cts_uid }} .oneofone-cts__price {
+    margin: 0;
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+  }
+  .oneofone-cts--{{ cts_uid }} .oneofone-cts__price-now {
+    font-family: 'PoppinsSemiBold', sans-serif !important;
+    font-size: 13px;
+    color: #111;
+  }
+  .oneofone-cts--{{ cts_uid }} .oneofone-cts__price-was {
+    font-family: 'PoppinsLight', sans-serif;
+    font-size: 12px;
+    color: #999;
+    text-decoration: line-through;
+  }
+  .oneofone-cts--{{ cts_uid }} .oneofone-cts__form {
+    flex: 0 0 auto;
+  }
+  .oneofone-cts--{{ cts_uid }} .oneofone-cts__form-inner {
+    margin: 0;
+  }
+  .oneofone-cts--{{ cts_uid }} .oneofone-cts__add {
+    position: relative;
+    background: #111;
+    color: #fff;
+    border: none;
+    border-radius: 999px;
+    padding: 9px 16px;
+    font-family: 'PoppinsSemiBold', sans-serif !important;
+    font-size: 12px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .oneofone-cts--{{ cts_uid }} .oneofone-cts__add[disabled] {
+    background: #ccc;
+    cursor: not-allowed;
+  }
+  .oneofone-cts--{{ cts_uid }} .oneofone-cts__add .loading__spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 16px;
+  }
+  .oneofone-cts--{{ cts_uid }} .oneofone-cts__more {
+    display: block;
+    margin: 12px auto 0;
+    background: none;
+    border: none;
+    padding: 4px;
+    font-family: 'PoppinsSemiBold', sans-serif !important;
+    font-size: 12.5px;
+    text-decoration: underline;
+    color: #111;
+    cursor: pointer;
+  }
+</style>
+
+<script>
+  (function () {
+    var wrapper = document.getElementById('oneofone-cts-{{ cts_uid }}');
+    if (!wrapper || wrapper.dataset.ctsReady === '1') return;
+    wrapper.dataset.ctsReady = '1';
+
+    var moreButton = wrapper.querySelector('[data-cts-more]');
+    if (!moreButton) return;
+
+    moreButton.addEventListener('click', function () {
+      var expanded = moreButton.getAttribute('aria-expanded') === 'true';
+      var extraRows = wrapper.querySelectorAll('.oneofone-cts__row--extra');
+      extraRows.forEach(function (row) {
+        row.hidden = expanded;
+      });
+      moreButton.setAttribute('aria-expanded', String(!expanded));
+      moreButton.textContent = expanded ? moreButton.dataset.moreLabel : moreButton.dataset.lessLabel;
+    });
+  })();
+</script>

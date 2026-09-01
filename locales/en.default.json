@@ -1059,13 +1059,13 @@
     "return_conditions": "Items must be returned in their original condition, with tags and packaging intact, for a full refund or exchange",
     "return_instructions": "To return a product, contact our support team with your order details to begin the process",
     "shipping_portugal": "Portugal:",
-    "shipping_portugal_desc": "1-2 working days (free over €45)",
+    "shipping_portugal_desc": "1-2 working days (free over €40)",
     "shipping_spain": "Spain:",
-    "shipping_spain_desc": "2-3 working days (free over €45)",
+    "shipping_spain_desc": "2-3 working days (free over €40)",
     "shipping_europe": "Rest of Europe:",
-    "shipping_europe_desc": "4-6 working days (free over €45)",
+    "shipping_europe_desc": "4-6 working days (free over €40)",
     "shipping_world": "Rest of the world:",
-    "shipping_world_desc": "7-10 working days (free over €45)",
+    "shipping_world_desc": "7-10 working days (free over €40)",
     "more_details": "For more details, visit our Shipping Policy and Refund Policy.",
     "worldwide_shipping": "We offer worldwide shipping",
     "money_back": "30 days money back guarantee",
@@ -1240,7 +1240,7 @@
     "guarantee_alt": "30-Day Guarantee Icon",
     "trusted": "Trusted By Pros",
     "trusted_alt": "Trusted By Pros Icon",
-    "free_shipping": "Free Shipping over €45",
+    "free_shipping": "CTT Shipping",
     "free_shipping_alt": "Free Shipping Icon"
   },
   "favourites": {
@@ -1473,7 +1473,7 @@
     "title": "Shipping",
     "intro_1": "At 1OF1 Fútbol, we’re committed to getting your order to you fast and hassle-free.",
     "intro_2": "Every order is carefully packed by our team to make sure it arrives in perfect condition.",
-    "free_shipping": "Free shipping for orders over €45 (Worldwide).",
+    "free_shipping": "Free shipping for orders over €40 (Worldwide).",
     "tracking_info": "A Track & Trace will be sent to the customer within 24 hours of the order being processed. All orders placed will be shipped from our warehouse within 1–2 business days. All shipping times are calculated from the date of shipment.",
     "portugal_title": "PORTUGAL 🇵🇹",
     "portugal_text": "Tracked Standard Shipping (1–2 business days)",
@@ -1596,7 +1596,11 @@
     "extra_15_1": "15%",
     "extra_15_2": "EXTRA",
     "extra_25_1": "25%",
-    "extra_25_2": "EXTRA"
+    "extra_25_2": "EXTRA",
+    "gift_1": "FREE",
+    "gift_2": "SOCKS",
+    "free_shipping_unlocked": "YOU UNLOCKED FREE SHIPPING!",
+    "add_amount_free_shipping": "Add {{ amount }} more for Free Shipping"
   },
   "reserve_timer": {
     "last_units": "Last units. Reserved for"

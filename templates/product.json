@@ -27,8 +27,8 @@
         "pill_envio": {
           "type": "pill",
           "settings": {
-            "label": "Envio Grátis CTT",
-            "description": "Enviamos por CTT Expresso. A encomenda sai no dia útil seguinte e chega entre 3 a 5 dias. Recebes informações de rastreio por email.",
+            "label": "Envio CTT",
+            "description": "Enviamos por CTT Expresso. A encomenda sai no dia útil seguinte e chega entre 3 a 5 dias. Recebes informações de rastreio por email. Envio grátis a partir de 40 euros.",
             "icon_type": "ctt"
           }
         },
@@ -126,10 +126,6 @@
         "padding_bottom": 16
       }
     },
-    "manual_related_products_mini_shin_pads": {
-      "type": "manual-related-products-mini-shin-pads",
-      "settings": {}
-    },
     "sleeve_reviews_carousel": {
       "type": "sleeve-reviews-carousel",
       "settings": {}
@@ -193,7 +189,6 @@
     "promotion_bar",
     "main",
     "trust_pills_1of1",
-    "manual_related_products_mini_shin_pads",
     "sleeve_reviews_carousel",
     "video_unboxing_1of1",
     "flag-carousel",
