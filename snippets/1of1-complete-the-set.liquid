@@ -4,17 +4,31 @@
 {% endcomment %}
 {%- liquid
   assign cts_uid = section_id | default: 'default' | replace: '_', ''
-  assign cts_handles = 'grip-socks, sock-sleeve, mini-shin-pads' | split: ', '
-  assign cts_extra_handles = 'airflow, shin-pad-sleeve' | split: ', '
+  assign cts_handles = 'grip-socks, sock-sleeve, shin-pad-sleeve, mini-shin-pads, airflow, tape-desportivo-3-8-cm-x-10-metros' | split: ', '
+  assign cts_visible_count = 0
 -%}
 <div class="oneofone-cts--{{ cts_uid }}" id="oneofone-cts-{{ cts_uid }}">
   <p class="oneofone-cts__title">Combina Perfeito com:</p>
   <div class="oneofone-cts__list" data-cts-list>
     {%- for handle in cts_handles -%}
       {%- assign cts_product = all_products[handle] -%}
-      {%- if cts_product != blank -%}
+      {%- if cts_product != blank and cts_product.handle != product.handle -%}
         {%- assign cts_variant = cts_product.selected_or_first_available_variant -%}
-        <div class="oneofone-cts__row">
+        {%- assign cts_name = cts_product.title -%}
+        {%- case handle -%}
+          {%- when 'grip-socks' -%}{%- assign cts_name = 'Meias Pro Grip' -%}
+          {%- when 'sock-sleeve' -%}{%- assign cts_name = 'Meias Cortadas' -%}
+        {%- endcase -%}
+        {%- assign cts_is_extra = true -%}
+        {%- if cts_visible_count < 3 -%}
+          {%- assign cts_is_extra = false -%}
+        {%- endif -%}
+        {%- assign cts_visible_count = cts_visible_count | plus: 1 -%}
+        {%- assign cts_show_picker = false -%}
+        {%- if cts_product.variants.size > 1 -%}
+          {%- assign cts_show_picker = true -%}
+        {%- endif -%}
+        <div class="oneofone-cts__row{% if cts_is_extra %} oneofone-cts__row--extra{% endif %}{% if cts_show_picker %} oneofone-cts__row--picker{% endif %}" {% if cts_is_extra %}hidden{% endif %}>
           <a href="{{ cts_product.url }}" class="oneofone-cts__media">
             {%- if cts_product.featured_image -%}
               <img
@@ -27,66 +41,28 @@
               >
             {%- endif -%}
           </a>
-          <a href="{{ cts_product.url }}" class="oneofone-cts__info">
-            <p class="oneofone-cts__name">{{ cts_product.title }}</p>
-            <p class="oneofone-cts__price">
-              <span class="oneofone-cts__price-now">{{ cts_product.price | money }}</span>
-              {%- if cts_product.compare_at_price > cts_product.price -%}
-                <span class="oneofone-cts__price-was">{{ cts_product.compare_at_price | money }}</span>
-              {%- endif -%}
-            </p>
-          </a>
-          <product-form class="oneofone-cts__form">
-            {%- form 'product', cts_product, class: 'oneofone-cts__form-inner' -%}
-              <input type="hidden" name="id" value="{{ cts_variant.id }}">
-              <button
-                type="submit"
-                name="add"
-                class="oneofone-cts__add"
-                {% if cts_variant == null or cts_variant.available == false %}
-                  disabled
-                {% endif %}
-              >
-                <span>
-                  {%- if cts_variant == null or cts_variant.available == false -%}
-                    Esgotado
-                  {%- else -%}
-                    Adicionar +
-                  {%- endif -%}
-                </span>
-                {%- render 'loading-spinner' -%}
-              </button>
-            {%- endform -%}
-          </product-form>
-        </div>
-      {%- endif -%}
-    {%- endfor -%}
-    {%- for handle in cts_extra_handles -%}
-      {%- assign cts_product = all_products[handle] -%}
-      {%- if cts_product != blank -%}
-        {%- assign cts_variant = cts_product.selected_or_first_available_variant -%}
-        <div class="oneofone-cts__row oneofone-cts__row--extra" hidden>
-          <a href="{{ cts_product.url }}" class="oneofone-cts__media">
-            {%- if cts_product.featured_image -%}
-              <img
-                src="{{ cts_product.featured_image | image_url: width: 160 }}"
-                srcset="{{ cts_product.featured_image | image_url: width: 80 }} 80w, {{ cts_product.featured_image | image_url: width: 160 }} 160w"
-                alt="{{ cts_product.featured_image.alt | escape }}"
-                width="80"
-                height="100"
-                loading="lazy"
-              >
+          <div class="oneofone-cts__info">
+            <a href="{{ cts_product.url }}" class="oneofone-cts__info-link">
+              <p class="oneofone-cts__name">{{ cts_name }}</p>
+              <p class="oneofone-cts__price">
+                <span class="oneofone-cts__price-now">{{ cts_product.price | money }}</span>
+                {%- if cts_product.compare_at_price > cts_product.price -%}
+                  <span class="oneofone-cts__price-was">{{ cts_product.compare_at_price | money }}</span>
+                {%- endif -%}
+              </p>
+            </a>
+            {%- if cts_show_picker -%}
+              <div class="oneofone-cts__selects" data-cts-picker>
+                <select class="oneofone-cts__select">
+                  {%- for cts_v in cts_product.variants -%}
+                    <option value="{{ cts_v.id }}" {% if cts_v.id == cts_variant.id %}selected{% endif %} {% unless cts_v.available %}disabled{% endunless %}>
+                      {{ cts_v.title }}{% unless cts_v.available %} - Esgotado{% endunless %}
+                    </option>
+                  {%- endfor -%}
+                </select>
+              </div>
             {%- endif -%}
-          </a>
-          <a href="{{ cts_product.url }}" class="oneofone-cts__info">
-            <p class="oneofone-cts__name">{{ cts_product.title }}</p>
-            <p class="oneofone-cts__price">
-              <span class="oneofone-cts__price-now">{{ cts_product.price | money }}</span>
-              {%- if cts_product.compare_at_price > cts_product.price -%}
-                <span class="oneofone-cts__price-was">{{ cts_product.compare_at_price | money }}</span>
-              {%- endif -%}
-            </p>
-          </a>
+          </div>
           <product-form class="oneofone-cts__form">
             {%- form 'product', cts_product, class: 'oneofone-cts__form-inner' -%}
               <input type="hidden" name="id" value="{{ cts_variant.id }}">
@@ -113,7 +89,7 @@
       {%- endif -%}
     {%- endfor -%}
   </div>
-  {%- if cts_extra_handles.size > 0 -%}
+  {%- if cts_visible_count > 3 -%}
     <button type="button" class="oneofone-cts__more" data-cts-more data-more-label="Ver mais" data-less-label="Ver menos" aria-expanded="false">Ver mais</button>
   {%- endif -%}
 </div>
@@ -185,7 +161,34 @@
   .oneofone-cts--{{ cts_uid }} .oneofone-cts__info {
     flex: 1 1 auto;
     min-width: 0;
+  }
+  .oneofone-cts--{{ cts_uid }} .oneofone-cts__info-link {
+    display: block;
     text-decoration: none;
+  }
+  .oneofone-cts--{{ cts_uid }} .oneofone-cts__row--picker {
+    align-items: center;
+    padding: 8px 0;
+  }
+  .oneofone-cts--{{ cts_uid }} .oneofone-cts__selects {
+    margin-top: 6px;
+  }
+  .oneofone-cts--{{ cts_uid }} .oneofone-cts__select {
+    max-width: 100%;
+    padding: 5px 22px 5px 8px;
+    border-radius: 6px;
+    border: 1.5px solid #ddd;
+    background: #f7f7f7;
+    color: #111;
+    font-family: 'PoppinsMedium', sans-serif;
+    font-size: 11px;
+    appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+    outline: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath fill='%23111111' d='M0 0l5 6 5-6z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 8px center;
   }
   .oneofone-cts--{{ cts_uid }} .oneofone-cts__name {
     margin: 0 0 3px;
@@ -260,16 +263,34 @@
     wrapper.dataset.ctsReady = '1';
 
     var moreButton = wrapper.querySelector('[data-cts-more]');
-    if (!moreButton) return;
-
-    moreButton.addEventListener('click', function () {
-      var expanded = moreButton.getAttribute('aria-expanded') === 'true';
-      var extraRows = wrapper.querySelectorAll('.oneofone-cts__row--extra');
-      extraRows.forEach(function (row) {
-        row.hidden = expanded;
+    if (moreButton) {
+      moreButton.addEventListener('click', function () {
+        var expanded = moreButton.getAttribute('aria-expanded') === 'true';
+        var extraRows = wrapper.querySelectorAll('.oneofone-cts__row--extra');
+        extraRows.forEach(function (row) {
+          row.hidden = expanded;
+        });
+        moreButton.setAttribute('aria-expanded', String(!expanded));
+        moreButton.textContent = expanded ? moreButton.dataset.moreLabel : moreButton.dataset.lessLabel;
       });
-      moreButton.setAttribute('aria-expanded', String(!expanded));
-      moreButton.textContent = expanded ? moreButton.dataset.moreLabel : moreButton.dataset.lessLabel;
+    }
+
+    wrapper.querySelectorAll('[data-cts-picker]').forEach(function (picker) {
+      var select = picker.querySelector('.oneofone-cts__select');
+      if (!select) return;
+      var row = picker.closest('.oneofone-cts__row');
+      var hiddenInput = row.querySelector('input[name="id"]');
+      var addBtn = row.querySelector('.oneofone-cts__add');
+      var addLabel = addBtn.querySelector('span');
+
+      function update() {
+        var opt = select.options[select.selectedIndex];
+        hiddenInput.value = select.value;
+        addBtn.disabled = opt.disabled;
+        addLabel.textContent = opt.disabled ? 'Esgotado' : 'Adicionar +';
+      }
+
+      select.addEventListener('change', update);
     });
   })();
 </script>

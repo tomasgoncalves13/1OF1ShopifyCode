@@ -695,7 +695,7 @@
   <!-- FREE GIFT INCLUDED BANNER -->
 {% assign h = product.handle %}
 {% unless h == 'grip-socks' or h == 'kids-pro-grip-socks' or h == 'pro-grip-socks' %}
-{% if product.metafields.custom.show_grip_offer == true %}
+{% if product.metafields.custom.show_grip_offer == true and template.suffix != 'shin-pad-sleeve-upsell' %}
 
 <div class="free-gift-banner-wrapper">
   <div class="free-gift-banner">
@@ -1214,7 +1214,10 @@
   {%- render '1of1-complete-the-set', section_id: section.id -%}
 
   {% endunless %}
-              
+  {% if product.handle == 'grip-socks' or product.handle == 'kids-pro-grip-socks' or product.handle == 'pro-grip-socks' %}
+    {%- render '1of1-complete-the-set', section_id: section.id -%}
+  {% endif %}
+
               {%- when 'rating' -%}
                 {%- if product.metafields.reviews.rating.value != blank -%}
                   <div class="rating-wrapper">

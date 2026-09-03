@@ -1,26 +1,42 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
-    "promotion_bar":  {
+    "promotion_bar": {
       "type": "promotion-bar",
       "settings": {}
     },
     "trust_pills_1of1": {
       "type": "1of1-trust-pills",
       "blocks": {
-        "pill_garantia": { "type": "pill", "settings": { "label": "Garantia 3 Anos",   "description": "Todos os produtos 1OF1 têm garantia de 3 anos contra defeitos de fabrico. Se algo não estiver bem, tratamos do assunto.", "icon_type": "shield" } },
-        "pill_envio":    { "type": "pill", "settings": { "label": "Envio CTT",  "description": "Enviamos por CTT Expresso. A encomenda sai no dia útil seguinte e chega entre 3 a 5 dias. Recebes informações de rastreio por email. Envio grátis a partir de 40 euros.", "icon_type": "ctt" } },
-        "pill_testa":    { "type": "pill", "settings": { "label": "Testa 30 Dias",     "description": "Tens 30 dias para experimentar. Se não ficares satisfeito, devolves e reembolsamos o valor do produto. Sem complicações.", "icon_type": "pin" } }
+        "pill_garantia": {
+          "type": "pill",
+          "settings": {
+            "label": "Garantia 3 Anos",
+            "description": "Todos os produtos 1OF1 têm garantia de 3 anos contra defeitos de fabrico. Se algo não estiver bem, tratamos do assunto.",
+            "icon_type": "shield"
+          }
+        },
+        "pill_envio": {
+          "type": "pill",
+          "settings": {
+            "label": "Envio CTT",
+            "description": "Enviamos por CTT Expresso. A encomenda sai no dia útil seguinte e chega entre 3 a 5 dias. Recebes informações de rastreio por email. Envio grátis a partir de 40 euros.",
+            "icon_type": "ctt"
+          }
+        },
+        "pill_testa": {
+          "type": "pill",
+          "settings": {
+            "label": "Testa 30 Dias",
+            "description": "Tens 30 dias para experimentar. Se não ficares satisfeito, devolves e reembolsamos o valor do produto. Sem complicações.",
+            "icon_type": "pin"
+          }
+        }
       },
-      "block_order": ["pill_garantia", "pill_envio", "pill_testa"],
+      "block_order": [
+        "pill_garantia",
+        "pill_envio",
+        "pill_testa"
+      ],
       "settings": {}
     },
     "main": {
@@ -41,56 +57,66 @@
             "swatch_shape": "square"
           }
         },
-        "custom_liquid_7XEWVF": {
+        "custom_liquid_upsell": {
           "type": "custom_liquid",
           "settings": {
-            "custom_liquid": ""
+            "custom_liquid": "{% render '1of1-sleeve-upsell-picker' %}"
           }
         },
         "buy_buttons": {
           "type": "buy_buttons",
+          "disabled": true,
           "settings": {
             "show_dynamic_checkout": true,
             "show_gift_card_recipient": true
           }
         },
-        "description_CRe7TX": {
+        "description": {
           "type": "description",
           "disabled": true,
           "settings": {}
+        },
+        "dealeasy_vd_cards_mVaHBB": {
+          "type": "shopify://apps/dealeasy/blocks/vd-cards/e47a8634-0496-480d-9e46-6f7fafd34b30",
+          "settings": {
+            "lb-product-handle": "",
+            "lb-product-id": ""
+          }
+        },
+        "dealeasy_app_block_QMPEaR": {
+          "type": "shopify://apps/dealeasy/blocks/app-block/e47a8634-0496-480d-9e46-6f7fafd34b30",
+          "disabled": true,
+          "settings": {
+            "lb-product-handle": "",
+            "lb-product-id": ""
+          }
         }
       },
       "block_order": [
         "title",
         "price",
         "variant_picker",
-        "custom_liquid_7XEWVF",
+        "custom_liquid_upsell",
         "buy_buttons",
-        "description_CRe7TX"
+        "description",
+        "dealeasy_vd_cards_mVaHBB",
+        "dealeasy_app_block_QMPEaR"
       ],
       "settings": {
-        "enable_sticky_info": false,
+        "enable_sticky_info": true,
         "color_scheme": "scheme-2",
         "media_size": "medium",
         "constrain_to_viewport": false,
-        "media_fit": "cover",
+        "media_fit": "contain",
         "gallery_layout": "thumbnail_slider",
-        "mobile_thumbnails": "show",
+        "mobile_thumbnails": "hide",
         "media_position": "left",
         "image_zoom": "none",
         "hide_variants": true,
         "enable_video_looping": false,
         "padding_top": 8,
-        "padding_bottom": 0
+        "padding_bottom": 16
       }
-    },
-    "main_product_details": {
-      "type": "main-product-details",
-      "settings": {}
-    },
-    "1of1_sleeve_highlight": {
-      "type": "1of1-sleeve-shinpads",
-      "settings": {}
     },
     "sleeve_reviews_carousel": {
       "type": "sleeve-reviews-carousel",
@@ -189,24 +215,16 @@
     },
     "flag-carousel": {
       "type": "flag-carousel",
-      "disabled": true,
-      "settings": {}
-    },
-    "1of1_sleeve_comparison": {
-      "type": "why-ballers-choose-1of1-sleeve-shin-pads",
       "settings": {}
     },
     "collapsible_content_MpnV9r": {
       "type": "1of1-faqs",
       "blocks": {
-        "q1": { "type": "faq", "settings": { "question": "Qual é a diferença entre caneleiras embutidas e tradicionais?", "answer": "<p>Ao contrário das caneleiras de plástico rígido, as Caneleiras Embutidas 1OF1 usam espuma de Proteção Hexagonal (HTP) que absorve impactos.</p><p>São <strong>leves, flexíveis e discretas</strong> — conforto total e liberdade de movimento completa para jogares com confiança.</p>" } },
-        "q2": { "type": "faq", "settings": { "question": "Quanto tempo demora a entrega?", "answer": "<p>A tua encomenda é enviada no próprio dia ou no próximo dia útil e chega em <strong>3 a 5 dias úteis</strong>.</p>" } },
-        "q3": { "type": "faq", "settings": { "question": "Têm garantia?", "answer": "<p>Sim. Todos os nossos produtos incluem <strong>3 anos de garantia</strong> contra defeitos de fabrico.</p>" } },
-        "q4": { "type": "faq", "settings": { "question": "Que tamanho devo escolher?", "answer": "<p>As Caneleiras Embutidas adaptam-se a qualquer perna. A única diferença é a área de proteção:</p><p><strong>MINI</strong> – Máxima leveza e sensação mínima.</p><p><strong>MIDI</strong> – Mais cobertura sem perder conforto nem liberdade de movimento.</p>" } },
-        "q5": { "type": "faq", "settings": { "question": "Como as lavo?", "answer": "<p>Podem ser lavadas à máquina em programa delicado a 30 °C ou à mão, mantendo a proteção e o conforto como novos.</p>" } },
-        "q6": { "type": "faq", "settings": { "question": "Têm envio gratuito?", "answer": "<p>Sim, todas as encomendas têm <strong>envio gratuito</strong>.</p>" } }
+        "q1": { "type": "faq", "settings": { "question": "Quanto tempo demora a entrega?", "answer": "<p>A tua encomenda é enviada no próprio dia ou no próximo dia útil e chega em <strong>3 a 5 dias úteis</strong>.</p>" } },
+        "q2": { "type": "faq", "settings": { "question": "Têm garantia?", "answer": "<p>Sim. Todos os nossos produtos incluem <strong>3 anos de garantia</strong> contra defeitos de fabrico.</p>" } },
+        "q3": { "type": "faq", "settings": { "question": "Têm envio gratuito?", "answer": "<p>Sim, todas as encomendas têm <strong>envio gratuito</strong>.</p>" } }
       },
-      "block_order": ["q1", "q2", "q3", "q4", "q5", "q6"],
+      "block_order": ["q1", "q2", "q3"],
       "settings": {}
     },
     "reviews_trv": {
@@ -227,6 +245,12 @@
       "disabled": true,
       "settings": {}
     },
+    "17513142046cf8012d": {
+      "type": "apps",
+      "settings": {
+        "include_margins": true
+      }
+    },
     "scrolling_columns": {
       "type": "scrolling-columns",
       "settings": {}
@@ -244,15 +268,13 @@
     "promotion_bar",
     "main",
     "trust_pills_1of1",
-    "main_product_details",
-    "1of1_sleeve_highlight",
     "sleeve_reviews_carousel",
     "video_unboxing_1of1",
     "flag-carousel",
-    "1of1_sleeve_comparison",
     "reviews_trv",
     "collapsible_content_MpnV9r",
     "carrossel_ctt",
+    "17513142046cf8012d",
     "scrolling_columns",
     "custom_newsletter",
     "custom_footer_brand"

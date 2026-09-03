@@ -128,6 +128,93 @@
     },
     "sleeve_reviews_carousel": {
       "type": "sleeve-reviews-carousel",
+      "blocks": {
+            "card_1": {
+                  "type": "athlete_card",
+                  "settings": {
+                        "name": "Pedro Ramos",
+                        "role": "Jogador de Futebol",
+                        "quote": "As caneleiras da 1of1 são as melhores que já usei. Ficam no sítio certo, protegem como deve ser e mal se nota que as trazemos em campo.",
+                        "product_handle": "shin-pad-sleeve",
+                        "image_left": "https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Design_sem_nome_1_e764f1ea-7bd0-4e4b-a58f-4119b6cc99eb.png?v=1766841149",
+                        "image_right": "https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Design_sem_nome_40.png?v=1788453138",
+                        "tick_color": "blue"
+                  }
+            },
+            "card_2": {
+                  "type": "athlete_card",
+                  "settings": {
+                        "name": "Gonçalo Dias",
+                        "role": "Jogador de Futebol · 11 anos",
+                        "quote": "Gosto muito destas caneleiras porque são confortáveis e nem se notam a jogar. Ajudam-me a correr mais à vontade e sinto-me mais protegido em campo.",
+                        "product_handle": "kids-built-in-shin-pads",
+                        "image_left": "https://cdn.shopify.com/s/files/1/0907/8472/7374/files/exported_6EE20BD1-27B2-4165-9F18-2C34A1FD5237.jpg?v=1788379663",
+                        "image_right": "https://cdn.shopify.com/s/files/1/0907/8472/7374/files/exported_6EE20BD1-27B2-4165-9F18-2C34A1FD52aa37.jpg?v=1788380076",
+                        "tick_color": "blue"
+                  }
+            },
+            "card_3": {
+                  "type": "athlete_card",
+                  "settings": {
+                        "name": "Helena Nunes",
+                        "role": "Jogadora de Futsal · Selecção Nacional",
+                        "quote": "Uso as caneleiras da 1of1 nos treinos e nos jogos e nunca me falharam. Leves, discretas e com a proteção que preciso ao mais alto nível.",
+                        "product_handle": "shin-pad-sleeve",
+                        "image_left": "https://cdn.shopify.com/s/files/1/0907/8472/7374/files/718867844_1661809048446431_7613230868082339397_n.jpg?v=1788451599",
+                        "image_right": "https://cdn.shopify.com/s/files/1/0907/8472/7374/files/590834546_18520263775070141_4558076956728527372_n.jpg?v=1788452067",
+                        "tick_color": "blue"
+                  }
+            },
+            "card_4": {
+                  "type": "athlete_card",
+                  "settings": {
+                        "name": "Tiago Galeiras",
+                        "role": "Jogador de Futebol",
+                        "quote": "Com estas caneleiras sinto-me mais leve, mais rápido e mais ágil em campo. Juntamente com as meias antiderrapantes, aumentei o meu rendimento em campo.",
+                        "product_handle": "mini-shin-pads",
+                        "image_left": "https://cdn.shopify.com/s/files/1/0907/8472/7374/files/E35B7CF3-D891-40FA-AFA1-9C44E7492350.jpg?v=1788377213",
+                        "image_right": "https://cdn.shopify.com/s/files/1/0907/8472/7374/files/601620725_18373490860154633_3588775856009262466_n.jpg?v=1788377711",
+                        "tick_color": "blue"
+                  }
+            },
+            "card_5": {
+                  "type": "athlete_card",
+                  "settings": {
+                        "name": "Rodrigo Geraldo",
+                        "role": "Jogador de Futebol",
+                        "quote": "As mini caneleiras da 1of1 são outra dimensão. Leves, discretas e com proteção a sério. Uso em todos os treinos e nunca mais quero voltar atrás.",
+                        "product_handle": "mini-shin-pads",
+                        "image_left": "https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Design_sem_nome_36.png?v=1778370499",
+                        "image_right": "https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Design_sem_nome_35.png?v=1778365983",
+                        "tick_color": "blue"
+                  }
+            },
+            "card_6": {
+                  "type": "athlete_card",
+                  "settings": {
+                        "name": "Gonçalo Semedo",
+                        "role": "Jogador de Futebol",
+                        "quote": "A 1of1 percebe o que os atletas precisam. Qualidade top, conforto real e nota-se logo a diferença em campo. É o que uso, é o que recomendo.",
+                        "product_handle": "shin-pad-sleeve",
+                        "image_left": "https://cdn.shopify.com/s/files/1/0907/8472/7374/files/frame_0_19_14f.jpg?v=1778363995",
+                        "image_right": "https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Design_sem_nome_37.png?v=1778371119",
+                        "tick_color": "blue"
+                  }
+            },
+            "card_7": {
+                  "type": "athlete_card",
+                  "settings": {
+                        "name": "Júlia M.",
+                        "role": "Mãe · Compra verificada",
+                        "quote": "O meu filho queria muito estas caneleiras e não me arrependo nada. Qualidade real, chegaram perfeitas e ele não quer usar outras. Mãe aprovada!",
+                        "product_handle": "shin-pad-sleeve",
+                        "image_left": "https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Design_sem_nome_f2c09a1c-5049-43a9-a38e-c5c733e072b4.png?v=1778365433",
+                        "image_right": "https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Design_sem_nome_34.png?v=1778365452",
+                        "tick_color": "green"
+                  }
+            }
+      },
+      "block_order": ["card_1","card_2","card_3","card_4","card_5","card_6","card_7"],
       "settings": {}
     },
     "video_unboxing_1of1": {

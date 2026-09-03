@@ -6,24 +6,27 @@
 {%- liquid
   assign shin = product
   assign grip = all_products['grip-socks']
-  assign bundle_price_cents = 5000
+  assign bundle_price_cents = 4995
   assign bundle_compare_cents = shin.price | times: 2
+  assign grip_img = grip.images[0] | img_url: '60x60', crop: 'center'
 -%}
 <div class="oneofone-sup" id="oneofone-sup">
 
   <div class="oneofone-sup-opt" data-qty="1">
     <div class="oneofone-sup-opt__top">
       <span class="oneofone-sup-opt__bullet"></span>
-      <span class="oneofone-sup-opt__name">Shin Pad Sleeve</span>
+      <span class="oneofone-sup-opt__name">Caneleiras Embutidas</span>
       <span class="oneofone-sup-opt__price">{{ shin.price | money }}</span>
     </div>
+
+    <div class="oneofone-sup-slots"></div>
   </div>
 
   <div class="oneofone-sup-opt oneofone-sup-opt--strong" data-qty="2">
-    <div class="oneofone-sup-opt__badge">Melhor Oferta</div>
+    <div class="oneofone-sup-opt__badge">Melhor Preço</div>
     <div class="oneofone-sup-opt__top">
       <span class="oneofone-sup-opt__bullet"></span>
-      <span class="oneofone-sup-opt__name">x2 Shin Pad Sleeves</span>
+      <span class="oneofone-sup-opt__name">x2 Caneleiras Embutidas</span>
       <span class="oneofone-sup-opt__prices">
         <s class="oneofone-sup-opt__compare">{{ bundle_compare_cents | money }}</s>
         <span class="oneofone-sup-opt__price">{{ bundle_price_cents | money }}</span>
@@ -34,12 +37,14 @@
 
     <div class="oneofone-sup-perks">
       <div class="oneofone-sup-perk">
-        {{- 'icon-discount.svg' | inline_asset_content -}}
-        <span>+ Meia Grip Grátis</span>
+        <img src="{{ grip_img }}" alt="" class="oneofone-sup-perk__img">
+        <span class="oneofone-sup-perk__label">+1 Par Meia Grip <span class="oneofone-sup-perk__gratis">GRÁTIS</span></span>
+        <s class="oneofone-sup-perk__price">{{ grip.price | money }}</s>
       </div>
       <div class="oneofone-sup-perk">
-        {{- 'icon-discount.svg' | inline_asset_content -}}
-        <span>+ Envio Grátis</span>
+        <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/truck-xxl.png?v=1788266470" alt="" class="oneofone-sup-perk__img">
+        <span class="oneofone-sup-perk__label">+ Envio Grátis</span>
+        <s class="oneofone-sup-perk__price">{{ 495 | money }}</s>
       </div>
     </div>
   </div>
@@ -48,6 +53,8 @@
     ADICIONAR AO CARRINHO +
   </button>
 </div>
+
+{%- render '1of1-complete-the-set', section_id: section.id -%}
 
 <style>
   @font-face { font-family: 'PoppinsExtraBold'; src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/poppins.extrabold.ttf?v=1747688794') format('truetype'); }
@@ -77,7 +84,7 @@
   }
 
   #oneofone-sup .oneofone-sup-opt__badge {
-    background: linear-gradient(90deg, #fff304, #ffd000);
+    background: linear-gradient(90deg, #fff304);
     color: #111;
     font-family: 'PoppinsSemiBold', sans-serif !important;
     font-size: 11px;
@@ -123,8 +130,9 @@
 
   #oneofone-sup .oneofone-sup-opt__prices {
     display: flex;
-    align-items: center;
-    gap: 6px;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0;
   }
 
   #oneofone-sup .oneofone-sup-opt__compare {
@@ -157,6 +165,12 @@
     flex-shrink: 0;
   }
 
+  #oneofone-sup .oneofone-sup-slot__selects {
+    flex: 1;
+    display: flex;
+    gap: 8px;
+  }
+
   #oneofone-sup .oneofone-sup-slot__select {
     flex: 1;
     padding: 9px 30px 9px 10px;
@@ -178,6 +192,9 @@
   #oneofone-sup .oneofone-sup-perks {
     margin: 14px -14px -14px -14px;
   }
+  #oneofone-sup .oneofone-sup-opt--active .oneofone-sup-perks {
+    margin: 14px -12px -12px -12px;
+  }
 
   #oneofone-sup .oneofone-sup-perk {
     display: flex;
@@ -190,12 +207,6 @@
     font-size: 13px;
     transition: background .18s, color .18s;
   }
-  #oneofone-sup .oneofone-sup-perk svg {
-    width: 14px;
-    height: 14px;
-    flex-shrink: 0;
-    color: inherit;
-  }
   #oneofone-sup .oneofone-sup-opt--active .oneofone-sup-perk {
     background: #111;
     color: #fff;
@@ -204,20 +215,50 @@
     border-radius: 0 0 10px 10px;
   }
 
+  #oneofone-sup .oneofone-sup-perk__img {
+    width: 36px;
+    height: 36px;
+    object-fit: cover;
+    border-radius: 6px;
+    flex-shrink: 0;
+    opacity: 0.9;
+  }
+  #oneofone-sup .oneofone-sup-perk__label {
+    flex: 1;
+    font-family: 'PoppinsSemiBold', sans-serif !important;
+    font-size: 13px;
+    color: inherit;
+  }
+  #oneofone-sup .oneofone-sup-perk__gratis {
+    font-family: 'PoppinsSemiBold', sans-serif !important;
+  }
+  #oneofone-sup .oneofone-sup-perk__price {
+    font-size: 12px;
+    color: #aaa;
+  }
+  #oneofone-sup .oneofone-sup-opt--active .oneofone-sup-perk__price {
+    color: #fff;
+  }
+
   #oneofone-sup .oneofone-sup-btn {
     width: 100%;
     margin-top: 4px;
-    background: #111;
-    color: #fff;
-    border: none;
-    border-radius: 999px;
+    background-color: #fff304;
+    color: #000;
+    border: 1px solid #ffe304;
+    border-radius: 9999px;
     padding: 15px 30px;
     font-family: 'PoppinsBold', sans-serif;
     font-size: 14px;
     letter-spacing: 0.02em;
     text-transform: uppercase;
     cursor: pointer;
-    transition: opacity .2s ease;
+    box-shadow: 0 4px 6px 2px #0000001a, 0 2px 4px -1px #0000000f;
+    transition: all .2s ease;
+  }
+  #oneofone-sup .oneofone-sup-btn:hover:not(:disabled) {
+    transform: translate(1px, 1px);
+    box-shadow: 1px 1px #000;
   }
   #oneofone-sup .oneofone-sup-btn:disabled {
     opacity: .5;
@@ -232,7 +273,6 @@
   wrap.dataset.supReady = '1';
 
   var VARIANTS = {{ shin.variants | json }};
-  var GRIP_VARIANT_ID = {{ grip.first_available_variant.id | default: 'null' }};
   var btn = document.getElementById('oneofone-sup-btn');
   var opts = Array.from(wrap.querySelectorAll('.oneofone-sup-opt'));
   var active = null;
@@ -241,28 +281,44 @@
     var slots = opt.querySelector('.oneofone-sup-slots');
     if (!slots) return;
     slots.innerHTML = '';
+    var showNum = qty > 1;
     for (var i = 1; i <= qty; i++) {
       var row = document.createElement('div');
       row.className = 'oneofone-sup-slot';
 
-      var num = document.createElement('span');
-      num.className = 'oneofone-sup-slot__num';
-      num.textContent = i;
+      if (showNum) {
+        var num = document.createElement('span');
+        num.className = 'oneofone-sup-slot__num';
+        num.textContent = i;
+        row.appendChild(num);
+      }
+
+      var selWrap = document.createElement('div');
+      selWrap.className = 'oneofone-sup-slot__selects';
 
       var sel = document.createElement('select');
       sel.className = 'oneofone-sup-slot__select';
       VARIANTS.forEach(function (v) {
         var o = document.createElement('option');
         o.value = v.id;
-        o.textContent = v.title + (v.available ? '' : ' — Esgotado');
+        o.textContent = v.title + (v.available ? '' : ' - Esgotado');
+        o.disabled = !v.available;
         sel.appendChild(o);
       });
+      var firstAvailable = VARIANTS.find(function (v) { return v.available; });
+      if (firstAvailable) sel.value = firstAvailable.id;
 
-      row.appendChild(num);
-      row.appendChild(sel);
+      selWrap.appendChild(sel);
+      row.appendChild(selWrap);
       slots.appendChild(row);
     }
   }
+
+  wrap.addEventListener('change', function (e) {
+    if (!e.target.classList.contains('oneofone-sup-slot__select')) return;
+    btn.disabled = false;
+    btn.textContent = 'ADICIONAR AO CARRINHO +';
+  });
 
   opts.forEach(function (opt) {
     opt.addEventListener('click', function () {
@@ -271,11 +327,11 @@
       active = opt;
       opt.classList.add('oneofone-sup-opt--active');
       var qty = parseInt(opt.dataset.qty);
-      if (qty > 1) buildSlots(opt, qty);
+      buildSlots(opt, qty);
     });
   });
 
-  if (opts[0]) opts[0].click();
+  if (opts[1]) opts[1].click();
 
   async function openCartDrawer() {
     try {
@@ -311,17 +367,11 @@
     var qty = parseInt(active.dataset.qty);
     var items = [];
 
-    if (qty === 1) {
-      items.push({ id: VARIANTS[0].id, quantity: 1 });
-    } else {
-      var selects = active.querySelectorAll('.oneofone-sup-slot__select');
-      selects.forEach(function (s) {
-        items.push({ id: parseInt(s.value), quantity: 1 });
-      });
-      if (GRIP_VARIANT_ID) {
-        items.push({ id: GRIP_VARIANT_ID, quantity: 1 });
-      }
-    }
+    var rows = active.querySelectorAll('.oneofone-sup-slot');
+    rows.forEach(function (row) {
+      var select = row.querySelector('.oneofone-sup-slot__select');
+      if (select && select.value) items.push({ id: select.value, quantity: 1 });
+    });
 
     btn.disabled = true;
     btn.textContent = 'A ADICIONAR...';
@@ -339,8 +389,9 @@
         btn.textContent = 'ADICIONAR AO CARRINHO +';
       } else {
         var err = await res.json();
-        btn.disabled = false;
-        btn.textContent = err.description || 'ERRO — TENTA NOVAMENTE';
+        var outOfStock = /esgotado|out of stock|sold out/i.test(err.description || '');
+        btn.disabled = outOfStock;
+        btn.textContent = outOfStock ? 'ESGOTADO' : 'ERRO — TENTA NOVAMENTE';
       }
     } catch (e) {
       btn.disabled = false;
