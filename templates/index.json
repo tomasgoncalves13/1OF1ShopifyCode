@@ -20,7 +20,11 @@
     },
     "main_banner": {
       "type": "main-banner-blackfriday",
-      "settings": {}
+      "settings": {
+        "desktop_image": "shopify://shop_images/1_5482d03d-51ac-4849-a9ca-e55f640855ed.png",
+        "mobile_image": "shopify://shop_images/Resgatar_Meias5.png",
+        "link": "https://1of1futbol.com/collections/best-sellers"
+      }
     },
     "feature_carousel": {
       "type": "feature-carousel",
