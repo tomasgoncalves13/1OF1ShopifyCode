@@ -37,6 +37,37 @@
         "padding_bottom": 36
       }
     },
+    "trust_pills_collections": {
+      "type": "1of1-trust-pills",
+      "blocks": {
+        "pill-1": {
+          "type": "pill",
+          "settings": {
+            "label": "Garantia 3 Anos",
+            "description": "Todos os produtos 1OF1 têm garantia de 3 anos contra defeitos de fabrico. Se algo não estiver bem, tratamos do assunto.",
+            "icon_type": "shield"
+          }
+        },
+        "pill-2": {
+          "type": "pill",
+          "settings": {
+            "label": "Envio CTT",
+            "description": "Enviamos por CTT Expresso. A encomenda sai no dia útil seguinte e chega entre 3 a 5 dias. Recebes informações de rastreio por email. Envio grátis a partir de 40 euros.",
+            "icon_type": "ctt"
+          }
+        },
+        "pill-3": {
+          "type": "pill",
+          "settings": {
+            "label": "Testa 30 Dias",
+            "description": "Tens 30 dias para experimentar. Se não ficares satisfeito, devolves e reembolsamos o valor do produto. Sem complicações.",
+            "icon_type": "pin"
+          }
+        }
+      },
+      "block_order": ["pill-1", "pill-2", "pill-3"],
+      "settings": {}
+    },
     "scrolling_columns": {
       "type": "scrolling-columns",
       "settings": {}
@@ -58,6 +89,7 @@
     "main-banner",
     "collection-tabs",
     "product-grid",
+    "trust_pills_collections",
     "scrolling_columns",
     "custom_newsletter",
     "custom_footer_brand"

@@ -1,37 +1,35 @@
 <section class="oneofone-sleeve-highlights">
   <div class="container">
     <div class="features-grid">
-      
-      <!-- Bloco 1 - agora com vídeo -->
-      <div class="feature-block">
-        <video autoplay loop muted playsinline preload="auto" class="video-mobile" style="width: 100%; height: auto; object-fit: cover; display: block;">
-          <source src="https://cdn.shopify.com/videos/c/o/v/194fac52cc02416385cf4e28c19274a3.mp4" type="video/mp4">
-          O teu browser não suporta vídeo HTML5.
-        </video>
-        <div class="feature-text">
-          <h3>{{ 'sleeve_features.feature_1.title' | t }}</h3>
-          <p>{{ 'sleeve_features.feature_1.text' | t }}</p>
+      {%- for block in section.blocks -%}
+        <div class="feature-block" {{ block.shopify_attributes }}>
+          {%- case block.settings.media_type -%}
+            {%- when 'video' -%}
+              {%- if block.settings.video -%}
+                {{ block.settings.video | video_tag: autoplay: true, loop: true, muted: true, controls: false, playsinline: true, preload: 'auto', class: 'video-mobile' }}
+              {%- endif -%}
+            {%- when 'image' -%}
+              {%- if block.settings.image -%}
+                <picture>
+                  {%- if block.settings.image_mobile -%}
+                    <source media="(max-width: 768px)" srcset="{{ block.settings.image_mobile | image_url: width: 600 }}">
+                  {%- endif -%}
+                  <img
+                    src="{{ block.settings.image | image_url: width: 800 }}"
+                    alt="{{ block.settings.alt | escape }}"
+                    width="{{ block.settings.image.width }}"
+                    height="{{ block.settings.image.height }}"
+                    loading="lazy"
+                  >
+                </picture>
+              {%- endif -%}
+          {%- endcase -%}
+          <div class="feature-text">
+            <h3>{{ block.settings.heading }}</h3>
+            <p>{{ block.settings.text }}</p>
+          </div>
         </div>
-      </div>
-
-      <!-- Bloco 2 -->
-      <div class="feature-block">
-        <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/4_abe205f5-ff50-4f44-a293-9f7fbebdba1f.png?v=1763329311" alt="{{ 'sleeve_features.feature_2.alt' | t }}" />
-        <div class="feature-text">
-          <h3>{{ 'sleeve_features.feature_2.title' | t }}</h3>
-          <p>{{ 'sleeve_features.feature_2.text' | t }}</p>
-        </div>
-      </div>
-
-      <!-- Bloco 3 -->
-      <div class="feature-block">
-        <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/2_b8cd63b8-4445-42df-baf7-32f501db2856.png?v=1763329311" alt="{{ 'sleeve_features.feature_3.alt' | t }}" />
-        <div class="feature-text">
-          <h3>{{ 'sleeve_features.feature_3.title' | t }}</h3>
-          <p>{{ 'sleeve_features.feature_3.text' | t }}</p>
-        </div>
-      </div>
-
+      {%- endfor -%}
     </div>
   </div>
 </section>
@@ -53,6 +51,10 @@
   font-family: 'Poppins Medium', sans-serif;
   display: flex;
   justify-content: center;
+}
+
+.feature-block picture {
+  display: contents;
 }
 
 .features-grid {
@@ -127,7 +129,7 @@
     border-radius: 15px;
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: stretch;
     background: #fff;
     padding: 0;
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
@@ -145,7 +147,7 @@
     font-family: 'Anton', sans-serif !important;
     color: #000 !important;
     margin-bottom: 5px !important; /* Ajustando a distância do título */
-    padding: 0 !important; /* Remover qualquer padding extra */
+    padding: 0 20px 0 0 !important; /* Mesmo padding à direita do texto */
     text-align: left !important; /* Garantir alinhamento à esquerda */
   }
 
@@ -173,8 +175,10 @@
   /* Limitar a largura do vídeo e da imagem */
 /* Limitar a largura do vídeo e da imagem */
 .feature-block .video-mobile {
-  max-width: 136px !important;  /* Largura máxima de 136px para o vídeo no mobile */
+  width: 136px !important;      /* Largura fixa de 136px para o vídeo no mobile */
   height: auto !important;
+  aspect-ratio: auto !important;
+  align-self: stretch !important;
   object-fit: cover !important;
   border-top-left-radius: 15px !important;  /* Arredonda apenas o lado superior esquerdo */
   border-bottom-left-radius: 15px !important;  /* Arredonda apenas o lado inferior esquerdo */
@@ -184,8 +188,10 @@
 
 /* Ajuste para as imagens no mobile */
 .feature-block img {
-  max-width: 136px !important;   /* Largura máxima de 136px para a imagem no mobile */
+  width: 136px !important;      /* Largura fixa de 136px para a imagem no mobile */
   height: auto !important;
+  aspect-ratio: auto !important;
+  align-self: stretch !important;
   object-fit: cover !important;
   border-top-left-radius: 15px !important;  /* Arredonda apenas o lado superior esquerdo */
   border-bottom-left-radius: 15px !important;  /* Arredonda apenas o lado inferior esquerdo */
@@ -199,3 +205,96 @@
   }
 }
 </style>
+
+{% schema %}
+{
+  "name": "1of1 Sleeve Highlights",
+  "tag": "section",
+  "class": "section-1of1-sleeve-shinpads",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Bloco",
+      "settings": [
+        {
+          "type": "select",
+          "id": "media_type",
+          "label": "Tipo de média",
+          "options": [
+            { "value": "video", "label": "Vídeo" },
+            { "value": "image", "label": "Imagem" }
+          ],
+          "default": "image"
+        },
+        {
+          "type": "video",
+          "id": "video",
+          "label": "Vídeo (apenas se tipo = Vídeo)"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Imagem (apenas se tipo = Imagem)"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_mobile",
+          "label": "Imagem mobile (opcional)",
+          "info": "Se não escolheres nenhuma, o telemóvel mostra a imagem de desktop acima."
+        },
+        {
+          "type": "text",
+          "id": "alt",
+          "label": "Texto alternativo da imagem"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Título",
+          "default": "TÍTULO"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Texto",
+          "default": "Descrição do bloco."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "1of1 Sleeve Highlights",
+      "blocks": [
+        {
+          "type": "feature",
+          "settings": {
+            "media_type": "video",
+            "heading": "TECNOLOGIA TTP",
+            "text": "A Tecnologia TTP usa almofadas de alto desempenho que absorvem o impacto e distribuem a força pela caneleira, mantendo a tua perna protegida."
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "media_type": "image",
+            "alt": "Ícone de Leveza",
+            "heading": "FEITAS PARA PROFISSIONAIS",
+            "text": "Desenhadas para alta performance, estas caneleiras oferecem leveza sem sacrificar a resistência ao impacto, colocando-te em vantagem sobre o adversário."
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "media_type": "image",
+            "alt": "Ícone de Segurança",
+            "heading": "ADERÊNCIA ANTI-DESLIZE",
+            "text": "Equipadas com uma fita anti-deslizante, as Caneleiras 1OF1 permanecem no lugar durante todo o jogo, mantendo-te focado no jogo até ao apito final."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

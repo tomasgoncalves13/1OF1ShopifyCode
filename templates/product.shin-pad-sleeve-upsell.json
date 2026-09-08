@@ -91,6 +91,37 @@
     },
     "1of1_sleeve_highlight": {
       "type": "1of1-sleeve-shinpads",
+      "blocks": {
+        "feature-1": {
+          "type": "feature",
+          "settings": {
+            "media_type": "video",
+            "heading": "TECNOLOGIA TTP",
+            "text": "A Tecnologia TTP usa almofadas de alto desempenho que absorvem o impacto e distribuem a força pela caneleira, mantendo a tua perna protegida."
+          }
+        },
+        "feature-2": {
+          "type": "feature",
+          "settings": {
+            "media_type": "image",
+            "image": "shopify://shop_images/4_abe205f5-ff50-4f44-a293-9f7fbebdba1f.png",
+            "alt": "Ícone de Leveza",
+            "heading": "FEITAS PARA PROFISSIONAIS",
+            "text": "Desenhadas para alta performance, estas caneleiras oferecem leveza sem sacrificar a resistência ao impacto, colocando-te em vantagem sobre o adversário."
+          }
+        },
+        "feature-3": {
+          "type": "feature",
+          "settings": {
+            "media_type": "image",
+            "image": "shopify://shop_images/2_b8cd63b8-4445-42df-baf7-32f501db2856.png",
+            "alt": "Ícone de Segurança",
+            "heading": "ADERÊNCIA ANTI-DESLIZE",
+            "text": "Equipadas com uma fita anti-deslizante, as Caneleiras 1OF1 permanecem no lugar durante todo o jogo, mantendo-te focado no jogo até ao apito final."
+          }
+        }
+      },
+      "block_order": ["feature-1", "feature-2", "feature-3"],
       "settings": {}
     },
     "sleeve_reviews_carousel": {
