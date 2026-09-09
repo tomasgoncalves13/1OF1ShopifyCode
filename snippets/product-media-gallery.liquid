@@ -118,10 +118,15 @@
         {% endif %}
 
         {%- unless media.id == product.selected_or_first_available_variant.featured_media.id -%}
+          {%- assign is_first_active_media = false -%}
+          {%- if product.selected_or_first_available_variant.featured_media == nil and forloop.index == 1 -%}
+            {%- assign is_first_active_media = true -%}
+          {%- endif -%}
           <li
             id="Slide-{{ section.id }}-{{ media.id }}"
-            class="product__media-item grid__item slider__slide{% if single_media_visible %} product__media-item--single{% endif %}{% if product.selected_or_first_available_variant.featured_media == nil and forloop.index == 1 %} is-active{% endif %}{% if media.media_type != 'image' %} product__media-item--full{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
+            class="product__media-item grid__item slider__slide{% if single_media_visible %} product__media-item--single{% endif %}{% if is_first_active_media %} is-active{% endif %}{% if media.media_type != 'image' %} product__media-item--full{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
             data-media-id="{{ section.id }}-{{ media.id }}"
+            {% if is_first_active_media %}style="position: relative;"{% endif %}
           >
             {%- liquid
               assign media_position = media_position | default: 0 | plus: 1
@@ -144,6 +149,26 @@
               constrain_to_viewport: section.settings.constrain_to_viewport,
               lazy_load: lazy_load
             %}
+
+            {%- if is_first_active_media -%}
+              <!-- BADGES SOBREPOSTAS -->
+              <div class="dzpb-overlay" style="position: absolute; top: 0; left: 0; z-index: 10; display: flex; flex-direction: column; gap: 0.5rem; padding: 1.7rem 2rem;">
+                <div class="dzpb dzpb--disc">
+                  <span class="dzpb__inner">
+                    <span class="dzpb__text">Meias GRIP Grátis</span>
+                  </span>
+                </div>
+
+                {%- if product.handle == 'kids-built-in-shin-pads' or product.handle == 'shin-pad-sleeve' -%}
+                <div class="dzpb">
+                  <span class="dzpb__inner dzpb__inner--grey">
+                    <span class="dzpb__text">50% DESCONTO</span>
+                  </span>
+                </div>
+                {%- endif -%}
+
+              </div>
+            {%- endif -%}
           </li>
         {%- endunless -%}
       {%- endfor -%}
