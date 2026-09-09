@@ -59,7 +59,7 @@
   }
 
   .oneofone-tu--{{ uid }} .oneofone-tu__inner {
-    max-width: 860px;
+    max-width: 1000px;
     margin: 0 auto;
     display: flex;
     align-items: stretch;
@@ -234,13 +234,25 @@
     .oneofone-tu--{{ uid }} .oneofone-tu__section-title {
       font-size: 32px !important;
       margin: 0 0 10px !important;
-      text-align: left !important;
+      text-align: center !important;
     }
     .oneofone-tu--{{ uid }} .oneofone-tu__text-col {
       padding: 36px 32px;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 22px;
+      text-align: center;
+    }
+    .oneofone-tu--{{ uid }} .oneofone-tu__copy {
+      flex: none;
+      align-items: center;
     }
     .oneofone-tu--{{ uid }} .oneofone-tu__overline {
       font-size: 18px;
+    }
+    .oneofone-tu--{{ uid }} .oneofone-tu__cta {
+      justify-content: center !important;
     }
     .oneofone-tu--{{ uid }} .oneofone-tu__btn {
       font-size: 17px;
