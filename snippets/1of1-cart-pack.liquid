@@ -1,0 +1,144 @@
+{%- comment -%}
+  Bloco das meias no carrinho lateral: junta todas as linhas pagas das meias
+  (sock_handles, sem a meia oferta) numa só linha "Nx Meias ...", com + / − e remover.
+  Recebe: sock_handles ('|handle|handle|')
+{%- endcomment -%}
+{%- liquid
+  assign first = null
+  assign last = null
+  assign mixed = false
+  assign pack_qty = 0
+  assign pack_final = 0
+  assign pack_original = 0
+  assign pack_keys = ''
+  for it in cart.items
+    assign it_handle = '|' | append: it.product.handle | append: '|'
+    if sock_handles contains it_handle and it.properties['_1of1_gift'] == blank
+      if first == null
+        assign first = it
+      elsif it.product.title != first.product.title
+        assign mixed = true
+      endif
+      assign last = it
+      assign pack_qty = pack_qty | plus: it.quantity
+      assign pack_final = pack_final | plus: it.final_line_price
+      assign pack_original = pack_original | plus: it.original_line_price
+      if pack_keys != ''
+        assign pack_keys = pack_keys | append: ','
+      endif
+      assign pack_keys = pack_keys | append: it.key
+    endif
+  endfor
+
+  assign pack_title = first.product.title
+  if mixed
+    assign pack_title = 'Meias Antiderrapantes'
+  endif
+-%}
+<tr class="cart-item oneofone-pack" role="row">
+  <td class="cart-item__media" role="cell" headers="CartDrawer-ColumnProductImage">
+    {%- if first.image -%}
+      <a href="{{ first.url }}" class="cart-item__link" tabindex="-1" aria-hidden="true"> </a>
+      <img
+        class="cart-item__image"
+        src="{{ first.image | image_url: width: 300 }}"
+        alt="{{ first.image.alt | escape }}"
+        loading="lazy"
+        width="150"
+        height="{{ 150 | divided_by: first.image.aspect_ratio | ceil }}"
+      >
+    {%- endif -%}
+  </td>
+
+  <td class="cart-item__details" role="cell" headers="CartDrawer-ColumnProduct">
+    <a href="{{ first.url }}" class="cart-item__name h4 break">
+      {%- comment %} "Nx" só nos packs (4+ pares) {% endcomment -%}
+      {%- if pack_qty >= 4 %}{{ pack_qty }}x {% endif -%}
+      {{- pack_title | escape -}}
+    </a>
+    <ul class="oneofone-pack__list">
+      {%- assign done = '|' -%}
+      {%- for it in cart.items -%}
+        {%- assign it_handle = '|' | append: it.product.handle | append: '|' -%}
+        {%- if sock_handles contains it_handle and it.properties['_1of1_gift'] == blank -%}
+          {%- assign vid = '|' | append: it.variant.id | append: '|' -%}
+          {%- unless done contains vid -%}
+            {%- assign done = done | append: it.variant.id | append: '|' -%}
+            {%- assign v_qty = 0 -%}
+            {%- for other in cart.items -%}
+              {%- if other.variant.id == it.variant.id and other.properties['_1of1_gift'] == blank -%}
+                {%- assign v_qty = v_qty | plus: other.quantity -%}
+              {%- endif -%}
+            {%- endfor -%}
+            <li>
+              {{- v_qty }}× {% if mixed %}{{ it.product.title }} – {% endif %}{{ it.variant.title -}}
+            </li>
+          {%- endunless -%}
+        {%- endif -%}
+      {%- endfor -%}
+    </ul>
+  </td>
+
+  <td class="cart-item__totals right" role="cell" headers="CartDrawer-ColumnTotal">
+    <div class="cart-item__price-wrapper">
+      {%- if pack_original > pack_final -%}
+        <div class="cart-item__discounted-prices">
+          <s class="cart-item__old-price price price--end">{{ pack_original | money }}</s>
+          <span class="price price--end">{{ pack_final | money }}</span>
+        </div>
+      {%- else -%}
+        <span class="price price--end">{{ pack_final | money }}</span>
+      {%- endif -%}
+    </div>
+  </td>
+
+  <td class="cart-item__quantity" role="cell" headers="CartDrawer-ColumnQuantity">
+    <quantity-popover>
+    <div class="cart-item__quantity-wrapper quantity-popover-wrapper">
+      <div class="quantity-popover-container">
+        <div class="quantity cart-quantity">
+          <button
+            class="quantity__button"
+            type="button"
+            aria-label="Remover um par"
+            data-oob-pack-minus="{{ last.key }}"
+            data-oob-pack-minus-qty="{{ last.quantity }}"
+          >
+            <span class="svg-wrapper">{{- 'icon-minus.svg' | inline_asset_content -}}</span>
+          </button>
+          <input class="quantity__input" type="number" value="{{ pack_qty }}" readonly tabindex="-1" aria-label="Quantidade">
+          <button
+            class="quantity__button"
+            type="button"
+            aria-label="Adicionar um par"
+            data-oob-pack-add="{{ first.variant.id }}"
+          >
+            <span class="svg-wrapper">{{- 'icon-plus.svg' | inline_asset_content -}}</span>
+          </button>
+        </div>
+      </div>
+      <button
+        type="button"
+        class="button button--tertiary cart-remove-button"
+        aria-label="Remover {{ pack_qty }}x {{ pack_title | escape }}"
+        data-oob-pack-remove="{{ pack_keys }}"
+      >
+        <span class="svg-wrapper">
+          {{- 'icon-remove.svg' | inline_asset_content -}}
+        </span>
+      </button>
+    </div>
+    </quantity-popover>
+  </td>
+</tr>
+
+<style>
+  .oneofone-pack__list {
+    list-style: none;
+    margin: 6px 0 0;
+    padding: 0;
+    font-size: 13px;
+    line-height: 1.5;
+    color: #555;
+  }
+</style>

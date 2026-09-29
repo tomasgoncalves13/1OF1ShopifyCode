@@ -527,7 +527,49 @@ cart-drawer .discounts__discount svg path {
                 <table class="cart-items" role="table">
 
                   <tbody role="rowgroup">
+                    {%- comment -%}
+                      Meias: com 4+ pares pagos (sem a meia oferta) mostram-se todas num só bloco; abaixo disso só se juntam as linhas da mesma variante
+                    {%- endcomment -%}
+                    {%- liquid
+                      assign sock_handles = '|grip-socks|pro-grip-socks|kids-pro-grip-socks|'
+                      assign sock_qty = 0
+                      for it in cart.items
+                        assign it_handle = '|' | append: it.product.handle | append: '|'
+                        if sock_handles contains it_handle and it.properties['_1of1_gift'] == blank
+                          assign sock_qty = sock_qty | plus: it.quantity
+                        endif
+                      endfor
+                      assign sock_pack_rendered = false
+                      assign merged_seen = '|'
+                    -%}
                     {%- for item in cart.items -%}
+                      {%- if sock_qty >= 4 and item.properties['_1of1_gift'] == blank -%}
+                        {%- assign item_handle = '|' | append: item.product.handle | append: '|' -%}
+                        {%- if sock_handles contains item_handle -%}
+                          {%- unless sock_pack_rendered -%}
+                            {%- render '1of1-cart-pack', sock_handles: sock_handles -%}
+                            {%- assign sock_pack_rendered = true -%}
+                          {%- endunless -%}
+                          {%- continue -%}
+                        {%- endif -%}
+                      {%- endif -%}
+                      {%- comment -%} Mesma variante partida em várias linhas pelo Shopify: mostrar como uma só {%- endcomment -%}
+                      {%- if item.properties['_1of1_gift'] == blank -%}
+                        {%- assign same_lines = 0 -%}
+                        {%- for it in cart.items -%}
+                          {%- if it.variant.id == item.variant.id and it.properties['_1of1_gift'] == blank -%}
+                            {%- assign same_lines = same_lines | plus: 1 -%}
+                          {%- endif -%}
+                        {%- endfor -%}
+                        {%- if same_lines > 1 -%}
+                          {%- assign merged_marker = '|' | append: item.variant.id | append: '|' -%}
+                          {%- unless merged_seen contains merged_marker -%}
+                            {%- assign merged_seen = merged_seen | append: item.variant.id | append: '|' -%}
+                            {%- render '1of1-cart-merged-line', variant_id: item.variant.id -%}
+                          {%- endunless -%}
+                          {%- continue -%}
+                        {%- endif -%}
+                      {%- endif -%}
                       <tr id="CartDrawer-Item-{{ item.index | plus: 1 }}" class="cart-item" role="row">
                         <td class="cart-item__media" role="cell" headers="CartDrawer-ColumnProductImage">
                           {% if item.image %}
@@ -642,7 +684,7 @@ cart-drawer .discounts__discount svg path {
   <div class="badge-carrinho badge-carrinho--gratis" style="{% if cart.item_count > 1 %}margin-top:6px !important;{% else %}margin-top:0 !important;{% endif %}">
     <span class="badge-carrinho__shine" data-text="GRÁTIS">GRÁTIS</span>
   </div>
-{% elsif compare_price and compare_price > price %}
+{% elsif compare_price and compare_price > price and item.product.handle == 'shin-pad-sleeve' or compare_price and compare_price > price and item.product.handle == 'kids-built-in-shin-pads' %}
   {% assign discount = compare_price | minus: price | times: 100 | divided_by: compare_price | round %}
   <div class="badge-carrinho" style="{% if cart.item_count > 1 %}margin-top:6px !important;{% else %}margin-top:0 !important;{% endif %}">
     50% DESCONTO
@@ -716,6 +758,25 @@ cart-drawer .discounts__discount svg path {
                         >
                           <quantity-popover>
                             <div class="cart-item__quantity-wrapper quantity-popover-wrapper">
+                              {%- if item.properties['_1of1_gift'] != blank -%}
+                              <div class="gift-size-picker">
+                                <select
+                                  id="GiftSize-{{ item.index | plus: 1 }}"
+                                  class="gift-size-picker__select"
+                                  aria-label="Tamanho"
+                                  data-gift-size-picker
+                                  data-current-variant="{{ item.variant.id }}"
+                                >
+                                  {%- for v in item.product.variants -%}
+                                    {%- if v.option1 == item.variant.option1 and v.available or v.id == item.variant.id -%}
+                                      <option value="{{ v.id }}"{% if v.id == item.variant.id %} selected{% endif %}>
+                                        {{- v.option1 }} {{ v.option2 -}}
+                                      </option>
+                                    {%- endif -%}
+                                  {%- endfor -%}
+                                </select>
+                              </div>
+                              {%- else -%}
                               <div class="quantity-popover-container{% if has_qty_rules or has_vol_pricing %} quantity-popover-container--hover{% endif %}">
                                 <quantity-input class="quantity cart-quantity">
                                   <button class="quantity__button" name="minus" type="button">
@@ -763,6 +824,7 @@ cart-drawer .discounts__discount svg path {
                                   </button>
                                 </quantity-input>
                               </div>
+                              {%- endif -%}
                               <cart-remove-button
                                 id="CartDrawer-Remove-{{ item.index | plus: 1 }}"
                                 data-index="{{ item.index | plus: 1 }}"
@@ -1554,7 +1616,222 @@ cart-drawer.active .drawer__inner {
   }
 }
 
+/* Seletor de tamanho da meia oferta */
+.cart-drawer .gift-size-picker {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.cart-drawer .gift-size-picker__select {
+  font-family: 'PoppinsMedium', sans-serif !important;
+  font-size: 13px;
+  padding: 7px 28px 7px 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23111' fill='none' stroke-width='1.5'/%3E%3C/svg%3E") no-repeat right 10px center;
+  -webkit-appearance: none;
+  appearance: none;
+  color: #111;
+  cursor: pointer;
+}
+.cart-drawer .gift-size-picker__select:disabled {
+  opacity: 0.5;
+  cursor: wait;
+}
+
 </style>
+
+<script>
+(function () {
+  if (window.__giftSizePickerReady) return;
+  window.__giftSizePickerReady = true;
+
+  // Meia oferta: adicionada quando o carrinho (sem a meia) chega aos 20 €.
+  // O preço 0 € vem do desconto automático "Compre X, ganhe Y" do Shopify.
+  const GIFT_VARIANTS = [55341001965902, 59226837025102]; // Branco / EU 40-48, Branco / EU 36-40
+  const GIFT_DEFAULT = 55341001965902;
+  const GIFT_MIN = 2000; // cêntimos
+  const GIFT_PROPS = { _1of1_gift: '1' };
+
+  const root = (window.Shopify && window.Shopify.routes && window.Shopify.routes.root) || '/';
+  const nativeFetch = window.fetch.bind(window);
+
+  const post = (url, body) =>
+    nativeFetch(root + url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify(body),
+    }).then((r) => {
+      if (!r.ok) throw new Error(url + ' ' + r.status);
+      return r.json();
+    });
+  const getCart = () => nativeFetch(root + 'cart.js').then((r) => r.json());
+  const isGift = (i) => i.properties && i.properties._1of1_gift;
+
+  function render() {
+    if (window.location.pathname.indexOf('/cart') !== -1 && !document.querySelector('cart-drawer.active')) {
+      window.location.reload();
+      return;
+    }
+    return nativeFetch(root + '?sections=cart-drawer,cart-icon-bubble')
+      .then((r) => r.json())
+      .then((sections) => {
+        const drawer = document.querySelector('cart-drawer');
+        const inner = document.getElementById('CartDrawer');
+        if (drawer && inner && sections['cart-drawer']) {
+          const html = new DOMParser().parseFromString(sections['cart-drawer'], 'text/html').querySelector('#CartDrawer');
+          if (html) inner.innerHTML = html.innerHTML;
+          const overlay = drawer.querySelector('#CartDrawer-Overlay');
+          if (overlay) overlay.addEventListener('click', drawer.close.bind(drawer));
+          drawer.classList.toggle('is-empty', !drawer.querySelector('.cart-item'));
+        }
+        const bubble = document.getElementById('cart-icon-bubble');
+        if (bubble && sections['cart-icon-bubble']) {
+          const b = new DOMParser().parseFromString(sections['cart-icon-bubble'], 'text/html').querySelector('.shopify-section');
+          if (b) bubble.innerHTML = b.innerHTML;
+        }
+      });
+  }
+
+  let busy = false;
+  let again = false;
+  async function syncGift() {
+    if (busy) { again = true; return; }
+    busy = true;
+    try {
+      const cart = await getCart();
+      const gifts = cart.items.filter(isGift);
+      const total = cart.items.filter((i) => !isGift(i)).reduce((s, i) => s + i.final_line_price, 0);
+      // Assinatura do carrinho (sem a meia): o bloqueio só vale enquanto o carrinho não mudar
+      const sig = cart.items.filter((i) => !isGift(i)).map((i) => i.variant_id + 'x' + i.quantity).sort().join(',');
+      let changed = false;
+
+      if (total >= GIFT_MIN && gifts.some((g) => g.final_price > 0)) {
+        console.warn('[1of1-gift] desconto não aplicado à meia oferta');
+        const updates = {};
+        gifts.forEach((g) => { updates[g.key] = 0; });
+        await post('cart/update.js', { updates: updates });
+        try { sessionStorage.setItem('1of1-gift-blocked', sig); } catch (e) {}
+        changed = true;
+      } else if (total >= GIFT_MIN) {
+        if (gifts.length === 0) {
+          let blocked = false;
+          try { blocked = sessionStorage.getItem('1of1-gift-blocked') === sig; } catch (e) {}
+          if (!blocked) {
+            await post('cart/add.js', { items: [{ id: GIFT_DEFAULT, quantity: 1, properties: GIFT_PROPS }] });
+            changed = true;
+            // Se o desconto do Shopify não pôs a meia a 0 €, tirar e não voltar a tentar enquanto o carrinho não mudar
+            const added = (await getCart()).items.find(isGift);
+            if (added && added.final_price > 0) {
+              console.warn('[1of1-gift] desconto não aplicado à meia oferta');
+              await post('cart/change.js', { id: added.key, quantity: 0 });
+              try { sessionStorage.setItem('1of1-gift-blocked', sig); } catch (e) {}
+            }
+          }
+        } else if (gifts.length > 1 || gifts[0].quantity > 1) {
+          const updates = {};
+          gifts.forEach((g, n) => { updates[g.key] = n === 0 ? 1 : 0; });
+          await post('cart/update.js', { updates: updates });
+          changed = true;
+        }
+      } else if (gifts.length) {
+        const updates = {};
+        gifts.forEach((g) => { updates[g.key] = 0; });
+        await post('cart/update.js', { updates: updates });
+        changed = true;
+      }
+
+      if (changed) await render();
+    } catch (err) {
+      console.error('[1of1-gift]', err);
+    } finally {
+      busy = false;
+      if (again) { again = false; syncGift(); }
+    }
+  }
+
+  // Sempre que o tema (ou outra secção) mexe no carrinho, voltar a verificar a meia
+  let timer = null;
+  const schedule = () => { clearTimeout(timer); timer = setTimeout(syncGift, 400); };
+  window.fetch = function (input, init) {
+    const url = typeof input === 'string' ? input : (input && input.url) || '';
+    const p = nativeFetch(input, init);
+    if (/\/cart\/(add|change|update|clear)/.test(url)) p.then(schedule, schedule);
+    return p;
+  };
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', schedule);
+  else schedule();
+
+  // Bloco das meias (1of1-cart-pack) e linhas juntas (1of1-cart-merged-line): + / − um, ou remover todas
+  document.addEventListener('click', function (e) {
+    const btn = e.target.closest && e.target.closest('[data-oob-pack-remove], [data-oob-pack-add], [data-oob-pack-minus]');
+    if (!btn) return;
+    e.preventDefault();
+    e.stopPropagation();
+    btn.closest('tr').querySelectorAll('button').forEach((b) => { b.disabled = true; });
+
+    let url, body;
+    if (btn.dataset.oobPackAdd) {
+      url = 'cart/add.js';
+      body = { items: [{ id: Number(btn.dataset.oobPackAdd), quantity: 1 }] };
+    } else if (btn.dataset.oobPackMinus) {
+      url = 'cart/change.js';
+      body = { id: btn.dataset.oobPackMinus, quantity: Number(btn.dataset.oobPackMinusQty) - 1 };
+    } else {
+      url = 'cart/update.js';
+      body = { updates: {} };
+      btn.dataset.oobPackRemove.split(',').forEach((key) => { body.updates[key] = 0; });
+    }
+
+    window.fetch(root + url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify(body),
+    })
+      .then(render)
+      .catch((err) => {
+        console.error('[1of1-pack]', err);
+        window.location.reload();
+      });
+  }, true);
+
+  // Troca de tamanho da meia oferta
+  // Em fase de captura + stopPropagation: senão o <cart-drawer-items> do Dawn trata isto
+  // como mudança de quantidade e faz /cart/change sem "line" ("O parâmetro line é inválido")
+  document.addEventListener('change', function (e) {
+    const select = e.target.closest && e.target.closest('[data-gift-size-picker]');
+    if (!select) return;
+    e.stopPropagation();
+    const currentId = Number(select.dataset.currentVariant);
+    const newId = Number(select.value);
+    if (GIFT_VARIANTS.indexOf(newId) === -1) return;
+    select.disabled = true;
+    busy = true;
+
+    (async function () {
+      const cart = await getCart();
+      const line = cart.items.find((i) => isGift(i) && i.variant_id === currentId);
+      if (line) await post('cart/change.js', { id: line.key, quantity: 0 });
+      await post('cart/add.js', { items: [{ id: newId, quantity: 1, properties: GIFT_PROPS }] });
+      // Se o novo tamanho não ficou grátis, voltar ao tamanho anterior
+      const added = (await getCart()).items.find((i) => isGift(i) && i.variant_id === newId);
+      if (added && added.final_price > 0) {
+        console.warn('[1of1-gift] desconto não aplicado à variante', newId);
+        await post('cart/change.js', { id: added.key, quantity: 0 });
+        await post('cart/add.js', { items: [{ id: currentId, quantity: 1, properties: GIFT_PROPS }] });
+      }
+      await render();
+    })()
+      .catch((err) => {
+        console.error('[1of1-gift]', err);
+        window.location.reload();
+      })
+      .finally(() => {
+        busy = false;
+      });
+  }, true);
+})();
+</script>
 
 <script>
 (function () {

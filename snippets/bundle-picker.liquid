@@ -1,86 +1,83 @@
-{% assign sock_img = product.images[0] | img_url: '60x60', crop: 'center' %}
+{% assign sock_img = product.featured_image | image_url: width: 80, height: 80, crop: 'center' %}
 
 <div class="oob-bundle" id="oob-bundle">
-  <div class="oob-bundle-title">Escolhe o teu Pack</div>
 
-  <!-- 3 PACK -->
-  <div class="oob-bp" data-qty="3">
+  <!-- 6 PARES -->
+  <div class="oob-bp oob-bp--strong" data-qty="6">
+    <div class="oob-bp-badge">Melhor Preço</div>
     <div class="oob-bp-top">
       <div class="oob-bp-left">
         <span class="oob-bp-bullet"></span>
         <div>
-          <span class="oob-bp-name">3 PACK</span>
-          <span class="oob-bp-sub">PACK INICIANTE</span>
+          <span class="oob-bp-name">6 PARES</span>
+          <span class="oob-bp-sub">Ideal para treinar 4+ vezes por semana</span>
         </div>
       </div>
       <div class="oob-bp-right">
         <div class="oob-bp-prices">
-          <s class="oob-bp-old">€30,00</s>
-          <span class="oob-bp-new">€24,00</span>
+          <span class="oob-bp-new">€8</span>
         </div>
-        <span class="oob-bp-per">€6,00 / par</span>
       </div>
     </div>
     <div class="oob-bp-slots"></div>
-    <div class="oob-bp-gift">
+    <div class="oob-bp-gift oob-bp-gift--combined">
+      <span class="oob-bp-gift-label">Envio <span class="oob-bp-gift-gratis">Grátis</span> + 1 Par <span class="oob-bp-gift-gratis">Grátis</span></span>
+      <s class="oob-bp-gift-price">€19,95</s>
+    </div>
+    <div class="oob-bp-gift oob-bp-gift--top">
       <img src="{{ sock_img }}" alt="" class="oob-bp-gift-img">
-      <span class="oob-bp-gift-label">+1 Par <span class="oob-bp-gift-gratis">GRÁTIS</span></span>
-      <s class="oob-bp-gift-price">€15,00</s>
+      <span class="oob-bp-gift-label">+1 Par Meias <span class="oob-bp-gift-gratis">Grátis</span></span>
+      <s class="oob-bp-gift-price">€14,95</s>
+    </div>
+    <div class="oob-bp-gift oob-bp-gift--bottom">
+      <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/truck-xxl.png?v=1788266470" alt="" class="oob-bp-gift-img oob-bp-gift-img--truck">
+      <span class="oob-bp-gift-label">Envio <span class="oob-bp-gift-gratis">Grátis</span></span>
+      <s class="oob-bp-gift-price">€4,95</s>
     </div>
   </div>
 
-  <!-- 6 PACK -->
-  <div class="oob-bp oob-bp--strong" data-qty="6">
+  <!-- 4 PARES -->
+  <div class="oob-bp" data-qty="4">
     <div class="oob-bp-badge">Mais Popular</div>
     <div class="oob-bp-top">
       <div class="oob-bp-left">
         <span class="oob-bp-bullet"></span>
         <div>
-          <span class="oob-bp-name">6 PACK</span>
-          <span class="oob-bp-sub">PACK TREINO SEMANAL</span>
+          <span class="oob-bp-name">4 PARES</span>
+          <span class="oob-bp-sub">Ideal para treinar 2-3 vezes por semana</span>
         </div>
       </div>
       <div class="oob-bp-right">
         <div class="oob-bp-prices">
-          <s class="oob-bp-old">€60,00</s>
-          <span class="oob-bp-new">€40,00</span>
+          <span class="oob-bp-new">€9</span>
         </div>
-        <span class="oob-bp-per">€5,71 / par</span>
       </div>
     </div>
     <div class="oob-bp-slots"></div>
     <div class="oob-bp-gift">
       <img src="{{ sock_img }}" alt="" class="oob-bp-gift-img">
-      <span class="oob-bp-gift-label">+1 Par <span class="oob-bp-gift-gratis">GRÁTIS</span></span>
-      <s class="oob-bp-gift-price">€15,00</s>
+      <span class="oob-bp-gift-label">+1 Par Meias <span class="oob-bp-gift-gratis">Grátis</span></span>
+      <s class="oob-bp-gift-price">€14,95</s>
     </div>
   </div>
 
-  <!-- 9 PACK -->
-  <div class="oob-bp" data-qty="9">
-    <div class="oob-bp-badge oob-bp-badge--gold">Melhor Preço</div>
+  <!-- 1 PAR -->
+  <div class="oob-bp" data-qty="1">
     <div class="oob-bp-top">
       <div class="oob-bp-left">
         <span class="oob-bp-bullet"></span>
         <div>
-          <span class="oob-bp-name">9 PACK</span>
-          <span class="oob-bp-sub">PACK ÉPOCA INTEIRA</span>
+          <span class="oob-bp-name">1 PAR</span>
+          <span class="oob-bp-sub">Perfeito para começar</span>
         </div>
       </div>
       <div class="oob-bp-right">
         <div class="oob-bp-prices">
-          <s class="oob-bp-old">€90,00</s>
-          <span class="oob-bp-new">€50,00</span>
+          <span class="oob-bp-new">€14,95</span>
         </div>
-        <span class="oob-bp-per">€5,00 / par</span>
       </div>
     </div>
     <div class="oob-bp-slots"></div>
-    <div class="oob-bp-gift">
-      <img src="{{ sock_img }}" alt="" class="oob-bp-gift-img">
-      <span class="oob-bp-gift-label">+1 Par <span class="oob-bp-gift-gratis">GRÁTIS</span></span>
-      <s class="oob-bp-gift-price">€15,00</s>
-    </div>
   </div>
 
   <button class="oob-bp-btn" id="oob-bp-btn">
@@ -91,6 +88,8 @@
 <script>
 (function () {
   var VARIANTS = {{ product.variants | json }};
+  var OPTIONS = {{ product.options_with_values | json }};
+  var FALLBACK_IMG = {{ product.featured_image | image_url: width: 80 | json }};
   var wrap = document.getElementById('oob-bundle');
   if (!wrap) return;
 
@@ -102,35 +101,151 @@
     return inp ? parseInt(inp.value) : null;
   }
 
+  // Opção 1 = Cor (com imagem), opção 2 = Tamanho
+  function findVariant(color, size) {
+    return VARIANTS.find(function (v) { return v.option1 === color && v.option2 === size; });
+  }
+
+  function colorImg(color) {
+    var v = VARIANTS.find(function (x) { return x.option1 === color && x.featured_image; });
+    return v ? v.featured_image.src + '&width=80' : FALLBACK_IMG;
+  }
+
+  function makeSelect(values, selected) {
+    var sel = document.createElement('select');
+    sel.className = 'oob-bp-select';
+    values.forEach(function (val) {
+      var opt = document.createElement('option');
+      opt.value = val;
+      opt.textContent = val;
+      if (val === selected) opt.selected = true;
+      sel.appendChild(opt);
+    });
+    return sel;
+  }
+
+  function syncRow(row) {
+    var color = row.querySelector('.oob-bp-select--color').value;
+    var sizeSel = row.querySelector('.oob-bp-select--size');
+    row.querySelector('.oob-bp-color-img').src = colorImg(color);
+    row.querySelector('.oob-bp-color-name').textContent = color;
+    row.querySelectorAll('.oob-bp-color-item').forEach(function (it) {
+      it.classList.toggle('is-selected', it.dataset.value === color);
+    });
+    Array.prototype.forEach.call(sizeSel.options, function (opt) {
+      var v = findVariant(color, opt.value);
+      opt.textContent = opt.value + (v && v.available ? '' : ' — Esgotado');
+    });
+    var variant = findVariant(color, sizeSel.value);
+    row.dataset.variantId = variant ? variant.id : '';
+  }
+
+  // Se o #1 muda e todas as linhas tinham o mesmo valor, as outras acompanham
+  function onSelectChange(row, cls) {
+    var sel = row.querySelector(cls);
+    var rows = Array.prototype.slice.call(row.parentNode.querySelectorAll('.oob-bp-row'));
+    if (rows[0] === row) {
+      var prev = sel.dataset.prev;
+      var allSame = rows.every(function (r) { return r === row || r.querySelector(cls).value === prev; });
+      if (allSame) {
+        rows.forEach(function (r) {
+          if (r === row) return;
+          var s = r.querySelector(cls);
+          s.value = sel.value;
+          s.dataset.prev = sel.value;
+          syncRow(r);
+        });
+      }
+    }
+    sel.dataset.prev = sel.value;
+    syncRow(row);
+  }
+
   function buildSlots(pack, qty) {
     var slots = pack.querySelector('.oob-bp-slots');
     slots.innerHTML = '';
     var defaultId = getDefaultId();
+    var def = VARIANTS.find(function (v) { return v.id === defaultId; }) || VARIANTS[0];
 
-    for (var i = 1; i <= qty; i++) {
-      var row = document.createElement('div');
-      row.className = 'oob-bp-row';
+    var label = document.createElement('div');
+    label.className = 'oob-bp-slots-label';
+    label.textContent = OPTIONS.map(function (o) { return o.name; }).join(', ');
+    slots.appendChild(label);
 
-      var num = document.createElement('span');
-      num.className = 'oob-bp-num';
-      num.textContent = i;
+    for (var i = 1; i <= qty; i++) buildRow(slots, i, def);
+  }
 
-      var sel = document.createElement('select');
-      sel.className = 'oob-bp-select';
+  // Cada linha na sua própria função, para os cliques ficarem ligados à linha certa
+  function buildRow(slots, i, def) {
+    var row = document.createElement('div');
+    row.className = 'oob-bp-row';
 
-      VARIANTS.forEach(function (v) {
-        var opt = document.createElement('option');
-        opt.value = v.id;
-        opt.textContent = v.title;
-        if (!v.available) opt.textContent += ' — Esgotado';
-        if (v.id === defaultId) opt.selected = true;
-        sel.appendChild(opt);
+    var num = document.createElement('span');
+    num.className = 'oob-bp-num';
+    num.textContent = '#' + i;
+
+    var colorWrap = document.createElement('div');
+    colorWrap.className = 'oob-bp-color';
+    var img = document.createElement('img');
+    img.className = 'oob-bp-color-img';
+    img.alt = '';
+    var colorSel = makeSelect(OPTIONS[0].values, def.option1);
+    colorSel.classList.add('oob-bp-select--color');
+    colorSel.hidden = true;
+
+    // Dropdown próprio para a cor (o <select> nativo não mostra imagens)
+    var colorBtn = document.createElement('button');
+    colorBtn.type = 'button';
+    colorBtn.className = 'oob-bp-select oob-bp-color-btn';
+    var colorName = document.createElement('span');
+    colorName.className = 'oob-bp-color-name';
+    colorBtn.appendChild(colorName);
+
+    var list = document.createElement('div');
+    list.className = 'oob-bp-color-list';
+    OPTIONS[0].values.forEach(function (val) {
+      var item = document.createElement('div');
+      item.className = 'oob-bp-color-item';
+      item.dataset.value = val;
+      var itImg = document.createElement('img');
+      itImg.src = colorImg(val);
+      itImg.alt = '';
+      var itName = document.createElement('span');
+      itName.textContent = val;
+      item.appendChild(itImg);
+      item.appendChild(itName);
+      item.addEventListener('click', function () {
+        colorSel.value = val;
+        colorSel.dispatchEvent(new Event('change'));
+        colorWrap.classList.remove('is-open');
       });
+      list.appendChild(item);
+    });
 
-      row.appendChild(num);
-      row.appendChild(sel);
-      slots.appendChild(row);
-    }
+    colorBtn.addEventListener('click', function () {
+      var open = colorWrap.classList.contains('is-open');
+      wrap.querySelectorAll('.oob-bp-color.is-open').forEach(function (c) { c.classList.remove('is-open'); });
+      if (!open) colorWrap.classList.add('is-open');
+    });
+
+    colorWrap.appendChild(colorBtn);
+    colorWrap.appendChild(img);
+    colorWrap.appendChild(colorSel);
+    colorWrap.appendChild(list);
+
+    var sizeSel = makeSelect(OPTIONS[1].values, def.option2);
+    sizeSel.classList.add('oob-bp-select--size');
+
+    row.appendChild(num);
+    row.appendChild(colorWrap);
+    row.appendChild(sizeSel);
+    slots.appendChild(row);
+
+    colorSel.dataset.prev = colorSel.value;
+    sizeSel.dataset.prev = sizeSel.value;
+    colorSel.addEventListener('change', onSelectChange.bind(null, row, '.oob-bp-select--color'));
+    sizeSel.addEventListener('change', onSelectChange.bind(null, row, '.oob-bp-select--size'));
+    syncRow(row);
   }
 
   wrap.querySelectorAll('.oob-bp').forEach(function (pack) {
@@ -180,10 +295,10 @@
   btn.addEventListener('click', async function () {
     if (!active) return;
 
-    var selects = active.querySelectorAll('.oob-bp-select');
+    var rows = active.querySelectorAll('.oob-bp-row');
     var itemMap = {};
-    selects.forEach(function (s) {
-      var id = parseInt(s.value);
+    rows.forEach(function (r) {
+      var id = parseInt(r.dataset.variantId);
       itemMap[id] = (itemMap[id] || 0) + 1;
     });
     var items = Object.keys(itemMap).map(function (id) {
@@ -215,40 +330,45 @@
     }
   });
 
-  // Auto-seleciona 6 PACK por defeito
-  var defaultPack = wrap.querySelector('[data-qty="6"] .oob-bp-top');
+  // Fecha o dropdown de cor ao clicar fora
+  document.addEventListener('click', function (e) {
+    if (e.target.closest('.oob-bp-color')) return;
+    wrap.querySelectorAll('.oob-bp-color.is-open').forEach(function (c) { c.classList.remove('is-open'); });
+  });
+
+  // Auto-seleciona 4 PARES por defeito
+  var defaultPack = wrap.querySelector('[data-qty="4"] .oob-bp-top');
   if (defaultPack) defaultPack.click();
 })();
 </script>
 
 <style>
+@font-face { font-family: 'PoppinsExtraBold'; src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/poppins.extrabold.ttf?v=1747688794') format('truetype'); }
+@font-face { font-family: 'PoppinsBold';      src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/poppins.bold.ttf?v=1747688795') format('truetype'); }
+@font-face { font-family: 'PoppinsSemiBold';  src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/poppins.semibold.ttf?v=1747688794') format('truetype'); }
+@font-face { font-family: 'PoppinsMedium';    src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/poppins.medium.ttf?v=1747688794') format('truetype'); }
+@font-face { font-family: 'PoppinsLight';     src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/poppins.light.ttf?v=1748130416') format('truetype'); }
+@font-face { font-family: 'MontserratExtraBold'; src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Montserrat-ExtraBold.ttf?v=1775402219') format('truetype'); font-display: swap; }
+@font-face { font-family: 'MontserratBold';      src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Montserrat-Bold.ttf?v=1775402219') format('truetype'); font-display: swap; }
+@font-face { font-family: 'MontserratSemiBold';  src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Montserrat-SemiBold.ttf?v=1775402091') format('truetype'); font-display: swap; }
+@font-face { font-family: 'MontserratMedium';    src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Montserrat-Medium.ttf?v=1775402219') format('truetype'); font-display: swap; }
+@font-face { font-family: 'Montserratregular';   src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Montserrat-Regular.ttf?v=1775402219') format('truetype'); font-display: swap; }
+
 .oob-bundle {
   margin: 24px 0;
   font-family: 'PoppinsMedium', sans-serif;
 }
 
-.oob-bundle-title {
-  font-family: 'PoppinsSemiBold', sans-serif;
-  font-size: 15px;
-  text-align: center;
-  color: #111;
-  padding: 10px 0;
-  border-top: 1px solid #e5e5e5;
-  border-bottom: 1px solid #e5e5e5;
-  margin-bottom: 12px;
-  letter-spacing: 0.02em;
-}
 
 /* Card */
 .oob-bp {
   border: 1.5px solid #e5e5e5;
   border-radius: 12px;
   padding: 14px;
-  margin-bottom: 10px;
+  margin-bottom: 16px;
   cursor: pointer;
   position: relative;
   background: #fff;
-  overflow: hidden;
   transition: border-color 0.18s, box-shadow 0.18s;
 }
 
@@ -258,24 +378,64 @@
 
 .oob-bp--active {
   border-color: #111;
+  box-shadow: 0 0 0 1.5px #111;
+  background: #F2F2F2;
 }
 
-/* Badge */
+/* Badge — etiqueta pequena no canto superior direito, a cavalo na borda */
 .oob-bp-badge {
-  background: linear-gradient(90deg, #fff304);
-  color: #111;
+  position: absolute;
+  top: -12px;
+  right: 20px;
+  background: #fff304;
+  color: #000;
   font-family: 'PoppinsSemiBold', sans-serif;
-  font-size: 11px;
+  font-size: 12px;
+  line-height: 1;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
-  padding: 5px 14px;
-  margin: -14px -14px 12px -14px;
-  display: block;
+  letter-spacing: 0.5px;
+  padding: 6px 8px;
+  border-radius: 0 0 8px 8px;
+  z-index: 1;
 }
 
-.oob-bp-badge--gold {
-  background: linear-gradient(90deg, #fff304, #ffd000);
-  color: #111;
+/* "Dobras" laterais da etiqueta, do topo até à borda do cartão */
+.oob-bp-badge::before,
+.oob-bp-badge::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 0;
+  height: 0;
+  /* acaba onde começa o contorno do cartão (borda 1.5px), para o contorno ficar por cima */
+  border-top: 10.5px solid transparent;
+}
+
+/* largura = altura → inclinação de 45° */
+.oob-bp-badge::before {
+  left: -10.5px;
+  border-right: 10.5px solid #c9bf00;
+}
+
+.oob-bp-badge::after {
+  right: -10.5px;
+  border-left: 10.5px solid #c9bf00;
+}
+
+/* selecionado: contorno mais grosso (borda + sombra 1.5px) */
+.oob-bp--active .oob-bp-badge::before,
+.oob-bp--active .oob-bp-badge::after {
+  border-top-width: 9px;
+}
+
+.oob-bp--active .oob-bp-badge::before {
+  left: -9px;
+  border-right-width: 9px;
+}
+
+.oob-bp--active .oob-bp-badge::after {
+  right: -9px;
+  border-left-width: 9px;
 }
 
 /* Top row */
@@ -312,10 +472,11 @@
 }
 
 .oob-bp-name {
-  font-family: 'PoppinsBold', sans-serif;
-  font-size: 14px;
+  font-family: 'PoppinsSemiBold', sans-serif;
+  font-size: 20px;
   display: block;
-  color: #111;
+  overflow-wrap: break-word;
+  color: #000;
   line-height: 1.3;
 }
 
@@ -324,8 +485,6 @@
   font-size: 12px;
   color: #888;
   display: block;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
 }
 
 /* Price */
@@ -336,28 +495,16 @@
 
 .oob-bp-prices {
   display: flex;
-  align-items: center;
-  gap: 6px;
+  align-items: baseline;
+  gap: 4px;
   justify-content: flex-end;
 }
 
-.oob-bp-old {
-  font-size: 12px;
-  color: #bbb;
-}
-
 .oob-bp-new {
-  font-family: 'MontserratSemiBold', sans-serif;
-  font-size: 17px;
-  color: #111;
+  font-family: 'PoppinsSemiBold', sans-serif;
+  font-size: 20px;
+  color: #000;
   line-height: 1;
-}
-
-.oob-bp-per {
-  font-size: 12px;
-  color: #444;
-  display: block;
-  margin-top: 2px;
 }
 
 /* Slots */
@@ -378,24 +525,118 @@
   gap: 8px;
 }
 
+.oob-bp-slots-label {
+  font-family: 'PoppinsMedium', sans-serif;
+  font-size: 13px;
+  color: #666;
+}
+
 .oob-bp-num {
-  font-family: 'PoppinsSemiBold', sans-serif;
-  font-size: 12px;
-  color: #888;
-  width: 16px;
-  text-align: center;
+  font-family: 'PoppinsMedium', sans-serif;
+  font-size: 14px;
+  color: #111;
+  width: 24px;
   flex-shrink: 0;
+}
+
+.oob-bp-color {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  display: flex;
+}
+
+.oob-bp-color-img {
+  position: absolute;
+  left: 7px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  border: 1px solid #e5e5e5;
+  border-radius: 4px;
+  background: #fff;
+  pointer-events: none;
+}
+
+.oob-bp-select.oob-bp-color-btn {
+  padding-left: 52px;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.oob-bp-color.is-open .oob-bp-color-btn {
+  border: 2px solid #111;
+}
+
+.oob-bp-color-list {
+  display: none;
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  width: max(100%, 220px);
+  max-height: 360px;
+  overflow-y: auto;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+  z-index: 20;
+}
+
+.oob-bp-color.is-open .oob-bp-color-list {
+  display: block;
+}
+
+.oob-bp-color-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 12px;
+  border-bottom: 1px solid #eee;
+  font-family: 'PoppinsMedium', sans-serif;
+  font-size: 15px;
+  color: #111;
+  cursor: pointer;
+}
+
+.oob-bp-color-item:last-child {
+  border-bottom: 0;
+}
+
+.oob-bp-color-item:hover,
+.oob-bp-color-item.is-selected {
+  background: #f0f0f0;
+}
+
+.oob-bp-color-item img {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  border: 1px solid #e5e5e5;
+  border-radius: 4px;
+  background: #fff;
+  flex-shrink: 0;
+}
+
+.oob-bp-select.oob-bp-select--size {
+  flex: 0 0 38%;
 }
 
 .oob-bp-select {
   flex: 1;
-  padding: 9px 30px 9px 10px;
-  border-radius: 8px;
-  border: 1.5px solid #ddd;
-  background: #f7f7f7;
+  min-width: 0;
+  height: 52px;
+  padding: 0 30px 0 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background: #fff;
   color: #111;
   font-family: 'PoppinsMedium', sans-serif;
-  font-size: 12px;
+  font-size: 15px;
   appearance: none;
   -webkit-appearance: none;
   cursor: pointer;
@@ -415,11 +656,11 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  background: #f0f0f0;
+  background: #D2D2D2;
   color: #111;
   margin: 14px -14px -14px -14px;
   padding: 10px 14px;
-  border-radius: 0 0 10px 10px;
+  border-radius: 0 0 10.5px 10.5px;
   pointer-events: none;
   transition: background 0.18s, color 0.18s;
 }
@@ -428,10 +669,45 @@
 .oob-bp--active .oob-bp-gift {
   background: #111;
   color: #fff;
-  margin: 14px -12px -12px -12px;
+  margin: 14px -14px -14px -14px;
 }
 
+/* 6 PARES: não selecionado → uma faixa só; selecionado → duas faixas (meia em cima, envio em baixo) */
+.oob-bp-gift--top,
+.oob-bp-gift--bottom,
+.oob-bp--active .oob-bp-gift--combined {
+  display: none;
+}
+
+.oob-bp--active .oob-bp-gift--top,
+.oob-bp--active .oob-bp-gift--bottom {
+  display: flex;
+}
+
+.oob-bp-gift--top,
+.oob-bp--active .oob-bp-gift--top {
+  margin-bottom: 0;
+  border-radius: 0;
+}
+
+.oob-bp-gift--bottom,
+.oob-bp--active .oob-bp-gift--bottom {
+  margin-top: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.oob-bp--active .oob-bp-gift--bottom {
+  border-top-color: rgba(255, 255, 255, 0.15);
+}
+
+/* 4 PARES não selecionado: faixa mais clara */
+.oob-bp[data-qty="4"]:not(.oob-bp--active) .oob-bp-gift {
+  background: #f0f0f0;
+}
+
+/* Imagem da meia / carrinha: só no pack selecionado */
 .oob-bp-gift-img {
+  display: none;
   width: 36px;
   height: 36px;
   object-fit: cover;
@@ -440,11 +716,22 @@
   opacity: 0.9;
 }
 
+.oob-bp--active .oob-bp-gift-img {
+  display: block;
+}
+
+.oob-bp-gift-img--truck {
+  object-fit: contain;
+  border-radius: 0;
+  opacity: 1;
+}
+
 .oob-bp-gift-label {
   flex: 1;
   font-family: 'PoppinsSemiBold', sans-serif;
   font-size: 13px;
-  color: #111;
+  font-style: normal;
+  color: #000;
 }
 
 .oob-bp--active .oob-bp-gift-label {
@@ -457,7 +744,7 @@
 
 .oob-bp-gift-price {
   font-size: 12px;
-  color: #aaa;
+  color: #666666;
 }
 
 .oob-bp--active .oob-bp-gift-price {

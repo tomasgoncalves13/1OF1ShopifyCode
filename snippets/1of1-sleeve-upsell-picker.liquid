@@ -38,7 +38,7 @@
     <div class="oneofone-sup-perks">
       <div class="oneofone-sup-perk">
         <img src="{{ grip_img }}" alt="" class="oneofone-sup-perk__img">
-        <span class="oneofone-sup-perk__label">+1 Par Meia Grip <span class="oneofone-sup-perk__gratis">GRÁTIS</span></span>
+        <span class="oneofone-sup-perk__label">+1 Par Meias <span class="oneofone-sup-perk__gratis">Grátis</span></span>
         <s class="oneofone-sup-perk__price">{{ grip.price | money }}</s>
       </div>
       <div class="oneofone-sup-perk">
@@ -273,6 +273,7 @@
   wrap.dataset.supReady = '1';
 
   var VARIANTS = {{ shin.variants | json }};
+  var SINGLE = {{ shin.has_only_default_variant | json }};
   var btn = document.getElementById('oneofone-sup-btn');
   var opts = Array.from(wrap.querySelectorAll('.oneofone-sup-opt'));
   var active = null;
@@ -281,6 +282,7 @@
     var slots = opt.querySelector('.oneofone-sup-slots');
     if (!slots) return;
     slots.innerHTML = '';
+    if (SINGLE) { slots.style.display = 'none'; return; }
     var showNum = qty > 1;
     for (var i = 1; i <= qty; i++) {
       var row = document.createElement('div');
@@ -299,10 +301,10 @@
       var sel = document.createElement('select');
       sel.className = 'oneofone-sup-slot__select';
       VARIANTS.forEach(function (v) {
+        if (!v.available) return;
         var o = document.createElement('option');
         o.value = v.id;
-        o.textContent = v.title + (v.available ? '' : ' - Esgotado');
-        o.disabled = !v.available;
+        o.textContent = v.title;
         sel.appendChild(o);
       });
       var firstAvailable = VARIANTS.find(function (v) { return v.available; });
@@ -372,6 +374,7 @@
       var select = row.querySelector('.oneofone-sup-slot__select');
       if (select && select.value) items.push({ id: select.value, quantity: 1 });
     });
+    if (SINGLE) items.push({ id: VARIANTS[0].id, quantity: qty });
 
     btn.disabled = true;
     btn.textContent = 'A ADICIONAR...';

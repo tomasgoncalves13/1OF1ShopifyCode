@@ -1,0 +1,119 @@
+{%- comment -%}
+  Linha do carrinho lateral para uma variante que o Shopify partiu em várias linhas
+  (acontece com o desconto "Meias Grátis"): mostra-as como uma só, com + / − e remover.
+  Recebe: variant_id
+{%- endcomment -%}
+{%- liquid
+  assign first = null
+  assign last = null
+  assign m_qty = 0
+  assign m_final = 0
+  assign m_keys = ''
+  for it in cart.items
+    if it.variant.id == variant_id and it.properties['_1of1_gift'] == blank
+      if first == null
+        assign first = it
+      endif
+      assign last = it
+      assign m_qty = m_qty | plus: it.quantity
+      assign m_final = m_final | plus: it.final_line_price
+      if m_keys != ''
+        assign m_keys = m_keys | append: ','
+      endif
+      assign m_keys = m_keys | append: it.key
+    endif
+  endfor
+  assign compare_unit = first.variant.compare_at_price
+  assign compare_total = compare_unit | times: m_qty
+  assign original_total = first.original_price | times: m_qty
+  if original_total > compare_total
+    assign compare_total = original_total
+  endif
+-%}
+<tr class="cart-item oneofone-merged" role="row">
+  <td class="cart-item__media" role="cell" headers="CartDrawer-ColumnProductImage">
+    {%- if first.image -%}
+      <a href="{{ first.url }}" class="cart-item__link" tabindex="-1" aria-hidden="true"> </a>
+      <img
+        class="cart-item__image"
+        src="{{ first.image | image_url: width: 300 }}"
+        alt="{{ first.image.alt | escape }}"
+        loading="lazy"
+        width="150"
+        height="{{ 150 | divided_by: first.image.aspect_ratio | ceil }}"
+      >
+    {%- endif -%}
+  </td>
+
+  <td class="cart-item__details" role="cell" headers="CartDrawer-ColumnProduct">
+    <a href="{{ first.url }}" class="cart-item__name h4 break">
+      {{- first.product.title | escape -}}
+    </a>
+    {%- unless first.product.has_only_default_variant -%}
+      <dl>
+        <div class="product-option">
+          <dd>{{ first.variant.title }}</dd>
+        </div>
+      </dl>
+    {%- endunless -%}
+    {%- if compare_unit > first.price -%}
+      {%- if first.product.handle == 'shin-pad-sleeve' or first.product.handle == 'kids-built-in-shin-pads' -%}
+        <div class="badge-carrinho" style="margin-top:6px !important;">
+          50% DESCONTO
+        </div>
+      {%- endif -%}
+    {%- endif -%}
+  </td>
+
+  <td class="cart-item__totals right" role="cell" headers="CartDrawer-ColumnTotal">
+    <div class="cart-item__price-wrapper">
+      {%- if compare_total > m_final -%}
+        <div class="cart-item__discounted-prices">
+          <s class="cart-item__old-price price price--end">{{ compare_total | money }}</s>
+          <span class="price price--end">{{ m_final | money }}</span>
+        </div>
+      {%- else -%}
+        <span class="price price--end">{{ m_final | money }}</span>
+      {%- endif -%}
+    </div>
+  </td>
+
+  <td class="cart-item__quantity" role="cell" headers="CartDrawer-ColumnQuantity">
+    <quantity-popover>
+    <div class="cart-item__quantity-wrapper quantity-popover-wrapper">
+      <div class="quantity-popover-container">
+        <div class="quantity cart-quantity">
+          <button
+            class="quantity__button"
+            type="button"
+            aria-label="Remover um"
+            data-oob-pack-minus="{{ last.key }}"
+            data-oob-pack-minus-qty="{{ last.quantity }}"
+          >
+            <span class="svg-wrapper">{{- 'icon-minus.svg' | inline_asset_content -}}</span>
+          </button>
+          <input class="quantity__input" type="number" value="{{ m_qty }}" readonly tabindex="-1" aria-label="Quantidade">
+          <button
+            class="quantity__button"
+            type="button"
+            aria-label="Adicionar um"
+            data-oob-pack-add="{{ first.variant.id }}"
+          >
+            <span class="svg-wrapper">{{- 'icon-plus.svg' | inline_asset_content -}}</span>
+          </button>
+        </div>
+      </div>
+      <button
+        type="button"
+        class="button button--tertiary cart-remove-button"
+        aria-label="Remover {{ first.product.title | escape }}"
+        data-oob-pack-remove="{{ m_keys }}"
+      >
+        <span class="svg-wrapper">
+          {{- 'icon-remove.svg' | inline_asset_content -}}
+        </span>
+      </button>
+    </div>
+    </quantity-popover>
+  </td>
+</tr>
