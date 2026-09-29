@@ -27,6 +27,9 @@ class CartDrawer extends HTMLElement {
 
   open(triggeredBy) {
     if (triggeredBy) this.setActiveElement(triggeredBy);
+    // As secções custom re-renderizam o #CartDrawer mas não tiram o is-empty:
+    // adicionar a partir de um carrinho vazio deixava o drawer em branco (só o rodapé)
+    this.classList.toggle('is-empty', !this.querySelector('.cart-item'));
     const cartDrawerNote = this.querySelector('[id^="Details-"] summary');
     if (cartDrawerNote && !cartDrawerNote.hasAttribute('role')) this.setSummaryAccessibility(cartDrawerNote);
     // here the animation doesn't seem to always get triggered. A timeout seem to help

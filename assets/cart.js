@@ -189,8 +189,22 @@ class CartItems extends HTMLElement {
             );
           });
           const updatedValue = parsedState.items[line - 1] ? parsedState.items[line - 1].quantity : undefined;
+          // Descontos (ex.: Compre X ganhe Y) podem partir a mesma variante em várias linhas:
+          // comparar o total da variante em vez da linha para não mostrar um erro falso
+          const lineVariantId = Number(quantityElement.dataset.quantityVariantId);
+          const expectedVariantQty =
+            parseInt(quantityElement.dataset.cartQuantity) -
+            parseInt(quantityElement.getAttribute('value')) +
+            parseInt(quantity);
+          const variantQty = parsedState.items
+            .filter((item) => item.variant_id === lineVariantId)
+            .reduce((sum, item) => sum + item.quantity, 0);
           let message = '';
-          if (items.length === parsedState.items.length && updatedValue !== parseInt(quantityElement.value)) {
+          if (
+            items.length === parsedState.items.length &&
+            updatedValue !== parseInt(quantityElement.value) &&
+            variantQty !== expectedVariantQty
+          ) {
             if (typeof updatedValue === 'undefined') {
               message = window.cartStrings.error;
             } else {

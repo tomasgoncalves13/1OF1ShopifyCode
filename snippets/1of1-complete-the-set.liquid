@@ -55,8 +55,9 @@
               <div class="oneofone-cts__selects" data-cts-picker>
                 <select class="oneofone-cts__select">
                   {%- for cts_v in cts_product.variants -%}
-                    <option value="{{ cts_v.id }}" {% if cts_v.id == cts_variant.id %}selected{% endif %} {% unless cts_v.available %}disabled{% endunless %}>
-                      {{ cts_v.title }}{% unless cts_v.available %} - Esgotado{% endunless %}
+                    {%- unless cts_v.available -%}{%- continue -%}{%- endunless -%}
+                    <option value="{{ cts_v.id }}" {% if cts_v.id == cts_variant.id %}selected{% endif %}>
+                      {{ cts_v.title }}
                     </option>
                   {%- endfor -%}
                 </select>

@@ -44,7 +44,7 @@
         "custom_liquid_7XEWVF": {
           "type": "custom_liquid",
           "settings": {
-            "custom_liquid": ""
+            "custom_liquid": "{% render '1of1-sleeve-size-guide', guide: 'meias' %}"
           }
         },
         "buy_buttons": {
@@ -210,7 +210,7 @@
         "q1": { "type": "faq", "settings": { "question": "Como melhoram o meu rendimento?", "answer": "<p>Com <strong>grip avançado</strong> para evitar escorregamentos, tecido que absorve a humidade para manter os pés secos, e uma construção ultra-leve. Sprints mais rápidos, mudanças de direção mais precisas e concentração total — sem distrações.</p>" } },
         "q2": { "type": "faq", "settings": { "question": "Quanto tempo demora a entrega?", "answer": "<p>A tua encomenda é enviada no próprio dia ou no próximo dia útil e chega em <strong>3 a 5 dias úteis</strong>.</p>" } },
         "q3": { "type": "faq", "settings": { "question": "Têm garantia?", "answer": "<p>Sim. Todos os nossos produtos incluem <strong>3 anos de garantia</strong> contra defeitos de fabrico.</p>" } },
-        "q4": { "type": "faq", "settings": { "question": "Que tamanho devo escolher?", "answer": "<p>Não precisas de escolher — é <strong>tamanho único</strong>. O design elástico adapta-se perfeitamente a qualquer pé adulto, do <strong>38 ao 46</strong>.</p>" } },
+        "q4": { "type": "faq", "settings": { "question": "Que tamanho devo escolher?", "answer": "<p>Temos 2 tamanhos: <strong>EU 36–40</strong> e <strong>EU 40–48</strong>. Vê o <strong>Guia de Tamanhos</strong>, junto à opção de tamanho, para as equivalências UK e US.</p>" } },
         "q5": { "type": "faq", "settings": { "question": "Como devo lavá-las?", "answer": "<p>Vira do avesso, lava à máquina a frio e deixa sempre <strong>secar ao ar</strong>. Assim o grip mantém-se forte e o ajuste perfeito.</p>" } },
         "q6": { "type": "faq", "settings": { "question": "Têm envio gratuito?", "answer": "<p>Sim, todas as encomendas têm <strong>envio gratuito</strong>.</p>" } }
       },

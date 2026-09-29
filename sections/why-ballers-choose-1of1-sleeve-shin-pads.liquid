@@ -244,6 +244,38 @@
         {{ 'products.product.add_to_cart' | t }}
       </button>
     </form>
+    <script>
+      // Adicionar via AJAX e abrir o cart drawer (sem isto o form ia para a página /cart)
+      (function () {
+        var form = document.currentScript.previousElementSibling;
+        if (!form || form.dataset.drawerReady === '1') return;
+        form.dataset.drawerReady = '1';
+        form.addEventListener('submit', async function (e) {
+          var drawer = document.querySelector('cart-drawer');
+          if (!drawer) return;
+          e.preventDefault();
+          var btn = form.querySelector('[type="submit"]');
+          btn.disabled = true;
+          try {
+            var r = await fetch('/cart/add.js', { method: 'POST', headers: { Accept: 'application/json' }, body: new FormData(form) });
+            if (!r.ok) throw new Error('add ' + r.status);
+            var sections = await (await fetch('/?sections=cart-drawer,cart-icon-bubble')).json();
+            var parser = new DOMParser();
+            var d = parser.parseFromString(sections['cart-drawer'], 'text/html').querySelector('#CartDrawer');
+            var b = parser.parseFromString(sections['cart-icon-bubble'], 'text/html').querySelector('.shopify-section');
+            if (d) document.getElementById('CartDrawer').innerHTML = d.innerHTML;
+            var overlay = drawer.querySelector('#CartDrawer-Overlay');
+            if (overlay) overlay.addEventListener('click', drawer.close.bind(drawer));
+            if (b && document.getElementById('cart-icon-bubble')) document.getElementById('cart-icon-bubble').innerHTML = b.innerHTML;
+            drawer.open();
+          } catch (err) {
+            window.location.href = '/cart';
+          } finally {
+            btn.disabled = false;
+          }
+        });
+      })();
+    </script>
 
     <div class="money-back-whyballers">
       <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Iconasas.png?v=1747770903" alt="Guarantee Icon">

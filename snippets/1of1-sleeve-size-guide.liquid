@@ -1,0 +1,471 @@
+{% comment %}
+  Size guide popups for the shin pad sleeve product page.
+  The "Guia de Tamanhos" triggers are rendered next to the option labels in
+  snippets/product-variant-picker.liquid (data-oneofone-sg-open="<guide>"),
+  and open the matching dialog below (id="oneofone-sg-<guide>").
+  Usage: {% render '1of1-sleeve-size-guide' %}
+  Grip socks page: {% render '1of1-sleeve-size-guide', guide: 'meias' %}
+{% endcomment %}
+<div class="oneofone-sg" data-oneofone-size-guide>
+  {%- if guide == 'meias' -%}
+  <dialog class="oneofone-sg__dialog" id="oneofone-sg-meias" aria-labelledby="oneofone-sg-meias-title">
+    <div class="oneofone-sg__panel">
+      <button type="button" class="oneofone-sg__close" data-sg-close aria-label="Fechar guia de tamanhos">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+
+      <div class="oneofone-sg__header">
+        <span class="oneofone-sg__pill">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          Testa 30 dias sem risco
+        </span>
+        <h2 class="oneofone-sg__title" id="oneofone-sg-meias-title">Tamanhos das meias</h2>
+      </div>
+
+
+      <ul class="oneofone-sg__cards">
+        <li class="oneofone-sg__card">
+          <div class="oneofone-sg__image">
+            <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/2_2923cac3-7f6a-406e-960e-415191aed5cf.png?v=1778284529&width=600" srcset="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/2_2923cac3-7f6a-406e-960e-415191aed5cf.png?v=1778284529&width=400 400w, https://cdn.shopify.com/s/files/1/0907/8472/7374/files/2_2923cac3-7f6a-406e-960e-415191aed5cf.png?v=1778284529&width=600 600w, https://cdn.shopify.com/s/files/1/0907/8472/7374/files/2_2923cac3-7f6a-406e-960e-415191aed5cf.png?v=1778284529&width=800 800w" sizes="(min-width: 750px) 260px, 45vw" alt="Pequeno" loading="lazy" width="600" height="600">
+          </div>
+          <div class="oneofone-sg__body">
+            <span class="oneofone-sg__size-row">
+              <span class="oneofone-sg__size">Pequeno</span>
+            </span>
+            <div class="oneofone-sg__meta">EU 36–40</div>
+            <div class="oneofone-sg__meta">UK 3,5–6,5</div>
+            <div class="oneofone-sg__meta">US 4,5–7,5</div>
+          </div>
+        </li>
+        <li class="oneofone-sg__card">
+          <div class="oneofone-sg__image">
+            <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/2_2923cac3-7f6a-406e-960e-415191aed5cf.png?v=1778284529&width=600" srcset="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/2_2923cac3-7f6a-406e-960e-415191aed5cf.png?v=1778284529&width=400 400w, https://cdn.shopify.com/s/files/1/0907/8472/7374/files/2_2923cac3-7f6a-406e-960e-415191aed5cf.png?v=1778284529&width=600 600w, https://cdn.shopify.com/s/files/1/0907/8472/7374/files/2_2923cac3-7f6a-406e-960e-415191aed5cf.png?v=1778284529&width=800 800w" sizes="(min-width: 750px) 260px, 45vw" alt="Grande" loading="lazy" width="600" height="600">
+          </div>
+          <div class="oneofone-sg__body">
+            <span class="oneofone-sg__size-row">
+              <span class="oneofone-sg__size">Grande</span>
+            </span>
+            <div class="oneofone-sg__meta">EU 40–48</div>
+            <div class="oneofone-sg__meta">UK 6,5–13</div>
+            <div class="oneofone-sg__meta">US 7,5–13,5</div>
+          </div>
+        </li>
+      </ul>
+
+      <div class="oneofone-sg__cta-wrap">
+        <button type="button" class="oneofone-sg__cta" data-sg-close>Continuar a comprar</button>
+      </div>
+    </div>
+  </dialog>
+  {%- else -%}
+  <dialog class="oneofone-sg__dialog" id="oneofone-sg-manga" aria-labelledby="oneofone-sg-manga-title">
+    <div class="oneofone-sg__panel">
+      <button type="button" class="oneofone-sg__close" data-sg-close aria-label="Fechar guia de tamanhos">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+
+      <div class="oneofone-sg__header">
+        <span class="oneofone-sg__pill">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          Testa 30 dias sem risco
+        </span>
+        <h2 class="oneofone-sg__title" id="oneofone-sg-manga-title">Tamanhos da manga</h2>
+        <div class="oneofone-sg__instruction">
+          <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="10" fill="#FF9500"/>
+            <path d="M12 7v6M12 17h.01" stroke="#fff" stroke-width="2.4" stroke-linecap="round" fill="none"/>
+          </svg>
+          <p>Mede a circunferência da perna 5 cm abaixo do joelho.</p>
+        </div>
+      </div>
+
+      <ul class="oneofone-sg__cards">
+        <li class="oneofone-sg__card">
+          <div class="oneofone-sg__image">
+            <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/968aafb8-ee3e-4237-862d-bdd0636bc176_0e072c39.jpg?v=1788646764&width=600" srcset="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/968aafb8-ee3e-4237-862d-bdd0636bc176_0e072c39.jpg?v=1788646764&width=400 400w, https://cdn.shopify.com/s/files/1/0907/8472/7374/files/968aafb8-ee3e-4237-862d-bdd0636bc176_0e072c39.jpg?v=1788646764&width=600 600w, https://cdn.shopify.com/s/files/1/0907/8472/7374/files/968aafb8-ee3e-4237-862d-bdd0636bc176_0e072c39.jpg?v=1788646764&width=800 800w" sizes="(min-width: 750px) 260px, 45vw" alt="Criança" loading="lazy" width="600" height="600">
+          </div>
+          <div class="oneofone-sg__body">
+            <span class="oneofone-sg__size-row">
+              <span class="oneofone-sg__size">Criança</span>
+            </span>
+            <div class="oneofone-sg__meta">7–12 anos</div>
+            <div class="oneofone-sg__meta">Perna: <span style="white-space: nowrap">20–30 cm</span> <span style="white-space: nowrap">(8.0&quot; – 11.5&quot;)</span></div>
+          </div>
+        </li>
+        <li class="oneofone-sg__card">
+          <div class="oneofone-sg__image">
+            <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/ChatGPT_Image_5_09_2026_23_41_56_84bad6b1-b9f9-4eec-8c7b-874213f74c1d.png?v=1788648496&width=600" srcset="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/ChatGPT_Image_5_09_2026_23_41_56_84bad6b1-b9f9-4eec-8c7b-874213f74c1d.png?v=1788648496&width=400 400w, https://cdn.shopify.com/s/files/1/0907/8472/7374/files/ChatGPT_Image_5_09_2026_23_41_56_84bad6b1-b9f9-4eec-8c7b-874213f74c1d.png?v=1788648496&width=600 600w, https://cdn.shopify.com/s/files/1/0907/8472/7374/files/ChatGPT_Image_5_09_2026_23_41_56_84bad6b1-b9f9-4eec-8c7b-874213f74c1d.png?v=1788648496&width=800 800w" sizes="(min-width: 750px) 260px, 45vw" alt="Adulto" loading="lazy" width="600" height="600">
+          </div>
+          <div class="oneofone-sg__body">
+            <span class="oneofone-sg__size-row">
+              <span class="oneofone-sg__size">Adulto</span>
+            </span>
+            <div class="oneofone-sg__meta">12+ anos</div>
+            <div class="oneofone-sg__meta">Perna: <span style="white-space: nowrap">30–45 cm</span> <span style="white-space: nowrap">(11.5&quot; – 18.0&quot;)</span></div>
+          </div>
+        </li>
+      </ul>
+
+      <div class="oneofone-sg__cta-wrap">
+        <button type="button" class="oneofone-sg__cta" data-sg-close>Continuar a comprar</button>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog class="oneofone-sg__dialog" id="oneofone-sg-caneleira" aria-labelledby="oneofone-sg-caneleira-title">
+    <div class="oneofone-sg__panel">
+      <button type="button" class="oneofone-sg__close" data-sg-close aria-label="Fechar guia da caneleira">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+
+      <div class="oneofone-sg__header">
+        <span class="oneofone-sg__pill">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          Testa 30 dias sem risco
+        </span>
+        <h2 class="oneofone-sg__title" id="oneofone-sg-caneleira-title">Tamanhos da caneleira</h2>
+      </div>
+
+      {%- comment -%} Pad sizes in cm drive the graphic (data-pad-h × data-pad-w) {%- endcomment -%}
+      <div class="oneofone-sg__pads">
+        <button type="button" class="oneofone-sg__pad-btn" data-sg-pad="force" data-pad-h="14" data-pad-w="7" data-pad-fs="20">
+          <span class="oneofone-sg__pad-icon" style="--h: 23; --w: 19;" aria-hidden="true"></span>
+          <span class="oneofone-sg__pad-text"><span class="oneofone-sg__pad-name">Força</span><span class="oneofone-sg__pad-dims">Grande</span></span>
+        </button>
+        <button type="button" class="oneofone-sg__pad-btn is-selected" data-sg-pad="flexy" data-pad-h="12" data-pad-w="7" data-pad-fs="18">
+          <span class="oneofone-sg__pad-icon" style="--h: 20; --w: 15;" aria-hidden="true"></span>
+          <span class="oneofone-sg__pad-text"><span class="oneofone-sg__pad-name">Flexível</span><span class="oneofone-sg__pad-dims">Médio</span></span>
+        </button>
+        <button type="button" class="oneofone-sg__pad-btn" data-sg-pad="speed" data-pad-h="10" data-pad-w="6" data-pad-fs="16">
+          <span class="oneofone-sg__pad-icon" style="--h: 16; --w: 13;" aria-hidden="true"></span>
+          <span class="oneofone-sg__pad-text"><span class="oneofone-sg__pad-name">Rapidez</span><span class="oneofone-sg__pad-dims">Pequeno</span></span>
+        </button>
+      </div>
+
+      <div class="oneofone-sg__graphic" aria-hidden="true">
+        <div class="oneofone-sg__sleeve">
+          <div class="oneofone-sg__pad" data-sg-pad-graphic style="--pad-h: 12; --pad-w: 7; font-size: 18px;"><span data-sg-pad-label>12×7 cm</span></div>
+        </div>
+      </div>
+
+      <div class="oneofone-sg__perfect" data-sg-pad-panel="force" hidden>
+        <div class="oneofone-sg__perfect-img">
+          <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/3_editada.png?v=1790423140&width=600" srcset="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/3_editada.png?v=1790423140&width=400 400w, https://cdn.shopify.com/s/files/1/0907/8472/7374/files/3_editada.png?v=1790423140&width=600 600w, https://cdn.shopify.com/s/files/1/0907/8472/7374/files/3_editada.png?v=1790423140&width=800 800w" sizes="(min-width: 750px) 250px, 45vw" alt="Força" loading="lazy" width="600" height="800">
+        </div>
+        <div class="oneofone-sg__perfect-text">
+          <p class="oneofone-sg__perfect-label">Ideal para:</p>
+          <p>Médios aguerridos e defesas centrais que dão tudo em cada lance. A <strong>FORÇA</strong> é a nossa caneleira maior, com <strong>14×7 cm</strong> de proteção para quem entra forte em todas as disputas.</p>
+        </div>
+      </div>
+      <div class="oneofone-sg__perfect" data-sg-pad-panel="flexy">
+        <div class="oneofone-sg__perfect-img">
+          <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/2_editada.png?v=1790423139&width=600" srcset="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/2_editada.png?v=1790423139&width=400 400w, https://cdn.shopify.com/s/files/1/0907/8472/7374/files/2_editada.png?v=1790423139&width=600 600w, https://cdn.shopify.com/s/files/1/0907/8472/7374/files/2_editada.png?v=1790423139&width=800 800w" sizes="(min-width: 750px) 250px, 45vw" alt="Flexível" loading="lazy" width="600" height="800">
+        </div>
+        <div class="oneofone-sg__perfect-text">
+          <p class="oneofone-sg__perfect-label">Ideal para:</p>
+          <p>Jogadores completos, que atacam e defendem. A <strong>FLEXÍVEL</strong> equilibra proteção, leveza e conforto: <strong>12×7 cm</strong> de proteção que quase nem sentes.</p>
+        </div>
+      </div>
+      <div class="oneofone-sg__perfect" data-sg-pad-panel="speed" hidden>
+        <div class="oneofone-sg__perfect-img">
+          <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/1q_editada_e8db59cf-013e-4c8c-877f-e100d424fbcf.png?v=1790423130&width=600" srcset="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/1q_editada_e8db59cf-013e-4c8c-877f-e100d424fbcf.png?v=1790423130&width=400 400w, https://cdn.shopify.com/s/files/1/0907/8472/7374/files/1q_editada_e8db59cf-013e-4c8c-877f-e100d424fbcf.png?v=1790423130&width=600 600w, https://cdn.shopify.com/s/files/1/0907/8472/7374/files/1q_editada_e8db59cf-013e-4c8c-877f-e100d424fbcf.png?v=1790423130&width=800 800w" sizes="(min-width: 750px) 250px, 45vw" alt="Rapidez" loading="lazy" width="600" height="800">
+        </div>
+        <div class="oneofone-sg__perfect-text">
+          <p class="oneofone-sg__perfect-label">Ideal para:</p>
+          <p>Jogadores técnicos e rápidos. A <strong>RAPIDEZ</strong> tem <strong>10×6 cm</strong> de proteção focada, para jogares leve e ágil sem abdicar da segurança.</p>
+        </div>
+      </div>
+
+      <div class="oneofone-sg__cta-wrap">
+        <button type="button" class="oneofone-sg__cta" data-sg-close>Continuar a comprar</button>
+      </div>
+    </div>
+  </dialog>
+  {%- endif -%}
+</div>
+
+<style>
+  @font-face { font-family: 'PoppinsExtraBold'; src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/poppins.extrabold.ttf?v=1747688794') format('truetype'); }
+  @font-face { font-family: 'PoppinsBold';      src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/poppins.bold.ttf?v=1747688795') format('truetype'); }
+  @font-face { font-family: 'PoppinsSemiBold';  src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/poppins.semibold.ttf?v=1747688794') format('truetype'); }
+  @font-face { font-family: 'PoppinsMedium';    src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/poppins.medium.ttf?v=1747688794') format('truetype'); }
+  @font-face { font-family: 'PoppinsLight';     src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/poppins.light.ttf?v=1748130416') format('truetype'); }
+  @font-face { font-family: 'MontserratExtraBold'; src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Montserrat-ExtraBold.ttf?v=1775402219') format('truetype'); font-display: swap; }
+  @font-face { font-family: 'MontserratBold';      src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Montserrat-Bold.ttf?v=1775402219') format('truetype'); font-display: swap; }
+  @font-face { font-family: 'MontserratSemiBold';  src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Montserrat-SemiBold.ttf?v=1775402091') format('truetype'); font-display: swap; }
+  @font-face { font-family: 'MontserratMedium';    src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Montserrat-Medium.ttf?v=1775402219') format('truetype'); font-display: swap; }
+  @font-face { font-family: 'PoppinsRegular'; src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Poppins-Regular.ttf?v=1753909133') format('truetype'); }
+  @font-face { font-family: 'Montserratregular';   src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Montserrat-Regular.ttf?v=1775402219') format('truetype'); font-display: swap; }
+
+  /* Trigger next to the option label (rendered in product-variant-picker.liquid) */
+  legend.form__label:has(.oneofone-sg-trigger) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    width: 100%;
+  }
+  .oneofone-sg-trigger {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    margin-left: auto;
+    padding: 0;
+    background: none;
+    border: 0;
+    color: #000;
+    font-family: 'PoppinsRegular', sans-serif;
+    font-size: 12px;
+    letter-spacing: inherit;
+    cursor: pointer;
+  }
+  .oneofone-sg-trigger__text { text-decoration: underline; text-underline-offset: 2px; }
+  .oneofone-sg-trigger__icon {
+    flex: none;
+    width: 14px;
+    height: 14px;
+  }
+
+  /* Dialog */
+  .oneofone-sg__dialog {
+    width: min(560px, calc(100% - 32px));
+    max-height: calc(100% - 32px);
+    padding: 0;
+    border: 0;
+    border-radius: 24px;
+    background: #fff;
+    color: #111;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+  }
+  .oneofone-sg__dialog::backdrop { background: rgba(0, 0, 0, 0.55); }
+  .oneofone-sg__panel { position: relative; padding: 36px 24px 28px; }
+
+  .oneofone-sg__close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: #111;
+    color: #fff;
+    border: 0;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+
+  .oneofone-sg__header { display: flex; flex-direction: column; align-items: center; text-align: center; }
+  .oneofone-sg__pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 16px;
+    background: #fff304;
+    border-radius: 999px;
+    font-family: 'PoppinsBold', sans-serif;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+  .oneofone-sg .oneofone-sg__title {
+    margin: 20px 0 18px;
+    padding: 0 40px;
+    font-family: 'PoppinsBold', sans-serif !important;
+    font-size: 30px;
+    line-height: 1.05;
+    text-transform: uppercase;
+    color: #111;
+  }
+  .oneofone-sg__instruction {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 12px 18px;
+    background: #ececec;
+    border-radius: 999px;
+    text-align: left;
+  }
+  .oneofone-sg__instruction svg { flex: none; }
+  .oneofone-sg__instruction p {
+    margin: 0;
+    font-family: 'Montserratregular', sans-serif;
+    font-size: 13px;
+    line-height: 1.45;
+    color: #222;
+  }
+
+  .oneofone-sg__cards { list-style: none; margin: 24px 0 0; padding: 0; display: grid; gap: 16px; }
+  .oneofone-sg__card { display: grid; grid-template-columns: 1.6fr 1fr; gap: 14px; }
+  .oneofone-sg__image {
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border-radius: 16px;
+    background: #f2f2f2;
+  }
+  .oneofone-sg__image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .oneofone-sg__body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 16px 18px;
+    border-radius: 16px;
+    background: linear-gradient(180deg, #fff30482 0%, #fffde0a3 50%, #fff 100%);
+  }
+  .oneofone-sg__size-row { display: inline-block; align-self: flex-start; margin-bottom: 12px; }
+  .oneofone-sg__size-row::after { content: ""; display: block; width: 28px; height: 3px; margin-top: 8px; background: #111; border-radius: 3px; }
+  .oneofone-sg__size {
+    position: relative;
+    font-family: 'PoppinsBold', sans-serif;
+    font-size: 26px;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+  .oneofone-sg__meta {
+    font-family: 'Montserratregular', sans-serif;
+    font-size: 13px;
+    line-height: 1.45;
+    color: #555;
+  }
+
+  .oneofone-sg__cta-wrap { margin-top: 28px; }
+  /* Same look as the store's main buttons (.oneofone-sup-btn) */
+  .oneofone-sg__cta {
+    width: 100%;
+    background-color: #fff304;
+    color: #000;
+    border: 1px solid #ffe304;
+    border-radius: 9999px;
+    padding: 15px 30px;
+    font-family: 'PoppinsBold', sans-serif;
+    font-size: 14px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: 0 4px 6px 2px #0000001a, 0 2px 4px -1px #0000000f;
+    transition: all .2s ease;
+  }
+  .oneofone-sg__cta:hover {
+    transform: translate(1px, 1px);
+    box-shadow: 1px 1px #000;
+  }
+
+  /* Shin pad guide */
+  .oneofone-sg__pads { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; }
+  .oneofone-sg__pad-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px 8px 18px;
+    background: #8a8a8a;
+    color: #fff;
+    border: 0;
+    border-radius: 999px;
+    text-align: left;
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+  .oneofone-sg__pad-btn.is-selected { background: #111; }
+  .oneofone-sg__pad-icon {
+    flex: none;
+    width: calc(var(--w) * 1px);
+    height: calc(var(--h) * 1px);
+    background: #fff;
+    clip-path: polygon(25% 0, 75% 0, 100% 20%, 100% 80%, 75% 100%, 25% 100%, 0 80%, 0 20%);
+  }
+  .oneofone-sg__pad-text { flex: 1; min-width: 0; }
+  .oneofone-sg__pad-name { display: block; font-family: 'PoppinsBold', sans-serif; font-size: 14px; line-height: 1.15; }
+  .oneofone-sg__pad-dims { display: block; font-family: 'PoppinsMedium', sans-serif; font-size: 10px; line-height: 1.2; letter-spacing: -0.01em; }
+
+  .oneofone-sg__graphic { display: flex; justify-content: center; margin: 24px 0; }
+  .oneofone-sg__sleeve {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 290px;
+    background: #fff304;
+    clip-path: polygon(10% 0, 90% 0, 100% 22%, 100% 78%, 90% 100%, 10% 100%, 0 78%, 0 22%);
+  }
+  .oneofone-sg__sleeve .oneofone-sg__pad {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-family: 'PoppinsSemiBold', sans-serif;
+    white-space: nowrap;
+    width: calc(var(--pad-w) * 22px);
+    height: calc(var(--pad-h) * 17px);
+    background: #2a2a2a;
+    clip-path: polygon(18% 0, 82% 0, 100% 14%, 100% 86%, 82% 100%, 18% 100%, 0 86%, 0 14%);
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.4);
+    transition: width 0.3s ease, height 0.3s ease;
+  }
+
+  .oneofone-sg__perfect strong { font-family: 'MontserratBold', sans-serif; font-weight: normal; }
+
+  .oneofone-sg__perfect { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 16px; }
+  .oneofone-sg__perfect[hidden] { display: none; }
+  .oneofone-sg__perfect-img { aspect-ratio: 3 / 4; overflow: hidden; border-radius: 16px; background: #f2f2f2; }
+  .oneofone-sg__perfect-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .oneofone-sg__perfect-text { align-self: center; }
+  .oneofone-sg__perfect-text p { margin: 0; font-family: 'Montserratregular', sans-serif; font-size: 14px; line-height: 1.55; color: #222; }
+  .oneofone-sg__perfect-text .oneofone-sg__perfect-label { margin: 0 0 6px; font-family: 'PoppinsBold', sans-serif; font-size: 18px; line-height: 1.2; color: #111; }
+
+  @media (max-width: 749px) {
+    .oneofone-sg__panel { padding: 28px 16px 24px; }
+    .oneofone-sg__close { top: 16px; right: 16px; }
+    .oneofone-sg .oneofone-sg__title { font-size: 26px; }
+    .oneofone-sg__card { grid-template-columns: 1.4fr 1fr; gap: 10px; }
+    .oneofone-sg__body { padding: 14px 12px; }
+    .oneofone-sg__size { font-size: 22px; }
+    .oneofone-sg__pads { gap: 5px; flex-wrap: nowrap; }
+    .oneofone-sg__pad-btn { flex: 1 1 0; min-width: 0; padding: 7px 6px 7px 12px; gap: 6px; }
+    .oneofone-sg__pad-name { font-size: 13px; }
+    .oneofone-sg__pad-dims { font-size: 8.5px; white-space: nowrap; }
+    .oneofone-sg__sleeve { width: 170px; height: 250px; }
+    .oneofone-sg__sleeve .oneofone-sg__pad { width: calc(var(--pad-w) * 19px); height: calc(var(--pad-h) * 14.5px); }
+    .oneofone-sg__perfect { gap: 12px; }
+    .oneofone-sg__perfect-text p { font-size: 13px; }
+  }
+</style>
+
+<script>
+  (function () {
+    if (window.oneofoneSizeGuideReady) return;
+    window.oneofoneSizeGuideReady = true;
+
+    // Delegated so triggers keep working after Dawn re-renders <variant-selects> on variant change
+    document.addEventListener('click', function (e) {
+      var trigger = e.target.closest('[data-oneofone-sg-open]');
+      if (trigger) {
+        var dialog = document.getElementById('oneofone-sg-' + trigger.dataset.oneofoneSgOpen);
+        if (dialog) dialog.showModal();
+        return;
+      }
+      var padBtn = e.target.closest('[data-sg-pad]');
+      if (padBtn) {
+        var guide = padBtn.closest('.oneofone-sg__dialog');
+        guide.querySelectorAll('[data-sg-pad]').forEach(function (b) { b.classList.toggle('is-selected', b === padBtn); });
+        guide.querySelectorAll('[data-sg-pad-panel]').forEach(function (p) { p.hidden = p.dataset.sgPadPanel !== padBtn.dataset.sgPad; });
+        var pad = guide.querySelector('[data-sg-pad-graphic]');
+        pad.style.setProperty('--pad-h', padBtn.dataset.padH);
+        pad.style.setProperty('--pad-w', padBtn.dataset.padW);
+        pad.style.fontSize = padBtn.dataset.padFs + 'px';
+        pad.querySelector('[data-sg-pad-label]').textContent = padBtn.dataset.padH + '×' + padBtn.dataset.padW + ' cm';
+        return;
+      }
+      var openDialog = e.target.closest('.oneofone-sg__dialog');
+      if (!openDialog) return;
+      if (e.target === openDialog || e.target.closest('[data-sg-close]')) openDialog.close();
+    });
+  })();
+</script>
