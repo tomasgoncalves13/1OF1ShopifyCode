@@ -689,6 +689,18 @@ cart-drawer .discounts__discount svg path {
   <div class="badge-carrinho" style="{% if cart.item_count > 1 %}margin-top:6px !important;{% else %}margin-top:0 !important;{% endif %}">
     50% DESCONTO
   </div>
+{% elsif item.product.handle == 'mini-shin-pads' or item.product.handle contains 'airflow' %}
+  {%- assign same_product_qty = 0 -%}
+  {%- for it in cart.items -%}
+    {%- if it.product.handle == item.product.handle and it.properties['_1of1_gift'] == blank -%}
+      {%- assign same_product_qty = same_product_qty | plus: it.quantity -%}
+    {%- endif -%}
+  {%- endfor -%}
+  {%- if same_product_qty >= 2 -%}
+    <div class="badge-carrinho" style="margin-top:6px !important;">
+      {%- if item.product.handle == 'mini-shin-pads' -%}PACK 2 MINI{%- else -%}PACK 2 AIRFLOW{%- endif -%}
+    </div>
+  {%- endif -%}
 {% endif %}
 
                         </td>

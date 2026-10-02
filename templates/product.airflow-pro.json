@@ -44,11 +44,12 @@
         "custom_liquid_7XEWVF": {
           "type": "custom_liquid",
           "settings": {
-            "custom_liquid": ""
+            "custom_liquid": "{% render '1of1-sleeve-upsell-picker', name: 'Airflow Pro', bundle_price: 4495, slot_label: 'Tamanho' %}"
           }
         },
         "buy_buttons": {
           "type": "buy_buttons",
+          "disabled": true,
           "settings": {
             "show_dynamic_checkout": true,
             "show_gift_card_recipient": true

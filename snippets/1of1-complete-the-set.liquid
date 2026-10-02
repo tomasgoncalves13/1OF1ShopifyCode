@@ -53,6 +53,7 @@
             </a>
             {%- if cts_show_picker -%}
               <div class="oneofone-cts__selects" data-cts-picker>
+                <script type="application/json" data-cts-variants>{{ cts_product.variants | json }}</script>
                 <select class="oneofone-cts__select">
                   {%- for cts_v in cts_product.variants -%}
                     {%- unless cts_v.available -%}{%- continue -%}{%- endunless -%}
@@ -279,16 +280,26 @@
     wrapper.querySelectorAll('[data-cts-picker]').forEach(function (picker) {
       var select = picker.querySelector('.oneofone-cts__select');
       if (!select) return;
+      var variants = JSON.parse(picker.querySelector('[data-cts-variants]').textContent);
       var row = picker.closest('.oneofone-cts__row');
       var hiddenInput = row.querySelector('input[name="id"]');
       var addBtn = row.querySelector('.oneofone-cts__add');
       var addLabel = addBtn.querySelector('span');
+      var img = row.querySelector('.oneofone-cts__media img');
 
       function update() {
-        var opt = select.options[select.selectedIndex];
+        var variant = variants.find(function (v) { return String(v.id) === select.value; });
         hiddenInput.value = select.value;
-        addBtn.disabled = opt.disabled;
-        addLabel.textContent = opt.disabled ? 'Esgotado' : 'Adicionar +';
+        // Imagem da variante escolhida
+        if (img && variant && variant.featured_image) {
+          var src = variant.featured_image.src;
+          var sep = src.indexOf('?') === -1 ? '?' : '&';
+          img.src = src + sep + 'width=160';
+          img.srcset = src + sep + 'width=80 80w, ' + src + sep + 'width=160 160w';
+        }
+        var soldOut = !variant || !variant.available;
+        addBtn.disabled = soldOut;
+        addLabel.textContent = soldOut ? 'Esgotado' : 'Adicionar +';
       }
 
       select.addEventListener('change', update);

@@ -77,6 +77,12 @@
         {%- endif -%}
       {%- endfor -%}
     </ul>
+    {%- comment %} Selo do pack, igual ao "50% DESCONTO": 4-5 pares → PACK 4, 6+ → PACK 6 (como os descontos) {% endcomment -%}
+    {%- if pack_qty >= 6 -%}
+      <div class="badge-carrinho" style="margin-top:6px !important;">PACK 6 MEIAS</div>
+    {%- elsif pack_qty >= 4 -%}
+      <div class="badge-carrinho" style="margin-top:6px !important;">PACK 4 MEIAS</div>
+    {%- endif -%}
   </td>
 
   <td class="cart-item__totals right" role="cell" headers="CartDrawer-ColumnTotal">

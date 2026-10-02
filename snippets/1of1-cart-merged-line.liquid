@@ -63,6 +63,11 @@
         </div>
       {%- endif -%}
     {%- endif -%}
+    {%- if m_qty >= 2 and first.product.handle == 'mini-shin-pads' -%}
+      <div class="badge-carrinho" style="margin-top:6px !important;">PACK 2 MINI</div>
+    {%- elsif m_qty >= 2 and first.product.handle contains 'airflow' -%}
+      <div class="badge-carrinho" style="margin-top:6px !important;">PACK 2 AIRFLOW</div>
+    {%- endif -%}
   </td>
 
   <td class="cart-item__totals right" role="cell" headers="CartDrawer-ColumnTotal">

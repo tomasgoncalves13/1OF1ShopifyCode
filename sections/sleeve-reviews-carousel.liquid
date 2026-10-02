@@ -247,6 +247,27 @@
   color: #fff;
   letter-spacing: .3px;
   white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Brilho branco a deslizar, igual aos selos do carrinho */
+.oof-badge::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -60%;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.45), transparent);
+  transform: skewX(-20deg);
+  animation: oof-badge-shimmer 4.5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes oof-badge-shimmer {
+  0% { left: -60%; }
+  100% { left: 140%; }
 }
 
 /* ── Setas – sem círculo ── */
