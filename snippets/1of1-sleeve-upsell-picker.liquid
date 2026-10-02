@@ -1,51 +1,64 @@
 {% comment %}
-  Upsell quantity picker for the shin-pad-sleeve alternate landing page.
-  1 unit at regular price vs. 2 units bundle price + free grip socks + free shipping messaging.
+  Upsell quantity picker for the shin-pad-sleeve landing pages.
+  2 units bundle price + free grip socks + free shipping vs. 1 unit at regular price.
+  Same look as the grip-socks bundle-picker. Each unit picks option 1 then option 2 (if the product has one).
+  The bundle price shown here must match the automatic discount set up in the Shopify admin.
   Usage: {% render '1of1-sleeve-upsell-picker' %}
+  Optional: name (default 'Caneleiras Embutidas'), bundle_price (cents, default 4995), slot_label (default 'Tamanho Manga, Tamanho Caneleira')
+    e.g. {% render '1of1-sleeve-upsell-picker', name: 'Caneleiras Mini', bundle_price: 4495, slot_label: 'Tamanho, Cor' %}
 {% endcomment %}
 {%- liquid
   assign shin = product
   assign grip = all_products['grip-socks']
-  assign bundle_price_cents = 4995
-  assign bundle_compare_cents = shin.price | times: 2
-  assign grip_img = grip.images[0] | img_url: '60x60', crop: 'center'
+  assign name = name | default: 'Caneleiras Embutidas'
+  assign bundle_price_cents = bundle_price | default: 4995
+  assign slot_label = slot_label | default: 'Tamanho Manga, Tamanho Caneleira'
+  assign grip_img = grip.featured_image | image_url: width: 80, height: 80, crop: 'center'
+  assign perks_compare_cents = grip.price | plus: 495
 -%}
 <div class="oneofone-sup" id="oneofone-sup">
 
   <div class="oneofone-sup-opt" data-qty="1">
     <div class="oneofone-sup-opt__top">
-      <span class="oneofone-sup-opt__bullet"></span>
-      <span class="oneofone-sup-opt__name">Caneleiras Embutidas</span>
-      <span class="oneofone-sup-opt__price">{{ shin.price | money }}</span>
+      <div class="oneofone-sup-opt__left">
+        <span class="oneofone-sup-opt__bullet"></span>
+        <span class="oneofone-sup-opt__name">{{ name }}</span>
+      </div>
+      <div class="oneofone-sup-opt__prices">
+        <span class="oneofone-sup-opt__price">{{ shin.price | money }}</span>
+      </div>
     </div>
 
     <div class="oneofone-sup-slots"></div>
   </div>
 
-  <div class="oneofone-sup-opt oneofone-sup-opt--strong" data-qty="2">
+  <div class="oneofone-sup-opt" data-qty="2">
     <div class="oneofone-sup-opt__badge">Melhor Preço</div>
     <div class="oneofone-sup-opt__top">
-      <span class="oneofone-sup-opt__bullet"></span>
-      <span class="oneofone-sup-opt__name">x2 Caneleiras Embutidas</span>
-      <span class="oneofone-sup-opt__prices">
-        <s class="oneofone-sup-opt__compare">{{ bundle_compare_cents | money }}</s>
+      <div class="oneofone-sup-opt__left">
+        <span class="oneofone-sup-opt__bullet"></span>
+        <span class="oneofone-sup-opt__name">x2 {{ name }}</span>
+      </div>
+      <div class="oneofone-sup-opt__prices">
         <span class="oneofone-sup-opt__price">{{ bundle_price_cents | money }}</span>
-      </span>
+      </div>
     </div>
 
     <div class="oneofone-sup-slots"></div>
 
-    <div class="oneofone-sup-perks">
-      <div class="oneofone-sup-perk">
-        <img src="{{ grip_img }}" alt="" class="oneofone-sup-perk__img">
-        <span class="oneofone-sup-perk__label">+1 Par Meias <span class="oneofone-sup-perk__gratis">Grátis</span></span>
-        <s class="oneofone-sup-perk__price">{{ grip.price | money }}</s>
-      </div>
-      <div class="oneofone-sup-perk">
-        <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/truck-xxl.png?v=1788266470" alt="" class="oneofone-sup-perk__img">
-        <span class="oneofone-sup-perk__label">+ Envio Grátis</span>
-        <s class="oneofone-sup-perk__price">{{ 495 | money }}</s>
-      </div>
+    <div class="oneofone-sup-perk oneofone-sup-perk--combined">
+      <span class="oneofone-sup-perk__label">Envio <span class="oneofone-sup-perk__gratis">Grátis</span> + 1 Par <span class="oneofone-sup-perk__gratis">Grátis</span></span>
+      <s class="oneofone-sup-perk__price">{{ perks_compare_cents | money }}</s>
+    </div>
+    <div class="oneofone-sup-perk oneofone-sup-perk--top">
+      <img src="{{ grip_img }}" alt="" class="oneofone-sup-perk__img">
+      <span class="oneofone-sup-perk__label">+1 Par Meias <span class="oneofone-sup-perk__gratis">Grátis</span></span>
+      <s class="oneofone-sup-perk__price">{{ grip.price | money }}</s>
+    </div>
+    <div class="oneofone-sup-perk oneofone-sup-perk--bottom">
+      <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/truck-xxl.png?v=1788266470" alt="" class="oneofone-sup-perk__img oneofone-sup-perk__img--truck">
+      <span class="oneofone-sup-perk__label">+ Envio <span class="oneofone-sup-perk__gratis">Grátis</span></span>
+      <s class="oneofone-sup-perk__price">{{ 495 | money }}</s>
     </div>
   </div>
 
@@ -62,48 +75,99 @@
   @font-face { font-family: 'PoppinsSemiBold';  src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/poppins.semibold.ttf?v=1747688794') format('truetype'); }
   @font-face { font-family: 'PoppinsMedium';    src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/poppins.medium.ttf?v=1747688794') format('truetype'); }
   @font-face { font-family: 'PoppinsLight';     src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/poppins.light.ttf?v=1748130416') format('truetype'); }
+  @font-face { font-family: 'MontserratExtraBold'; src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Montserrat-ExtraBold.ttf?v=1775402219') format('truetype'); font-display: swap; }
+  @font-face { font-family: 'MontserratBold';      src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Montserrat-Bold.ttf?v=1775402219') format('truetype'); font-display: swap; }
+  @font-face { font-family: 'MontserratSemiBold';  src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Montserrat-SemiBold.ttf?v=1775402091') format('truetype'); font-display: swap; }
+  @font-face { font-family: 'MontserratMedium';    src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Montserrat-Medium.ttf?v=1775402219') format('truetype'); font-display: swap; }
+  @font-face { font-family: 'Montserratregular';   src: url('https://cdn.shopify.com/s/files/1/0907/8472/7374/files/Montserrat-Regular.ttf?v=1775402219') format('truetype'); font-display: swap; }
 
   #oneofone-sup {
-    margin: 16px 0;
+    margin: 16px 0 16px;
     font-family: 'PoppinsMedium', sans-serif;
   }
 
+  /* Cartão */
   #oneofone-sup .oneofone-sup-opt {
     position: relative;
     border: 1.5px solid #e5e5e5;
     border-radius: 12px;
-    padding: 14px;
-    margin-bottom: 10px;
+    padding: 22px 14px;
+    margin-bottom: 16px;
     cursor: pointer;
     background: #fff;
-    overflow: hidden;
-    transition: border-color .18s;
+    transition: border-color .18s, box-shadow .18s;
   }
   #oneofone-sup .oneofone-sup-opt--active {
     border-color: #111;
+    box-shadow: 0 0 0 1.5px #111;
+    background: #F2F2F2;
   }
 
+  /* Etiqueta no canto superior direito, a cavalo na borda */
   #oneofone-sup .oneofone-sup-opt__badge {
-    background: linear-gradient(90deg, #fff304);
-    color: #111;
+    position: absolute;
+    top: -12px;
+    right: 20px;
+    background: #fff304;
+    color: #000;
     font-family: 'PoppinsSemiBold', sans-serif !important;
-    font-size: 11px;
+    font-size: 12px;
+    line-height: 1;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
-    padding: 5px 14px;
-    margin: -14px -14px 12px -14px;
-    display: block;
+    letter-spacing: 0.5px;
+    padding: 6px 8px;
+    border-radius: 0 0 8px 8px;
+    z-index: 1;
+  }
+  /* Dobras laterais, a 45°, até à borda do cartão */
+  #oneofone-sup .oneofone-sup-opt__badge::before,
+  #oneofone-sup .oneofone-sup-opt__badge::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 0;
+    height: 0;
+    border-top: 10.5px solid transparent;
+  }
+  #oneofone-sup .oneofone-sup-opt__badge::before {
+    left: -10.5px;
+    border-right: 10.5px solid #c9bf00;
+  }
+  #oneofone-sup .oneofone-sup-opt__badge::after {
+    right: -10.5px;
+    border-left: 10.5px solid #c9bf00;
+  }
+  #oneofone-sup .oneofone-sup-opt--active .oneofone-sup-opt__badge::before,
+  #oneofone-sup .oneofone-sup-opt--active .oneofone-sup-opt__badge::after {
+    border-top-width: 9px;
+  }
+  #oneofone-sup .oneofone-sup-opt--active .oneofone-sup-opt__badge::before {
+    left: -9px;
+    border-right-width: 9px;
+  }
+  #oneofone-sup .oneofone-sup-opt--active .oneofone-sup-opt__badge::after {
+    right: -9px;
+    border-left-width: 9px;
   }
 
+  /* Linha de cima */
   #oneofone-sup .oneofone-sup-opt__top {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: 10px;
+    user-select: none;
+  }
+  #oneofone-sup .oneofone-sup-opt__left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
   }
 
   #oneofone-sup .oneofone-sup-opt__bullet {
-    width: 18px;
-    height: 18px;
+    width: 16px;
+    height: 16px;
     border-radius: 50%;
     border: 2px solid #ccc;
     flex-shrink: 0;
@@ -116,38 +180,40 @@
   }
 
   #oneofone-sup .oneofone-sup-opt__name {
-    flex: 1;
-    font-family: 'PoppinsBold', sans-serif !important;
-    font-size: 14px;
-    color: #111;
-  }
-
-  #oneofone-sup .oneofone-sup-opt__price {
-    font-family: 'MontserratSemiBold', sans-serif !important;
-    font-size: 15px;
-    color: #111;
+    font-family: 'PoppinsSemiBold', sans-serif !important;
+    font-size: 16px;
+    line-height: 1.3;
+    color: #000;
   }
 
   #oneofone-sup .oneofone-sup-opt__prices {
     display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 0;
+    align-items: baseline;
+    gap: 6px;
+    flex-shrink: 0;
+  }
+  #oneofone-sup .oneofone-sup-opt__price {
+    font-family: 'PoppinsSemiBold', sans-serif !important;
+    font-size: 16px;
+    line-height: 1;
+    color: #000;
   }
 
-  #oneofone-sup .oneofone-sup-opt__compare {
-    font-size: 12px;
-    color: #aaa;
-  }
-
+  /* Linhas #1, #2 */
   #oneofone-sup .oneofone-sup-slots {
     display: none;
     flex-direction: column;
-    gap: 8px;
+    gap: 9px;
     margin-top: 14px;
   }
   #oneofone-sup .oneofone-sup-opt--active .oneofone-sup-slots {
     display: flex;
+  }
+
+  #oneofone-sup .oneofone-sup-slots__label {
+    font-family: 'PoppinsMedium', sans-serif;
+    font-size: 12px;
+    color: #666;
   }
 
   #oneofone-sup .oneofone-sup-slot {
@@ -156,30 +222,28 @@
     gap: 8px;
   }
 
-  #oneofone-sup .oneofone-sup-slot__num {
-    font-family: 'PoppinsSemiBold', sans-serif !important;
-    font-size: 12px;
-    color: #888;
-    width: 14px;
-    text-align: center;
+  /* Imagem da caneleira no início de cada linha */
+  #oneofone-sup .oneofone-sup-slot__img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    border: 1px solid #e5e5e5;
+    border-radius: 6px;
+    background: #fff;
     flex-shrink: 0;
-  }
-
-  #oneofone-sup .oneofone-sup-slot__selects {
-    flex: 1;
-    display: flex;
-    gap: 8px;
   }
 
   #oneofone-sup .oneofone-sup-slot__select {
     flex: 1;
-    padding: 9px 30px 9px 10px;
-    border-radius: 8px;
-    border: 1.5px solid #ddd;
-    background: #f7f7f7;
+    min-width: 0;
+    height: 40px;
+    padding: 0 30px 0 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    background: #fff;
     color: #111;
     font-family: 'PoppinsMedium', sans-serif;
-    font-size: 12px;
+    font-size: 15px;
     appearance: none;
     -webkit-appearance: none;
     cursor: pointer;
@@ -189,33 +253,45 @@
     background-position: right 10px center;
   }
 
-  #oneofone-sup .oneofone-sup-perks {
-    margin: 14px -14px -14px -14px;
-  }
-  #oneofone-sup .oneofone-sup-opt--active .oneofone-sup-perks {
-    margin: 14px -12px -12px -12px;
-  }
-
+  /* Faixas de ofertas */
   #oneofone-sup .oneofone-sup-perk {
     display: flex;
     align-items: center;
     gap: 10px;
+    background: #D2D2D2;
+    color: #111;
+    margin: 14px -14px -22px -14px;
     padding: 10px 14px;
-    background: #f0f0f0;
-    color: #999;
-    font-family: 'PoppinsSemiBold', sans-serif !important;
-    font-size: 13px;
+    border-radius: 0 0 10.5px 10.5px;
+    pointer-events: none;
     transition: background .18s, color .18s;
   }
   #oneofone-sup .oneofone-sup-opt--active .oneofone-sup-perk {
     background: #111;
     color: #fff;
   }
-  #oneofone-sup .oneofone-sup-perks .oneofone-sup-perk:last-child {
-    border-radius: 0 0 10px 10px;
+
+  /* Não selecionado → uma faixa; selecionado → meias em cima, envio em baixo */
+  #oneofone-sup .oneofone-sup-perk--top,
+  #oneofone-sup .oneofone-sup-perk--bottom,
+  #oneofone-sup .oneofone-sup-opt--active .oneofone-sup-perk--combined {
+    display: none;
+  }
+  #oneofone-sup .oneofone-sup-opt--active .oneofone-sup-perk--top,
+  #oneofone-sup .oneofone-sup-opt--active .oneofone-sup-perk--bottom {
+    display: flex;
+  }
+  #oneofone-sup .oneofone-sup-perk--top {
+    margin-bottom: 0;
+    border-radius: 0;
+  }
+  #oneofone-sup .oneofone-sup-perk--bottom {
+    margin-top: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
   }
 
   #oneofone-sup .oneofone-sup-perk__img {
+    display: none;
     width: 36px;
     height: 36px;
     object-fit: cover;
@@ -223,45 +299,57 @@
     flex-shrink: 0;
     opacity: 0.9;
   }
+  #oneofone-sup .oneofone-sup-opt--active .oneofone-sup-perk__img {
+    display: block;
+  }
+  #oneofone-sup .oneofone-sup-perk__img--truck {
+    object-fit: contain;
+    border-radius: 0;
+    opacity: 1;
+  }
+
   #oneofone-sup .oneofone-sup-perk__label {
     flex: 1;
     font-family: 'PoppinsSemiBold', sans-serif !important;
     font-size: 13px;
-    color: inherit;
+    color: #000;
+  }
+  #oneofone-sup .oneofone-sup-opt--active .oneofone-sup-perk__label {
+    color: #fff;
   }
   #oneofone-sup .oneofone-sup-perk__gratis {
     font-family: 'PoppinsSemiBold', sans-serif !important;
   }
   #oneofone-sup .oneofone-sup-perk__price {
     font-size: 12px;
-    color: #aaa;
+    color: #666666;
   }
   #oneofone-sup .oneofone-sup-opt--active .oneofone-sup-perk__price {
     color: #fff;
   }
 
+  /* Botão */
   #oneofone-sup .oneofone-sup-btn {
     width: 100%;
-    margin-top: 4px;
+    margin-top: 6px;
     background-color: #fff304;
     color: #000;
     border: 1px solid #ffe304;
     border-radius: 9999px;
-    padding: 15px 30px;
+    padding: 14px 30px;
     font-family: 'PoppinsBold', sans-serif;
     font-size: 14px;
-    letter-spacing: 0.02em;
     text-transform: uppercase;
     cursor: pointer;
     box-shadow: 0 4px 6px 2px #0000001a, 0 2px 4px -1px #0000000f;
-    transition: all .2s ease;
+    transition: all .3s ease;
   }
   #oneofone-sup .oneofone-sup-btn:hover:not(:disabled) {
     transform: translate(1px, 1px);
     box-shadow: 1px 1px #000;
   }
   #oneofone-sup .oneofone-sup-btn:disabled {
-    opacity: .5;
+    opacity: .45;
     cursor: not-allowed;
   }
 </style>
@@ -273,67 +361,147 @@
   wrap.dataset.supReady = '1';
 
   var VARIANTS = {{ shin.variants | json }};
+  var OPTIONS = {{ shin.options_with_values | json }};
   var SINGLE = {{ shin.has_only_default_variant | json }};
+  // Produtos só com uma opção (ex.: Airflow Pro, só Tamanho) não têm o 2.º select
+  var HAS_OPT2 = OPTIONS.length > 1;
+  var FALLBACK_IMG = {{ shin.featured_image | image_url: width: 80 | json }};
   var btn = document.getElementById('oneofone-sup-btn');
   var opts = Array.from(wrap.querySelectorAll('.oneofone-sup-opt'));
   var active = null;
 
-  function buildSlots(opt, qty) {
-    var slots = opt.querySelector('.oneofone-sup-slots');
-    if (!slots) return;
-    slots.innerHTML = '';
-    if (SINGLE) { slots.style.display = 'none'; return; }
-    var showNum = qty > 1;
-    for (var i = 1; i <= qty; i++) {
-      var row = document.createElement('div');
-      row.className = 'oneofone-sup-slot';
-
-      if (showNum) {
-        var num = document.createElement('span');
-        num.className = 'oneofone-sup-slot__num';
-        num.textContent = i;
-        row.appendChild(num);
-      }
-
-      var selWrap = document.createElement('div');
-      selWrap.className = 'oneofone-sup-slot__selects';
-
-      var sel = document.createElement('select');
-      sel.className = 'oneofone-sup-slot__select';
-      VARIANTS.forEach(function (v) {
-        if (!v.available) return;
-        var o = document.createElement('option');
-        o.value = v.id;
-        o.textContent = v.title;
-        sel.appendChild(o);
-      });
-      var firstAvailable = VARIANTS.find(function (v) { return v.available; });
-      if (firstAvailable) sel.value = firstAvailable.id;
-
-      selWrap.appendChild(sel);
-      row.appendChild(selWrap);
-      slots.appendChild(row);
-    }
+  // Opção 1 = Tamanho da Manga, opção 2 = Tamanho da Caneleira
+  function findVariant(o1, o2) {
+    return VARIANTS.find(function (v) { return v.option1 === o1 && (!HAS_OPT2 || v.option2 === o2); });
   }
 
-  wrap.addEventListener('change', function (e) {
-    if (!e.target.classList.contains('oneofone-sup-slot__select')) return;
+  function makeSelect(values, selected, cls) {
+    var sel = document.createElement('select');
+    sel.className = 'oneofone-sup-slot__select ' + cls;
+    values.forEach(function (val) {
+      var o = document.createElement('option');
+      o.value = val;
+      o.textContent = val;
+      if (val === selected) o.selected = true;
+      sel.appendChild(o);
+    });
+    sel.dataset.prev = sel.value;
+    return sel;
+  }
+
+  // Só mostra os tamanhos de caneleira disponíveis para a manga escolhida
+  function syncRow(row) {
+    var s1 = row.querySelector('.oneofone-sup-slot__select--1');
+    var s2 = row.querySelector('.oneofone-sup-slot__select--2');
+    if (!s2) {
+      var only = findVariant(s1.value);
+      row.dataset.variantId = only && only.available ? only.id : '';
+      row.querySelector('.oneofone-sup-slot__img').src =
+        only && only.featured_image ? only.featured_image.src + '&width=80' : FALLBACK_IMG;
+      return;
+    }
+    var current = s2.value;
+    var sizes = OPTIONS[1].values.filter(function (val) {
+      var v = findVariant(s1.value, val);
+      return v && v.available;
+    });
+    s2.innerHTML = '';
+    sizes.forEach(function (val) {
+      var o = document.createElement('option');
+      o.value = val;
+      o.textContent = val;
+      s2.appendChild(o);
+    });
+    if (sizes.indexOf(current) !== -1) s2.value = current;
+    s2.dataset.prev = s2.value;
+    var cur = findVariant(s1.value, s2.value);
+    row.dataset.variantId = cur && cur.available ? cur.id : '';
+    row.querySelector('.oneofone-sup-slot__img').src =
+      cur && cur.featured_image ? cur.featured_image.src + '&width=80' : FALLBACK_IMG;
+  }
+
+  // Se o #1 muda e todas as linhas tinham o mesmo valor, as outras acompanham
+  function onSelectChange(row, cls) {
+    var sel = row.querySelector(cls);
+    var rows = Array.prototype.slice.call(row.parentNode.querySelectorAll('.oneofone-sup-slot'));
+    if (rows[0] === row) {
+      var prev = sel.dataset.prev;
+      var allSame = rows.every(function (r) { return r === row || r.querySelector(cls).value === prev; });
+      if (allSame) {
+        rows.forEach(function (r) {
+          if (r === row) return;
+          var s = r.querySelector(cls);
+          s.value = sel.value;
+          s.dataset.prev = sel.value;
+          syncRow(r);
+        });
+      }
+    }
+    sel.dataset.prev = sel.value;
+    syncRow(row);
     btn.disabled = false;
     btn.textContent = 'ADICIONAR AO CARRINHO +';
-  });
+  }
+
+  function buildRow(slots, i, def) {
+    var row = document.createElement('div');
+    row.className = 'oneofone-sup-slot';
+
+    // Imagem da variante no lugar do número da linha
+    var img = document.createElement('img');
+    img.className = 'oneofone-sup-slot__img';
+    img.alt = '';
+
+    // Mangas sem nenhum tamanho disponível não aparecem
+    var sleeves = OPTIONS[0].values.filter(function (val) {
+      return VARIANTS.some(function (v) { return v.option1 === val && v.available; });
+    });
+    var s1 = makeSelect(sleeves, def.option1, 'oneofone-sup-slot__select--1');
+
+    row.appendChild(img);
+    row.appendChild(s1);
+    if (HAS_OPT2) {
+      var s2 = makeSelect(OPTIONS[1].values, def.option2, 'oneofone-sup-slot__select--2');
+      row.appendChild(s2);
+      s2.addEventListener('change', onSelectChange.bind(null, row, '.oneofone-sup-slot__select--2'));
+    }
+    slots.appendChild(row);
+
+    s1.addEventListener('change', onSelectChange.bind(null, row, '.oneofone-sup-slot__select--1'));
+    syncRow(row);
+  }
+
+  function buildSlots(opt, qty) {
+    var slots = opt.querySelector('.oneofone-sup-slots');
+    slots.innerHTML = '';
+    if (SINGLE) { slots.style.display = 'none'; return; }
+
+    var def = VARIANTS.find(function (v) { return v.available; }) || VARIANTS[0];
+
+    var label = document.createElement('div');
+    label.className = 'oneofone-sup-slots__label';
+    label.textContent = {{ slot_label | json }};
+    slots.appendChild(label);
+
+    for (var i = 1; i <= qty; i++) buildRow(slots, i, def);
+  }
 
   opts.forEach(function (opt) {
-    opt.addEventListener('click', function () {
+    opt.querySelector('.oneofone-sup-opt__top').addEventListener('click', function () {
       if (active === opt) return;
-      opts.forEach(function (o) { o.classList.remove('oneofone-sup-opt--active'); });
+      opts.forEach(function (o) {
+        o.classList.remove('oneofone-sup-opt--active');
+        o.querySelector('.oneofone-sup-slots').innerHTML = '';
+      });
       active = opt;
       opt.classList.add('oneofone-sup-opt--active');
-      var qty = parseInt(opt.dataset.qty);
-      buildSlots(opt, qty);
+      buildSlots(opt, parseInt(opt.dataset.qty));
     });
   });
 
-  if (opts[1]) opts[1].click();
+  // x2 selecionado por defeito
+  var defaultOpt = wrap.querySelector('[data-qty="2"] .oneofone-sup-opt__top');
+  if (defaultOpt) defaultOpt.click();
 
   async function openCartDrawer() {
     try {
@@ -367,14 +535,20 @@
   btn.addEventListener('click', async function () {
     if (!active) return;
     var qty = parseInt(active.dataset.qty);
-    var items = [];
+    var itemMap = {};
+    var missing = false;
 
-    var rows = active.querySelectorAll('.oneofone-sup-slot');
-    rows.forEach(function (row) {
-      var select = row.querySelector('.oneofone-sup-slot__select');
-      if (select && select.value) items.push({ id: select.value, quantity: 1 });
+    active.querySelectorAll('.oneofone-sup-slot').forEach(function (row) {
+      var id = row.dataset.variantId;
+      if (!id) { missing = true; return; }
+      itemMap[id] = (itemMap[id] || 0) + 1;
     });
-    if (SINGLE) items.push({ id: VARIANTS[0].id, quantity: qty });
+    if (missing) {
+      btn.textContent = 'ESCOLHE UM TAMANHO DISPONÍVEL';
+      return;
+    }
+    var items = Object.keys(itemMap).map(function (id) { return { id: parseInt(id), quantity: itemMap[id] }; });
+    if (SINGLE) items = [{ id: VARIANTS[0].id, quantity: qty }];
 
     btn.disabled = true;
     btn.textContent = 'A ADICIONAR...';

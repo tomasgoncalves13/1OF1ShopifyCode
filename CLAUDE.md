@@ -8,6 +8,8 @@ Shopify storefront theme for **1OF1 Fútbol** (1of1futbol.com). Forked from **Da
 
 ## Working conventions specific to this theme
 
+- **Every push to the live theme must be followed by a git commit** of the files that were pushed (use a clear message). Don't leave live-deployed changes uncommitted.
+
 - **Fonts: use ONLY the families already self-hosted by the theme. Never import Google Fonts or any external font CDN.** The canonical list of `@font-face` family names available (declared in the theme's CSS — Poppins block + Montserrat block):
 
   **Poppins (primary):**

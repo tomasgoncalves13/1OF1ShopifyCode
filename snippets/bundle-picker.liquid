@@ -31,7 +31,7 @@
     </div>
     <div class="oob-bp-gift oob-bp-gift--bottom">
       <img src="https://cdn.shopify.com/s/files/1/0907/8472/7374/files/truck-xxl.png?v=1788266470" alt="" class="oob-bp-gift-img oob-bp-gift-img--truck">
-      <span class="oob-bp-gift-label">Envio <span class="oob-bp-gift-gratis">Grátis</span></span>
+      <span class="oob-bp-gift-label">+ Envio <span class="oob-bp-gift-gratis">Grátis</span></span>
       <s class="oob-bp-gift-price">€4,95</s>
     </div>
   </div>
@@ -180,12 +180,9 @@
     var row = document.createElement('div');
     row.className = 'oob-bp-row';
 
-    var num = document.createElement('span');
-    num.className = 'oob-bp-num';
-    num.textContent = '#' + i;
-
     var colorWrap = document.createElement('div');
     colorWrap.className = 'oob-bp-color';
+    // Imagem da meia no lugar do número da linha
     var img = document.createElement('img');
     img.className = 'oob-bp-color-img';
     img.alt = '';
@@ -229,14 +226,13 @@
     });
 
     colorWrap.appendChild(colorBtn);
-    colorWrap.appendChild(img);
     colorWrap.appendChild(colorSel);
     colorWrap.appendChild(list);
 
     var sizeSel = makeSelect(OPTIONS[1].values, def.option2);
     sizeSel.classList.add('oob-bp-select--size');
 
-    row.appendChild(num);
+    row.appendChild(img);
     row.appendChild(colorWrap);
     row.appendChild(sizeSel);
     slots.appendChild(row);
@@ -531,14 +527,6 @@
   color: #666;
 }
 
-.oob-bp-num {
-  font-family: 'PoppinsMedium', sans-serif;
-  font-size: 14px;
-  color: #111;
-  width: 24px;
-  flex-shrink: 0;
-}
-
 .oob-bp-color {
   position: relative;
   flex: 1;
@@ -546,22 +534,18 @@
   display: flex;
 }
 
+/* Imagem da meia no início de cada linha */
 .oob-bp-color-img {
-  position: absolute;
-  left: 7px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 36px;
-  height: 36px;
+  width: 52px;
+  height: 52px;
   object-fit: contain;
   border: 1px solid #e5e5e5;
-  border-radius: 4px;
+  border-radius: 6px;
   background: #fff;
-  pointer-events: none;
+  flex-shrink: 0;
 }
 
 .oob-bp-select.oob-bp-color-btn {
-  padding-left: 52px;
   text-align: left;
   white-space: nowrap;
   overflow: hidden;
